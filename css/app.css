@@ -244,7 +244,7 @@ main { padding-bottom: calc(86px + var(--safe-b)); }
 
 /* ————— bottom sheet ————— */
 .sheet-scrim {
-  position: fixed; inset: 0; z-index: 50;
+  position: fixed; inset: 0; z-index: 50; touch-action: none;
   background: rgba(36,28,20,.35); animation: fadein .2s both;
 }
 .sheet {
@@ -255,11 +255,24 @@ main { padding-bottom: calc(86px + var(--safe-b)); }
   animation: sheetup .32s cubic-bezier(.2,.9,.3,1) both;
 }
 @keyframes sheetup { from { transform: translateY(60%); opacity: .4; } to { transform: none; opacity: 1; } }
+/* while a finger is on it, the sheet tracks it exactly — no entry animation, no easing lag.
+   Both classes keep animation:none for the life of the sheet; restoring it would replay sheetup. */
+.sheet.is-dragging { animation: none; transition: none; }
+.sheet.is-settling { animation: none; transition: transform .22s cubic-bezier(.2,.9,.3,1); }
+.sheet-scrim.is-dragging { animation: none; }
+/* full-width grab strip; touch-action keeps the drag off the page scroller behind */
 .sheet-handle {
-  flex: none; width: 44px; height: 4.5px; border-radius: 3px;
-  background: var(--line); margin: 10px auto 2px;
+  flex: none; height: 28px; display: flex; align-items: center; justify-content: center;
+  margin-bottom: -6px; touch-action: none; cursor: grab;
 }
-.sheet-scroll { overflow-y: auto; padding: 10px 20px calc(24px + var(--safe-b)); -webkit-overflow-scrolling: touch; }
+.sheet-handle:active { cursor: grabbing; }
+.sheet-handle::before {
+  content: ""; width: 44px; height: 4.5px; border-radius: 3px; background: var(--line);
+}
+.sheet-scroll {
+  overflow-y: auto; padding: 10px 20px calc(24px + var(--safe-b));
+  -webkit-overflow-scrolling: touch; overscroll-behavior: contain;
+}
 .sheet-top { display: flex; justify-content: space-between; align-items: center; }
 .sheet-dist { font-size: 13px; color: var(--accent); font-weight: 500; }
 .sheet-name { font-family: 'Fraunces', serif; font-weight: 700; font-size: 27px; margin-top: 10px; }

@@ -33,6 +33,7 @@ const state = {
   map: null, tileLayer: null, youMarker: null, markers: {},
   watchId: null,
   currentPoi: null,
+  scrollLockY: 0,
 };
 
 /* ————— geometry ————— */
@@ -210,11 +211,85 @@ function openSheet(poi, { fromMap = false } = {}) {
   $('sheet').hidden = false;
   $('sheet-scrim').hidden = false;
   $('sheet').querySelector('.sheet-scroll').scrollTop = 0;
+  lockPageScroll();
 }
 function closeSheet() {
-  $('sheet').hidden = true;
+  const sheet = $('sheet');
+  sheet.hidden = true;
+  sheet.classList.remove('is-dragging', 'is-settling');
+  sheet.style.transform = '';
   $('sheet-scrim').hidden = true;
+  $('sheet-scrim').style.opacity = '';
+  $('sheet-scrim').classList.remove('is-dragging');
   state.currentPoi = null;
+  unlockPageScroll();
+}
+
+/* the page behind must not scroll under the sheet — iOS ignores overflow:hidden on body */
+function lockPageScroll() {
+  if (document.body.classList.contains('sheet-open')) return;
+  state.scrollLockY = window.scrollY;
+  document.body.classList.add('sheet-open');
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${state.scrollLockY}px`;
+  document.body.style.left = '0';
+  document.body.style.right = '0';
+}
+function unlockPageScroll() {
+  if (!document.body.classList.contains('sheet-open')) return;
+  document.body.classList.remove('sheet-open');
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.left = '';
+  document.body.style.right = '';
+  window.scrollTo(0, state.scrollLockY || 0);
+}
+
+/* drag the handle down to dismiss; a tap still closes */
+const DISMISS_PX = 90;      // past this on release, the sheet goes
+const TAP_PX = 6;           // under this, it was a tap not a drag
+function wireSheetDrag() {
+  const sheet = $('sheet');
+  const scrim = $('sheet-scrim');
+  const grip = sheet.querySelector('.sheet-handle');
+  let pointerId = null, startY = 0, dy = 0;
+
+  grip.addEventListener('pointerdown', e => {
+    if (pointerId !== null) return;
+    pointerId = e.pointerId;
+    startY = e.clientY;
+    dy = 0;
+    sheet.classList.add('is-dragging');
+    sheet.classList.remove('is-settling');
+    scrim.classList.add('is-dragging');
+    grip.setPointerCapture(pointerId);
+  });
+
+  grip.addEventListener('pointermove', e => {
+    if (e.pointerId !== pointerId) return;
+    e.preventDefault();
+    dy = Math.max(0, e.clientY - startY);
+    sheet.style.transform = `translateY(${dy}px)`;
+    scrim.style.opacity = String(Math.max(0, 1 - dy / 320));
+  });
+
+  const end = e => {
+    if (e.pointerId !== pointerId) return;
+    if (grip.hasPointerCapture(pointerId)) grip.releasePointerCapture(pointerId);
+    pointerId = null;
+    sheet.classList.remove('is-dragging');
+
+    if (dy > DISMISS_PX || dy <= TAP_PX) { closeSheet(); return; }
+
+    // short of the threshold — spring back. is-settling stays until close; dropping it
+    // would restore the sheetup animation and replay the entry slide.
+    sheet.classList.add('is-settling');
+    sheet.style.transform = '';
+    scrim.style.opacity = '';
+    scrim.classList.remove('is-dragging');
+  };
+  grip.addEventListener('pointerup', end);
+  grip.addEventListener('pointercancel', end);
 }
 function markHeard(poi) {
   if (state.heard.has(poi.id)) state.heard.delete(poi.id); else state.heard.add(poi.id);
@@ -334,7 +409,7 @@ function wire() {
     if (state.pos && state.map) state.map.setView([state.pos.lat, state.pos.lng], Math.max(state.map.getZoom(), 15));
   });
   $('sheet-scrim').addEventListener('click', closeSheet);
-  $('sheet').querySelector('.sheet-handle').addEventListener('click', closeSheet);
+  wireSheetDrag();
   $('sheet-heard-btn').addEventListener('click', () => { if (state.currentPoi) { markHeard(state.currentPoi); closeSheet(); } });
   $('sheet-map-btn').addEventListener('click', () => {
     const p = state.currentPoi;
