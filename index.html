@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Three Gentlemen — your private guides</title>
+<meta name="description" content="Julien, Willem &amp; Daan — three gentlemen, three cities, one lady.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Gentlemen">
+<meta name="theme-color" content="#f6efe3">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png">
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="js/leaflet/leaflet.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body data-city="paris">
+<div class="grain" aria-hidden="true"></div>
+
+<header class="masthead">
+  <div class="wordmark">Three&nbsp;Gentlemen</div>
+  <nav class="city-chips" aria-label="City">
+    <button class="chip" data-city-chip="paris">Paris</button>
+    <button class="chip" data-city-chip="bruges">Bruges</button>
+    <button class="chip" data-city-chip="amsterdam">Amsterdam</button>
+  </nav>
+</header>
+
+<div id="pack-pill" class="pack-pill" hidden>
+  <span class="pack-label">Preparing offline maps…</span>
+  <span class="pack-bar"><span class="pack-fill" style="width:0%"></span></span>
+</div>
+
+<main id="main">
+  <!-- ————— GUIDE ————— -->
+  <section id="view-guide" class="view" data-view="guide">
+    <div class="guide-hero">
+      <div class="stamp" id="guide-stamp"><span id="guide-initial">J</span></div>
+      <h1 class="guide-name" id="guide-name">Julien</h1>
+      <p class="guide-title" id="guide-title"></p>
+    </div>
+    <article class="letter" id="guide-intro-letter">
+      <p class="letter-body" id="guide-intro"></p>
+      <p class="letter-sig">— <span id="guide-sig">Julien</span></p>
+    </article>
+    <div class="quip" id="quip" hidden>
+      <span class="quip-mark">❝</span><span id="quip-text"></span>
+    </div>
+    <div class="section-head"><span>On your plan</span></div>
+    <div class="poi-list" id="list-itinerary"></div>
+    <div class="section-head"><span>As you wander</span></div>
+    <div class="poi-list" id="list-wander"></div>
+    <div class="guide-settings">
+      <label class="toggle-row">
+        <span>Let <span class="guide-name-inline">him</span> interrupt when you pass something good</span>
+        <input type="checkbox" id="nudge-toggle" checked>
+        <span class="toggle-ui" aria-hidden="true"></span>
+      </label>
+      <button class="ghost-btn" id="reset-heard">Forget what I've heard</button>
+    </div>
+    <footer class="colophon">
+      Maps © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors ·
+      made with love, August 2026
+    </footer>
+  </section>
+
+  <!-- ————— NEAR ME ————— -->
+  <section id="view-near" class="view" data-view="near" hidden>
+    <div class="near-status" id="near-status">
+      <button class="locate-btn" id="near-locate">Find me</button>
+      <span id="near-msg">so I can tell you what's around you, madame</span>
+    </div>
+    <div class="poi-list near-list" id="list-near"></div>
+  </section>
+
+  <!-- ————— MAP ————— -->
+  <section id="view-map" class="view view-map" data-view="map" hidden>
+    <div id="map"></div>
+    <button class="map-locate" id="map-locate" aria-label="Center on me">◉</button>
+  </section>
+</main>
+
+<!-- POI bottom sheet -->
+<div class="sheet-scrim" id="sheet-scrim" hidden></div>
+<article class="sheet" id="sheet" hidden aria-modal="true" role="dialog">
+  <div class="sheet-handle" aria-hidden="true"></div>
+  <div class="sheet-scroll">
+    <div class="sheet-top">
+      <span class="cat-chip" id="sheet-cat">landmark</span>
+      <span class="sheet-dist" id="sheet-dist"></span>
+    </div>
+    <h2 class="sheet-name" id="sheet-name"></h2>
+    <p class="sheet-tagline" id="sheet-tagline"></p>
+    <div class="letter sheet-letter">
+      <p class="letter-body dropcap" id="sheet-story"></p>
+      <p class="letter-sig">— <span id="sheet-sig"></span></p>
+    </div>
+    <aside class="funfact" id="sheet-funfact-wrap">
+      <div class="funfact-label" id="funfact-label">Entre nous…</div>
+      <p id="sheet-funfact"></p>
+    </aside>
+    <div class="sheet-actions">
+      <a class="ghost-btn" id="sheet-link" target="_blank" rel="noopener">Read more <span class="wifi-note">(needs internet)</span></a>
+      <button class="ghost-btn" id="sheet-map-btn">Show on map</button>
+      <button class="ghost-btn" id="sheet-heard-btn">I've heard this one ✓</button>
+    </div>
+  </div>
+</article>
+
+<!-- proximity nudge -->
+<button class="nudge" id="nudge" hidden>
+  <span class="nudge-stamp" id="nudge-initial">J</span>
+  <span class="nudge-text"><strong id="nudge-guide">Julien</strong> — <span id="nudge-msg">psst, you're near something…</span></span>
+</button>
+
+<nav class="tabbar" aria-label="Views">
+  <button class="tab is-active" data-tab="guide"><span class="tab-glyph">✎</span>Guide</button>
+  <button class="tab" data-tab="near"><span class="tab-glyph">◍</span>Near me</button>
+  <button class="tab" data-tab="map"><span class="tab-glyph">◈</span>Map</button>
+</nav>
+
+<script src="js/leaflet/leaflet.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
