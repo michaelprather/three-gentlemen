@@ -1,2 +1,2 @@
-self.__VERSION="f6a173c2e8";
+self.__VERSION="476ea1d94d";
 self.__PRECACHE=["index.html","manifest.webmanifest","tiles-index.json","css/app.css","css/fonts.css","fonts/fraunces-400-normal.woff2","fonts/fraunces-600-normal.woff2","fonts/fraunces-700-normal.woff2","fonts/literata-400-italic.woff2","fonts/literata-400-normal.woff2","fonts/literata-500-normal.woff2","fonts/literata-700-normal.woff2","icons/icon-180.png","icons/icon-192.png","icons/icon-512.png","js/app.js","js/leaflet/images/layers-2x.png","js/leaflet/images/layers.png","js/leaflet/images/marker-icon-2x.png","js/leaflet/images/marker-icon.png","js/leaflet/images/marker-shadow.png","js/leaflet/leaflet.css","js/leaflet/leaflet.js","data/amsterdam.json","data/bruges.json","data/paris.json"];
