@@ -58,6 +58,7 @@
     <div class="section-head"><span class="orn" aria-hidden="true"></span><span>On your plan</span></div>
     <div class="poi-list" id="list-itinerary"></div>
     <div class="section-head"><span class="orn" aria-hidden="true"></span><span>As you wander</span></div>
+    <div class="filter-row" id="filter-wander" aria-label="Filter by kind"></div>
     <div class="poi-list" id="list-wander"></div>
     <div class="guide-settings">
       <label class="toggle-row">
@@ -88,6 +89,7 @@
       <button class="locate-btn" id="near-locate">Find me</button>
       <span id="near-msg">so I can tell you what's around you, madame</span>
     </div>
+    <div class="filter-row" id="filter-near" aria-label="Filter by kind"></div>
     <div class="poi-list near-list" id="list-near"></div>
   </section>
 
@@ -95,6 +97,18 @@
   <section id="view-map" class="view view-map" data-view="map" hidden>
     <div id="map"></div>
     <button class="map-locate" id="map-locate" aria-label="Center on me">◉</button>
+    <button class="map-legend-btn" id="map-legend-btn">Key</button>
+    <div class="map-legend" id="map-legend" hidden>
+      <div class="legend-row"><span class="legend-pin"><i>L</i></span>Landmark</div>
+      <div class="legend-row"><span class="legend-pin"><i>E</i></span>Food &amp; drink</div>
+      <div class="legend-row"><span class="legend-pin"><i>S</i></span>Street worth walking</div>
+      <div class="legend-row"><span class="legend-pin"><i>P</i></span>Park</div>
+      <div class="legend-row"><span class="legend-pin"><i>V</i></span>View</div>
+      <div class="legend-row"><span class="legend-pin"><i>H</i></span>Hidden corner</div>
+      <div class="legend-row"><span class="legend-pin"><i>O</i></span>Oddity</div>
+      <div class="legend-row"><span class="legend-pin legend-stay"><i>⌂</i></span>Where you sleep</div>
+      <div class="legend-row"><span class="legend-pin legend-heard"><i>✓</i></span>Already heard</div>
+    </div>
   </section>
 </main>
 

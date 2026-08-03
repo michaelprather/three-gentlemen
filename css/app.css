@@ -123,6 +123,28 @@ body {
 main { padding-bottom: calc(92px + var(--safe-b)); }
 .view { padding: 6px 18px 24px; animation: fadein .35s ease both; }
 @keyframes fadein { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; } }
+/* tab changes slide in from the side you're heading toward */
+.view[data-anim="left"] { animation: slide-l .28s cubic-bezier(.2,.8,.3,1) both; }
+.view[data-anim="right"] { animation: slide-r .28s cubic-bezier(.2,.8,.3,1) both; }
+@keyframes slide-l { from { opacity: 0; transform: translateX(18px); } to { opacity: 1; } }
+@keyframes slide-r { from { opacity: 0; transform: translateX(-18px); } to { opacity: 1; } }
+
+/* ————— category filters ————— */
+.filter-row {
+  display: flex; gap: 7px; overflow-x: auto; margin: 0 -18px 10px; padding: 2px 18px 6px;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none;
+}
+.filter-row::-webkit-scrollbar { display: none; }
+.filter-chip {
+  flex: none;
+  font-family: var(--display); font-weight: 600; font-size: 12.5px;
+  padding: 6px 12px; border-radius: 999px;
+  border: 1.2px solid var(--line); background: var(--card); color: var(--ink-soft);
+  transition: background .2s, border-color .2s, color .2s, transform .12s;
+}
+.filter-chip:active { transform: scale(.94); }
+.filter-chip.is-active { border-color: var(--accent); background: var(--accent); color: var(--paper); }
+.filter-empty { font-style: italic; color: var(--ink-soft); font-size: 14px; padding: 6px 2px; }
 
 /* ————— guide hero: his skyline on his horizon ————— */
 .guide-hero {
@@ -358,6 +380,19 @@ body[data-city="amsterdam"] .orn::before { content: "✕\FE0E✕\FE0E✕\FE0E"; 
   border-left: 3px solid var(--accent);
   position: relative;
 }
+.day-card.is-today {
+  border-left-width: 5px;
+  box-shadow: 0 0 0 2px var(--accent-soft), 2px 3px 0 rgba(36,28,20,.05);
+}
+.today-badge {
+  display: inline-block; vertical-align: 3px; margin-left: 4px;
+  font-family: var(--display); font-weight: 700; font-size: 10px;
+  letter-spacing: .14em; text-transform: uppercase;
+  background: var(--accent); color: var(--paper);
+  padding: 2.5px 8px; border-radius: 999px;
+  animation: today-pip 2.6s ease-in-out infinite;
+}
+@keyframes today-pip { 0%, 100% { transform: none; } 50% { transform: translateY(-1.5px); } }
 .day-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
 .day-name {
   font-family: var(--display); font-weight: 700; font-size: 20px;
@@ -434,6 +469,34 @@ body[data-city="amsterdam"] .orn::before { content: "✕\FE0E✕\FE0E✕\FE0E"; 
   transition: transform .12s ease;
 }
 .map-locate:active { transform: scale(.92); }
+.map-legend-btn {
+  position: fixed; left: 16px; bottom: calc(110px + var(--safe-b)); z-index: 25;
+  font-family: var(--display); font-weight: 700; font-size: 13px;
+  letter-spacing: .08em; text-transform: uppercase;
+  background: var(--card); color: var(--accent);
+  border: 1.5px solid var(--accent); border-radius: 999px;
+  padding: 9px 16px; box-shadow: 0 3px 10px rgba(36,28,20,.2);
+}
+.map-legend {
+  position: fixed; left: 16px; bottom: calc(158px + var(--safe-b)); z-index: 25;
+  background: #fbf6ecf5; backdrop-filter: blur(6px);
+  border: 1px solid var(--line); border-radius: 12px;
+  padding: 12px 14px; display: flex; flex-direction: column; gap: 7px;
+  box-shadow: 0 6px 18px rgba(36,28,20,.25);
+  font-size: 13px; animation: fadein .2s both;
+}
+.legend-row { display: flex; align-items: center; gap: 9px; }
+.legend-pin {
+  flex: none; width: 20px; height: 20px; border-radius: 50% 50% 50% 4px;
+  transform: rotate(-45deg); background: var(--accent);
+  display: grid; place-items: center;
+}
+.legend-pin i {
+  transform: rotate(45deg); font-style: normal; line-height: 1;
+  font-family: var(--display); font-weight: 700; font-size: 9px; color: var(--card);
+}
+.legend-pin.legend-stay { background: var(--ink); }
+.legend-pin.legend-heard { background: #b3a68e; }
 .pin {
   width: 26px; height: 26px; border-radius: 50% 50% 50% 4px;
   transform: rotate(-45deg);
@@ -576,11 +639,20 @@ body.online .wifi-note { display: none; }
 
 /* ————— tab bar ————— */
 .tabbar {
+  --tab-i: 0; --tab-count: 4;
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
   display: flex;
   background: #fbf6ecf2; backdrop-filter: blur(8px);
   border-top: 1px solid var(--line);
   padding: 7px 10px calc(9px + var(--safe-b));
+}
+/* a little ink bar glides to whichever page of the letter you're on */
+.tabbar::before {
+  content: ""; position: absolute; top: -1px;
+  left: calc(10px + (100% - 20px) * (var(--tab-i) + 0.5) / var(--tab-count) - 14px);
+  width: 28px; height: 3px; border-radius: 0 0 3px 3px;
+  background: var(--accent);
+  transition: left .3s cubic-bezier(.3,1,.4,1), background .35s;
 }
 .tab {
   flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px;

@@ -9,6 +9,11 @@ const CITY_META = {
   amsterdam: { center: [52.3660, 4.8970], bounds: [[52.283, 4.845], [52.402, 4.960]] },
 };
 const FUNFACT_LABEL = { paris: 'Entre nous…', bruges: 'Onder ons…', amsterdam: 'Tussen ons…' };
+const FILTER_CATS = [
+  ['all', 'Everything'], ['landmark', 'Landmarks'], ['food', 'Food & drink'],
+  ['street', 'Streets'], ['park', 'Parks'], ['view', 'Views'],
+  ['hidden', 'Hidden'], ['quirky', 'Oddities'],
+];
 const CAT_GLYPH = { landmark: 'L', food: 'E', street: 'S', park: 'P', view: 'V', hidden: 'H', quirky: 'O', stay: '⌂' };
 const NUDGE_RADIUS_M = 130;
 const NUDGE_COOLDOWN_MS = 4 * 60 * 1000;
@@ -26,6 +31,7 @@ const state = {
   city: store.get('city', 'paris'),
   cityPinned: store.get('city-pinned', false),
   tab: 'guide',
+  filter: 'all',         // POI category filter, shared by Guide + Near lists
   pos: null,                // {lat, lng, ts}
   heard: new Set(store.get('heard', [])),
   nudgesOn: store.get('nudges-on', true),
@@ -134,9 +140,37 @@ function renderGuide() {
   (d?.pois || []).forEach(p => {
     // the hotel gets its own section — it is the one pin she'll want at 23:00
     const target = p.category === 'stay' ? stay : p.itinerary ? iti : wan;
+    if (target === wan && state.filter !== 'all' && p.category !== state.filter) return;
     target.appendChild(poiRow(p, { showDist: p.category === 'stay' }));
   });
+  if (!wan.children.length) {
+    const empty = document.createElement('p');
+    empty.className = 'filter-empty';
+    empty.textContent = `${g.name} has nothing of that kind here — try another.`;
+    wan.appendChild(empty);
+  }
+  renderFilterRows();
   $('nudge-toggle').checked = state.nudgesOn;
+}
+
+/* ————— category filters ————— */
+function renderFilterRows() {
+  ['filter-wander', 'filter-near'].forEach(id => {
+    const row = $(id);
+    if (!row) return;
+    row.textContent = '';
+    FILTER_CATS.forEach(([key, label]) => {
+      const b = document.createElement('button');
+      b.className = 'filter-chip' + (state.filter === key ? ' is-active' : '');
+      b.textContent = label;
+      b.addEventListener('click', () => {
+        state.filter = state.filter === key ? 'all' : key;
+        renderGuide();
+        renderNear();
+      });
+      row.appendChild(b);
+    });
+  });
 }
 
 /* ————— the days ————— */
@@ -153,15 +187,20 @@ function renderDays() {
   $('days-title').textContent = it.title || 'The shape of the week';
   $('days-intro').textContent = it.intro || '';
   list.textContent = '';
+  // the trip is one of each weekday, so the weekday name is enough to know "today"
+  const todayName = new Date().toLocaleDateString('en-US', { weekday: 'long' });
+  let todayCard = null;
   (it.days || []).forEach(day => {
     const card = document.createElement('section');
     card.className = 'day-card';
     if (day.city) card.dataset.dayCity = day.city;
+    const isToday = day.day === todayName;
+    if (isToday) { card.classList.add('is-today'); todayCard = card; }
 
     const head = document.createElement('div');
     head.className = 'day-head';
     head.innerHTML =
-      `<span class="day-name">${day.day}</span>` +
+      `<span class="day-name">${day.day}${isToday ? ' <span class="today-badge">today</span>' : ''}</span>` +
       (day.route ? `<span class="day-route">${day.route}</span>` : '');
     card.appendChild(head);
 
@@ -198,6 +237,8 @@ function renderDays() {
     }
     list.appendChild(card);
   });
+  if (todayCard) requestAnimationFrame(() =>
+    todayCard.scrollIntoView({ block: 'center', behavior: 'auto' }));
 }
 
 function renderNear() {
@@ -217,16 +258,35 @@ function renderNear() {
   $('near-msg').textContent = within
     ? `${guide().name} is watching the street for you…`
     : `you’re not in ${d.city} yet — browse ahead, I’ll wait`;
-  const sorted = [...d.pois].sort((a, b) => distM(state.pos, a) - distM(state.pos, b));
+  const pool = state.filter === 'all' ? d.pois : d.pois.filter(p => p.category === state.filter || p.category === 'stay');
+  const sorted = [...pool].sort((a, b) => distM(state.pos, a) - distM(state.pos, b));
   sorted.slice(0, 30).forEach(p => list.appendChild(poiRow(p, { showDist: true, cardinalToo: true })));
+  renderFilterRows();
 }
 
 /* ————— tabs ————— */
+function tabOrder() {
+  return [...document.querySelectorAll('.tab')].map(b => b.dataset.tab);
+}
 function setTab(tab) {
+  const order = tabOrder();
+  const dir = order.indexOf(tab) - order.indexOf(state.tab);
   state.tab = tab;
   document.querySelectorAll('.tab').forEach(b => b.classList.toggle('is-active', b.dataset.tab === tab));
-  document.querySelectorAll('.view').forEach(v => v.hidden = v.dataset.view !== tab);
+  const bar = document.querySelector('.tabbar');
+  bar.style.setProperty('--tab-i', order.indexOf(tab));
+  bar.style.setProperty('--tab-count', order.length);
+  document.querySelectorAll('.view').forEach(v => {
+    const show = v.dataset.view === tab;
+    if (show && v.hidden && dir !== 0) {
+      v.dataset.anim = dir > 0 ? 'left' : 'right';
+      v.addEventListener('animationend', () => delete v.dataset.anim, { once: true });
+    }
+    v.hidden = !show;
+  });
   $('map-locate').style.display = tab === 'map' ? '' : 'none';
+  $('map-legend-btn').style.display = tab === 'map' ? '' : 'none';
+  if (tab !== 'map') $('map-legend').hidden = true;
   if (tab === 'map') initMap();
   if (tab === 'days') renderDays();
   if (tab === 'near') { renderNear(); startWatch(false); }
@@ -600,6 +660,9 @@ function wire() {
   $('map-locate').addEventListener('click', () => {
     startWatch(true);
     if (state.pos && state.map) state.map.setView([state.pos.lat, state.pos.lng], Math.max(state.map.getZoom(), 15));
+  });
+  $('map-legend-btn').addEventListener('click', () => {
+    $('map-legend').hidden = !$('map-legend').hidden;
   });
   $('sheet-scrim').addEventListener('click', closeSheet);
   wireSheetDrag();
