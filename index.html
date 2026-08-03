@@ -49,6 +49,8 @@
     <div class="quip" id="quip" hidden>
       <span class="quip-mark">❝</span><span id="quip-text"></span>
     </div>
+    <div class="section-head"><span>Where you sleep</span></div>
+    <div class="poi-list" id="list-stay"></div>
     <div class="section-head"><span>On your plan</span></div>
     <div class="poi-list" id="list-itinerary"></div>
     <div class="section-head"><span>As you wander</span></div>
@@ -63,8 +65,16 @@
     </div>
     <footer class="colophon">
       Maps © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors ·
-      made with love, August 2026
+      photos via <a href="https://commons.wikimedia.org">Wikimedia Commons</a>, credited on each card ·
+      made with love
     </footer>
+  </section>
+
+  <!-- ————— DAYS ————— -->
+  <section id="view-days" class="view" data-view="days" hidden>
+    <h1 class="days-title" id="days-title">The shape of the week</h1>
+    <p class="days-intro" id="days-intro"></p>
+    <div class="day-list" id="day-list"></div>
   </section>
 
   <!-- ————— NEAR ME ————— -->
@@ -90,10 +100,20 @@
   <div class="sheet-scroll">
     <div class="sheet-top">
       <span class="cat-chip" id="sheet-cat">landmark</span>
-      <span class="sheet-dist" id="sheet-dist"></span>
+      <div class="sheet-whereto">
+        <span class="sheet-dist" id="sheet-dist"></span>
+        <button class="compass-btn" id="sheet-compass" hidden aria-label="Point the way">
+          <span class="compass-arrow" id="compass-arrow">➤</span>
+        </button>
+      </div>
     </div>
     <h2 class="sheet-name" id="sheet-name"></h2>
     <p class="sheet-tagline" id="sheet-tagline"></p>
+    <p class="sheet-address" id="sheet-address" hidden></p>
+    <figure class="sheet-photo" id="sheet-photo-wrap" hidden>
+      <img id="sheet-photo" alt="" decoding="async">
+      <figcaption id="sheet-photo-credit"></figcaption>
+    </figure>
     <div class="letter sheet-letter">
       <p class="letter-body dropcap" id="sheet-story"></p>
       <p class="letter-sig">— <span id="sheet-sig"></span></p>
@@ -104,6 +124,7 @@
     </aside>
     <div class="sheet-actions">
       <a class="ghost-btn" id="sheet-link" target="_blank" rel="noopener">Read more <span class="wifi-note">(needs internet)</span></a>
+      <a class="ghost-btn" id="sheet-phone" hidden>Call the front desk</a>
       <button class="ghost-btn" id="sheet-map-btn">Show on map</button>
       <button class="ghost-btn" id="sheet-heard-btn">I've heard this one ✓</button>
     </div>
@@ -118,6 +139,7 @@
 
 <nav class="tabbar" aria-label="Views">
   <button class="tab is-active" data-tab="guide"><span class="tab-glyph">✎</span>Guide</button>
+  <button class="tab" data-tab="days"><span class="tab-glyph">❖</span>Days</button>
   <button class="tab" data-tab="near"><span class="tab-glyph">◍</span>Near me</button>
   <button class="tab" data-tab="map"><span class="tab-glyph">◈</span>Map</button>
 </nav>

@@ -9,7 +9,7 @@ const CITY_META = {
   amsterdam: { center: [52.3660, 4.8970], bounds: [[52.283, 4.845], [52.402, 4.960]] },
 };
 const FUNFACT_LABEL = { paris: 'Entre nous…', bruges: 'Onder ons…', amsterdam: 'Tussen ons…' };
-const CAT_GLYPH = { landmark: 'L', food: 'E', street: 'S', park: 'P', view: 'V', hidden: 'H', quirky: 'O' };
+const CAT_GLYPH = { landmark: 'L', food: 'E', street: 'S', park: 'P', view: 'V', hidden: 'H', quirky: 'O', stay: '⌂' };
 const NUDGE_RADIUS_M = 130;
 const NUDGE_COOLDOWN_MS = 4 * 60 * 1000;
 const NUDGE_POI_REPEAT_MS = 2 * 60 * 60 * 1000;
@@ -22,6 +22,7 @@ const store = {
 
 const state = {
   data: {},                 // citySlug -> city file
+  itinerary: null,          // day-by-day plan, weekdays only — no dates on the public web
   city: store.get('city', 'paris'),
   cityPinned: store.get('city-pinned', false),
   tab: 'guide',
@@ -34,6 +35,8 @@ const state = {
   watchId: null,
   currentPoi: null,
   scrollLockY: 0,
+  heading: null,            // compass heading, ° clockwise from true north
+  compassOn: false,
 };
 
 /* ————— geometry ————— */
@@ -44,24 +47,29 @@ function distM(a, b) {
   const h = Math.sin(dLat / 2) ** 2 + Math.cos(la) * Math.cos(lb) * Math.sin(dLng / 2) ** 2;
   return 2 * R * Math.asin(Math.sqrt(h));
 }
-function cardinal(a, b) {
+function bearingDeg(a, b) {
   const dLng = (b.lng - a.lng) * Math.PI / 180;
   const la = a.lat * Math.PI / 180, lb = b.lat * Math.PI / 180;
   const y = Math.sin(dLng) * Math.cos(lb);
   const x = Math.cos(la) * Math.sin(lb) - Math.sin(la) * Math.cos(lb) * Math.cos(dLng);
-  const brg = (Math.atan2(y, x) * 180 / Math.PI + 360) % 360;
-  return ['north', 'northeast', 'east', 'southeast', 'south', 'southwest', 'west', 'northwest'][Math.round(brg / 45) % 8];
+  return (Math.atan2(y, x) * 180 / Math.PI + 360) % 360;
+}
+function cardinal(a, b) {
+  return ['north', 'northeast', 'east', 'southeast', 'south', 'southwest', 'west', 'northwest'][Math.round(bearingDeg(a, b) / 45) % 8];
 }
 const fmtDist = m => m < 950 ? `${Math.round(m / 10) * 10} m` : `${(m / 1000).toFixed(1)} km`;
 
 /* ————— data ————— */
 async function loadData() {
-  const results = await Promise.all(CITIES.map(c =>
-    fetch(`data/${c}.json`).then(r => r.json()).catch(() => null)));
+  const files = [...CITIES.map(c => `data/${c}.json`), 'data/itinerary.json'];
+  const results = await Promise.all(files.map(f =>
+    fetch(f).then(r => r.json()).catch(() => null)));
   CITIES.forEach((c, i) => { if (results[i]) state.data[c] = results[i]; });
+  state.itinerary = results[CITIES.length] || null;
 }
 
 const cityData = () => state.data[state.city];
+const poiById = (city, id) => state.data[city]?.pois.find(p => p.id === id) || null;
 const guide = () => cityData()?.guide || { name: '…', title: '', intro: '', quips: [] };
 
 /* ————— rendering ————— */
@@ -111,10 +119,75 @@ function renderGuide() {
     $('quip-text').textContent = quips[Math.floor(Math.random() * quips.length)];
   } else $('quip').hidden = true;
 
-  const iti = $('list-itinerary'), wan = $('list-wander');
-  iti.textContent = ''; wan.textContent = '';
-  (d?.pois || []).forEach(p => (p.itinerary ? iti : wan).appendChild(poiRow(p, { showDist: false })));
+  const stay = $('list-stay'), iti = $('list-itinerary'), wan = $('list-wander');
+  stay.textContent = ''; iti.textContent = ''; wan.textContent = '';
+  (d?.pois || []).forEach(p => {
+    // the hotel gets its own section — it is the one pin she'll want at 23:00
+    const target = p.category === 'stay' ? stay : p.itinerary ? iti : wan;
+    target.appendChild(poiRow(p, { showDist: p.category === 'stay' }));
+  });
   $('nudge-toggle').checked = state.nudgesOn;
+}
+
+/* ————— the days ————— */
+function openPoiFrom(city, id) {
+  const p = poiById(city, id);
+  if (!p) return;
+  if (city !== state.city) setCity(city, { pinned: true });
+  openSheet(p);
+}
+
+function renderDays() {
+  const it = state.itinerary, list = $('day-list');
+  if (!it) return;
+  $('days-title').textContent = it.title || 'The shape of the week';
+  $('days-intro').textContent = it.intro || '';
+  list.textContent = '';
+  (it.days || []).forEach(day => {
+    const card = document.createElement('section');
+    card.className = 'day-card';
+    if (day.city) card.dataset.dayCity = day.city;
+
+    const head = document.createElement('div');
+    head.className = 'day-head';
+    head.innerHTML =
+      `<span class="day-name">${day.day}</span>` +
+      (day.route ? `<span class="day-route">${day.route}</span>` : '');
+    card.appendChild(head);
+
+    const times = document.createElement('ol');
+    times.className = 'day-times';
+    (day.items || []).forEach(item => {
+      const li = document.createElement('li');
+      li.innerHTML = `<span class="day-t">${item.t || '·'}</span><span class="day-d"></span>`;
+      li.querySelector('.day-d').textContent = item.d;
+      times.appendChild(li);
+    });
+    card.appendChild(times);
+
+    if (day.note) {
+      const note = document.createElement('p');
+      note.className = 'day-note';
+      note.textContent = day.note;
+      card.appendChild(note);
+    }
+
+    if (day.stay) {
+      // tappable when there's a real bed behind it — that opens the hotel's pin, map, and compass
+      const tappable = day.stay.poi && poiById(day.stay.city, day.stay.poi);
+      const bed = document.createElement(tappable ? 'button' : 'div');
+      bed.className = 'day-bed' + (tappable ? ' is-tappable' : '');
+      bed.innerHTML =
+        `<span class="day-bed-glyph">⌂</span>` +
+        `<span class="day-bed-body"><span class="day-bed-text"></span>` +
+        (day.stay.detail ? `<span class="day-bed-detail"></span>` : '') + `</span>`;
+      bed.querySelector('.day-bed-text').textContent = day.stay.text;
+      if (day.stay.detail) bed.querySelector('.day-bed-detail').textContent = day.stay.detail;
+      if (tappable) bed.addEventListener('click', () => openPoiFrom(day.stay.city, day.stay.poi));
+      card.appendChild(bed);
+    }
+    list.appendChild(card);
+  });
 }
 
 function renderNear() {
@@ -143,6 +216,7 @@ function setTab(tab) {
   document.querySelectorAll('.view').forEach(v => v.hidden = v.dataset.view !== tab);
   $('map-locate').style.display = tab === 'map' ? '' : 'none';
   if (tab === 'map') initMap();
+  if (tab === 'days') renderDays();
   if (tab === 'near') { renderNear(); startWatch(false); }
   window.scrollTo(0, 0);
 }
@@ -169,13 +243,14 @@ function setupMapForCity() {
   }).addTo(map);
   map.setMaxBounds(L.latLngBounds(meta.bounds).pad(0.15));
   map.setView(meta.center, 14);
-  (cityData()?.pois || []).forEach(p => {
+  // offMap POIs sit outside the city bounds and the tile pack — read about, not walked to
+  (cityData()?.pois || []).filter(p => !p.offMap).forEach(p => {
     const icon = L.divIcon({
       className: '',
-      html: `<div class="pin${state.heard.has(p.id) ? ' is-heard' : ''}"><i>${CAT_GLYPH[p.category] || '·'}</i></div>`,
+      html: `<div class="pin${p.category === 'stay' ? ' is-stay' : ''}${state.heard.has(p.id) ? ' is-heard' : ''}"><i>${CAT_GLYPH[p.category] || '·'}</i></div>`,
       iconSize: [26, 26], iconAnchor: [13, 24],
     });
-    const m = L.marker([p.lat, p.lng], { icon }).addTo(map);
+    const m = L.marker([p.lat, p.lng], { icon, zIndexOffset: p.category === 'stay' ? 500 : 0 }).addTo(map);
     m.on('click', () => openSheet(p, { fromMap: true }));
     state.markers[p.id] = m;
   });
@@ -198,21 +273,44 @@ function openSheet(poi, { fromMap = false } = {}) {
   $('sheet-cat').textContent = poi.category;
   $('sheet-name').textContent = poi.name;
   $('sheet-tagline').textContent = poi.tagline;
+  const addr = $('sheet-address');
+  if (poi.address) { addr.hidden = false; addr.textContent = poi.address; } else addr.hidden = true;
+  const photoWrap = $('sheet-photo-wrap'), photoImg = $('sheet-photo');
+  if (poi.photo) {
+    photoImg.src = poi.photo.src;
+    photoImg.alt = poi.name;
+    $('sheet-photo-credit').textContent = `Photo: ${poi.photo.credit} · ${poi.photo.license}`;
+    photoWrap.hidden = false;
+  } else {
+    photoWrap.hidden = true;
+    photoImg.removeAttribute('src');
+  }
   $('sheet-story').textContent = poi.story;
   $('sheet-sig').textContent = guide().name;
   $('funfact-label').textContent = FUNFACT_LABEL[state.city] || 'Between us…';
   if (poi.funFact) { $('sheet-funfact-wrap').hidden = false; $('sheet-funfact').textContent = poi.funFact; }
   else $('sheet-funfact-wrap').hidden = true;
-  $('sheet-dist').textContent = state.pos ? `${fmtDist(distM(state.pos, poi))} ${cardinal(state.pos, poi)} of you` : '';
+  updateSheetWhere();
   const link = $('sheet-link');
   if (poi.link) { link.hidden = false; link.href = poi.link; } else link.hidden = true;
+  const phone = $('sheet-phone');
+  // a tel: link works with no data connection — the one action on this page that always does
+  if (poi.phone) { phone.hidden = false; phone.href = `tel:${poi.phone}`; } else phone.hidden = true;
   $('sheet-heard-btn').textContent = state.heard.has(poi.id) ? 'Tell me again sometime' : 'I’ve heard this one ✓';
-  $('sheet-map-btn').hidden = fromMap;
+  $('sheet-map-btn').hidden = fromMap || !!poi.offMap;
   $('sheet').hidden = false;
   $('sheet-scrim').hidden = false;
   $('sheet').querySelector('.sheet-scroll').scrollTop = 0;
   lockPageScroll();
 }
+/* distance line + compass arrow — refreshed on open, on every GPS fix, and on every heading event */
+function updateSheetWhere() {
+  const poi = state.currentPoi;
+  if (!poi) return;
+  $('sheet-dist').textContent = state.pos ? `${fmtDist(distM(state.pos, poi))} ${cardinal(state.pos, poi)} of you` : '';
+  updateCompass();
+}
+
 function closeSheet() {
   const sheet = $('sheet');
   sheet.hidden = true;
@@ -301,6 +399,55 @@ function markHeard(poi) {
   }
 }
 
+/* ————— compass ————— */
+const compassSupported = 'DeviceOrientationEvent' in window;
+let compassDenied = store.get('compass-no', false);
+let compassRaf = 0;
+
+function onHeading(e) {
+  let h = null;
+  if (typeof e.webkitCompassHeading === 'number' && !Number.isNaN(e.webkitCompassHeading)) {
+    h = e.webkitCompassHeading; // iOS: already ° clockwise from north
+  } else if (e.absolute && typeof e.alpha === 'number') {
+    h = (360 - e.alpha + (screen.orientation?.angle || 0)) % 360;
+  }
+  if (h == null) return;
+  state.heading = h;
+  if (!compassRaf) compassRaf = requestAnimationFrame(() => { compassRaf = 0; updateCompass(); });
+}
+
+/* iOS grants motion access only from inside a tap — hence a button, not autostart */
+function startCompass() {
+  const attach = () => {
+    state.compassOn = true;
+    window.addEventListener('deviceorientationabsolute', onHeading);
+    window.addEventListener('deviceorientation', onHeading);
+    updateCompass();
+  };
+  const deny = () => {
+    compassDenied = true;
+    store.set('compass-no', true);
+    $('sheet-compass').hidden = true;
+  };
+  if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+    DeviceOrientationEvent.requestPermission()
+      .then(res => { if (res === 'granted') attach(); else deny(); })
+      .catch(deny);
+  } else attach();
+}
+
+function updateCompass() {
+  const btn = $('sheet-compass'), poi = state.currentPoi;
+  if (!poi) return;
+  if (!compassSupported || compassDenied || !state.pos) { btn.hidden = true; return; }
+  btn.hidden = false;
+  const live = state.compassOn && state.heading != null;
+  btn.classList.toggle('is-live', live);
+  // the ➤ glyph points east at 0°, so offset −90 makes 0° point up
+  const rot = live ? bearingDeg(state.pos, poi) - state.heading - 90 : -90;
+  $('compass-arrow').style.transform = `rotate(${rot}deg)`;
+}
+
 /* ————— geolocation + nudges ————— */
 function startWatch(fromTap) {
   if (state.watchId != null || !('geolocation' in navigator)) return;
@@ -311,6 +458,7 @@ function startWatch(fromTap) {
     maybeAutoCity();
     if (state.tab === 'near') renderNear();
     updateYouMarker();
+    updateSheetWhere();
     maybeNudge();
   }, err => {
     if (fromTap) $('near-msg').textContent = 'I can’t find you — check Location Services for Safari, chérie';
@@ -340,6 +488,7 @@ function maybeNudge() {
   if (!d) return;
   let best = null, bestDist = Infinity;
   for (const p of d.pois) {
+    if (p.category === 'stay') continue;   // nobody needs telling about their own hotel
     if (state.heard.has(p.id)) continue;
     if (now - (state.poiNudgedAt[p.id] || 0) < NUDGE_POI_REPEAT_MS) continue;
     const dist = distM(state.pos, p);
@@ -361,6 +510,32 @@ function maybeNudge() {
 }
 
 /* ————— offline pack (map tiles) ————— */
+const TILE_CACHE = 'tg-tiles-v1'; // must match sw.js
+
+/* iOS can evict Cache Storage under disk pressure. Sample the pack on every
+   launch: if tiles are gone, clear pack-done so warmOfflinePack refetches
+   (cache hits cost nothing), and say so while wifi is still an option. */
+async function verifyOfflinePack() {
+  if (!('caches' in window) || !store.get('pack-done', false)) return;
+  let urls;
+  try {
+    urls = (await fetch('tiles-index.json').then(r => r.json())).tiles;
+    const cache = await caches.open(TILE_CACHE);
+    const step = Math.max(1, Math.floor(urls.length / 40));
+    const sample = urls.filter((_, i) => i % step === 0);
+    const hits = await Promise.all(sample.map(u => cache.match(u)));
+    if (hits.every(Boolean)) return;
+  } catch { return; }
+  store.set('pack-done', false);
+  if (!navigator.onLine) {
+    const pill = $('pack-pill');
+    pill.querySelector('.pack-label').textContent =
+      'Some offline maps went missing — open me on wifi and I’ll fetch them back';
+    pill.querySelector('.pack-fill').style.width = '0%';
+    pill.hidden = false;
+  }
+}
+
 async function warmOfflinePack() {
   if (!('serviceWorker' in navigator) || !navigator.onLine) return;
   if (store.get('pack-done', false)) return;
@@ -410,6 +585,7 @@ function wire() {
   });
   $('sheet-scrim').addEventListener('click', closeSheet);
   wireSheetDrag();
+  $('sheet-compass').addEventListener('click', () => { if (!state.compassOn) startCompass(); });
   $('sheet-heard-btn').addEventListener('click', () => { if (state.currentPoi) { markHeard(state.currentPoi); closeSheet(); } });
   $('sheet-map-btn').addEventListener('click', () => {
     const p = state.currentPoi;
@@ -444,11 +620,13 @@ function wire() {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js').catch(() => {});
   }
+  // ask the browser not to evict the ~55 MB tile cache under storage pressure
+  navigator.storage?.persist?.().catch(() => {});
   await loadData();
   setCity(state.city);
   setTab('guide');
   startWatch(false);
-  warmOfflinePack();
+  verifyOfflinePack().then(warmOfflinePack);
   setInterval(() => {
     const quips = guide().quips || [];
     if (quips.length && state.tab === 'guide') {

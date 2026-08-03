@@ -192,6 +192,64 @@ main { padding-bottom: calc(86px + var(--safe-b)); }
 }
 .colophon a { color: inherit; }
 
+/* ————— the days ————— */
+.days-title {
+  font-family: 'Fraunces', serif; font-weight: 700; font-size: 30px;
+  margin: 14px 0 6px;
+}
+.days-intro { font-size: 14.5px; line-height: 1.6; color: var(--ink-soft); font-style: italic; }
+.day-list { display: flex; flex-direction: column; gap: 14px; margin-top: 20px; }
+
+.day-card {
+  padding: 15px 16px 14px;
+  background: #fbf6ec; border: 1px solid var(--line); border-radius: 10px;
+  box-shadow: 2px 3px 0 rgba(36,28,20,.05);
+  border-left: 3px solid var(--accent);
+}
+/* each day wears the colours of the city it ends in */
+.day-card[data-day-city="paris"]     { --accent: #7c2438; --accent-soft: #f0dee2; }
+.day-card[data-day-city="bruges"]    { --accent: #9c4a1d; --accent-soft: #f2e2d5; }
+.day-card[data-day-city="amsterdam"] { --accent: #1f4e79; --accent-soft: #dde6ee; }
+
+.day-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.day-name {
+  font-family: 'Fraunces', serif; font-weight: 700; font-size: 20px;
+  letter-spacing: .01em;
+}
+.day-route {
+  font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+  font-family: 'Fraunces', serif; font-weight: 600;
+  color: var(--accent); text-align: right;
+}
+
+.day-times { list-style: none; margin: 12px 0 0; display: flex; flex-direction: column; gap: 9px; }
+.day-times li { display: grid; grid-template-columns: 52px 1fr; gap: 10px; align-items: baseline; }
+.day-t {
+  font-family: 'Fraunces', serif; font-weight: 700; font-size: 14px;
+  color: var(--accent); font-variant-numeric: tabular-nums;
+}
+.day-d { font-size: 14.5px; line-height: 1.55; }
+.day-note {
+  margin-top: 12px; padding: 10px 12px;
+  background: var(--accent-soft); border-radius: 8px;
+  font-size: 13.5px; line-height: 1.5; font-style: italic;
+}
+
+.day-bed {
+  width: 100%; text-align: left; font: inherit; color: inherit;
+  margin-top: 12px; padding: 11px 12px;
+  display: flex; align-items: flex-start; gap: 11px;
+  background: transparent; border: 1px dashed var(--line); border-radius: 8px;
+}
+.day-bed.is-tappable { border-color: var(--accent); }
+.day-bed.is-tappable:active { background: var(--accent-soft); }
+.day-bed-glyph {
+  flex: none; font-size: 17px; line-height: 1.2; color: var(--accent);
+}
+.day-bed-body { display: flex; flex-direction: column; gap: 3px; }
+.day-bed-text { font-family: 'Fraunces', serif; font-weight: 600; font-size: 14.5px; }
+.day-bed-detail { font-size: 12.5px; line-height: 1.5; color: var(--ink-soft); }
+
 /* ————— near me ————— */
 .near-status {
   display: flex; align-items: center; gap: 12px;
@@ -231,6 +289,13 @@ main { padding-bottom: calc(86px + var(--safe-b)); }
   font-size: 11px; color: #fbf6ec; font-family: 'Fraunces', serif; font-weight: 700;
 }
 .pin.is-heard { background: #b3a68e; }
+/* the bed: ink-dark and a size larger, so it reads as home at a glance */
+/* scale rather than resize — the divIcon box stays 26px, so the anchor stays true */
+.pin.is-stay {
+  background: var(--ink); transform: rotate(-45deg) scale(1.2);
+  box-shadow: 0 2px 7px rgba(36,28,20,.5);
+}
+.pin.is-stay i { font-size: 14px; }
 .you-dot { position: relative; }
 .you-dot::before {
   content: ""; position: absolute; inset: -9px; border-radius: 50%;
@@ -274,10 +339,34 @@ main { padding-bottom: calc(86px + var(--safe-b)); }
   -webkit-overflow-scrolling: touch; overscroll-behavior: contain;
 }
 .sheet-top { display: flex; justify-content: space-between; align-items: center; }
-.sheet-dist { font-size: 13px; color: var(--accent); font-weight: 500; }
+.sheet-whereto { display: flex; align-items: center; gap: 10px; }
+.sheet-dist { font-size: 13px; color: var(--accent); font-weight: 500; text-align: right; }
+
+/* compass — dashed until she taps it awake, solid once it's pointing */
+.compass-btn {
+  flex: none; width: 40px; height: 40px; border-radius: 50%;
+  border: 1.5px dashed var(--accent); background: var(--accent-soft);
+  color: var(--accent); display: grid; place-items: center;
+  font-size: 16px; padding: 0;
+}
+.compass-btn.is-live { border-style: solid; background: var(--accent); color: var(--paper); }
+.compass-arrow { display: block; line-height: 1; transition: transform .15s linear; transform: rotate(-90deg); }
 .sheet-name { font-family: 'Fraunces', serif; font-weight: 700; font-size: 27px; margin-top: 10px; }
 .sheet-tagline { font-style: italic; color: var(--ink-soft); margin: 3px 0 4px; font-size: 15px; }
+.sheet-address {
+  font-size: 13px; letter-spacing: .02em; color: var(--accent);
+  font-family: 'Fraunces', serif; font-weight: 600; margin-bottom: 2px;
+}
 .sheet-letter { margin-top: 14px; }
+.sheet-photo { margin: 12px 0 0; }
+.sheet-photo img {
+  display: block; width: 100%; max-height: 230px; object-fit: cover;
+  border-radius: 10px; border: 1px solid var(--line); background: var(--paper-deep);
+}
+.sheet-photo figcaption {
+  margin-top: 4px; font-size: 10.5px; color: var(--ink-soft);
+  text-align: right; font-style: italic;
+}
 .funfact {
   margin: 16px 0 4px; padding: 13px 15px;
   background: var(--accent-soft); border-radius: 10px;
