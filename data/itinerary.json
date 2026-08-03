@@ -1,12 +1,23 @@
 {
   "title": "Getting about",
   "intro": "Seven days of trains, planes, and beds, in order — no dates on them, madame, since this little book of ours sits on the open internet. All times local. What you do between them is your own affair, and we have plenty to say about that elsewhere.",
+  "titles": {
+    "paris": "Our French days",
+    "bruges": "Your Belgian interlude",
+    "amsterdam": "The Dutch finale"
+  },
+  "intros": {
+    "paris": "Only my days here, madame — the night you fly to me, our two days together, and the dawn I must hand you to Willem. The other gentlemen's days lie folded between; tap one and he takes over. All times local, and no dates — this little book sits on the open internet.",
+    "bruges": "Bruges is given one afternoon, one evening, and one early morning, and I intend to waste none of them. The folded slips on either side belong to Julien and Daan — tap one and I shall fetch him. All times local, no dates; the internet reads over our shoulders.",
+    "amsterdam": "The finish is mine: your arrival, the bike day, and the flight home. The week before me sits folded above — tap a day and its gentleman takes it from there. All times local, no dates written down; this little book lives on the open internet."
+  },
   "days": [
     {
       "day": "Thursday",
       "label": "",
       "route": "Toronto → Paris",
       "city": null,
+      "cities": ["paris"],
       "items": [
         { "t": "17:00", "d": "Car parked off-airport, shuttle to Terminal 3. Four hours before departure is not excessive with ten bags." },
         { "t": "21:05", "d": "Air Transat TS 188 · Toronto YYZ, Terminal 3 → Paris CDG, Terminal 3. Non-stop, overnight." }
@@ -19,6 +30,7 @@
       "label": "",
       "route": "Land Paris",
       "city": "paris",
+      "cities": ["paris"],
       "items": [
         { "t": "10:30", "d": "TS 188 lands at CDG, Terminal 3. Passport control is non-Schengen — allow for the queue." },
         { "t": "", "d": "Private transfer, booked and paid. The driver meets you in Arrivals holding a sign, and waits 45 minutes from touchdown. Move straight through; message him from the queue if immigration is slow." },
@@ -37,6 +49,7 @@
       "label": "",
       "route": "",
       "city": "paris",
+      "cities": ["paris"],
       "items": [
         { "t": "", "d": "No trains, no transfers. The Métro is the only thing you need to catch." }
       ],
@@ -53,6 +66,7 @@
       "label": "",
       "route": "Paris → Bruges",
       "city": "bruges",
+      "cities": ["paris", "bruges"],
       "items": [
         { "t": "06:45", "d": "Leave the hotel. Métro 2 from Ternes, change at Barbès-Rochechouart to Métro 4 for Gare du Nord — about 25 minutes. Stay on the platforms; do not go up to the street." },
         { "t": "07:15", "d": "Gare du Nord. No security, no passport control, no check-in gate on this route — the only deadline is the doors." },
@@ -75,6 +89,7 @@
       "label": "",
       "route": "Bruges → Amsterdam",
       "city": "amsterdam",
+      "cities": ["bruges", "amsterdam"],
       "items": [
         { "t": "08:00", "d": "Out of the hotel, back to Brugge station — same 30 minutes, or the bus." },
         { "t": "08:30", "d": "Train 1508 · Brugge → Bruxelles-Midi, arriving 09:28." },
@@ -97,6 +112,7 @@
       "label": "",
       "route": "",
       "city": "amsterdam",
+      "cities": ["amsterdam"],
       "items": [
         { "t": "", "d": "Nothing to catch. The bikes are the transport today." }
       ],
@@ -113,6 +129,7 @@
       "label": "",
       "route": "Amsterdam → Toronto",
       "city": "amsterdam",
+      "cities": ["amsterdam"],
       "items": [
         { "t": "11:00", "d": "Out of the hotel. Check-out is 12:00 — collect the €100 deposit at the desk." },
         { "t": "11:15", "d": "Metro 52 southbound to Amsterdam Zuid, about 7 minutes — south, not north. Then a Schiphol train, about 10 minutes, frequent. If line 52 is down: Centraal to Schiphol direct, about 17 minutes." },

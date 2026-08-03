@@ -103,6 +103,7 @@ function setCity(slug, { pinned = false } = {}) {
   const tabCountry = $('tab-country-name');
   if (tabCountry) tabCountry.textContent = COUNTRY_NAME[slug];
   if (state.tab === 'country') renderCountry();
+  if (state.tab === 'days') renderDays();
   const stamp = $('guide-stamp');
   if (stamp) { stamp.style.animation = 'none'; void stamp.offsetWidth; stamp.style.animation = ''; }
   renderGuide();
@@ -301,17 +302,43 @@ function openPoiFrom(city, id) {
 function renderDays() {
   const it = state.itinerary, list = $('day-list');
   if (!it) return;
-  $('days-title').textContent = it.title || 'The shape of the week';
-  $('days-intro').textContent = it.intro || '';
+  $('days-title').textContent = (it.titles || {})[state.city] || it.title || 'The shape of the week';
+  $('days-intro').textContent = (it.intros || {})[state.city] || it.intro || '';
   list.textContent = '';
   // the trip is one of each weekday, so the weekday name is enough to know "today"
   const todayName = new Date().toLocaleDateString('en-US', { weekday: 'long' });
   let todayCard = null;
   (it.days || []).forEach(day => {
+    const cities = day.cities || (day.city ? [day.city] : []);
+    const isToday = day.day === todayName;
+
+    // another gentleman's day — folded to a slip so the week keeps its shape
+    if (cities.length && !cities.includes(state.city)) {
+      const other = day.city || cities[0];
+      const slip = document.createElement('button');
+      slip.className = 'day-else' + (isToday ? ' is-today' : '');
+      slip.dataset.dayCity = other;
+      const gName = state.data[other]?.guide?.name || COUNTRY_NAME[other];
+      slip.innerHTML =
+        `<span class="day-name">${day.day}${isToday ? ' <span class="today-badge">today</span>' : ''}</span>` +
+        `<span class="day-else-flag"></span>` +
+        `<span class="day-else-hint">` +
+        (day.route ? `<span class="day-else-route">${day.route}</span>` : '') +
+        `<span>in ${gName}’s care ›</span></span>`;
+      slip.addEventListener('click', () => {
+        setCity(other, { pinned: true });   // he takes over, and the list redraws under his hand
+        const card = list.querySelector(`.day-card[data-day="${day.day}"]`);
+        if (card) requestAnimationFrame(() => card.scrollIntoView({ block: 'center', behavior: 'smooth' }));
+      });
+      list.appendChild(slip);
+      if (isToday) todayCard = slip;
+      return;
+    }
+
     const card = document.createElement('section');
     card.className = 'day-card';
+    card.dataset.day = day.day;
     if (day.city) card.dataset.dayCity = day.city;
-    const isToday = day.day === todayName;
     if (isToday) { card.classList.add('is-today'); todayCard = card; }
 
     const head = document.createElement('div');
