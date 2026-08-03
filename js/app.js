@@ -92,8 +92,8 @@ function setCity(slug, { pinned = false } = {}) {
   if (pinned) { state.cityPinned = true; store.set('city-pinned', true); }
   store.set('city', slug);
   document.body.dataset.city = slug;
-  document.querySelectorAll('[data-city-chip]').forEach(b =>
-    b.classList.toggle('is-active', b.dataset.cityChip === slug));
+  document.querySelectorAll('[data-pick-city]').forEach(b =>
+    b.classList.toggle('is-active', b.dataset.pickCity === slug));
   const skyline = $('hero-skyline');
   if (skyline && window.ART) skyline.innerHTML = window.ART.skyline(slug);
   const tabCountry = $('tab-country-name');
@@ -302,6 +302,19 @@ function setTab(tab) {
   if (tab === 'country') renderCountry();
   if (tab === 'near') { renderNear(); startWatch(false); }
   window.scrollTo(0, 0);
+}
+
+/* ————— country picker ————— */
+function toggleCountryPicker() {
+  if ($('country-picker').hidden) openCountryPicker(); else closeCountryPicker();
+}
+function openCountryPicker() {
+  $('country-picker').hidden = false;
+  $('picker-scrim').hidden = false;
+}
+function closeCountryPicker() {
+  $('country-picker').hidden = true;
+  $('picker-scrim').hidden = true;
 }
 
 /* ————— his country ————— */
@@ -746,13 +759,20 @@ function wire() {
       setTab('guide');
       closeSplash();
     }));
-  document.querySelectorAll('[data-city-chip]').forEach(b =>
-    b.addEventListener('click', () => {
-      store.set('city-pinned-at-city', b.dataset.cityChip);
-      setCity(b.dataset.cityChip, { pinned: true });
-    }));
   document.querySelectorAll('.tab').forEach(b =>
-    b.addEventListener('click', () => setTab(b.dataset.tab)));
+    b.addEventListener('click', () => {
+      // the flag tab is the country switcher — it asks before it navigates
+      if (b.dataset.tab === 'country') { toggleCountryPicker(); return; }
+      closeCountryPicker();
+      setTab(b.dataset.tab);
+    }));
+  document.querySelectorAll('[data-pick-city]').forEach(b =>
+    b.addEventListener('click', () => {
+      closeCountryPicker();
+      setCity(b.dataset.pickCity, { pinned: true });
+      setTab('country');
+    }));
+  $('picker-scrim').addEventListener('click', closeCountryPicker);
   $('near-locate').addEventListener('click', () => {
     $('near-msg').textContent = 'un moment — finding you…';
     startWatch(true);

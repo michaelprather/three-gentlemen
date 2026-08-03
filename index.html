@@ -25,11 +25,6 @@
     <button class="wordmark" id="wordmark">Dear&nbsp;Madame<span class="wordmark-comma">,</span></button>
     <span class="mast-flag" aria-hidden="true"></span>
   </div>
-  <nav class="city-chips" aria-label="City">
-    <button class="chip" data-city-chip="paris"><i class="chip-flag" aria-hidden="true"></i>Paris</button>
-    <button class="chip" data-city-chip="bruges"><i class="chip-flag" aria-hidden="true"></i>Bruges</button>
-    <button class="chip" data-city-chip="amsterdam"><i class="chip-flag" aria-hidden="true"></i>Amsterdam</button>
-  </nav>
 </header>
 
 <div id="pack-pill" class="pack-pill" hidden>
@@ -223,6 +218,27 @@
   <span class="nudge-text"><strong id="nudge-guide">Julien</strong> — <span id="nudge-msg">psst, you're near something…</span></span>
 </button>
 
+<!-- country picker — rises from the flag in the tab bar -->
+<div class="picker-scrim" id="picker-scrim" hidden></div>
+<div class="country-picker" id="country-picker" hidden role="menu" aria-label="Choose a country">
+  <p class="picker-title">Which country, madame?</p>
+  <button class="pick" data-pick-city="paris" role="menuitem">
+    <i class="pick-flag" aria-hidden="true"></i>
+    <span class="pick-text"><strong>France</strong><em>Paris · with Julien</em></span>
+    <span class="pick-check" aria-hidden="true">✓</span>
+  </button>
+  <button class="pick" data-pick-city="bruges" role="menuitem">
+    <i class="pick-flag" aria-hidden="true"></i>
+    <span class="pick-text"><strong>Belgium</strong><em>Bruges · with Willem</em></span>
+    <span class="pick-check" aria-hidden="true">✓</span>
+  </button>
+  <button class="pick" data-pick-city="amsterdam" role="menuitem">
+    <i class="pick-flag" aria-hidden="true"></i>
+    <span class="pick-text"><strong>Netherlands</strong><em>Amsterdam · with Daan</em></span>
+    <span class="pick-check" aria-hidden="true">✓</span>
+  </button>
+</div>
+
 <nav class="tabbar" aria-label="Views">
   <button class="tab is-active" data-tab="guide">
     <svg class="tab-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3,7.2 L12,13.4 L21,7.2"/></svg>
@@ -230,7 +246,7 @@
   <button class="tab" data-tab="days">
     <svg class="tab-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8,3 v4 M16,3 v4 M8,12.5 h8 M8,16 h5"/></svg>
     Days</button>
-  <button class="tab" data-tab="country" aria-label="Country">
+  <button class="tab" data-tab="country" aria-label="Country" aria-haspopup="menu">
     <span class="tab-flag" aria-hidden="true"></span>
     <span id="tab-country-name">France</span></button>
   <button class="tab" data-tab="near">
