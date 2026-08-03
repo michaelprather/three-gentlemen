@@ -2,7 +2,10 @@
   "city": "Bruges",
   "citySlug": "bruges",
   "language": "Flemish",
-  "center": {"lat": 51.2089, "lng": 3.2247},
+  "center": {
+    "lat": 51.2089,
+    "lng": 3.2247
+  },
   "guide": {
     "name": "Willem",
     "title": "Fourth-generation chocolatier, lifelong Bruges romantic, your man for the evening streets",
@@ -18,6 +21,25 @@
   },
   "pois": [
     {
+      "id": "hotel-acacia",
+      "name": "Hotel Acacia — your bed",
+      "lat": 51.208,
+      "lng": 3.2222,
+      "category": "stay",
+      "tagline": "Korte Zilverstraat, two minutes off the Markt and inside the ring",
+      "story": "You have landed well, schat. Korte Zilverstraat — Short Silver Street — is named for the silversmiths who worked this parish when Bruges banked half of Europe, and it puts you two hundred metres from the Markt without putting you on it. That distance is worth more than you think at eight in the morning. Here is how you will never be lost in my city: the Belfry is visible from nearly everywhere and it stands on the Markt. Walk to the tower, then leave the square by Steenstraat, the shopping street heading southwest, and take the second little street on your right. That is you. If you come up from the station with the bags, it is about thirty minutes on the cobbles, or bus 1 or 2 from the platform left of the station door. And do not trust a straight line here — no street in Bruges has ever been straight, which is precisely the charm and precisely the problem.",
+      "funFact": "The 't Zand end of your street backs onto the Zilverpand, a modern shopping arcade built on the old silversmiths' quarter — the one place in the centre where Bruges quietly gave up pretending it was still 1450.",
+      "address": "Korte Zilverstraat 5, 8000 Brugge",
+      "phone": "+3250344411",
+      "link": "https://en.wikipedia.org/wiki/Bruges",
+      "itinerary": false,
+      "photo": {
+        "src": "photos/bruges/hotel-acacia.jpg",
+        "credit": "Marc Ryckaert (MJJR)",
+        "license": "CC BY 3.0"
+      }
+    },
+    {
       "id": "markt",
       "name": "The Markt",
       "lat": 51.2086,
@@ -27,19 +49,29 @@
       "story": "Every Bruges story starts here. In the small hours of 18 May 1302, craftsmen crept into this square and slaughtered the French garrison in their beds, an event we call the Bruges Matins. To sort friend from occupier in the dark, they made men repeat 'schild ende vriend', a Flemish mouthful no Frenchman could pronounce. Fail the test, meet the pike. The two bronze fellows on the plinth are Jan Breydel and Pieter de Coninck, leaders of that uprising. And a joke history plays on visitors: the grandest, most medieval-looking building on the square, the Provinciaal Hof, is neo-Gothic, begun in 1887. Younger than some houses in your America, schat.",
       "funFact": "The rebels of 1302 used the phrase 'schild ende vriend' as a password because French speakers could not pronounce it correctly.",
       "link": "https://en.wikipedia.org/wiki/Markt_(Bruges)",
-      "itinerary": true
+      "itinerary": true,
+      "photo": {
+        "src": "photos/bruges/markt.jpg",
+        "credit": "Wolfgang Staudt [1]",
+        "license": "CC BY 2.0"
+      }
     },
     {
       "id": "belfort",
       "name": "The Belfry",
-      "lat": 51.2080,
+      "lat": 51.208,
       "lng": 3.2248,
       "category": "landmark",
       "tagline": "366 steps, 47 bells, and a lean of nearly a metre",
       "story": "Our tower is 83 metres of pure civic swagger. Built for money, not God: it guarded the city charters and treasury behind wrought-iron gates, and its bells ran everyone's day, work, gates, curfew, alarm. It has burned three times, in 1280, 1493, and 1741, and after the last fire we simply never rebuilt the wooden spire. Too proud to admit it, we say the flat top is intentional. If your boys want the climb, it is 366 narrow spiral steps, and worth every one. Up top lives a 47-bell carillon that a city carillonneur still plays by hand. Listen tonight; the bells sound different when the square below is empty.",
       "funFact": "The Belfry leans about 87 centimetres to the east, and Bruges lets you climb it anyway.",
       "link": "https://en.wikipedia.org/wiki/Belfry_of_Bruges",
-      "itinerary": true
+      "itinerary": true,
+      "photo": {
+        "src": "photos/bruges/belfort.jpg",
+        "credit": "Adiel lo",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "groenerei-canal-walk",
@@ -51,7 +83,12 @@
       "story": "These canals are the reien, branches of the little river Reie that made Bruges rich enough to matter. They were never decoration, schat, they were highways: wool in, cloth out, money everywhere. Boats once sailed straight into the Markt itself and unloaded inside an enormous covered hall called the Waterhalle, a warehouse built over the water, demolished in 1787. Walk the Groenerei stretch in the evening, when the tour boats are moored and the surface goes to glass, and you will see why I never left this town. I have walked this quay ten thousand times. Tonight, with you on it, I would say it has never looked better. Your husband may hold your other hand.",
       "funFact": "Medieval boats unloaded cargo inside a covered hall on the Markt itself, the Waterhalle, torn down in 1787.",
       "link": "https://en.wikipedia.org/wiki/Reie",
-      "itinerary": true
+      "itinerary": true,
+      "photo": {
+        "src": "photos/bruges/groenerei-canal-walk.jpg",
+        "credit": "Giles Laurent",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "rozenhoedkaai",
@@ -63,7 +100,12 @@
       "story": "I will be honest with you, because you are not a stranger anymore: at noon this quay is a scrum of selfie sticks, and I avoid it the way I avoid supermarket chocolate. But the view, the Belfry rising behind the water and the stepped gables, is the most photographed in Belgium because it deserves to be. The name means Rosary Quay; in the seventeenth and eighteenth centuries, sellers of prayer beads worked this corner. Come at dusk, after the coaches leave. The lamps come on, the water holds the tower upside down, and you will have it nearly to yourself. A woman who stays the night in Bruges gets the postcard without the crowd, lieve schat.",
       "funFact": "The 2008 film 'In Bruges' with Colin Farrell made this exact view famous to a whole new generation of visitors.",
       "link": "https://www.visitbruges.be/en/things-to-do/culture-and-heritage/rozenhoedkaai-rosary-quay",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/bruges/rozenhoedkaai.jpg",
+        "credit": "Ank Kumar",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "burg-holy-blood",
@@ -75,7 +117,12 @@
       "story": "This is where Bruges began. Around 865, Count Baldwin Iron Arm, a man who stole a king's daughter and got away with it, built his fortress here against the Vikings. In the corner sits the Basilica of the Holy Blood, a twelfth-century double chapel holding a rock-crystal vial said to contain the blood of Christ, brought back, tradition says, by Count Thierry of Alsace from the Second Crusade. Every Ascension Day since at least 1304 we carry it through the streets in the Procession of the Holy Blood; UNESCO lists it, and locals call it Bruges' most beautiful day. Notice the square feels lopsided? It is missing something enormous.",
       "funFact": "The Burg's cathedral, Saint Donatian's, was demolished by French revolutionaries in 1799, and its excavated foundations can be seen in the basement of the hotel now standing there.",
       "link": "https://en.wikipedia.org/wiki/Basilica_of_the_Holy_Blood",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/bruges/burg-holy-blood.jpg",
+        "credit": "Jim Linwood",
+        "license": "CC BY 2.0"
+      }
     },
     {
       "id": "stadhuis",
@@ -87,7 +134,12 @@
       "story": "Begun in 1376, this sandstone jewel is among the very oldest Gothic city halls in the old Burgundian Netherlands, and Bruges has been governed from this exact spot for more than six centuries. Cities elsewhere copied it, including Brussels. Look up at the facade full of statues: counts, countesses, prophets. Then know a sad secret. The originals were torn down and smashed by French revolutionaries in 1792; everything you see is nineteenth-century replacement. The heartbreak is what we lost, because city records show Jan van Eyck himself, the greatest painter of his age, was paid in 1435 to colour the original statues. Revolutionary zeal destroyed a van Eyck the size of a building.",
       "funFact": "Jan van Eyck was paid by the city in 1435 to paint the original facade statues, all later destroyed in the French Revolution.",
       "link": "https://en.wikipedia.org/wiki/Bruges_City_Hall",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/bruges/stadhuis.jpg",
+        "credit": "Marc Ryckaert",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "vismarkt",
@@ -99,7 +151,12 @@
       "story": "A short lane called Blinde-Ezelstraat, Blind Donkey Street, and do not ask me which donkey, nobody agrees, leads from the Burg to this elegant colonnade of 1821. Why does a fish market get Greek columns? Because the fishmongers were banished here. For centuries they sold on the Markt itself, until the fine folk in the grand houses complained about the smell, and the trade was pushed off the main square to this purpose-built spot by the water. The stone counters are still cooled by centuries of habit, and real fishmongers still sell fresh North Sea catch here in the mornings, Wednesday to Saturday. Sniff the stones, schat. Two hundred years of herring never fully leaves.",
       "funFact": "Fish sellers were moved off the Markt because wealthy residents complained about the smell, and their 1821 colonnade is still a working fish market.",
       "link": "https://en.wikipedia.org/wiki/Bruges",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/bruges/vismarkt.jpg",
+        "credit": "Zairon",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "jan-van-eyckplein",
@@ -111,7 +168,12 @@
       "story": "Quiet now, yes? Five hundred years ago this was the roaring front door of northern Europe. Seagoing ships sailed up the Spiegelrei and moored where you stand; the handsome Tolhuis on the square collected customs on everything, and merchants from Genoa, Castile, and the Hanseatic ports haggled in a dozen languages. Then nature fired Bruges: the Zwin channel to the sea silted up through the fifteenth century, the ships went to Antwerp, and the greatest port of the age simply went still. The painter Jan van Eyck, who worked and died here, got his statue in 1878. On the corner tower of the Poortersloge, look for a small white bear in a niche.",
       "funFact": "The little bear on the Poortersloge is Bruges' oldest 'citizen', tied to the legend that founder Baldwin Iron Arm fought a bear on this ground.",
       "link": "https://en.wikipedia.org/wiki/Jan_van_Eyckplein",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/bruges/jan-van-eyckplein.jpg",
+        "credit": "Chad K",
+        "license": "CC BY 2.0"
+      }
     },
     {
       "id": "church-of-our-lady",
@@ -123,7 +185,12 @@
       "story": "That tower is 115.5 metres of brick, medieval Bruges showing off; it remains one of the tallest brick towers on earth. But the treasure is inside: Michelangelo's Madonna and Child, carved around 1504 and bought by the Mouscron brothers, Bruges cloth merchants with excellent taste and deep pockets. It is the only Michelangelo sculpture to leave Italy during his lifetime, and Bruges has had to fight to keep her. French revolutionary troops carted her off in 1794; we got her back. The Nazis took her in 1944, hidden in a truck under mattresses; the Monuments Men found her in 1945, deep in an Austrian salt mine. She has not left since. We watch her closely.",
       "funFact": "The Madonna of Bruges was stolen twice, by Napoleon's forces in 1794 and the Nazis in 1944, and was recovered from the Altaussee salt mine.",
       "link": "https://en.wikipedia.org/wiki/Church_of_Our_Lady,_Bruges",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/bruges/church-of-our-lady.jpg",
+        "credit": "Wolfgang Staudt",
+        "license": "CC BY 2.0"
+      }
     },
     {
       "id": "sint-janshospitaal",
@@ -135,19 +202,29 @@
       "story": "Across from the church stands one of the oldest surviving hospital buildings in Europe, founded in the mid-1100s. Think of that: while cathedrals rose and fell, nuns and brothers here fed, washed, and nursed the sick, pilgrims, and travellers on this same ground for roughly eight centuries, with patients cared for on the site into the twentieth century. The old wards are vast as a church, because they were partly that too, healing body and soul together. Inside are the paintings Hans Memling made for the hospital itself, including the tiny golden Shrine of Saint Ursula, art still living exactly where it was commissioned five hundred years ago. Even museum-shy travellers soften at the old dispensary.",
       "funFact": "Sint-Janshospitaal operated as a working hospital site for around 800 years, one of the longest continuous runs of medical care in Europe.",
       "link": "https://en.wikipedia.org/wiki/Old_St._John%27s_Hospital",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/bruges/sint-janshospitaal.jpg",
+        "credit": "Jan Beerblock",
+        "license": "Public domain"
+      }
     },
     {
       "id": "bonifacius-bridge",
       "name": "Bonifacius Bridge",
       "lat": 51.2048,
-      "lng": 3.2250,
+      "lng": 3.225,
       "category": "hidden",
       "tagline": "The most medieval-looking bridge in Bruges is a young imposter",
       "story": "Tucked behind the Church of Our Lady, over water so narrow the houses almost touch above it, hides the bridge everyone swears is the oldest in Bruges. Guides let them believe it. The truth, and I tell you because those eyes deserve honesty: it was built in 1910, one of the youngest bridges in the city. A perfect fake, so lovingly medieval that it fooled the world within a generation. Its arch clears the water by barely two metres, so duck your head if a boat glides under. Locals call it a lovers' bridge, and I have seen fifty years of kisses here. Bring the husband, schat. I will look away, but the gargoyles will not.",
       "funFact": "Despite looking like the city's most ancient crossing, the Bonifacius Bridge dates only from 1910.",
       "link": "https://www.visitbruges.be/en/things-to-do/culture-and-heritage/bonifaciusbrug-boniface-bridge",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/bruges/bonifacius-bridge.jpg",
+        "credit": "CEphoto, Uwe Aranas",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "katelijnestraat",
@@ -159,7 +236,12 @@
       "story": "This is the street that carries you, and your rolling suitcases, clattering like applause, from the Begijnhof quarter up to the Church of Our Lady and on to the Markt. It has been a main artery since the Middle Ages, and today it is lined with chocolate and lace, some of it real, some of it theatre; I will teach you the difference before you spend a euro. Duck through the side lanes and you find the godshuizen, whitewashed almshouse courtyards built from the 1300s onward by rich merchants buying their way into heaven: free housing for the old and poor, in exchange for prayers for the founder's soul. Bruges has dozens, still lived in.",
       "funFact": "Bruges' medieval almshouses, the godshuizen, still serve as social housing today, centuries after merchants built them to shorten their time in purgatory.",
       "link": "https://en.wikipedia.org/wiki/Bruges",
-      "itinerary": true
+      "itinerary": true,
+      "photo": {
+        "src": "photos/bruges/katelijnestraat.jpg",
+        "credit": "Zairon",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "wijngaardstraat-walplein",
@@ -171,7 +253,12 @@
       "story": "Now you are in my favourite corner of the south city, where Wijngaardstraat funnels everyone toward the Begijnhof bridge and the little Wijngaardplein opens up beside the water. Watch the small stone fountain on the square: that is the official drinking stop for the carriage horses of Bruges, and if your timing is lekker you will see a big Brabant horse plunge her nose in while tourists scramble for cameras. The horse does not care. She has seen it all. The Walplein just north is where the Halve Maan brewery pours its beer in the sun. Sit a moment, schat. You walked from the station; even the horses rest here, and none of them are as charming company as you.",
       "funFact": "The fountain on Wijngaardplein exists specifically as the watering point where Bruges' carriage horses take their mandatory drink break.",
       "link": "https://en.wikipedia.org/wiki/Bruges",
-      "itinerary": true
+      "itinerary": true,
+      "photo": {
+        "src": "photos/bruges/wijngaardstraat-walplein.jpg",
+        "credit": "Zairon",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "halve-maan-brewery",
@@ -183,19 +270,29 @@
       "story": "Beer has been made on the Walplein since 1564, and the Maes family has run De Halve Maan, the Half Moon, since 1856, now in its sixth generation. Their flagship is Brugse Zot, the Bruges Fool, named for the legend that when the city begged Emperor Maximilian to fund a madhouse, he replied: close the gates, Bruges is already full of fools. But here is the glorious modern madness. In 2016, tired of trucks rattling the cobbles, they built a 3.2-kilometre pipeline under the historic centre, pumping beer from this brewhouse to their bottling plant outside town. Partly crowdfunded, and the biggest donors earned free beer for life. Under your feet right now, schat, beer is flowing.",
       "funFact": "Since 2016 a 3.2 km underground pipeline has carried beer beneath the streets of Bruges, and top crowdfunders receive free beer for life.",
       "link": "https://www.halvemaan.be/en",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/bruges/halve-maan-brewery.jpg",
+        "credit": "Ricardalovesmonuments",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "begijnhof",
       "name": "Begijnhof Ten Wijngaarde",
       "lat": 51.2018,
-      "lng": 3.2230,
+      "lng": 3.223,
       "category": "hidden",
       "tagline": "A walled courtyard of white houses and 800 years of independent women",
       "story": "Cross the little bridge, pass under the gate, and lower your voice; this walled garden of white house-fronts, founded in 1245 under Margaret of Constantinople, asks for quiet and earns it. It was built for beguines, and here is what makes them remarkable: they were not nuns. They were laywomen, many widowed or unmarried, who lived devout, self-supporting lives, kept their own property, worked in the wool trade, and, when they chose, could simply leave and marry. In the thirteenth century that was a startling amount of freedom for a woman. The last beguines are long gone; Benedictine nuns have kept the courtyard since 1927, and UNESCO listed it in 1998. In spring it drowns in daffodils.",
       "funFact": "Beguines took no permanent vows, so unlike nuns they could own property and walk out at any time to marry.",
       "link": "https://en.wikipedia.org/wiki/Ten_Wijngaerde",
-      "itinerary": true
+      "itinerary": true,
+      "photo": {
+        "src": "photos/bruges/begijnhof.jpg",
+        "credit": "Pere prlpz",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "minnewater",
@@ -207,7 +304,12 @@
       "story": "They call this the Lake of Love, and with you standing on the bridge I will not argue, though a historian would grumble that it began life as the harbor basin where canal barges from Ghent tied up. The swans, though, those are a punishment. In 1488 Bruges rebelled and held Emperor Maximilian prisoner on the Markt, and executed his loyal councillor Pieter Lanchals, whose name means 'long neck' and whose emblem was a swan. When Maximilian regained power, legend says he sentenced Bruges to keep swans on her waters until the end of time. Five centuries on, we are still serving the sentence. Look at them gliding, schat. Some punishments, a city learns to love.",
       "funFact": "Legend holds that Bruges must keep swans forever as Emperor Maximilian's punishment for beheading his councillor Lanchals, whose name means 'long neck'.",
       "link": "https://en.wikipedia.org/wiki/Minnewater",
-      "itinerary": true
+      "itinerary": true,
+      "photo": {
+        "src": "photos/bruges/minnewater.jpg",
+        "credit": "Heribert Bechen, 5 million visits - many thanks!",
+        "license": "CC BY-SA 2.0"
+      }
     },
     {
       "id": "sint-janshuismolen",
@@ -219,7 +321,12 @@
       "story": "If your legs have anything left, follow the green ring of the old city ramparts east to the Kruisvest, where four windmills stand against the sky. The medieval defensive walls are gone, but their earthen banks became this promenade, and once more than twenty mills lined it, grinding the city's flour with sea wind. Sint-Janshuismolen is the veteran: built in 1770 by a group of bakers, and still milling grain on its original spot, wooden gears groaning like an old ship. Climb the steep stairs when it is open and you feel the whole tower shudder in the wind, echt waar. From up here the towers of Bruges line up like a painted backdrop.",
       "funFact": "Sint-Janshuismolen has stood and worked on the same spot since 1770 and still grinds flour today.",
       "link": "https://www.museabrugge.be/en",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/bruges/sint-janshuismolen.jpg",
+        "credit": "Tania Dey",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "frietkot",
@@ -231,19 +338,29 @@
       "story": "Let us settle something, once and forever: fries are Belgian. The story goes that villagers along the Meuse, who fried little fish, cut potatoes into fish shapes when the river froze, and a national religion was born. 'French' fries is a slander we blame on soldiers in the First World War who heard our troops speaking French and drew the wrong conclusion. The frietkot, the humble fry shack, is genuine Flemish heritage; for generations two of them stood right at the foot of the Belfry. The sacred method: fried twice, rested in between, served in a paper cone with a mountain of sauce. Your boys will inhale them. Order once, schat, and order again.",
       "funFact": "Bruges is home to the Frietmuseum, the world's only museum devoted entirely to fries.",
       "link": "https://en.wikipedia.org/wiki/Frietkot",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/bruges/frietkot.jpg",
+        "credit": "Laurent van Roy",
+        "license": "CC BY 2.5"
+      }
     },
     {
       "id": "chocolate-honesty",
       "name": "Real Chocolate vs Tourist Chocolate",
-      "lat": 51.2080,
+      "lat": 51.208,
       "lng": 3.2258,
       "category": "food",
       "tagline": "A chocolatier's guide to not getting fooled in his own city",
       "story": "Now we come to my family's trade, so listen closely, because Bruges holds some fifty chocolate shops and not all deserve you. The praline, a filled chocolate, was invented in Brussels in 1912 by Jean Neuhaus the younger, and Belgians have perfected it since. How to spot the real thing: the shop makes chocolate on the premises, the window changes with the seasons, the pralines are slightly imperfect because hands made them, and fresh cream fillings mean they must be eaten within weeks, not shipped home in a suitcase. Beware identical gold boxes, chocolate 'tools' and lipstick novelties, and anything that never melts in a warm window. Ask who tempered it this morning. A real chocolatier lights up. A reseller changes the subject, schat.",
       "funFact": "The ballotin, the classic Belgian chocolate box, was invented in 1915 by Louise Agostini, wife of praline inventor Jean Neuhaus II, so pralines would stop being crushed in paper cones.",
       "link": "https://en.wikipedia.org/wiki/Belgian_chocolate",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/bruges/chocolate-honesty.jpg",
+        "credit": "frank wouters from antwerpen, belgium",
+        "license": "CC BY 2.0"
+      }
     },
     {
       "id": "sint-salvator-cathedral",
@@ -255,7 +372,12 @@
       "story": "Poor Sint-Salvator never asked to be a cathedral. For nine centuries she was an ordinary parish church, praying in the shadow of grand Sint-Donaas on the Burg. Then French revolutionaries demolished Sint-Donaas, and when Bruges got her bishop back in 1834, this old workhorse was promoted overnight. Embarrassment followed: she looked too humble for the job, and after fire took the roof in 1839 the city hired an English architect, Robert Chantrell, to give her a mightier tower. He delivered that strange fortress top, 99 metres of it, and the reaction was so sour that the royal commission stuck a little spike on the summit without even asking him. Look up, schat. That tiny point is a committee's apology.",
       "funFact": "After complaints that Chantrell's rebuilt tower looked too flat, the royal commission added the small central spire without the architect's permission.",
       "link": "https://en.wikipedia.org/wiki/St._Salvator%27s_Cathedral",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/bruges/sint-salvator-cathedral.jpg",
+        "credit": "Cmcmcm1",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "jeruzalemkapel",
@@ -267,7 +389,12 @@
       "story": "In the quiet Sint-Anna quarter stands the strangest church in Bruges, and it is not even the city's. The Adornes family, Genoese traders grown rich here, built their own copy of Jerusalem's Church of the Holy Sepulchre in the fifteenth century, complete with an eastern tower that belongs on no Flemish skyline. Anselm Adornes, pilgrim, diplomat, knight of the Scottish Order of the Unicorn, planned to rest here beside his wife Margareta. Fate had edits: he was murdered in Scotland in 1483, his body buried at Linlithgow, and only his heart came home to the black tomb you see. The estate never left the family; his descendants, seventeen generations on, still own it. Medieval trade money built things tourists cannot buy.",
       "funFact": "Only Anselm Adornes' heart is buried in the chapel's tomb; his body lies in Linlithgow, Scotland, where he was murdered in 1483.",
       "link": "https://www.visitbruges.be/en/things-to-do/culture-and-heritage/adornesdomein-adornes-estate",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/bruges/jeruzalemkapel.jpg",
+        "credit": "Ricardalovesmonuments",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "sint-annakerk",
@@ -279,7 +406,12 @@
       "story": "Do not judge this one from the square; that is the point of her. Protestant rebels tore the Gothic original down in 1581, and when the parish rebuilt, consecrated in 1624, they kept the outside modest and spent everything indoors: a black-and-white marble rood screen, oak panelling with carved confessionals, and over the door a Last Judgment by Hendrik Herregouts of a hundred square metres, the largest painting in Bruges. Judgement, conveniently, is the last thing you see on the way out. This was the baptism church of Guido Gezelle, our greatest Flemish poet, dipped at the shell-shaped font as a baby in 1830. The day-trippers rarely find this quarter, which suits the neighbourhood fine.",
       "funFact": "The 100-square-metre Last Judgment hanging above the door is the largest painting in Bruges.",
       "link": "https://press.visitbruges.be/en/experiencing-bruges/storylines/religious-heritage/st-annes-church",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/bruges/sint-annakerk.jpg",
+        "credit": "Wolfgang Staudt",
+        "license": "CC BY 2.0"
+      }
     },
     {
       "id": "kantcentrum-balstraat",
@@ -291,7 +423,12 @@
       "story": "Lace is to Bruges women what chocolate is to my family: a craft, an income, and a test of honesty. From the sixteenth century, thousands of girls learned bobbin lace in schools like the one on this little street run by the Apostoline sisters; for poor households it was survival by fingertips. When the trade faded, the nuns themselves founded this centre in 1970 to keep the knowledge alive, and in the afternoons you can watch lacemakers at work, dozens of bobbins clicking like tiny hooves, hands moving too fast to follow. My rule for chocolate applies here, schat: ask who made it. Real Bruges lace comes off a cushion in front of you, not out of a shipping container.",
       "funFact": "The Kantcentrum was founded in 1970 by nuns of the old lace school, and live bobbin-lace demonstrations still run every afternoon.",
       "link": "https://www.kantcentrum.eu/en",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/bruges/kantcentrum-balstraat.jpg",
+        "credit": "Qwertzu111111",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "godshuis-de-vos",
@@ -303,7 +440,12 @@
       "story": "A few steps from the Minnewater swans, push gently on the gate in the low wall of Noordstraat and you enter another century. Christiaan de Vos built this almshouse in 1713 on a piece of his own back garden: six little whitewashed houses and a chapel around a square of green, free lodging for six poor widows who paid their rent in prayers for his soul. For 250 years a high wall hid it completely from the street; only in 1963 was it lowered so passers-by could peek in. People still live here, so walk soft and speak like you are in church. Purgatory insurance, we call these courtyards. My trade sells sweetness, schat; his bought eternity.",
       "funFact": "Godshuis De Vos stayed hidden behind a full-height wall until 1963, when it was replaced by the low one you can now see over.",
       "link": "https://www.visitbruges.be/en/things-to-do/culture-and-heritage/godshuizen-almshouses",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/bruges/godshuis-de-vos.jpg",
+        "credit": "Ricardalovesmonuments",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "boeveriestraat-godshuizen",
@@ -315,7 +457,12 @@
       "story": "Boeveriestraat, out in the west of the city, is the richest street in Bruges if you count in mercy instead of money. Its walls hide a chain of godshuizen, and the grandest is De Moor: thirteen little houses built in 1480 by Donaas de Moor, a wealthy magistrate, for aged craftsmen who could no longer climb scaffolds. History repaid him with a bitter joke; caught on the wrong side of a rebellion, he was banished from Flanders in 1483 and died in exile that very year, never growing old in his own city. His houses still shelter people five centuries on. Step into a courtyard, quietly. Charity here outlived the man, the guilds, and the politics that exiled him.",
       "funFact": "Donaas de Moor built these almshouses for the elderly in 1480, then was banished from Flanders and died in exile before he could grow old in Bruges himself.",
       "link": "https://inventaris.onroerenderfgoed.be/aanduidingsobjecten/21444",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/bruges/boeveriestraat-godshuizen.jpg",
+        "credit": "Marc Ryckaert",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "bonne-chieremolen",
@@ -327,7 +474,12 @@
       "story": "Of the four mills left on the Kruisvest ramparts, this one is my favourite fraud. A mill stood here from 1487, first grinding oak bark for the tanners' guild, later grain, until a November storm in 1903 simply blew the old veteran over. Bruges, unwilling to leave a gap in her skyline, went shopping: in 1911 the city bought a wooden post mill from the village of Olsene and re-erected it on the mound, christening it Bonne Chière after its fallen ancestors. And then? Nothing. It has never ground a single sack of grain in Bruges. It stands here purely to look prachtig against the evening sky, which, between us, is honest work too.",
       "funFact": "Brought from Olsene in 1911 to replace a storm-toppled predecessor, the Bonne Chièremolen has never actually milled anything in Bruges.",
       "link": "https://inventaris.onroerenderfgoed.be/erfgoedobjecten/83160",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/bruges/bonne-chieremolen.jpg",
+        "credit": "Sjaak Kempe",
+        "license": "CC BY 2.0"
+      }
     },
     {
       "id": "kruispoort",
@@ -339,19 +491,29 @@
       "story": "Nine gates once pierced the walls of Bruges; four survive, and this is the best preserved, a proper little castle built between 1401 and 1406 with octagonal towers watching the city side. It has seen some traffic, echt waar: Emperor Charles V rode in through this arch, Napoleon after him, and the German army after that. The bridges and outer gate are long gone, but inside, the stone benches where the gatekeepers sat through cold night watches are still there, polished by six centuries of waiting. Stand under the vault in the evening light and look along the moat. Every stranger who ever wanted Bruges, for her trade or for conquest, came through a door like this one.",
       "funFact": "Charles V, Napoleon, and the German army all entered Bruges through the Kruispoort.",
       "link": "https://www.visitbruges.be/en/things-to-do/culture-and-heritage/kruispoort-cross-gate",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/bruges/kruispoort.jpg",
+        "credit": "Tania Dey",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "gentpoort",
       "name": "Gentpoort",
-      "lat": 51.2030,
+      "lat": 51.203,
       "lng": 3.2346,
       "category": "landmark",
       "tagline": "Medieval border control, with a plague saint on duty",
       "story": "This was the door to Ghent, rebuilt around 1400 by the same master mason who raised the Kruispoort, and it worked like a valve: farmers, cloth, and taxes in, wool and trouble out. For the people inside, the gate was the edge of the known world; lock it at night and Bruges became an island. Look up at the niche over the roadway and you find Saint Adrian, posted there because the city believed he kept out the plague, the one invader no wall could stop. Cross to the far bank of the ring canal at dusk, when the brick glows and the lamps come on. Day-trippers never make it out here. Their loss is your quiet, schat.",
       "funFact": "The statue above the Gentpoort's roadway is Saint Adrian, placed there to guard Bruges against the plague.",
       "link": "https://www.visitbruges.be/en/things-to-do/culture-and-heritage/gentpoort-gate-ghent",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/bruges/gentpoort.jpg",
+        "credit": "Donarreiskoffer",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "gouden-handrei",
@@ -363,7 +525,12 @@
       "story": "Kom, this one I save for people I like. The Gouden-Handrei began as a moat, dug in the twelfth century along the first city wall, and when Bruges outgrew her defences it became a working canal; boats were still unloading here into the last century. Jan van Eyck lived and worked on the far side, which means the greatest eye in the history of painting studied this exact water. Today the back gardens step right down into it, and on a still August evening the houses hang upside down in the surface, perfect to the last brick. It took its name after 1700 from a house called the Golden Hand. Give me yours a moment, the cobbles dip just here. There. Prachtig, no?",
       "funFact": "The Gouden-Handrei began as the defensive moat of Bruges' first city wall, dug in the 12th century.",
       "link": "https://www.visitbruges.be/en/things-to-do/culture-and-heritage/gouden-handrei",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/bruges/gouden-handrei.jpg",
+        "credit": "Рустам Абдрахимов",
+        "license": "CC BY 3.0"
+      }
     },
     {
       "id": "spiegelrei",
@@ -375,7 +542,12 @@
       "story": "Spiegelrei means Mirror Quay, and in the evening it earns the name, but do not be fooled by the calm. This was the throat of medieval Europe's greatest port: seagoing ships rode this water nearly to the Markt, for the canal once continued past where Jan van Eyckplein now stands. Around it the trading nations kept their houses, and the street names still confess who lived here: Spanjaardstraat for the Spaniards, the Spaanse Loskaai where their ships unloaded, Oosterlingenplein for the Germans of the Hanse. When the Zwin silted shut, the mirror simply went still. Today students of the College of Europe live in a seventeenth-century house on the bank, young ambitious foreigners on this quay again, which I find lekker fitting.",
       "funFact": "The Spiegelrei canal originally continued past Jan van Eyckplein all the way to the Markt.",
       "link": "https://www.visitbruges.be/en/things-to-do/sights/canals-of-bruges",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/bruges/spiegelrei.jpg",
+        "credit": "Ricardalovesmonuments",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "ezelstraat",
@@ -387,7 +559,12 @@
       "story": "When you tire of windows arranged for tourists, walk the Ezelstraat, where Bruges shops for herself: galleries, a Victorian hat maker, second-hand finds, and yes, a rival of mine. Chocolaterie Spegelaere holds the longest family chocolate tradition in the city, famous for grapes of chocolate filled with marzipan; it costs me something to send you there, schat, but honesty is the family policy. Hans Memling, master painter, lived on this street five hundred years ago. Follow it to the end and the Ezelpoort waits, the Donkey Gate first raised in 1297 and named for the beasts that hauled cargo through it, now guarded only by swans on the moat. Locals, fair prices, and eight centuries of history in one straight line.",
       "funFact": "The street and its city gate are named for the donkeys that once hauled goods through the Ezelpoort.",
       "link": "https://press.visitbruges.be/en/experiencing-bruges/storylines/unusual-neighbourhoods/ezelstraat-and-sint-jakobsstraat",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/bruges/ezelstraat.jpg",
+        "credit": "Ricardalovesmonuments",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "sint-jakobskerk",
@@ -399,7 +576,12 @@
       "story": "Here is what medieval money did on Sundays. Sint-Jakob was the parish of the rich: the Burgundian dukes worshipped here when staying at the nearby Prinsenhof, and around them crowded Italian bankers like the Arnolfini and Portinari, courtiers, and guilds. Every guild wanted its own altar; the church held eighteen at its peak, and so much art piled up that people nicknamed it the treasure room. Notice the bronze scallop shell by the door: this is a station on the pilgrim road to Santiago de Compostela, and shells set across Bruges still trace the route. Inside, Ferry de Gros, treasurer of the Order of the Golden Fleece, lies on a two-storey tomb with both of his wives, a diplomatic arrangement I do not envy. Entry is free.",
       "funFact": "Ferry de Gros, treasurer of the Order of the Golden Fleece, is buried here on a double-decker tomb shared with his two wives.",
       "link": "https://en.wikipedia.org/wiki/St._James%27s_Church,_Bruges",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/bruges/sint-jakobskerk.jpg",
+        "credit": "Séraphin Vermote",
+        "license": "CC0"
+      }
     },
     {
       "id": "t-zand-concertgebouw",
@@ -411,7 +593,12 @@
       "story": "'t Zand is where Bruges stops pretending the Middle Ages never ended. Cattle markets filled this square for centuries, then the railway arrived; the first station, opened here in 1844, was dismantled in 1879 and rebuilt in the town of Ronse, where it was famously reassembled backwards, grand facade to the tracks. The Concertgebouw of 2002 is our honest answer to anyone who thinks Bruges is a museum: a concert hall wrapped in thousands of terracotta tiles echoing our rooftops, riding on more than 4,500 springs so the traffic tunnel below cannot shake the music. Half of Bruges calls it a masterpiece, half calls it a shipping crate, and both halves buy tickets. The Saturday market here is the real one.",
       "funFact": "Bruges' first railway station stood on 't Zand until 1879, when it was moved to Ronse and accidentally rebuilt facing backwards.",
       "link": "https://en.wikipedia.org/wiki/Concertgebouw,_Bruges",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/bruges/t-zand-concertgebouw.jpg",
+        "credit": "Wikifalcon",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "simon-stevinplein",
@@ -423,19 +610,29 @@
       "story": "Under these trees stood the Great Butchers' Hall until 1819; now the square belongs to café terraces and the bronze gentleman on the plinth, Simon Stevin, born in Bruges around 1548. You use his work daily: he championed decimal fractions, the little digits after the point in every price tag, including mine. He also built a sailing wagon for the Prince of Orange that carried 26 passengers along the beach faster than galloping horses. His statue caused a proper civic war, for Catholics called him a traitor who served the Protestant Dutch; the liberals won, but when inauguration day came in 1846 the bronze was not ready, so the city unveiled a plaster fake and swapped in the real one a year later. Very Bruges, that.",
       "funFact": "At the statue's 1846 inauguration the bronze was not finished, so the city unveiled a plaster replica and quietly swapped it out a year later.",
       "link": "https://www.visitbruges.be/en/things-to-do/culture-and-heritage/simon-stevinplein-simon-stevin-square",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/bruges/simon-stevinplein.jpg",
+        "credit": "Spotter2",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "koningin-astridpark",
       "name": "Koningin Astridpark",
-      "lat": 51.2060,
+      "lat": 51.206,
       "lng": 3.2316,
       "category": "park",
       "tagline": "A friary garden turned park, with the prettiest bandstand in Flanders",
       "story": "For five centuries Franciscan friars kept their garden here, until the French Revolution swept the monastery away. Bruges bought the land back, and in 1851 garden architect Egidius Rosseels sculpted this small masterpiece of illusion: little hills, a pond, dense green edges that make three hectares feel like open countryside in the middle of town. The painted bandstand stood in his very first drawings, and it remains the finest wet-weather picnic shelter in Flanders. The name honours Queen Astrid, adored across Belgium and killed in a car crash in 1935 at just 29; her bust watches the entrance. If the pond and its leafy alcoves look familiar, you have seen the film 'In Bruges'. Save me a bench by the bandstand, hm?",
       "funFact": "The park's pond and alcoves appear in the film 'In Bruges', and a food market fills its paths every Sunday morning.",
       "link": "https://www.visitbruges.be/en/things-to-do/culture-and-heritage/koningin-astridpark-queen-astrid-park",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/bruges/koningin-astridpark.jpg",
+        "credit": "Marc Ryckaert",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "de-garre",
@@ -447,7 +644,12 @@
       "story": "Between the Markt and the Burg, on busy Breidelstraat, thousands walk past a gap barely wider than a doorway and never see it. Slip in, and the Garre, the narrowest alley in Bruges, delivers you to Staminee de Garre, a tiny brown café stacked over three little floors since 1984. The house beer, Tripel van de Garre, is brewed exclusively for this room by Van Steenberge: eleven percent, poured just past half-glass under a crown of foam, served with a saucer of cheese cubes. It tastes like honeyed velvet and lies about its strength, so the house enforces a limit of three per guest. Take your husband, order two, and share a secret the whole street is missing. I will say nothing, schat.",
       "funFact": "Tripel van de Garre is so strong at 11% that the café caps every customer at three glasses.",
       "link": "https://degarre.be/",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/bruges/de-garre.jpg",
+        "credit": "Spotter2",
+        "license": "CC BY-SA 3.0"
+      }
     }
   ]
 }

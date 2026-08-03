@@ -2,7 +2,10 @@
   "city": "Paris",
   "citySlug": "paris",
   "language": "French",
-  "center": {"lat": 48.8666, "lng": 2.3333},
+  "center": {
+    "lat": 48.8666,
+    "lng": 2.3333
+  },
   "guide": {
     "name": "Julien",
     "title": "Your Parisian — ex-Sorbonne lecturer, full-time flâneur",
@@ -18,6 +21,25 @@
   },
   "pois": [
     {
+      "id": "elysees-ceramic",
+      "name": "Élysées Céramic — your bed",
+      "lat": 48.8777,
+      "lng": 2.2975,
+      "category": "stay",
+      "tagline": "Avenue de Wagram, 500 m up from the Arc — sleep inside an Art Nouveau prize-winner",
+      "story": "You chose better than you know, madame. Your hotel is the Céramic Hôtel of 1904, by Jules Lavirotte, the most flamboyant architect Art Nouveau ever let loose on Paris — and the facade above your head, all sculpted glazed sandstone, won the city's official facade competition in 1905. Look up before you go in: the ceramics are by Alexandre Bigot, a village chemistry teacher who saw Chinese porcelain at the 1889 fair and abandoned the classroom for the kiln. I understand the impulse completely. Now, your compass for the week: step out the door, and the Arc de Triomphe closes the avenue to your left. Walk toward it and all of Paris arranges itself around you; walk the other way, two minutes, and Rue Poncelet feeds you. The Métro at Ternes is around the corner. You cannot be lost here — only pleasantly delayed.",
+      "funFact": "Lavirotte's other famous facade, at 29 avenue Rapp, is so suggestive that guidebooks still blush describing it — the ceramic doorway is generally agreed to be the most risqué in Paris.",
+      "address": "34 Avenue de Wagram, 75008 Paris",
+      "phone": "+33142272030",
+      "link": "https://fr.wikipedia.org/wiki/C%C3%A9ramic_H%C3%B4tel",
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/elysees-ceramic.jpg",
+        "credit": "Tangopaso",
+        "license": "Public domain"
+      }
+    },
+    {
       "id": "marche-poncelet",
       "name": "Marché Poncelet (Rue Poncelet)",
       "lat": 48.8788,
@@ -27,7 +49,12 @@
       "story": "This little pedestrian street is where the 17th actually eats, and it is practically your doorstep. Fruit stalls spilling onto the cobbles, fishmongers shouting, butchers, bakers, the whole opera of French shopping. Do as the locals do: greet each vendor with bonjour before anything else, or be quietly judged forever. The jewel here is Alléosse, a true affineur, a cheese-ager who ripens his wheels in cellars like a winemaker. Buy a baguette, a wedge of Comté, some apricots, and you have lunch for four at a fraction of restaurant prices. Most stalls nap in the afternoon, so come before one o'clock. This street will feed you better than the Champs ever could.",
       "funFact": "An affineur like Alléosse matures cheeses in humid underground caves for months, turning good cheese into great cheese, a profession France treats as seriously as winemaking.",
       "link": "https://fr.wikipedia.org/wiki/Rue_Poncelet",
-      "itinerary": true
+      "itinerary": true,
+      "photo": {
+        "src": "photos/paris/marche-poncelet.jpg",
+        "credit": "Chabe01",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "parc-monceau",
@@ -39,7 +66,12 @@
       "story": "Spread your picnic here, chérie, on grass laid out in 1778 for the Duke of Chartres, a cousin of the king who wanted a garden of illusions: a Roman colonnade curving around a pond, a pyramid, fake ruins built new. It was a rich man's stage set, and it still feels pleasantly theatrical. The grand rotunda at the gate was a tollhouse of the tax wall that ringed Paris, one of the walls that helped start a revolution. Monet painted this park five times. And in 1797 a man named Garnerin drifted down into it, completing the first parachute jump in history from a balloon nearly a kilometer up. He landed roughly where you are eating your cheese.",
       "funFact": "André-Jacques Garnerin made history's first parachute descent here on 22 October 1797, jumping from a hydrogen balloon in a gondola swinging under a silk canopy.",
       "link": "https://en.wikipedia.org/wiki/Parc_Monceau",
-      "itinerary": true
+      "itinerary": true,
+      "photo": {
+        "src": "photos/paris/parc-monceau.jpg",
+        "credit": "Chabe01",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "galeries-lafayette-rooftop",
@@ -51,7 +83,12 @@
       "story": "Yes, it is a department store, and no, we are not shopping. We ride the escalators past the handbags like royalty with somewhere better to be. Pause under the great glass dome, forty-three meters of Art Nouveau stained glass from 1912, a cathedral built to worship commerce. Then to the roof, where Paris unrolls for free: the Opéra directly below, the Eiffel Tower, Montmartre on its hill. In 1919 an aviator named Jules Védrines actually landed his biplane on this roof to win a 25,000-franc prize. The landing strip was barely bigger than a tennis court. He collected the prize and a fine from the police in the same week.",
       "funFact": "Védrines' 1919 rooftop landing here was so dangerous that the authorities fined him for it, though the fine was smaller than his prize money.",
       "link": "https://en.wikipedia.org/wiki/Galeries_Lafayette_Haussmann",
-      "itinerary": true
+      "itinerary": true,
+      "photo": {
+        "src": "photos/paris/galeries-lafayette-rooftop.jpg",
+        "credit": "Chabe01",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "rue-des-martyrs",
@@ -63,19 +100,29 @@
       "story": "The name is the clue: by legend, Saint Denis, the first bishop of Paris, was beheaded on Montmartre around the year 250, then picked up his own head and walked, preaching the whole way. This street follows the old pilgrim route toward his hill. Today the martyrdom is strictly voluntary, and it is caloric. Cheese shops, fishmongers, greengrocers, pâtisseries, one after another for half a mile uphill, nearly two hundred small merchants. An American journalist wrote an entire book about this one street and called it the last real village in Paris. Buy a pastry at the bottom, another near the top, and consider it research. I will not tell anyone, madame.",
       "funFact": "Saint Denis is the most famous of the cephalophores, headless saints depicted carrying their own heads, and Notre-Dame's facade shows him doing exactly that.",
       "link": "https://en.wikipedia.org/wiki/Rue_des_Martyrs",
-      "itinerary": true
+      "itinerary": true,
+      "photo": {
+        "src": "photos/paris/rue-des-martyrs.jpg",
+        "credit": "A bit iffy",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "arc-de-triomphe",
       "name": "Arc de Triomphe",
       "lat": 48.8738,
-      "lng": 2.2950,
+      "lng": 2.295,
       "category": "landmark",
       "tagline": "284 steps to the best paid view in Paris",
       "story": "Napoleon ordered this in 1806 after Austerlitz, promising his soldiers they would go home under a triumphal arch. Then his fortunes collapsed, and the arch sat unfinished for decades. For his 1810 wedding procession they had to fake it with a full-size mock-up of wood and painted canvas. He never saw it completed; only his coffin passed beneath it, in 1840. Under the arch burns the flame of the Unknown Soldier, rekindled every evening at 6:30 since 1923. Now climb, all 284 steps, and from the top count the twelve avenues bursting outward like a star. It is the one view that includes the Eiffel Tower, which is why I prefer it. Take her up at dusk, monsieur, and thank me later.",
       "funFact": "In 1919 pilot Charles Godefroy flew a biplane straight through the arch, with about a meter and a half of clearance on each side of his wings.",
       "link": "https://en.wikipedia.org/wiki/Arc_de_Triomphe",
-      "itinerary": true
+      "itinerary": true,
+      "photo": {
+        "src": "photos/paris/arc-de-triomphe.jpg",
+        "credit": "Jiuguang Wang",
+        "license": "CC BY-SA 2.0"
+      }
     },
     {
       "id": "eiffel-tower",
@@ -87,19 +134,29 @@
       "story": "You are taking the stairs? Formidable. Let the day-trippers stew in the elevator queue, chérie; we climb, all 674 steps to the second floor, inside the iron lattice where you can actually touch the thing. When Gustave Eiffel built it for the 1889 World's Fair, three hundred artists signed a furious protest calling it a useless, monstrous factory chimney. It was meant to stand twenty years. The writer Maupassant supposedly lunched in its restaurant daily because it was the only place in Paris he could not see it. The tower is repainted by hand every few years, sixty tons of paint, and on hot August days like yours the iron expands and the whole thing grows up to fifteen centimeters taller. You are climbing her at her tallest.",
       "funFact": "In 1925 the con man Victor Lustig 'sold' the Eiffel Tower for scrap to a dealer, and the swindle worked so smoothly he came back and tried it again.",
       "link": "https://en.wikipedia.org/wiki/Eiffel_Tower",
-      "itinerary": true
+      "itinerary": true,
+      "photo": {
+        "src": "photos/paris/eiffel-tower.jpg",
+        "credit": "Benh LIEU SONG",
+        "license": "Public domain"
+      }
     },
     {
       "id": "notre-dame",
       "name": "Notre-Dame de Paris",
-      "lat": 48.8530,
+      "lat": 48.853,
       "lng": 2.3499,
       "category": "landmark",
       "tagline": "860 years old, reborn from the fire, free to enter",
       "story": "Begun in 1163, and when the fire came in April 2019 the whole world watched her spire fall. What you are walking into is a resurrection: reopened in December 2024, the stone cleaned to a blondness no living person had ever seen. Two thousand oaks became the new roof, built with medieval carpentry techniques. Look up at the gallery of grimacing creatures; the famous brooding chimeras are actually 19th-century additions by the restorer Viollet-le-Duc, who also put a statue of himself among the apostles on the spire. Atop the new spire sits a golden rooster containing holy relics, a phoenix now, officially. Before you enter, find the brass star in the pavement outside: point zéro, from which all distances in France are measured. You are standing at kilometer zero of an entire country.",
       "funFact": "Four days before the 2019 fire, the sixteen copper statues on the spire had been craned off for restoration, and the cathedral's rooftop bees also survived the blaze.",
       "link": "https://en.wikipedia.org/wiki/Notre-Dame_de_Paris",
-      "itinerary": true
+      "itinerary": true,
+      "photo": {
+        "src": "photos/paris/notre-dame.jpg",
+        "credit": "Ali Sabbagh",
+        "license": "CC0"
+      }
     },
     {
       "id": "jardin-du-luxembourg",
@@ -111,7 +168,12 @@
       "story": "Marie de Médicis, homesick Italian widow of Henri IV, built this palace and garden from 1612 to remind her of Florence. Today the French Senate sits in her palace, and the garden belongs to everyone, which is very Paris. Head for the octagonal Grand Bassin. For a few euros in coins, your eleven-year-old rents a handmade wooden sailboat, pushes it off with a bamboo stick, and waits for the wind to bring it back, exactly as children have done here since 1927. The boats have numbers and flags of many nations; choosing is half the game. Claim two of the famous green metal chairs, tilt them toward the sun, and watch. Some afternoons need no history lecture, n'est-ce pas?",
       "funFact": "The garden hides a small Statue of Liberty by Bartholdi himself, and it has run its own beekeeping school in the southwest corner since 1856.",
       "link": "https://en.wikipedia.org/wiki/Jardin_du_Luxembourg",
-      "itinerary": true
+      "itinerary": true,
+      "photo": {
+        "src": "photos/paris/jardin-du-luxembourg.jpg",
+        "credit": "Kirua",
+        "license": "Public domain"
+      }
     },
     {
       "id": "rue-mouffetard",
@@ -123,7 +185,12 @@
       "story": "You are walking on one of the oldest streets in Paris, the Roman road that left Lutetia heading for Italy two thousand years ago. It never straightened out, and thank heaven. Hemingway lived around the corner in the 1920s, poor and happy, and called this 'that wonderful narrow crowded market street' in A Moveable Feast. Start at Place de la Contrescarpe at the top and let gravity pull you down past cheese shops, crêpe stands, and greengrocers to the church at the bottom, where the market stalls cluster. In 1938, workers demolishing number 53 found over three thousand gold coins stashed in the walls, the hidden fortune of a royal counselor who vanished in 1757. Check the walls, madame. One never knows.",
       "funFact": "The 3,351 gold coins found at 53 rue Mouffetard in 1938 came with a will naming the hoarder's daughter, so after 181 years his descendants actually inherited.",
       "link": "https://en.wikipedia.org/wiki/Rue_Mouffetard",
-      "itinerary": true
+      "itinerary": true,
+      "photo": {
+        "src": "photos/paris/rue-mouffetard.jpg",
+        "credit": "David Monniaux",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "place-des-vosges",
@@ -135,7 +202,12 @@
       "story": "Henri IV ordered this square in 1605, and it opened in 1612 with a magnificent party for a royal engagement. Thirty-six houses, nine per side, all matching, arcades below and steep slate roofs above. It was the prototype for elegant squares across Europe, and for once the prototype is still the best. Look closely at the 'brick' facades: some builders cheated with plaster painted to look like brick, and four hundred years later the fraud is still holding up, which I find very French. Victor Hugo lived sixteen years at number 6, writing much of Les Misérables. The name honors the Vosges region, first to pay its taxes to the Revolutionary government. Immortality through prompt tax payment; there is hope for us all. Sit under the arcades with the boys and something sweet.",
       "funFact": "Before becoming a square this was the site of a royal palace where King Henri II died in 1559 of a jousting wound, after which his widow had the palace demolished.",
       "link": "https://en.wikipedia.org/wiki/Place_des_Vosges",
-      "itinerary": true
+      "itinerary": true,
+      "photo": {
+        "src": "photos/paris/place-des-vosges.jpg",
+        "credit": "Des Racines et des Ailes",
+        "license": "CC BY 3.0"
+      }
     },
     {
       "id": "rue-des-rosiers",
@@ -147,7 +219,12 @@
       "story": "The street of the rosebushes, named for gardens that bloomed along the old city wall. Jewish Parisians have lived on this street since the 1200s, through expulsions, returns, and the darkest chapter of all, the deportations of the 1940s; look for the plaques on the school walls. Today it is the beating heart of the Pletzl, 'little place' in Yiddish, and the falafel here is the best in Europe, eaten standing up from a pita dripping tahini. One warning from your devoted guide: the famous L'As du Fallafel is kosher and closes all day Saturday, exactly your day. No tragedy. Its rivals Mi-Va-Mi and Chez Hanna stand meters away, and Miznon around the corner roasts a cauliflower that converts carnivores.",
       "funFact": "L'As du Fallafel's green storefront proudly quotes its most famous regular, the musician Lenny Kravitz, who declared it the best falafel in the world.",
       "link": "https://en.wikipedia.org/wiki/Rue_des_Rosiers",
-      "itinerary": true
+      "itinerary": true,
+      "photo": {
+        "src": "photos/paris/rue-des-rosiers.jpg",
+        "credit": "Chabe01",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "marche-des-enfants-rouges",
@@ -159,7 +236,12 @@
       "story": "The oldest covered market in Paris, trading under Louis XIII, 1615 by most tellings, 1628 by the fussier archives. Either way, food has been sold on this spot for four centuries. The name, Market of the Red Children, remembers an orphanage founded by the king's sister-in-law's line in 1534, whose children wore red, the color of Christian charity. In the 1990s the city nearly demolished it for a parking lot; the neighborhood revolted, and it reopened in 2000. Today it is half market, half open-air canteen: Moroccan couscous, Japanese bento, Lebanese mezze, crêpes, elbow to elbow at shared tables. Arrive at noon sharp or after 2:30, or you will queue like a tourist, and we do not queue like tourists.",
       "funFact": "The market survived four centuries of kings, revolutions, and wars, only to nearly become a parking lot in the 1990s until residents fought city hall and won.",
       "link": "https://en.wikipedia.org/wiki/March%C3%A9_des_Enfants_Rouges",
-      "itinerary": true
+      "itinerary": true,
+      "photo": {
+        "src": "photos/paris/marche-des-enfants-rouges.jpg",
+        "credit": "Connie Ma from Chicago, United States of America",
+        "license": "CC BY-SA 2.0"
+      }
     },
     {
       "id": "sacre-coeur",
@@ -171,7 +253,12 @@
       "story": "That improbable white meringue on the hill is younger than it looks, built between 1875 and 1914 as an act of national penance after France's defeat by Prussia and the bloody Commune uprising. Half of Paris hated it then; some artists still sniff at it. But here is its secret: the travertine stone, from quarries at Château-Landon, exudes a chalky substance called calcin when it rains, so the basilica washes itself whiter with every storm. It has never been cleaned; the weather does it. Inside hangs the Savoyarde, at nearly nineteen tons the largest bell in France, hauled up the hill in 1895 by a team of horses. Climb the dome if the boys have legs left, about 300 steps, pay at the door.",
       "funFact": "Prayer inside Sacré-Cœur has continued uninterrupted, day and night, since 1885, through two world wars, including the nights bombs fell nearby in 1944.",
       "link": "https://en.wikipedia.org/wiki/Sacr%C3%A9-C%C5%93ur,_Paris",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/sacre-coeur.jpg",
+        "credit": "Tonchino",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "place-du-tertre",
@@ -183,7 +270,12 @@
       "story": "I must be honest with you, madame, it is my only flaw. This was the village square of Montmartre when Montmartre was a real village outside Paris, full of windmills and cheap wine. Picasso and Utrillo drank nearby when they were poor and unknown. Today it is a gauntlet of portrait artists and forty-euro omelettes. Yet there is one true curiosity: those artist pitches are licensed by the city, each about one square meter, two artists sharing each spot on alternating days, and the waiting list for a license runs on the order of a decade. Cross the square once for the atmosphere, keep your wallet deep in your pocket, decline the portraits with a smile, and slip out the quiet side toward the vineyard.",
       "funFact": "Montmartre was an independent village until 1860, and its bohemian residents once cheekily declared it a 'free commune' with its own mock elections.",
       "link": "https://en.wikipedia.org/wiki/Place_du_Tertre",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/place-du-tertre.jpg",
+        "credit": "Pierre Blaché from Paris, France",
+        "license": "CC0"
+      }
     },
     {
       "id": "clos-montmartre",
@@ -195,7 +287,12 @@
       "story": "Peer through the fence on Rue Saint-Vincent: rows of vines on a Paris hillside. Montmartre was wine country for centuries, cheap wine that filled the village taverns, before the city swallowed the hill. When developers circled this last slope in the early 1930s, the neighborhood outmaneuvered them by planting a vineyard in 1933, since a working vineyard is rather hard to bulldoze politically. The wine is harvested every October with a rowdy festival, the Fête des Vendanges, and the bottles are auctioned off for neighborhood charities. Is the wine good? An old saying claimed Montmartre wine made you 'drink a pint and piss a quart.' It was never about the wine, chérie. It was about winning.",
       "funFact": "The vineyard was planted in 1933 largely as a legal maneuver to block real-estate development, making it perhaps the only vineyard created out of spite.",
       "link": "https://en.wikipedia.org/wiki/Clos_Montmartre",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/clos-montmartre.jpg",
+        "credit": "Tangopaso",
+        "license": "Public domain"
+      }
     },
     {
       "id": "rue-de-labreuvoir",
@@ -207,7 +304,12 @@
       "story": "This short cobbled lane, 'street of the watering trough,' once led the village livestock down to drink. Now it may be the most painted street in Paris. The pink house on the corner, La Maison Rose, was run in the early 1900s by Germaine Pichot, a woman tangled in the tragedy that pushed young Picasso into his Blue Period, and Utrillo painted the house into immortality. Walk downhill and you arrive at Place Dalida, with the bronze bust of the beloved singer who lived and died in Montmartre. You will notice her décolletage gleams gold; passersby rub it for luck. I would never suggest such a thing to a married woman, madame. The view of the lane from her statue, however, I insist upon.",
       "funFact": "Tourists rubbing Dalida's bronze bust for luck have polished her chest to a bright gold shine while the rest of the statue stays dark.",
       "link": "https://fr.wikipedia.org/wiki/Rue_de_l%27Abreuvoir",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/rue-de-labreuvoir.jpg",
+        "credit": "Joe deSousa",
+        "license": "CC0"
+      }
     },
     {
       "id": "rue-denoyez",
@@ -219,7 +321,12 @@
       "story": "For your sixteen-year-old, this beats any museum. Rue Dénoyez in Belleville is wall-to-wall street art, top to bottom, and it changes constantly; painting here is tolerated, so artists work in the open and yesterday's masterpiece is today's canvas. Photograph what you like, because it will not exist next month. Belleville itself was a rough, joyous village of taverns and dance halls before Paris absorbed it in 1860, and it stayed the city's great working-class hill. Édith Piaf grew up in these streets; a plaque at 72 rue de Belleville repeats the legend that she was born right on the steps, under a lamppost. The hospital records say otherwise, but Belleville has never let paperwork spoil a good story.",
       "funFact": "The legend that Piaf was born on a Belleville doorstep is commemorated with an official plaque, even though she was almost certainly born in a nearby hospital.",
       "link": "https://fr.wikipedia.org/wiki/Rue_D%C3%A9noyez",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/rue-denoyez.jpg",
+        "credit": "Wikinade",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "parc-de-belleville-belvedere",
@@ -231,7 +338,12 @@
       "story": "Climb to the terrace at the top of Parc de Belleville and there it is: all of Paris at your feet, Eiffel Tower included, and almost no tourists beside you. This is the highest park in the city, laid out only in 1988 on a slope with a long, disreputable, wonderful past: gypsum quarries beneath, vineyards above, and for centuries the guinguettes, drinking gardens where Parisians came on Sundays because wine outside the city tax wall was cheaper. A small vineyard on the slope still nods to that history. Sunset here, with a bakery haul from the streets below, is one of the great free evenings Paris offers. The rich paid fortunes for west-facing views. Belleville got them for nothing.",
       "funFact": "Belleville's slopes once supplied Paris with cheap tax-free wine, and the hill held some of the largest concentration of drinking gardens outside the old city walls.",
       "link": "https://en.wikipedia.org/wiki/Parc_de_Belleville",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/parc-de-belleville-belvedere.jpg",
+        "credit": "Chabe01",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "parc-des-buttes-chaumont",
@@ -243,19 +355,29 @@
       "story": "The most dramatic park in Paris is an act of complete invention. This was a gypsum quarry, the very stuff of 'plaster of Paris,' plus assorted horrors: a dumping ground, and near the old gibbet where medieval Paris hung its criminals. For the 1867 World's Fair, Napoleon III's engineers dynamited the quarry into a romantic landscape: a fifty-meter cliff, a lake, a waterfall inside an artificial grotto with fake stalactites, and a little Roman temple perched on the summit, copied from the Temple of Vesta at Tivoli. Cross the suspension footbridge to the island and climb to the temple; the view to Montmartre is superb. Everything you see is scenery, and after 150 years the trick still works completely.",
       "funFact": "The park's grotto waterfall and stalactites are entirely artificial, built by the same Second Empire engineers who manufactured its cliff and lake from a spent quarry.",
       "link": "https://en.wikipedia.org/wiki/Parc_des_Buttes_Chaumont",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/parc-des-buttes-chaumont.jpg",
+        "credit": "Clem from Paris, France",
+        "license": "CC BY-SA 2.0"
+      }
     },
     {
       "id": "canal-saint-martin",
       "name": "Canal Saint-Martin",
-      "lat": 48.8720,
+      "lat": 48.872,
       "lng": 2.3657,
       "category": "street",
       "tagline": "Iron footbridges, working locks, Amélie's skipping stones",
       "story": "Napoleon ordered this canal in 1802 to bring clean drinking water to a city that badly needed it, and paid for it with a tax on wine, which must be the most Parisian financing in history. It opened in 1825. Walk the stretch along Quai de Valmy: arched iron footbridges, chestnut trees, and locks that still work; wait a few minutes and you may see a boat rise like an elevator. Amélie skipped stones here in the film, and half of young Paris now picnics along the edges on summer evenings. Further south the canal simply vanishes, running two kilometers underground beneath the boulevards. Every decade or so the city drains it, and the reveal is always spectacular: bicycles, café chairs, once even a bathtub.",
       "funFact": "When the canal was drained in 2016, workers hauled out roughly forty tons of debris, including dozens of bicycles and at least one full-sized bathtub.",
       "link": "https://en.wikipedia.org/wiki/Canal_Saint-Martin",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/canal-saint-martin.jpg",
+        "credit": "Coyau",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "bassin-de-la-villette",
@@ -267,19 +389,29 @@
       "story": "The canal walk ends at this broad basin, the largest artificial lake in Paris, dug on Napoleon's orders and opened in 1808 to store the city's drinking water. For a century it was a workhorse industrial port; now, every summer, it becomes Paris Plages, the city's pop-up beach: free kayaks and pedal boats, games, loungers, an open-air library, all courtesy of city hall. Your boys can burn an hour here for nothing. At the southern end stands the Rotonde, a grand round tollhouse from the 1780s, one of the surviving gates of the tax wall Parisians hated so much they attacked it before storming the Bastille. Taxes come and go; the architecture, annoyingly, is lovely.",
       "funFact": "The MK2 cinemas facing each other across the basin are linked by their own little ferry boat that shuttles moviegoers from one bank to the other.",
       "link": "https://en.wikipedia.org/wiki/Bassin_de_la_Villette",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/bassin-de-la-villette.jpg",
+        "credit": "Wikimedia Commons",
+        "license": "FAL"
+      }
     },
     {
       "id": "coulee-verte",
       "name": "Coulée verte René-Dumont",
       "lat": 48.8484,
-      "lng": 2.3730,
+      "lng": 2.373,
       "category": "park",
       "tagline": "The elevated garden walkway that inspired New York's High Line",
       "story": "New Yorkers are very proud of their High Line. Do not mention, unless provoked, that Paris did it first, by sixteen years. This is the Coulée verte, opened in 1993 on the old Vincennes railway viaduct of 1859, whose trains stopped running in 1969. For nearly five kilometers you walk at rooftop height through rose arbors, lavender, and bamboo corridors, peering into Parisian apartments like a polite ghost, from Bastille all the way toward the Bois de Vincennes. Below your feet, the brick arches of the viaduct house the Viaduc des Arts, workshops of cabinetmakers, luthiers, and restorers. Pedestrians only up top, no bicycles, which keeps it calm. Walk even twenty minutes of it and you will understand the city differently.",
       "funFact": "The designers of New York's High Line explicitly cited this Paris promenade, opened in 1993, as the inspiration for their own elevated park.",
       "link": "https://en.wikipedia.org/wiki/Coul%C3%A9e_verte_Ren%C3%A9-Dumont",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/coulee-verte.jpg",
+        "credit": "Guilhem Vellut from Paris, France",
+        "license": "CC BY 2.0"
+      }
     },
     {
       "id": "marche-daligre",
@@ -291,7 +423,12 @@
       "story": "If you want to see Paris shop without performing for anyone, come here. The Aligre market has traded since the 1770s, older than the Revolution, and it remains defiantly cheap; the outdoor stalls on the square undercut nearly every market in the city, with vendors hollering prices like auctioneers. It is a genuine mix: North African spice stands, old Parisian ladies with trolleys, chefs buying crates. The covered Beauvau hall alongside holds the fancier cheeses and meats. On the square there is even a small flea market of books and bric-a-brac, where patience is occasionally rewarded. Come in the morning, Tuesday through Sunday. Your picnic budget will go further here than anywhere else I could send you, and I sense you appreciate a bargain hunted well.",
       "funFact": "Revolutionary crowds from this faubourg were among the fiercest in 1789, and the neighborhood around the market has been working-class and proud of it ever since.",
       "link": "https://en.wikipedia.org/wiki/March%C3%A9_d%27Aligre",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/marche-daligre.jpg",
+        "credit": "Jesús Gorriti",
+        "license": "CC BY-SA 2.0"
+      }
     },
     {
       "id": "catacombs",
@@ -303,31 +440,46 @@
       "story": "Twenty meters beneath the traffic lies the tidiest horror in Europe. By the 1780s the city's cemeteries were overflowing, quite literally, into neighbors' cellars, so Paris moved its dead into the old limestone quarries. For decades, carts draped in black crossed the city at night, priests chanting behind them, transferring the remains of some six million people. Quarry workers stacked the bones with unsettling artistry: walls of femurs, patterns of skulls. Above the entrance to the ossuary a carved lintel warns: Stop! This is the empire of death. Your sixteen-year-old will be delighted. Book exactly seven days ahead online or forget it; the tickets vanish in hours. The visit runs about a mile underground at a steady 14 degrees, bliss in August.",
       "funFact": "A hospital doorkeeper named Philibert Aspairt vanished in the quarry tunnels in 1793; his body was found eleven years later and buried where it lay, tomb and all.",
       "link": "https://en.wikipedia.org/wiki/Catacombs_of_Paris",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/catacombs.jpg",
+        "credit": "Diego Delso",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "louvre-pyramid",
       "name": "Louvre Pyramid & Cour Napoléon",
-      "lat": 48.8610,
+      "lat": 48.861,
       "lng": 2.3358,
       "category": "landmark",
       "tagline": "The world's greatest museum, admired correctly: from outside",
       "story": "So you are skipping the Louvre. Madame, I taught art history and I approve; the Mona Lisa in August is thirty seconds of a small painting viewed over four hundred phones. The building itself is the masterpiece anyway, eight centuries in one facade: medieval fortress, Renaissance palace, royal residence until Louis XIV decamped to Versailles, museum since the Revolution. Stand in the courtyard at the glass pyramid, which scandalized Paris when I. M. Pei unveiled it in 1989, a modernist diamond among kings. Parisians now defend it fiercely, which is how Paris loves: first outrage, then possession. Touch the pyramid, take the photo through the little pyramid fountains, and stroll on to the Tuileries with your afternoon intact and your feet grateful.",
       "funFact": "A persistent legend claims the pyramid has exactly 666 glass panes; the Louvre has had to state officially that the number is 673.",
       "link": "https://en.wikipedia.org/wiki/Louvre_Pyramid",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/louvre-pyramid.jpg",
+        "credit": "Benh LIEU SONG (Flickr)",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "tuileries",
       "name": "Jardin des Tuileries",
       "lat": 48.8636,
-      "lng": 2.3270,
+      "lng": 2.327,
       "category": "park",
       "tagline": "Catherine de' Medici's garden, minus her palace",
       "story": "This garden is named for tile kilns, tuileries, that once smoked here outside the walls. Catherine de' Medici claimed the ground in 1564 for an Italian palace and garden; a century later Le Nôtre, gardener of Versailles, straightened it into the grand green axis you see, and it became one of the first royal gardens opened to the Parisian public. The palace itself is missing: the Tuileries Palace burned in 1871 during the Commune, and the ruins were cleared, leaving the garden strangely, beautifully unmoored. Take a green chair by one of the round ponds; napping in them is a protected Parisian custom. And in December 1783, half of Paris stood here watching a man leave the earth, chérie. Some gardens grow flowers; this one grew flight.",
       "funFact": "On 1 December 1783 the physicist Jacques Charles launched the first manned hydrogen balloon from this garden before a crowd estimated at 400,000 people.",
       "link": "https://en.wikipedia.org/wiki/Tuileries_Garden",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/tuileries.jpg",
+        "credit": "Guilhem Vellut from Tokyo, Japan",
+        "license": "CC BY 2.0"
+      }
     },
     {
       "id": "palais-garnier",
@@ -339,7 +491,12 @@
       "story": "When Empress Eugénie saw the plans she protested that this was no known style, not Greek, not Louis XVI. The young architect replied: it is Napoléon III style, Madame. Charles Garnier won that exchange and, in 1875, gave Paris the most extravagant building of its century, all gilt, marble, and a staircase built for being seen upon. The delicious parts are hidden: beneath the building lies a real water tank, the 'lake' that inspired Gaston Leroux's Phantom of the Opera, and Paris firefighters still train for underwater rescue in it. In 1896 a counterweight from the grand chandelier really did fall on the audience, killing a concierge; Leroux read the newspapers and gave us the world's most famous falling chandelier.",
       "funFact": "Beehives have lived on the opera's roof since the 1980s, and the honey harvested above the ballet rehearsals has been sold in luxury shops nearby.",
       "link": "https://en.wikipedia.org/wiki/Palais_Garnier",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/palais-garnier.jpg",
+        "credit": "Peter Rivera",
+        "license": "CC BY 2.0"
+      }
     },
     {
       "id": "pont-neuf",
@@ -351,7 +508,12 @@
       "story": "The New Bridge, completed in 1607, is now the oldest bridge standing over the Seine. Parisian irony ages well. It was revolutionary in its day for what it lacked: no houses. Every other bridge was lined with buildings, so crossing one felt like a corridor; here, for the first time, ordinary people could stand on a bridge and simply look at their river. It even had sidewalks, a novelty. The bridge instantly became the city's stage: jugglers, tooth-pullers, pickpockets, booksellers. Study the stone cornices as you cross: hundreds of carved grotesque faces, the mascarons, each one different, leer down at the water. Henri IV rides in bronze at the middle, where the bridge touches the island. Say hello; you will meet his nickname at the next stop.",
       "funFact": "In 1985 the artists Christo and Jeanne-Claude wrapped the entire Pont Neuf in 40,000 square meters of golden fabric for two weeks.",
       "link": "https://en.wikipedia.org/wiki/Pont_Neuf",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/pont-neuf.jpg",
+        "credit": "Rmrfstar",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "square-du-vert-galant",
@@ -363,7 +525,12 @@
       "story": "Take the stairs behind the Henri IV statue down to this leafy point at the very tip of the Île de la Cité, sitting at the island's original level, below today's streets. It is named for Henri himself: le Vert Galant, 'the evergreen gallant,' because the man remained an incorrigible charmer to the end of his days. A king after my own heart, madame, though I flatter myself I am better behaved. The point has darker memories: near this spot in 1314, Jacques de Molay, last Grand Master of the Templars, was burned at the stake, reportedly cursing king and pope from the flames; both were dead within the year. Today it is the finest picnic prow in Paris, water on both sides, willows trailing. Dark history, excellent sunsets. Very Paris.",
       "funFact": "The square sits on what was once a separate islet, joined to the Île de la Cité during the building of the Pont Neuf in the late 1500s.",
       "link": "https://en.wikipedia.org/wiki/Square_du_Vert-Galant",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/square-du-vert-galant.jpg",
+        "credit": "Inocybe - Piero d'Houin",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "ile-saint-louis-berthillon",
@@ -375,7 +542,12 @@
       "story": "This little island was cow pasture until the 1600s, when speculators stitched two islets together and built one of Europe's first planned neighborhoods, all in one elegant go. It has barely changed since: one main street, seventeenth-century mansions, no Métro station, a village floating in the middle of Paris. The pilgrimage here is Berthillon, the family glacier making ice cream on this island since 1954, in flavors like salted caramel and wild strawberry that justify the fuss. Now, a warning delivered with love: the Berthillon shop itself traditionally closes for summer holidays, in true Parisian fashion, precisely when ice cream is most needed. Do not despair. Half the cafés on the island sell genuine Berthillon; look for the sign. Cone in hand, walk the quays. That is the whole itinerary, chérie, and it is enough.",
       "funFact": "The island's ice cream dynasty was a family secret at their café until a 1961 review by the Gault et Millau food critics made Berthillon suddenly, permanently famous.",
       "link": "https://en.wikipedia.org/wiki/%C3%8Ele_Saint-Louis",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/ile-saint-louis-berthillon.jpg",
+        "credit": "Jean-Pierre Dalbéra",
+        "license": "CC BY 2.0"
+      }
     },
     {
       "id": "shakespeare-and-company",
@@ -387,19 +559,29 @@
       "story": "Facing Notre-Dame across the river stands the most romantic bookshop on earth. The name honors Sylvia Beach's original shop, hangout of Hemingway and Joyce, which dared to publish Ulysses in 1922 when no one else would. This incarnation was opened in 1951 by George Whitman, an American who ran it like a socialist utopia with better books: aspiring writers, called Tumbleweeds, could sleep in the shop among the shelves in exchange for helping a couple of hours, reading a book a day, and writing a one-page autobiography for the archives. Tens of thousands have. Painted over one doorway inside: 'Be not inhospitable to strangers lest they be angels in disguise.' Buy your sixteen-year-old a book here and have it stamped; the stamp is the souvenir.",
       "funFact": "George Whitman named his daughter Sylvia after Sylvia Beach, and she runs the bookshop today, continuing the tradition of letting writers sleep among the shelves.",
       "link": "https://en.wikipedia.org/wiki/Shakespeare_and_Company_(bookstore)",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/shakespeare-and-company.jpg",
+        "credit": "Shadowgate from Novara, ITALY",
+        "license": "CC BY 2.0"
+      }
     },
     {
       "id": "sainte-chapelle",
       "name": "Sainte-Chapelle",
       "lat": 48.8554,
-      "lng": 2.3450,
+      "lng": 2.345,
       "category": "landmark",
       "tagline": "A jewel box of glass built for a crown of thorns",
       "story": "If you make one exception to your no-museums rule, twenty minutes here on a bright afternoon is my nomination. King Louis IX, the future Saint Louis, bought what he believed was Christ's Crown of Thorns from the desperate emperor of Constantinople, paying roughly three times more for the relic than for the entire chapel he built to house it. The building went up in about seven years, finished by 1248, which for the Middle Ages is practically overnight. Upstairs, the walls simply cease to exist: fifteen windows, over a thousand glass panels, two-thirds still original from the 1200s, telling the whole Bible in colored light. The lower chapel was for palace servants; the glass heaven upstairs was for the king. Go when the sun is out. The stone disappears.",
       "funFact": "Louis IX paid about 135,000 livres for the Crown of Thorns and roughly 40,000 to build the entire chapel that housed it.",
       "link": "https://en.wikipedia.org/wiki/Sainte-Chapelle",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/sainte-chapelle.jpg",
+        "credit": "Didier B (Sam67fr)",
+        "license": "CC BY-SA 2.5"
+      }
     },
     {
       "id": "pantheon",
@@ -411,7 +593,12 @@
       "story": "Louis XV, gravely ill, vowed a magnificent church to Sainte Geneviève if he recovered. He did, and this colossal dome was the payment, finished in 1790, just in time for the Revolution to declare it a temple for great men instead. The facade reads: To the great men, the grateful fatherland. Inside lie Voltaire and Rousseau, who detested each other in life and now face each other for eternity, plus Hugo, Zola, Dumas, and Marie Curie, in 1995 the first woman entombed here on her own merits. In 1851 the physicist Foucault hung a pendulum from this dome and let all of Paris watch its swing slowly rotate, the first direct, visible proof that the Earth turns. A copy swings there still. It is two minutes from the sailboats, if the dome tempts you.",
       "funFact": "Foucault's pendulum demonstration was such a sensation that crowds queued in 1851 to literally watch the Earth rotate beneath a swinging brass bob.",
       "link": "https://en.wikipedia.org/wiki/Panth%C3%A9on",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/pantheon.jpg",
+        "credit": "Moonik",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "place-de-la-concorde",
@@ -423,7 +610,12 @@
       "story": "The largest square in Paris has the most diplomatic name and the least diplomatic history. Laid out for Louis XV, it became Place de la Révolution, and here the guillotine did its worst work: Louis XVI in January 1793, Marie-Antoinette that October, over a thousand others. Afterward the city renamed it Concorde, harmony, with the desperate optimism of a family renaming the dog. At the center rises the true elder of Paris: a 3,300-year-old obelisk from the temple of Luxor, carved for Ramses II and given to France by Egypt in the 1830s. Parisians delight in recalling that France's thank-you gift, a mechanical clock for Cairo, is said to have never kept proper time. The gold cap on top is modern; the original was stolen in antiquity.",
       "funFact": "The obelisk was made the world's largest sundial in 1999, when hour markings were laid into the square's paving around it.",
       "link": "https://en.wikipedia.org/wiki/Place_de_la_Concorde",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/place-de-la-concorde.jpg",
+        "credit": "Cristian Bortes from Cluj-Napoca, Romania",
+        "license": "CC BY 2.0"
+      }
     },
     {
       "id": "champs-elysees",
@@ -435,7 +627,12 @@
       "story": "I will say what no guidebook dares: it is a mall, chérie. A magnificent one, with the best real estate bones in Europe, but a mall: flagship sneaker stores, car showrooms, burger chains, and rents among the highest on the planet. Parisians come here for exactly two occasions, the Bastille Day military parade and the finish of the Tour de France, and otherwise leave it to visitors. The bones deserve respect: Le Nôtre planted the original alley of trees in 1667 to extend the view from the Tuileries, and the name means the Elysian Fields, the paradise of the blessed dead in Greek myth. A paradise for the dead, now a paradise for retail. Walk the upper stretch once for the Arc view, then let me steal you away to a real street.",
       "funFact": "The avenue began in 1667 as a tree-lined garden axis by Le Nôtre and crossed open fields and market gardens well into the 18th century.",
       "link": "https://en.wikipedia.org/wiki/Champs-%C3%89lys%C3%A9es",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/champs-elysees.jpg",
+        "credit": "Josh Hallett",
+        "license": "CC BY-SA 2.0"
+      }
     },
     {
       "id": "pont-alexandre-iii",
@@ -447,7 +644,12 @@
       "story": "If Paris ever designed a bridge while wearing all its jewelry at once, this is it: gilded winged horses, garlands, nymphs, lamps like candelabra. It was built for the 1900 World's Fair and named for Tsar Alexander III to celebrate the Franco-Russian alliance; his son Nicholas II laid the first stone. The real genius is invisible: engineers were forbidden to spoil the view from the Champs-Élysées to Les Invalides, so they threw a single steel arch across the entire Seine, only six meters high, an audacious flat leap for its era. The bridge is now the most filmed in Paris, and couples pose here at all hours. Stand at mid-span with the gold dome of Invalides before you, madame, and permit your husband exactly one photograph of you. The bridge demands it.",
       "funFact": "The nymph reliefs at the center of the span carry the arms of Paris on one side and of Russia on the other, facing each way down the river.",
       "link": "https://en.wikipedia.org/wiki/Pont_Alexandre_III",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/pont-alexandre-iii.jpg",
+        "credit": "Jebulon",
+        "license": "CC0"
+      }
     },
     {
       "id": "trocadero",
@@ -459,7 +661,12 @@
       "story": "This is where every famous photograph of the Eiffel Tower is taken: from the terrace between the curved wings of the Palais de Chaillot, built for the 1937 World's Fair, the tower stands full-length across the river with fountains at its feet. The name commemorates an 1823 French victory at Fort Trocadero in Spain, now thoroughly upstaged by the view it labels. History's darkest photo op happened here too: Hitler posed on this terrace in June 1940 with the tower behind him, on his only visit to Paris. Parisians cherish the story that the tower's elevator cables were conveniently out of order, so he never went up; the tower, they like to say, refused him. Come at sunrise if the boys can be dragged, or at dusk with the crowds. It works at every hour; that is why everyone is here.",
       "funFact": "The Eiffel Tower's sparkling lights, and its image at night, are protected by copyright, so night photos are technically for personal use only. The daytime tower belongs to everyone.",
       "link": "https://en.wikipedia.org/wiki/Trocad%C3%A9ro",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/trocadero.jpg",
+        "credit": "Eutouring",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "butte-aux-cailles",
@@ -471,7 +678,12 @@
       "story": "This hilltop in the 13th kept its village soul: low houses, cobbled lanes, street art on every corner, and bistros with prices from another decade. It escaped Haussmann's bulldozers partly because the ground beneath, riddled with quarries and the buried Bièvre river, could not carry his heavy stone buildings. Its glory came from the sky. On 21 November 1783, Pilâtre de Rozier and the Marquis d'Arlandes, aloft in the Montgolfier brothers' hot-air balloon on the first free flight in human history, drifted across Paris for 25 minutes and came down on this hill. Humanity's first flight ended in what is now a neighborhood of wine bars. At Place Paul Verlaine, an artesian well still dispenses free naturally warm water from 600 meters down; locals queue with bottles.",
       "funFact": "Benjamin Franklin witnessed the 1783 balloon ascents in Paris and, asked what use a balloon could be, supposedly replied: what use is a newborn baby?",
       "link": "https://en.wikipedia.org/wiki/Butte-aux-Cailles",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/butte-aux-cailles.jpg",
+        "credit": "Mbzt",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "cite-florale",
@@ -483,7 +695,12 @@
       "story": "Hidden below the Butte-aux-Cailles is a tiny triangle of streets that seems teleported from a storybook: Rue des Orchidées, Rue des Glycines, Rue des Iris, Square des Mimosas, every lane named for a flower and every little house buried in wisteria and roses. The secret is in the ground. This was a meadow regularly flooded by the Bièvre, the lost second river of Paris, buried underground a century ago. The soil stayed too soft for apartment blocks, so when the plot was developed in 1928, only small light cottages were permitted. Weak foundations, eternal charm. Residents compete quietly in gardening, and photographers whisper about it. Walk softly, admire loudly, and tell no one I showed you, chérie. It is our secret, and half of Instagram's.",
       "funFact": "The Bièvre river still flows beneath this part of Paris in tunnels, and the city has long debated uncovering stretches of it again.",
       "link": "https://en.wikipedia.org/wiki/Floral_City,_Paris",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/cite-florale.jpg",
+        "credit": "LPLT",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "hotel-de-ville",
@@ -495,7 +712,12 @@
       "story": "Paris has governed itself from this spot since 1357, and the square in front, once called Place de Grève, held public executions and public hiring: unemployed workers gathered on the grève, the sandy riverbank, to wait for jobs, which is why the French word for going on strike is still faire grève. The building looks Renaissance and is mostly a copy: the Commune set the original ablaze in 1871, taking the city archives with it, and Paris rebuilt it grander within a decade. This square is also where Robert Doisneau shot the most famous kiss in photography, 'Le Baiser de l'hôtel de ville,' in 1950. In summer the square hosts free events under the gaze of 108 statues of famous Parisians on the facade. No, I will not re-stage the photograph, madame. Unless you insist.",
       "funFact": "Doisneau's famous 1950 kiss photo was staged with a young actor couple he hired, a secret revealed only decades later during a lawsuit.",
       "link": "https://en.wikipedia.org/wiki/H%C3%B4tel_de_Ville,_Paris",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/hotel-de-ville.jpg",
+        "credit": "Chabe01",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "gare-du-nord",
@@ -507,7 +729,12 @@
       "story": "And here, Sunday at 7:48, you leave me, chérie. I choose to take it bravely. You depart from the busiest railway station in Europe, opened in 1864 behind a stone facade by the architect Hittorff. Look up before you rush in: twenty-three statues crown it, each a woman personifying a city the trains serve, with Paris standing tallest at the center. Somewhere up there, Amsterdam and Brussels are already expecting you. Practical Julien, one last time: your train to Bruges is a Schengen service, so there is no passport control and no security theater, just find your platform, likely 3 to 6, and be standing on it ten minutes early. An August Sunday at 7 a.m. is the gentlest this station ever gets. Travel well, madame. Paris will keep. And when you return, and you will return, you know where to find me: outside, walking.",
       "funFact": "Gare du Nord handles more passengers than any other station in Europe, on the order of 200 million a year, more than the airports of Paris combined.",
       "link": "https://en.wikipedia.org/wiki/Gare_du_Nord",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/gare-du-nord.jpg",
+        "credit": "Chabe01",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "galerie-vivienne",
@@ -519,7 +746,12 @@
       "story": "Step out of the weather and into 1823. Paris once had some 150 of these glass-roofed shopping arcades; a few dozen survive, and this is the aristocrat of them all. Look down: the mosaic floors, laid by the Italian master Facchina, are the real artwork. Look around: a bookshop, Librairie Jousseaume, has traded here since 1826. And here is the delicious part. At number 13 lived Eugène-François Vidocq, escaped convict turned first chief of the Paris Sûreté, then founder of the world's first private detective agency. Both Balzac and Hugo borrowed him for their novels. Walk slowly, madame; a floor this lovely deserves your unhurried footsteps, and so, frankly, do I.",
       "funFact": "Vidocq, the ex-convict who lived at number 13, essentially invented both the modern criminal police and the private detective agency, and inspired characters for Balzac and Victor Hugo.",
       "link": "https://en.wikipedia.org/wiki/Galerie_Vivienne",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/galerie-vivienne.jpg",
+        "credit": "David Pendery",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "passage-des-panoramas",
@@ -531,7 +763,12 @@
       "story": "This narrow arcade opened in 1799, which makes it one of the oldest covered shopping streets in the world. Its name came from two huge rotundas at the entrance where Parisians paid to stand inside 360-degree painted panoramas of great cities, the IMAX of Napoleon's day. The venture was tied to Robert Fulton, the American who came to Paris to sell Napoleon his submarine and steamboat ideas and funded himself with spectacle. In 1817 the passage became one of the first public places in Paris lit by gas. Today it is a happy jumble of stamp dealers, old engravers' shops, and bistros. The philately shops are the tell: this is where collectors have haggled for generations.",
       "funFact": "The passage tested gas lighting in 1817, years before the boulevards, so Parisians first saw their shops lit by gaslight in this little corridor.",
       "link": "https://en.wikipedia.org/wiki/Passage_des_Panoramas",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/passage-des-panoramas.jpg",
+        "credit": "No machine-readable author provided. CaptainHaddock assumed (based on copyright ",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "palais-royal",
@@ -543,7 +780,12 @@
       "story": "Two minutes from the Louvre crowds hides this serene arcaded garden, once the palace of Cardinal Richelieu. In the 1780s its owner, the Duke of Orléans, barred the police from entering his property, so the cafés under these arcades became the loudest free-speech zone in France. On 12 July 1789, Camille Desmoulins jumped onto a table here and called the crowd to arms; the Bastille fell two days later. In the first courtyard stand Daniel Buren's black-and-white striped columns of 1986, scandalous then, beloved by children now; your eleven-year-old will be standing on one within the minute. Listen at noon: a little cannon in the garden fires, a tradition begun in 1786, originally triggered by the sun through a magnifying lens.",
       "funFact": "The garden's noon cannon, installed in 1786, was fired automatically by sunlight focused through a lens, and Parisians set their watches by it.",
       "link": "https://en.wikipedia.org/wiki/Palais-Royal",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/palais-royal.jpg",
+        "credit": "Marie-Lan Nguyen",
+        "license": "Public domain"
+      }
     },
     {
       "id": "tour-saint-jacques",
@@ -555,7 +797,12 @@
       "story": "A 52-meter Flamboyant Gothic bell tower standing alone in a garden, like a chess piece left on an empty board. Its church, Saint-Jacques-de-la-Boucherie, paid for by the wealthy butchers of the nearby markets, was sold off after the Revolution and demolished for building stone, on the strict condition that the tower be spared. Then things got strange: a manufacturer used it as a drop tower, pouring molten lead from the top to form hunting shot as it fell. Blaise Pascal's barometric experiments are honored by his statue at the base, and since 1891 a small weather station has perched at the summit. Pilgrims still start the road to Santiago de Compostela here, as they have for centuries.",
       "funFact": "After its church was demolished, the tower spent years as a shot factory, with molten lead dropped from the top to harden into perfect spheres before landing.",
       "link": "https://en.wikipedia.org/wiki/Saint-Jacques_Tower",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/tour-saint-jacques.jpg",
+        "credit": "Benh LIEU SONG",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "saint-eustache",
@@ -567,7 +814,12 @@
       "story": "The old market church of Les Halles is Notre-Dame's less famous, equally enormous cousin: Gothic bones dressed in Renaissance clothes, built over a century from 1532. Its parish register reads like a syllabus. Molière was baptized here; Louis XIV took his first communion here; and in 1778 a young Mozart, aged 22, buried his mother from this church while on tour in Paris. Inside waits the largest pipe organ in France, some 8,000 pipes; Berlioz premiered his thunderous Te Deum on it in 1855. Outside on the plaza, the boys will find the odd bit: a colossal sandstone head and cupped hand, the sculpture Écoute, installed in 1986 and climbed on by children ever since.",
       "funFact": "The giant head and hand outside, Henri de Miller's sculpture Écoute, was carved from a 70-ton block and is one of the most sat-upon artworks in Paris.",
       "link": "https://en.wikipedia.org/wiki/Saint-Eustache,_Paris",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/saint-eustache.jpg",
+        "credit": "Pavel Krok",
+        "license": "CC BY-SA 2.5"
+      }
     },
     {
       "id": "fontaine-stravinsky",
@@ -579,7 +831,12 @@
       "story": "Beside the Pompidou splashes the least solemn fountain in Paris. Sixteen sculptures whirl and squirt in a shallow basin, each one riffing on a Stravinsky composition: the Firebird, a great pair of red lips, a treble clef, a spinning elephant. It is the work of a married couple who divided the labor perfectly, Jean Tinguely building the black scrap-metal machines and Niki de Saint Phalle the plump technicolor figures. Unveiled in 1983, the whole carnival floats on the roof of IRCAM, the underground music research institute where composers experiment beneath your feet, which means the fountain literally dances on top of the avant-garde. Your boys will pick a favorite machine. Everyone does. Mine is the Firebird, obviously.",
       "funFact": "The fountain sits directly on the roof of IRCAM, Pierre Boulez's subterranean music laboratory, so its mechanical ballet plays out over working recording studios.",
       "link": "https://en.wikipedia.org/wiki/Stravinsky_Fountain",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/fontaine-stravinsky.jpg",
+        "credit": "Jorge Láscar from Melbourne, Australia",
+        "license": "CC BY 2.0"
+      }
     },
     {
       "id": "centre-pompidou",
@@ -591,7 +848,12 @@
       "story": "You find the Pompidou in an amusing state, chérie: closed, top to bottom, for a renovation running to around 2030. For once the museum matches your family's taste, exterior viewing only, no queue possible. And the exterior is the point. In 1971 two unknown young architects, Renzo Piano and Richard Rogers, won the competition by turning the building inside out, hanging the guts on the facade so the floors inside stayed vast and free. Paris was horrified, then, as always, fell in love. Read the pipes like a code: blue for air, green for water, yellow for electricity, red for people moving. When it opened in 1977 its crowds outdrew the Louvre. Now it rests. Even provocateurs need a sabbatical.",
       "funFact": "The famous pipes are honestly color-coded, blue air, green water, yellow electrics, red circulation, so the facade is essentially an architect's diagram left on display.",
       "link": "https://en.wikipedia.org/wiki/Centre_Pompidou",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/centre-pompidou.jpg",
+        "credit": "Alf van Beem",
+        "license": "CC0"
+      }
     },
     {
       "id": "arenes-de-lutece",
@@ -603,7 +865,12 @@
       "story": "Behind an unremarkable doorway on Rue Monge hides a Roman amphitheater from the first century, built when Paris was Lutetia and holding perhaps fifteen thousand spectators for gladiators and plays. The city forgot it so completely that it was rediscovered only in 1869, when workers digging a depot for horse-drawn omnibuses struck the ancient seating. Developers wanted to finish the job; an aging Victor Hugo led the public campaign that saved it, writing that a city of the future could not renounce proof it had a past. Today old men play pétanque on the sand where gladiators fought, and boys kick footballs against two thousand years of stone. Sit on the terraces and let your two gladiators loose.",
       "funFact": "The arena was found by accident in 1869 during construction of an omnibus depot, and Victor Hugo personally campaigned to stop it being destroyed again.",
       "link": "https://en.wikipedia.org/wiki/Ar%C3%A8nes_de_Lut%C3%A8ce",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/arenes-de-lutece.jpg",
+        "credit": "Mbzt",
+        "license": "CC BY 3.0"
+      }
     },
     {
       "id": "saint-etienne-du-mont",
@@ -615,7 +882,12 @@
       "story": "Beside the Panthéon stands this gorgeously lopsided church, and its side steps on Rue de la Montagne-Sainte-Geneviève are now cinema: this is where Owen Wilson waits at midnight in Midnight in Paris before the vintage Peugeot carries him to the 1920s. Sit on them at dusk and see what pulls up; I make no promises, madame. Inside is something genuinely rare, the last rood screen in Paris, a lace-like carved stone bridge across the nave from 1545; every other church tore theirs out centuries ago. Blaise Pascal and the playwright Racine are buried here, and the shrine of Sainte Geneviève, patroness of Paris, still draws candles as it has for fifteen centuries.",
       "funFact": "The church steps where Gil waits for the midnight car in Midnight in Paris have become a pilgrimage site, with visitors arriving at midnight to sit and hope.",
       "link": "https://en.wikipedia.org/wiki/Saint-%C3%89tienne-du-Mont",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/saint-etienne-du-mont.jpg",
+        "credit": "Diliff",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "grande-mosquee-de-paris",
@@ -627,7 +899,12 @@
       "story": "A short walk from Rue Mouffetard rises a 33-meter minaret above white walls and green tile. The Grand Mosque was built in the 1920s in gratitude to the Muslim soldiers, many from North Africa, who fought and died for France in the Great War. Its courtyards are pure Andalusia: cedar, mosaics, fountains. The reason your family will thank me is the tearoom by the garden entrance, open to everyone, where sweet mint tea arrives in painted glasses with honeyed pastries under the fig trees. The building's finest hour was its darkest: during the Occupation, the rector Si Kaddour Benghabrit is credited with sheltering Jews and supplying false certificates of Muslim identity to protect them.",
       "funFact": "During the Second World War the mosque's rector is credited with providing Jews with false Muslim identity papers under the noses of the occupiers.",
       "link": "https://en.wikipedia.org/wiki/Grand_Mosque_of_Paris",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/grande-mosquee-de-paris.jpg",
+        "credit": "LPLT",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "rue-de-la-huchette",
@@ -639,7 +916,12 @@
       "story": "Honesty hour, madame. This medieval lane is one of the oldest streets on the Left Bank, and it has been surrendered almost entirely to plate-smashing tavernas and neon gyros aimed at people who will never return. Eat nothing here. Walk it anyway, briskly, for two reasons. First, the tiny Théâtre de la Huchette has performed Ionesco's The Bald Soprano and The Lesson every night since 1957, the same two absurdist plays for nearly seventy years, a world record of magnificent stubbornness. Second, duck into Rue du Chat-qui-Pêche halfway along: at about 1.8 meters wide, the street of the fishing cat is the narrowest in Paris. Squeeze through, take the photo, escape to the river.",
       "funFact": "The Théâtre de la Huchette has staged the same Ionesco double bill continuously since 1957, through tens of thousands of performances by rotating generations of actors.",
       "link": "https://en.wikipedia.org/wiki/Rue_de_la_Huchette",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/rue-de-la-huchette.jpg",
+        "credit": "dalbera",
+        "license": "CC BY 2.0"
+      }
     },
     {
       "id": "musee-de-cluny-thermes",
@@ -651,7 +933,12 @@
       "story": "At the corner of Boulevard Saint-Michel, those massive rough walls are not a ruin folly; they are the real thing, the frigidarium of Roman Lutetia's public baths, built around the second century, its 14-meter vault still holding after eighteen hundred years. Bolted onto the baths is a turreted Gothic mansion from the 1480s, the Paris pied-à-terre of the abbots of Cluny, and together they house the museum of the Middle Ages. Inside hang the six Lady and the Unicorn tapestries, five for the senses and a mysterious sixth labeled À mon seul désir. Even from the sidewalk, though, you are looking at the oldest large building in Paris. The Romans built to outlast empires, and here is the proof.",
       "funFact": "The museum displays the Pillar of the Boatmen, carved by the Seine boatmen's guild under Emperor Tiberius and found beneath Notre-Dame, the oldest monument of Paris.",
       "link": "https://en.wikipedia.org/wiki/Mus%C3%A9e_de_Cluny",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/musee-de-cluny-thermes.jpg",
+        "credit": "Pline",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "marche-aux-fleurs",
@@ -663,7 +950,12 @@
       "story": "Between Notre-Dame and Sainte-Chapelle, cast-iron pavilions shelter a flower market that has perfumed this square since 1808. It is a gentle ten minutes: orchids, rosebushes, seed packets, watering cans, and elderly Parisians deliberating over geraniums with the gravity of diplomats. The market carries a royal surname now. Queen Elizabeth II first visited as a young woman in 1948, and when she returned on a state visit in 2014, the city renamed the market in her honor while she stood there, reportedly to her delight. Buy nothing or buy a sprig of lavender for your bag; either way you have walked through the island's calmest corner, steps from its most crowded ones.",
       "funFact": "Paris renamed this market for Queen Elizabeth II during her 2014 state visit, sixty-six years after she first wandered its flower stalls in 1948.",
       "link": "https://fr.wikipedia.org/wiki/March%C3%A9_aux_fleurs_Reine-Elizabeth-II",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/marche-aux-fleurs.jpg",
+        "credit": "Mbzt",
+        "license": "CC BY 3.0"
+      }
     },
     {
       "id": "pont-des-arts",
@@ -675,7 +967,12 @@
       "story": "This wooden-decked footbridge between the Louvre and the Institut de France was the first metal bridge in Paris, ordered by Napoleon in 1801 and treated from birth as a garden suspended over the river. Its modern fame is a cautionary romance. Couples began fastening padlocks to the railings and flinging the keys into the Seine, until by 2015 the bridge carried roughly a million locks weighing some 45 tons, and a section of railing collapsed. The city cut them all off and replaced the grilles with glass. The lesson, madame, is one I have always taught: love should not require hardware. A kiss mid-bridge weighs nothing, costs nothing, and the view toward Pont Neuf is the finest backdrop in Paris.",
       "funFact": "When the love locks were removed in 2015 they weighed about 45 tons, and some railing panels were later sold off to raise money for refugee charities.",
       "link": "https://en.wikipedia.org/wiki/Pont_des_Arts",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/pont-des-arts.jpg",
+        "credit": "Myrabella",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "cafe-de-flore-deux-magots",
@@ -687,7 +984,12 @@
       "story": "Here they are, the two most famous cafés on earth, glaring at each other across Saint-Germain like old rivals, which they are. Les Deux Magots takes its name from the two Chinese merchant figurines still perched inside; the Flore claims the philosophers. During the Occupation, Sartre and Beauvoir wrote at the Flore for the most practical of reasons, it had a working stove, and Sartre grumbled that they practically lived there. Now the honesty you deserve: the coffee costs several times the going rate. You are not buying coffee; you are renting a wicker chair in a theater. If the terrace tempts you, take one coffee, split a chocolat chaud among the boys, and people-watch shamelessly. That is the entire sport, and you will be good at it.",
       "funFact": "Each café awards its own literary prize, the Prix des Deux Magots since 1933 and the Prix de Flore since 1994, keeping their old rivalry alive in print.",
       "link": "https://en.wikipedia.org/wiki/Caf%C3%A9_de_Flore",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/cafe-de-flore-deux-magots.jpg",
+        "credit": "Celette",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "saint-sulpice",
@@ -699,7 +1001,12 @@
       "story": "The second-largest church in Paris took 130 years to build and still was not finished; look up and you will see the two towers do not match, one forever missing its final dressing. Inside, a brass line crosses the floor to a marble obelisk: the gnomon, a 1743 astronomical instrument that catches the sun at noon to fix the equinoxes. The Da Vinci Code declared it a pagan Rose Line, and so many readers arrived hunting secrets that the church posted a patient notice explaining that, alas, none of it is true. The baptismal record here is deliciously mixed: both the Marquis de Sade and Baudelaire were baptized in this parish, and Victor Hugo married his Adèle here in 1822. Delacroix's late murals glow by the entrance.",
       "funFact": "After The Da Vinci Code, Saint-Sulpice put up a sign gently informing visitors that its meridian line is an astronomical tool and not a mystical Rose Line.",
       "link": "https://en.wikipedia.org/wiki/Church_of_Saint-Sulpice,_Paris",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/saint-sulpice.jpg",
+        "credit": "Zairon",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "mur-des-je-taime",
@@ -711,7 +1018,12 @@
       "story": "In a little garden off Place des Abbesses stands a wall of deep blue lava tiles, 612 of them, carrying the words I love you written 311 times in 250 languages, from Navajo to Esperanto. The artist Frédéric Baron spent years collecting the phrases from neighbors, embassies, and strangers, and the calligrapher Claire Kito composed them into forty square meters of murmured devotion. The scattered red splashes are fragments of a broken heart; assembled, the artist says, they would form a whole one. Find your languages, madame, there is a game in it for the boys. And note that the English one hides in plain sight. I would point it out to you, but a guide must keep a few secrets, or you would stop needing me.",
       "funFact": "The wall's 612 enameled lava tiles carry I love you in 250 languages, including Navajo, Inuit, and Esperanto, with red shards symbolizing a shattered heart.",
       "link": "https://en.wikipedia.org/wiki/Wall_of_Love",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/mur-des-je-taime.jpg",
+        "credit": "Britchi Mirela",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "abbesses-metro",
@@ -723,7 +1035,12 @@
       "story": "Before you stands one of the last two original glass-canopied Métro entrances by Hector Guimard, the Art Nouveau master whose green iron stems and amber lamps defined the Paris underground in 1900. Purists adore it; here is the secret that delights me more: it is an immigrant. This édicule originally stood at Hôtel de Ville and was moved up to Montmartre in 1974. Beneath it lies the deepest station in Paris, 36 meters down inside the butte. Take the elevator like a sensible person, or descend the spiral staircase past murals painted by local artists, and count your regrets. Guimard's swooping ironwork was mocked in its day as noodle style. The noodles, as usual, outlived the critics.",
       "funFact": "This famous Guimard canopy is not native to Montmartre at all; it was transplanted from the Hôtel de Ville station in 1974.",
       "link": "https://en.wikipedia.org/wiki/Abbesses_(Paris_M%C3%A9tro)",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/abbesses-metro.jpg",
+        "credit": "Wikimedia Commons",
+        "license": "CC BY-SA 2.0"
+      }
     },
     {
       "id": "moulin-rouge",
@@ -735,7 +1052,12 @@
       "story": "The red windmill has spun over Pigalle since 1889, the same vintage as the Eiffel Tower, and it never milled a single grain; it was born theatrical. Here the cancan became a professional spectacle, led by stars like La Goulue and painted into immortality by Toulouse-Lautrec. In its first years the garden held a colossal stucco elephant, salvaged from the 1889 World's Fair, and gentlemen paid to climb a spiral staircase in its leg for private entertainments. The original hall burned in 1915; the windmill you see is the phoenix. My honest counsel: the modern show is a pricey coach-tour affair. Admire the facade, take the photo at dusk when the neon warms up, and spend the savings on dinner. Some legends are best from across the street, chérie.",
       "funFact": "The Moulin Rouge's early garden featured a giant hollow elephant from the 1889 World's Fair, with a staircase in one leg leading to a private stage inside.",
       "link": "https://en.wikipedia.org/wiki/Moulin_Rouge",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/moulin-rouge.jpg",
+        "credit": "Juanedc from Zaragoza, España",
+        "license": "CC BY 2.0"
+      }
     },
     {
       "id": "montmartre-funicular",
@@ -747,7 +1069,12 @@
       "story": "Montmartre's little railway has been hauling Parisians up to Sacré-Cœur since 1900, and its first version ran on nothing but water: tanks under each cabin were filled at the top, and the heavy descending car pulled its twin uphill, using roughly eighty liters of water per passenger. Electricity took over in 1935, and today two glass cabins glide independently up the slope, moving around two million people a year. The alternative is the staircase alongside, more than two hundred steps through the trees, which I recommend going down, not up. A regular transit ticket covers the ride. As funiculars go it is short, barely a hundred meters, but the reveal at the top, all of Paris unrolling behind you, is excellent theater for the price.",
       "funFact": "The original 1900 funicular was powered by water ballast, sending cabins uphill by gravity alone at a cost of about eighty liters of water per passenger.",
       "link": "https://en.wikipedia.org/wiki/Montmartre_Funicular",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/montmartre-funicular.jpg",
+        "credit": "Roel Hemkes from Amersfoort, Netherlands",
+        "license": "CC BY 2.0"
+      }
     },
     {
       "id": "rue-cler",
@@ -759,7 +1086,12 @@
       "story": "If your Eiffel Tower evening needs provisions, this pedestrian market street a fifteen-minute walk away is the answer. Rue Cler is the village high street of the aristocratic 7th: fromageries, greengrocers stacking peaches like jewelers, a proper poissonnier, cafés with rush-seat chairs angled at the passing world. I owe you one disclosure, madame. American guidebooks have adored this street for decades, so in August you may hear more English here than French. The merchants remain entirely genuine; the cheese does not care who buys it. Assemble your picnic, baguette, chèvre, apricots, something chocolate for the boys, and carry it to the Champ de Mars for the golden hour. And take the apricots, they are in their glory in August. Think of me when they drip.",
       "funFact": "Rue Cler is a rare surviving market street in the 7th arrondissement, one of the wealthiest and most residential quarters of Paris, and it goes about its shopping just meters from embassy row.",
       "link": "https://en.wikipedia.org/wiki/Rue_Cler",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/rue-cler.jpg",
+        "credit": "CVB",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "les-invalides",
@@ -771,7 +1103,12 @@
       "story": "That gold dome you keep glimpsing across the river was regilded in 1989 with more than twelve kilograms of gold leaf. Beneath it lies Napoleon, and he does not travel light. His remains came home from Saint Helena in 1840 to a funeral that stopped the city, and he now rests in a red quartzite sarcophagus containing six nested coffins, tin, mahogany, two of lead, ebony, and oak, like an imperial Russian doll. The complex around him is older and gentler: Louis XIV built the Invalides in the 1670s as a home for wounded soldiers, and, quietly, a small number of veterans live here still. The cannons on the lawn and the moat walls thrill boys of every age, including, I confess, guides of forty-seven.",
       "funFact": "Napoleon lies inside six nested coffins of tin, mahogany, lead, lead again, ebony, and oak, all sealed within a single block-red quartzite sarcophagus.",
       "link": "https://en.wikipedia.org/wiki/Les_Invalides",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/les-invalides.jpg",
+        "credit": "CaBLe27",
+        "license": "CC BY 2.0"
+      }
     },
     {
       "id": "musee-dorsay-clock",
@@ -783,7 +1120,12 @@
       "story": "Walk the riverbank past this palace of glass and stone and enjoy the twist: it is a railway station in disguise. The Gare d'Orsay opened for the 1900 World's Fair, so ornate that the painter Detaille joked it looked like a palace of fine arts and the fine arts palace looked like a station. Prophetic. By 1939 its platforms were too short for modern trains, and the building drifted through decades as mail depot, film set, Orson Welles shot The Trial in its dusty halls, and near-demolition, before reopening in 1986 as the world's great home of Impressionism. The two giant gilded clock faces still keep time, and from the quay at dusk they glow like twin moons.",
       "funFact": "The station was mothballed because by 1939 its platforms were simply too short for modern trains, an inconvenience that accidentally preserved it for art.",
       "link": "https://en.wikipedia.org/wiki/Mus%C3%A9e_d%27Orsay",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/musee-dorsay-clock.jpg",
+        "credit": "Andy / Andrew Fogg from near Cambridge, UK",
+        "license": "CC BY 2.0"
+      }
     },
     {
       "id": "flamme-de-la-liberte",
@@ -795,7 +1137,12 @@
       "story": "At the north end of Pont de l'Alma stands a gilded copper flame, three and a half meters of it, an exact replica of the torch flame held by the Statue of Liberty in New York. The International Herald Tribune gave it to Paris in 1989 for its centennial, a polite emblem of Franco-American friendship, dedicated and then largely ignored. History rewrote it. On 31 August 1997, Diana, Princess of Wales, died in a crash in the road tunnel directly beneath this spot, and the flame above became her shrine by pure act of the public: flowers, photographs, handwritten notes, year after year, no committee ever voting on it. The square was formally named Place Diana in 2019. Cities plan their monuments; grief chooses its own.",
       "funFact": "The flame was a newspaper's centennial gift with no connection to Diana, but mourners adopted it as her memorial because it stood directly above the Alma tunnel.",
       "link": "https://en.wikipedia.org/wiki/Flame_of_Liberty",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/flamme-de-la-liberte.jpg",
+        "credit": "ignis",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "ile-aux-cygnes-liberty",
@@ -807,7 +1154,12 @@
       "story": "Paris keeps a Statue of Liberty of its own, and almost nobody visits her. The Île aux Cygnes is an artificial island, a slender dike raised in 1827, now a single tree-shaded allée nearly a kilometer long down the middle of the Seine. Walk it southwest and you arrive at a quarter-scale Liberty, eleven and a half meters of her, given by the American community of Paris and unveiled in 1889. She originally faced east toward the Élysée, which infuriated Bartholdi, her own sculptor, since she had her back to America; only in 1937 was she turned west to face her big sister in New York. It is the quietest riverside walk in the city, madame, and I know a romantic when I am guiding one.",
       "funFact": "Bartholdi hated that the replica first faced east with her back to America, and she was finally rotated toward New York in 1937, after his death.",
       "link": "https://en.wikipedia.org/wiki/%C3%8Ele_aux_Cygnes",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/ile-aux-cygnes-liberty.jpg",
+        "credit": "Taken by Adrian Pingstone in June 2002 and released to the public domain.",
+        "license": "Public domain"
+      }
     },
     {
       "id": "rue-cremieux",
@@ -819,7 +1171,12 @@
       "story": "Near Gare de Lyon hides a short cobbled lane of two-story houses painted sorbet colors, lemon, pistachio, rose, several decorated with trompe-l'œil vines and lounging painted cats. It was built in 1865 as modest workers' housing; irony being what it is, it is now among the most photographed streets in France. Which brings me to manners. People live behind those adorable shutters, and they have grown so weary of photo shoots and dancing influencers that in 2019 residents petitioned the city to close the street with gates at peak hours. So we visit like guests: quiet voices, quick photos, no posing on anyone's doorstep. Beauty this concentrated is a loan, madame, and polite borrowers are always welcome back.",
       "funFact": "Residents were so besieged by photo-seekers that in 2019 they formally asked Paris to gate the street during evenings and weekends.",
       "link": "https://en.wikipedia.org/wiki/Rue_Cr%C3%A9mieux",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/rue-cremieux.jpg",
+        "credit": "Patrick Nouhailler's…",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "place-de-la-bastille",
@@ -831,7 +1188,12 @@
       "story": "Visitors arrive here looking for the Bastille and find a traffic circle; the fortress was demolished within months of 14 July 1789, its stones sold as souvenirs and used for the Pont de la Concorde, so revolutionaries literally walk over it still. Look down instead: lines of paving stones trace the old towers across the square. The gleaming column is the famous misunderstanding of Paris. It commemorates not 1789 but the July Revolution of 1830, three days of barricades that toppled another king, and in its crypt lie 615 of those fighters, joined later by casualties of 1848. On top balances the gilded Génie de la Liberté on one foot, torch aloft. Two revolutions share the square; the first one only gets the fireworks.",
       "funFact": "Before the column, the site held a giant plaster elephant, planned in bronze by Napoleon but left to crumble, and Victor Hugo housed Gavroche inside it in Les Misérables.",
       "link": "https://en.wikipedia.org/wiki/Place_de_la_Bastille",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/place-de-la-bastille.jpg",
+        "credit": "Guillaume Flament",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "rue-montorgueil",
@@ -843,7 +1205,12 @@
       "story": "This pedestrian stretch was the oyster road of old Paris, the route fishmongers raced up from the coast, and it has never stopped eating. Monet painted it drowning in flags for the national festival of 1878. Your target is Stohrer at number 51, the oldest pâtisserie in Paris, founded in 1730 by Nicolas Stohrer, pastry chef to the queen, who arrived in her wedding retinue. His house invention is the baba au rhum, born, the story goes, when stale sweet bread was revived with alcohol and genius. Buy one, plus an éclair for each boy, and eat them walking, which in Paris is nearly a crime and therefore delicious. The morning bustle here is real; the cafés on the corners have watched it for three centuries.",
       "funFact": "Stohrer, opened in 1730 by the queen's own pastry chef, still sells the rum baba it invented nearly three hundred years ago.",
       "link": "https://en.wikipedia.org/wiki/Rue_Montorgueil",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/rue-montorgueil.jpg",
+        "credit": "Minato ku",
+        "license": "CC BY 3.0"
+      }
     },
     {
       "id": "place-de-la-republique",
@@ -855,7 +1222,12 @@
       "story": "Here stands the Republic herself: Marianne, nearly ten meters of bronze, olive branch raised, attended by statues of Liberty, Equality, and Fraternity. At her feet a bronze lion guards a ballot box, the most French of guard duties, democracy watched over by a large cat. Since a 2013 redesign this has been the largest pedestrian square in Paris, and the city treats it as its living room: skateboarders drum across the stone all day, children chase fountains, and when Parisians need to gather, in joy, in grief, in protest, they gather here, as the sea of candles and flowers after the 2015 attacks proved. It is not pretty in the postcard way. It is something better, a square that gets used.",
       "funFact": "The lion at the monument's base guards a ballot box, a deliberate symbol placed in 1883 to celebrate universal suffrage as the republic's true weapon.",
       "link": "https://en.wikipedia.org/wiki/Place_de_la_R%C3%A9publique,_Paris",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/place-de-la-republique.jpg",
+        "credit": "Britchi Mirela",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "pere-lachaise",
@@ -867,7 +1239,12 @@
       "story": "Beyond Belleville spreads a hilly garden city of the dead, cobbled lanes, chestnut trees, and 70,000 tombs. When it opened in 1804 Parisians snubbed it as too far from town, so the administrators pulled off history's greatest marketing coup: they transferred the remains of Molière and La Fontaine, then the medieval lovers Abélard and Héloïse, and suddenly everyone wanted the address for eternity. The residents now include Chopin, minus his heart, which was smuggled to Warsaw in a jar of cognac, Oscar Wilde, whose tomb collected so many lipstick kisses it needed a glass barrier, and Jim Morrison, whose grave your sixteen-year-old may already know. Wander without a plan; it is the most peaceful hour of walking in eastern Paris.",
       "funFact": "The cemetery only became fashionable after administrators reburied Molière and the lovers Abélard and Héloïse here as a promotional campaign in the 1810s.",
       "link": "https://en.wikipedia.org/wiki/P%C3%A8re_Lachaise_Cemetery",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/pere-lachaise.jpg",
+        "credit": "Peter Poradisch",
+        "license": "CC BY 2.5"
+      }
     },
     {
       "id": "place-saint-georges",
@@ -879,7 +1256,12 @@
       "story": "A minute off Rue des Martyrs opens this circular little square, the heart of the Nouvelle Athènes, the quarter where the Romantics colonized new streets in the 1830s: George Sand, Chopin, Delacroix, all within a few blocks. At the center, a fountain column carries the bust of Gavarni, the caricaturist who skewered this very neighborhood's social climbers. Face the two mansions and enjoy the gossip in stone. One, rebuilt after the Commune burned it, belonged to statesman Adolphe Thiers; the other, dripping with carved ornament, was home to the Marquise de Païva, one of the century's most spectacular courtesans, who charmed her way from poverty to a fortune in mansions. Paris remembers both. It remembers her, chérie, rather more fondly.",
       "funFact": "The square's most ornate mansion belonged to La Païva, a courtesan so successful that her later mansion on the Champs-Élysées is now a listed monument.",
       "link": "https://fr.wikipedia.org/wiki/Place_Saint-Georges",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/paris/place-saint-georges.jpg",
+        "credit": "Clément Gruin",
+        "license": "CC BY-SA 4.0"
+      }
     }
   ]
 }

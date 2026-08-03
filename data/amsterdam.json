@@ -2,7 +2,10 @@
   "city": "Amsterdam",
   "citySlug": "amsterdam",
   "language": "Dutch",
-  "center": {"lat": 52.3660, "lng": 4.8970},
+  "center": {
+    "lat": 52.366,
+    "lng": 4.897
+  },
   "guide": {
     "name": "Daan",
     "title": "Amsterdam-born, bike-raised, and taller than your problems",
@@ -18,6 +21,24 @@
   },
   "pois": [
     {
+      "id": "hotel-notting-hill",
+      "name": "Notting Hill — your bed",
+      "lat": 52.3584,
+      "lng": 4.8988,
+      "category": "stay",
+      "tagline": "Westeinde 26, one canal south of Frederiksplein",
+      "story": "Good address, schatje. You are on the Westeinde, the west end of the old Amstel bend, and everything you actually want is walkable from your own front door: Albert Cuyp market ten minutes south, the Amstel and the Magere Brug ten minutes east, the whole canal ring straight north. Your metro is Vijzelgracht on line 52, about four minutes on foot — two stops to Centraal going north, and going south it is seven minutes to Amsterdam Zuid, which is the clever way to the airport. Learn one landmark and you will never need a map: Frederiksplein, the green square with the plane trees, is one street away, and every tram and taxi driver in this city knows it. Say Frederiksplein and you are home. One warning from a man who has watched a thousand visitors do it — you will come home along the Weteringschans in the dark, and you will step into the red bike lane while looking at a canal. Do not. We will ring, and we will not slow down.",
+      "funFact": "Your room is a souterrain — half a floor below the street, the old servants' and storage level of an Amsterdam canal house. The city was built on wet mud, so the good rooms went up and the potatoes went down.",
+      "address": "Westeinde 26, 1017 ZP Amsterdam",
+      "phone": "+31205231030",
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/hotel-notting-hill.jpg",
+        "credit": "Pbech",
+        "license": "CC0"
+      }
+    },
+    {
       "id": "frederiksplein",
       "name": "Frederiksplein",
       "lat": 52.3614,
@@ -27,7 +48,12 @@
       "story": "Welcome home, schatje. You sleep on the square where Amsterdam kept its Crystal Palace. The Paleis voor Volksvlijt opened here in 1864, a cathedral of iron and glass lit by six thousand gas lamps, dreamed up by Samuel Sarphati after he saw London's Great Exhibition. On the night of April 17, 1929 it burned to the ground, and the newspapers wrote that the city was now one illusion and one palace poorer. The Dutch central bank squats on the spot today, and honestly, we are still a little bitter about the trade. Sit under the plane trees anyway. Best address in town this week, because you are at it.",
       "funFact": "Amsterdammers nicknamed the central bank buildings that replaced the glass palace 'the cigarette pack and the lighter.'",
       "link": "https://en.wikipedia.org/wiki/Paleis_voor_Volksvlijt",
-      "itinerary": true
+      "itinerary": true,
+      "photo": {
+        "src": "photos/amsterdam/frederiksplein.jpg",
+        "credit": "Jacob Olie",
+        "license": "Public domain"
+      }
     },
     {
       "id": "albert-cuyp-market",
@@ -39,7 +65,12 @@
       "story": "Since 1905 this street has been one long shout of commerce, named after a Golden Age painter who never had to elbow past a cheese stand. The proud local claim is that it is the largest day market in Europe, and I have never met an Amsterdammer humble enough to check. Here is your assignment: find a stall making stroopwafels to order, two thin waffles pressed hot with caramel syrup between them. The cookie was born in Gouda, the story goes, from a baker using leftovers. Eaten cold from a package, fine. Eaten warm, still bending? Different universe. Buy one, share it with me. Fine, with your husband. He was here first, I suppose.",
       "funFact": "Vendors at the Albert Cuyp have been trading six days a week since 1905, and the market runs nearly a full kilometer of stalls.",
       "link": "https://en.wikipedia.org/wiki/Albert_Cuyp_Market",
-      "itinerary": true
+      "itinerary": true,
+      "photo": {
+        "src": "photos/amsterdam/albert-cuyp-market.jpg",
+        "credit": "Michiel1972 at Dutch Wikipedia",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "de-pijp",
@@ -51,7 +82,12 @@
       "story": "Your neighborhood for two days, and you chose well. De Pijp went up in the nineteenth century as fast, cheap housing for workers, streets so long and narrow that one theory says the name, 'the Pipe,' comes from their shape, like the stem of a clay pipe. Nobody agrees, which is very Dutch of us. The cramped flats filled with students, musicians, and immigrants, and they earned it the nickname of Amsterdam's Latin Quarter. A young Gerard Heineken started brewing on its edge in the 1860s. Today it is the city's honest kitchen: Surinamese, Turkish, Syrian, Dutch, all within three streets of your pillow. Eat where the menu is handwritten and short.",
       "funFact": "Many streets in De Pijp are named after Dutch Golden Age painters, which is why a former workers' quarter reads like a museum catalogue.",
       "link": "https://en.wikipedia.org/wiki/De_Pijp",
-      "itinerary": true
+      "itinerary": true,
+      "photo": {
+        "src": "photos/amsterdam/de-pijp.jpg",
+        "credit": "A. Bakker",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "sarphatipark",
@@ -63,7 +99,12 @@
       "story": "Two minutes from the market chaos, this little English-style park opened in 1885 and honors Samuel Sarphati, a Jewish doctor and city reformer who spent his life dragging Amsterdam into the modern age: bread factories for the poor, waste collection, grand building plans, the glass palace on your own square. During the Nazi occupation his name was erased because he was Jewish, and the park was renamed after a philosopher the occupiers liked better. After liberation, Amsterdam put Sarphati's name back where it belonged, and his monument still stands at the center. Bring market cheese, sit on the grass, and raise your boterham to the doctor. He earned it twice.",
       "funFact": "The Nazis renamed Sarphatipark 'Bollandpark' in 1942 to erase its Jewish namesake; the city restored the original name after the war.",
       "link": "https://en.wikipedia.org/wiki/Sarphatipark",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/sarphatipark.jpg",
+        "credit": "Błażej Pindor",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "vondelpark",
@@ -75,19 +116,29 @@
       "story": "Smart plan, starting the bike day here. No cars, wide lanes, and ten million visitors a year who are mostly moving slower than you. Rich citizens paid for this park themselves in 1865 so the city would have somewhere elegant to ride and be seen; it is named for Joost van den Vondel, our great seventeenth-century poet, whose statue watches you wobble past without judgment. Mostly without judgment. Like much of Amsterdam, parts of the park sit below sea level, so you are cycling under the North Sea's waterline with an ice cream. Do two loops until the boys stop grabbing the brakes like Americans, then ride out. You look good on a Dutch bike, by the way. Very local already.",
       "funFact": "Pablo Picasso donated a large sculpture, known locally as 'The Fish,' to Vondelpark for its centennial in 1965, and it still stands there, free to visit.",
       "link": "https://en.wikipedia.org/wiki/Vondelpark",
-      "itinerary": true
+      "itinerary": true,
+      "photo": {
+        "src": "photos/amsterdam/vondelpark.jpg",
+        "credit": "Dguendel",
+        "license": "CC BY 4.0"
+      }
     },
     {
       "id": "amstel-ride",
       "name": "The Amstel River Ride",
-      "lat": 52.3280,
-      "lng": 4.9060,
+      "lat": 52.328,
+      "lng": 4.906,
       "category": "park",
       "tagline": "Follow the river that named the city, into open polder",
       "story": "This is the ride I would take you on myself. Follow the Amsteldijk south along the river that gave Amsterdam its name, and watch the city simply stop: one minute apartments, the next minute cows, dead-flat green polder, and water higher than the fields beside you. That abruptness is Dutch planning, and it is the whole country explained in one bike ride. Rembrandt walked out here from the city to sketch, and at the Riekermolen, a windmill from 1636, a bronze Rembrandt still sits by the bank with his eyes on the river. Let op the wind on the way back, it always argues. About twelve kilometers each way, flat as a pancake, because we invented both.",
       "funFact": "The Riekermolen windmill on this route was built in 1636 to pump a polder dry and was moved to its riverside spot in 1961.",
       "link": "https://en.wikipedia.org/wiki/Amstel",
-      "itinerary": true
+      "itinerary": true,
+      "photo": {
+        "src": "photos/amsterdam/amstel-ride.jpg",
+        "credit": "Zairon",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "ouderkerk-aan-de-amstel",
@@ -99,7 +150,12 @@
       "story": "Here is a secret to drop at dinner: this little village outranks Amsterdam. Ouderkerk grew around its church in the eleventh century, when Amsterdam was not yet even a damp fishing camp; the big city's first written mention only comes in 1275. The lords van Amstel had their stronghold here before history flattened it. Since 1614 the village has also kept Beth Haim, the oldest Jewish cemetery in the Netherlands, where Amsterdam's Portuguese Jewish community buried more than 28,000 people, among them faces Rembrandt painted. Park the bikes, take a waterside café terrace, and let the boys eat something enormous. You cycled here from a European capital before lunch, schatje. I am not saying I am impressed, but I am impressed.",
       "funFact": "People Rembrandt painted, including Dr. Ephraim Bueno and the likely model for 'The Jewish Bride,' are buried in the village's 1614 Beth Haim cemetery.",
       "link": "https://en.wikipedia.org/wiki/Ouderkerk_aan_de_Amstel",
-      "itinerary": true
+      "itinerary": true,
+      "photo": {
+        "src": "photos/amsterdam/ouderkerk-aan-de-amstel.jpg",
+        "credit": "MartinD",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "magere-brug",
@@ -111,19 +167,29 @@
       "story": "Now this one I take personally. The story says two sisters named Mager lived on opposite banks of the Amstel in 1691 and built themselves a bridge to visit each other, too thrifty to make it wide enough for anyone else. Historians mutter that 'mager' just means skinny and the bridge was a budget job. I side with the sisters. The white drawbridge you see is a faithful 1934 rebuild, strung with some 1,200 bulbs at night, and the legend holds that a couple who kisses on it stays together forever. You are five minutes from your hotel, so come after dark, kiss your husband properly, and I will study the river with great dignity. Somebody has to.",
       "funFact": "The Magere Brug appears in the 1971 James Bond film 'Diamonds Are Forever.'",
       "link": "https://en.wikipedia.org/wiki/Magere_Brug",
-      "itinerary": true
+      "itinerary": true,
+      "photo": {
+        "src": "photos/amsterdam/magere-brug.jpg",
+        "credit": "Zairon",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "canal-ring",
       "name": "The Canal Ring (Herengracht, Keizersgracht, Prinsengracht)",
       "lat": 52.3653,
-      "lng": 4.8890,
+      "lng": 4.889,
       "category": "landmark",
       "tagline": "Three canals, one plan, four hundred years of showing off",
       "story": "Everything you love about Amsterdam was a real-estate scheme. In 1613 the city, bursting with Golden Age money, began digging three concentric canals: Herengracht for the gentlemen who ran the town, Keizersgracht for an emperor, Prinsengracht for the princes of Orange. Plots were sold to merchants, and since houses were taxed and priced by frontage width, they built narrow, deep, and tall, then competed on gables like peacocks. Here on the Golden Bend of Herengracht the richest bought double lots, so the houses actually get fat. UNESCO put the whole ring on the World Heritage list in 2010. Walk it in the evening light, along the water, and count the gable shapes: bell, neck, step. This city flirts in architecture. I learned from it.",
       "funFact": "Amsterdam has well over a thousand bridges across its canals, considerably more than Venice.",
       "link": "https://en.wikipedia.org/wiki/Canals_of_Amsterdam",
-      "itinerary": true
+      "itinerary": true,
+      "photo": {
+        "src": "photos/amsterdam/canal-ring.jpg",
+        "credit": "Andrés Barrios",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "rijsttafel-utrechtsestraat",
@@ -135,7 +201,12 @@
       "story": "Your best big dinner is two streets from the hotel, on Utrechtsestraat, a proper Amsterdammer street of small shops and good kitchens. Order rijsttafel, the 'rice table': rice with a parade of little Indonesian dishes, satay, rendang, sambals, plenty of vegetable ones for your vegetarian. Now the honest part. The Netherlands ruled Indonesia as a colony for centuries, and rijsttafel is a colonial invention, plantation Dutch showing off the archipelago's cuisines on one table. After Indonesian independence in 1949, hundreds of thousands with Indies roots came to the Netherlands and their cooking became Amsterdam's beloved everyday food. Eat it gladly, know the story, and let the boys fight over the last satay stick. History with dinner, no museum required.",
       "funFact": "Rijsttafel is barely found in Indonesia itself; the format is a Dutch colonial creation that now survives mainly in the Netherlands.",
       "link": "https://en.wikipedia.org/wiki/Rijsttafel",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/rijsttafel-utrechtsestraat.jpg",
+        "credit": "Takeaway",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "rembrandtplein",
@@ -147,7 +218,12 @@
       "story": "This square sold butter and cheese for centuries as the Botermarkt, then rebranded in 1876 around its most famous tenant: the Rembrandt statue raised in 1852, the oldest statue still standing in any Amsterdam public space. The man himself gazes over what is now a fairly shameless nightlife square, neon and terraces, which he might have enjoyed more than we admit. The reason to detour here is at his feet: a bronze, life-size cast of 'The Night Watch,' every militiaman standing in formation, and you are allowed to walk straight into the painting. Put the 11-year-old next to the drummer. Five minutes of art, zero museums, and you were never once told to whisper.",
       "funFact": "The bronze figures on the square let you physically stand inside the composition of 'The Night Watch.'",
       "link": "https://en.wikipedia.org/wiki/Rembrandtplein",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/rembrandtplein.jpg",
+        "credit": "Marion Golsteijn",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "bloemenmarkt",
@@ -159,31 +235,46 @@
       "story": "I will be straight with you, because I like you. Since 1862 flowers were sold here on the Singel from boats, and the stalls still stand on barges, but the barges are fixed and the romance mostly left with the florists. In April 2019 the last stallholder actually selling fresh-cut bouquets, from a family trading here since 1943, packed it in, saying tourist crowds had made it impossible to serve real customers. What remains is bulbs, souvenirs, and wooden tulips. So: walk through in five minutes, enjoy the canal-side oddness of it, buy nothing you cannot explain to a customs officer, and spend your flower money on stroopwafels instead. There. Now nobody can say Daan never protected you.",
       "funFact": "The 'floating' flower market lost its last genuine fresh-flower florist in 2019, driven out by the crowds that came to photograph it.",
       "link": "https://en.wikipedia.org/wiki/Bloemenmarkt",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/bloemenmarkt.jpg",
+        "credit": "Massimo Catarinella",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "begijnhof",
       "name": "Begijnhof",
       "lat": 52.3692,
-      "lng": 4.8900,
+      "lng": 4.89,
       "category": "hidden",
       "tagline": "A silent medieval courtyard hiding mid-city, door slightly ajar",
       "story": "Push open an unremarkable door near the Spui and the city noise simply switches off. The Begijnhof was home to the Beguines, pious single women who lived in community from the Middle Ages onward, but never took full nuns' vows: independent women running their own affairs in the fourteenth century, which Amsterdam found perfectly sensible. The courtyard sits below street level because it kept its medieval ground while the city rose around it. At number 34 stands the Houten Huys from around 1420, one of only two wooden facades left in Amsterdam after the great fires taught us about bricks. Speak softly, people still live here. The last Beguine died in 1971, and the quiet she left behind is the attraction.",
       "funFact": "The last Beguine lived here until 1971, ending a community of lay religious women that had lasted some six centuries.",
       "link": "https://en.wikipedia.org/wiki/Begijnhof,_Amsterdam",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/begijnhof.jpg",
+        "credit": "Massimo Catarinella",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "dam-square-royal-palace",
       "name": "Dam Square & Royal Palace",
-      "lat": 52.3730,
+      "lat": 52.373,
       "lng": 4.8925,
       "category": "landmark",
       "tagline": "The dam that named the city, and 13,659 tree trunks",
       "story": "Around 1270 somebody dammed the Amstel river here, people settled on it, and 'Amstelledamme' was born. You are standing on the city's birth certificate. The grand building is the Royal Palace, built 1648 to 1665, but not for a king: it was the town hall of a merchant republic, so vast that visitors called it the eighth wonder of the world. City halls for merchants, palaces for nobody, that was the Dutch idea. Napoleon's brother Louis made it a palace in 1808 and it stuck. The best part is under your feet: the whole thing rests on 13,659 wooden piles hammered by hand into the mud. Every Dutch schoolchild memorizes the number: days of the year, a 1 in front, a 9 behind.",
       "funFact": "The palace stands on exactly 13,659 wooden piles, remembered by the mnemonic 1-365-9: the days of the year with a one before and a nine after.",
       "link": "https://en.wikipedia.org/wiki/Royal_Palace_of_Amsterdam",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/dam-square-royal-palace.jpg",
+        "credit": "Diego Delso",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "damrak",
@@ -195,7 +286,12 @@
       "story": "The first street most visitors see, and the worst one we own. Damrak was once open water, the harbor arm where ships sailed right up to the Dam to unload; it was mostly filled in during the nineteenth century, and I fear the souvenir shops arrived the same afternoon. Neon cheese, rubber tulips, fast food with delusions. Keep walking, schatje, the real city starts one street in any direction. But let me defend its honor once: this little strip of water is where Amsterdam merchants traded shares of the Dutch East India Company after 1602, effectively inventing the publicly traded company and the stock exchange. The tackiest street in town changed world finance. Even our tourist traps have a resume.",
       "funFact": "The waterfront here saw trading in the world's first publicly traded shares, those of the Dutch East India Company, from 1602.",
       "link": "https://en.wikipedia.org/wiki/Damrak",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/damrak.jpg",
+        "credit": "Hay Kranen",
+        "license": "CC BY 4.0"
+      }
     },
     {
       "id": "oude-kerk",
@@ -207,7 +303,12 @@
       "story": "Amsterdam's oldest building, consecrated around 1306, a calm stone ship that has watched seven centuries of the city misbehave around it. And misbehave it does: the church now sits in the middle of the Red Light District, so come in daylight and route the boys along the canal side without a lecture. Inside, the floor is made entirely of gravestones, roughly 2,500 slabs over some ten thousand burials, so every visitor walks on the city's ancestors, which the ancestors would find practical. Rembrandt's wife Saskia was buried here in 1642. Above it all spreads one of the largest medieval wooden vaults in Europe, ships' carpentry turned to heaven. We built churches like boats. It was the only way we knew.",
       "funFact": "Years after Saskia's burial here, a bankrupt Rembrandt sold his own wife's grave plot to raise money.",
       "link": "https://en.wikipedia.org/wiki/Oude_Kerk",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/oude-kerk.jpg",
+        "credit": "Suicasmo",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "nieuwmarkt-de-waag",
@@ -219,19 +320,29 @@
       "story": "That turreted fortress on the square is De Waag, built in 1488 as the Saint Anthony's Gate in the medieval city wall, which makes it the oldest non-religious building in Amsterdam. When the city outgrew its walls, the gate was recycled into a weigh house for cargo, with guild rooms upstairs. The surgeons' guild kept its anatomical theatre in the tower, and public dissections were sold as winter entertainment: respectable citizens paying to watch a lesson on a criminal's corpse. It was exactly this guild that commissioned young Rembrandt's 'Anatomy Lesson of Dr. Tulp' in 1632, the painting that made his name. Today it is a café. Order a coffee on the terrace; the building has seen far stranger evenings.",
       "funFact": "Public dissections in the Waag's anatomy theatre were ticketed events, treated by Amsterdammers as respectable winter entertainment.",
       "link": "https://en.wikipedia.org/wiki/Waag,_Amsterdam",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/nieuwmarkt-de-waag.jpg",
+        "credit": "Kmhofmann at English Wikipedia.",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "amsterdam-centraal",
       "name": "Amsterdam Centraal",
       "lat": 52.3789,
-      "lng": 4.9000,
+      "lng": 4.9,
       "category": "landmark",
       "tagline": "Your front door to the city, built on three fake islands",
       "story": "So this is where you and I meet: your train slides in and Amsterdam hands you a palace first thing. Centraal opened in 1889 on three artificial islands built in the IJ, standing on 8,687 wooden piles, because in this city even the train station has to be talked out of sinking. Architect Pierre Cuypers designed it, the same man behind the Rijksmuseum, which is why arriving by rail feels like entering through a museum's front gate. The city grumbled at the time that the station walled off its beloved harbor view. We kept it anyway; we are stubborn like that. Now walk out the front doors, let op the trams and the bikes, in that order, and welcome to Amsterdam.",
       "funFact": "Of the station's two tower dials, only one is a clock; the other is a wind vane showing the wind direction, a nod to the sailing harbor behind it.",
       "link": "https://en.wikipedia.org/wiki/Amsterdam_Centraal_station",
-      "itinerary": true
+      "itinerary": true,
+      "photo": {
+        "src": "photos/amsterdam/amsterdam-centraal.jpg",
+        "credit": "Slaunger",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "ij-ferry",
@@ -243,7 +354,12 @@
       "story": "Walk straight through Centraal to the water side and there it is: a blue and white ferry, no ticket, no gate, no charge. Roll the bikes right on. Amsterdam never built a bridge across the IJ here, partly to keep the harbor open, partly because we had already decided ferries should be free and saw no reason to ruin a good thing. So the city runs them constantly, and the Buiksloterweg boat goes day and night, all night, every night. Three minutes on deck with the wind, the harbor swinging past, the boys hanging on the rail. It is the cheapest date in Europe, schatje, and I am only slightly sorry your husband is invited. Ride it over to Noord even if you have no plan. The crossing is the plan.",
       "funFact": "The Buiksloterweg ferry behind Centraal runs 24 hours a day, every day, and has no fare for anyone, bikes included.",
       "link": "https://www.gvb.nl/en/travel-information/ferries",
-      "itinerary": true
+      "itinerary": true,
+      "photo": {
+        "src": "photos/amsterdam/ij-ferry.jpg",
+        "credit": "David Spender from United Kingdom",
+        "license": "CC BY 2.0"
+      }
     },
     {
       "id": "jordaan",
@@ -255,19 +371,29 @@
       "story": "The Jordaan was built in the 1610s for the people the grand canals were not: workers, tanners, brewers, and refugees, Huguenots and others, packed into narrow streets that ignored the elegant ring plan and followed the old field ditches instead. Around 1900 some 80,000 people were crammed in here; today it is a fifth of that, and the poverty has been replaced by an almost criminal charm. The name may come from the French 'jardin,' garden, and the streets are indeed named for flowers and trees. Wander without a plan, that is the entire technique. At the Noordermarkt, Winkel 43 bakes an appeltaart that ends arguments. Order it met slagroom, with whipped cream, and thank me quietly.",
       "funFact": "Around 1900 the Jordaan squeezed in roughly 80,000 residents; today about a fifth of that number live in the same streets.",
       "link": "https://en.wikipedia.org/wiki/Jordaan",
-      "itinerary": true
+      "itinerary": true,
+      "photo": {
+        "src": "photos/amsterdam/jordaan.jpg",
+        "credit": "Jvhertum",
+        "license": "Public domain"
+      }
     },
     {
       "id": "jordaan-hofjes",
       "name": "Hofjes of the Jordaan",
       "lat": 52.3782,
-      "lng": 4.8800,
+      "lng": 4.88,
       "category": "hidden",
       "tagline": "Secret charity courtyards behind unmarked doors",
       "story": "Now I make you a person who knows things. Scattered through the Jordaan are hofjes: almshouse courtyards built from the seventeenth century on by wealthy Amsterdammers, usually to house poor elderly women, part charity and part down payment on the founder's soul. From the street you see only a door; behind it, a garden, little houses, and a silence three hundred years deep. The Sint Andrieshofje on Egelantiersgracht dates from 1617, entered through a corridor of blue and white tiles; the Karthuizerhof on Karthuizersstraat is the grandest. The rules are the ruleset of guests: weekdays, daytime, whisper, no photos of people's windows. People still live in them, which is exactly why they are worth seeing.",
       "funFact": "Many hofjes have been continuously inhabited social housing for around four centuries, making them some of the oldest charity housing still in use in Europe.",
       "link": "https://en.wikipedia.org/wiki/Hofje",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/jordaan-hofjes.jpg",
+        "credit": "Photo: Andreas Praefcke",
+        "license": "CC BY 3.0"
+      }
     },
     {
       "id": "westerkerk-anne-frank",
@@ -279,7 +405,12 @@
       "story": "The Westertoren is Amsterdam's tallest church tower at about 85 meters, crowned with the blue imperial crown of Emperor Maximilian. Rembrandt was buried inside in 1669, poor by then, in an unmarked rented grave nobody can locate. But this corner belongs to a different name. A few doors along, at Prinsengracht 263, Anne Frank and seven others hid for two years in the secret annex behind a revolving bookcase. In her diary she wrote of the Westertoren carillon, whose chimes she could hear at night and found comforting while the city outside had been made deadly for her. Know before you hope: entry is by timed online ticket only, released weeks ahead, and it sells out. Without tickets, stand on the canal, look up at the attic window, and give it a quiet minute. It is enough to matter.",
       "funFact": "Anne Frank wrote in her diary that she loved the Westertoren bells and found their chiming at night reassuring, especially in the dark hours of hiding.",
       "link": "https://www.annefrank.org/en/",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/westerkerk-anne-frank.jpg",
+        "credit": "Dietmar Rabich",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "leaning-houses",
@@ -291,7 +422,12 @@
       "story": "Look up anywhere along a canal and you will see it: houses pitched toward the street like they are checking on you. Deliberate, mostly. Every gable carries a hijsbalk, a hoisting beam with a hook, because the staircases inside are ladders in disguise, so furniture, pianos, and trade goods went up by rope outside. Build the facade leaning forward and your grandmother's cabinet swings clear of the windows. Since tax and land prices followed frontage width, houses grew narrow, deep, and tall, perfect hoisting country. You are standing near the champion: Oude Hoogstraat 22, about two meters wide, one door and one window per floor. The houses leaning sideways rather than forward, though? Rotten piles. Those we do not discuss.",
       "funFact": "The house at Oude Hoogstraat 22 is roughly 2.02 meters wide, often called the narrowest house in Amsterdam.",
       "link": "https://en.wikipedia.org/wiki/Canal_house",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/leaning-houses.jpg",
+        "credit": "CAPTAIN RAJU",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "herring-cart",
@@ -303,19 +439,29 @@
       "story": "Time to earn your bike, schatje. At any haringhandel cart, order Hollandse Nieuwe: young herring, cured in brine, served with raw onions and pickles. It has fed this city since the days when herring money was building those canals; the Dutch fleet grew rich on it centuries before anyone painted a sunflower. Elsewhere in the country they dangle the whole fish by the tail and lower it in like sword swallowers. Amsterdam is more civilized: chopped into bites, eaten with a little cocktail-flag toothpick. It is silky, mild, and far better than your face is currently suggesting. Dare the 16-year-old first, the 11-year-old will follow out of honor. And if you try it yourself? Then I officially declare you Dutch, and I do not do that lightly.",
       "funFact": "The season's ceremonial first barrel of Hollandse Nieuwe is auctioned for charity each year and regularly fetches tens of thousands of euros.",
       "link": "https://en.wikipedia.org/wiki/Soused_herring",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/herring-cart.jpg",
+        "credit": "Takeaway",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "rijksmuseum-passage",
       "name": "Rijksmuseum Bike Passage & Museumplein",
-      "lat": 52.3600,
+      "lat": 52.36,
       "lng": 4.8852,
       "category": "quirky",
       "tagline": "The only museum you can cycle straight through",
       "story": "You told me no museums, and I respect a woman who knows her mind, so here is the loophole: Amsterdam built a bike path through the middle of its greatest museum. Pierre Cuypers ran a public passage through the Rijksmuseum when it opened in 1885, and cyclists have claimed it ever since. During the ten-year renovation the architects tried to take it for a grand entrance; the cyclists' union fought city hall and the cyclists won, which tells you everything about who actually runs this town. Ride through slowly, under the arches, with the Night Watch sitting somewhere over your head. The acoustics are wonderful, and yes, ring your bell once. Everyone does. Museumplein beyond is fine for a sprawl on the grass.",
       "funFact": "The giant 'I amsterdam' letters were removed from Museumplein in 2018 partly because they drew crowds too large for the square.",
       "link": "https://en.wikipedia.org/wiki/Rijksmuseum",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/rijksmuseum-passage.jpg",
+        "credit": "Trougnouf (Benoit Brummer)",
+        "license": "CC BY 4.0"
+      }
     },
     {
       "id": "foodhallen",
@@ -327,19 +473,29 @@
       "story": "A 1902 tram depot in Oud-West, all brick and iron, reborn in 2014 as an indoor food hall: some twenty stands under one roof, Dutch, Vietnamese, Spanish, and everything a teenager considers food. I will be honest, prices run above street level, so treat it as shelter and education, not economy. The education is bitterballen: crisp fried spheres of molten beef ragout, the national bar snack, served with mustard. The technique matters, schatje. Bite a small hole, breathe, wait, then commit. The inside holds heat like a Dutch grudge, and I would hate to see that lovely mouth burned on your first attempt. Vegetarian versions exist for your table, and nobody counts how many you order. That is the rule.",
       "funFact": "The De Hallen complex housing Foodhallen stored and repaired Amsterdam's trams from 1902 before its 2014 rebirth as a food and culture hall.",
       "link": "https://foodhallen.nl",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/foodhallen.jpg",
+        "credit": "Minke Wagenaar from Amsterdam, NL",
+        "license": "CC BY-SA 2.0"
+      }
     },
     {
       "id": "westerpark",
       "name": "Westerpark & Westergasfabriek",
       "lat": 52.3858,
-      "lng": 4.8710,
+      "lng": 4.871,
       "category": "park",
       "tagline": "The gasworks that lit the city, now its coolest park",
       "story": "In the 1880s this was the Westergasfabriek, a huge coal-gas works whose ovens fed the lamps of Amsterdam; when the gaslight era ended, it left behind grand industrial brick and some of the most poisoned ground in the city. Amsterdam being Amsterdam, we cleaned it up and made it a park with the factory still standing in the middle of it: the round gasholder and its brick neighbors now hold bakeries, breweries, a cinema, and festivals, with lawns and water threaded between. It is where locals actually spend a Sunday, well clear of any tourist path. If your ride brings you west, loop through. Industrial bones, green grass, fresh bread. Very Dutch arithmetic.",
       "funFact": "The park's centerpiece gasholder once stored the coal gas that lit Amsterdam's street lamps; today it hosts concerts and festivals.",
       "link": "https://en.wikipedia.org/wiki/Westergasfabriek",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/westerpark.jpg",
+        "credit": "No machine-readable author provided. Arch assumed (based on copyright claims).",
+        "license": "Public domain"
+      }
     },
     {
       "id": "de-gooyer-brouwerij-t-ij",
@@ -351,7 +507,12 @@
       "story": "Yes, there is a real windmill inside the city, and it is the tallest wooden one in the Netherlands at 26.6 meters. De Gooyer is the last survivor of 26 corn mills that once stood along the city walls, and it has been shuffled around town over the centuries before settling here in 1814, on the stone base of an older watermill, like a hermit crab. At its foot, in a bathhouse from 1911, Brouwerij 't IJ has brewed since 1985; when Heineken left town in 1988, this cheeky little operation became the oldest working brewery in Amsterdam. The terrace is pleasant even if you drink nothing stronger than appelsap. The mill and the brewery are officially unrelated, whatever the beer label implies.",
       "funFact": "The mill on the brewery's logo does no work at all; blades and beer are neighbors, not colleagues.",
       "link": "https://en.wikipedia.org/wiki/De_Gooyer,_Amsterdam",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/de-gooyer-brouwerij-t-ij.jpg",
+        "credit": "Jvhertum",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "nemo-oosterdok",
@@ -363,19 +524,29 @@
       "story": "The great green hull rising from the harbor is NEMO, the science museum Renzo Piano shaped like a ship's bow, planted on top of the road tunnel that dives under the IJ. Here is the trick for your no-museum family: the sloping roof is a free public terrace, stairs on the outside, harbor views at the top, no ticket. From up there, look next door at the Maritime Museum, a naval arsenal built in 1656, with a full-size replica of the Dutch East Indiaman 'Amsterdam' moored alongside, masts, cannons and all. Break it gently to the boys: the original 'Amsterdam' sank off Hastings in 1749, on her maiden voyage. Centuries of naval glory, and our namesake flagship never completed trip number one. We laugh about it now. Mostly.",
       "funFact": "NEMO's whole roof is a free public square, and it sits directly on top of the IJ road tunnel beneath the harbor.",
       "link": "https://en.wikipedia.org/wiki/NEMO_(museum)",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/nemo-oosterdok.jpg",
+        "credit": "pj soans",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "ndsm-wharf",
       "name": "NDSM Wharf",
-      "lat": 52.4010,
-      "lng": 4.8930,
+      "lat": 52.401,
+      "lng": 4.893,
       "category": "hidden",
       "tagline": "A dead shipyard resurrected by artists and cranes",
       "story": "Across the water in Noord sprawls NDSM, once among Europe's mightiest shipyards, where ocean liners and tankers slid down the slipways until the whole industry collapsed and the yard closed in 1984. The city could have flattened it. Instead artists moved into the colossal sheds, and now it is a graffiti-crusted, half-wild art city: studios inside a warehouse the size of several football fields, street art on everything that stands still. One old shipbuilding crane has been converted into a tiny luxury hotel, dangling guests fifty meters up, which is the most Dutch reuse of heavy industry I can name. Take the ferry over if your Noord ride goes long. It is rough, strange, and absolutely not a tourist trap, because no one polished it.",
       "funFact": "NDSM hosts a giant mural of Anne Frank, 'Let Me Be Myself,' by Brazilian artist Eduardo Kobra, among the largest street-art portraits in Europe.",
       "link": "https://en.wikipedia.org/wiki/NDSM",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/ndsm-wharf.jpg",
+        "credit": "MrBenjo",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "nieuwendammerdijk",
@@ -387,7 +558,12 @@
       "story": "Ride ten minutes from the ferry and you fall out of Amsterdam entirely. Nieuwendammerdijk is an old sea dike lined with tilted wooden houses in green and black, a genuine dike village that the city swallowed whole when it annexed Noord's villages in 1921; the village never got the message and carried on being itself. Boats in the little lock, roses over the doors, cats supervising. At number 297 sits Café 't Sluisje, in a building from 1565 that once served the skippers working these waters. When its future wobbled in 2017, some 85 neighbors pooled 900,000 euros and bought their own pub. That, schatje, is gezellig as a financial instrument. Ride slowly here. Fast would be missing the point.",
       "funFact": "In 2017, about 85 local residents together bought the village pub 't Sluisje for 900,000 euros to keep it from disappearing.",
       "link": "https://en.wikipedia.org/wiki/Nieuwendam",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/nieuwendammerdijk.jpg",
+        "credit": "Jvhertum",
+        "license": "Public domain"
+      }
     },
     {
       "id": "adam-lookout",
@@ -399,19 +575,29 @@
       "story": "The tower across from Centraal went up in 1971 for the Shell oil company, its square floor plan turned 45 degrees to the waterfront, which is why it is called Overhoeks, 'cross-cornered.' When Shell left, the city gave it to music, hotels, and one magnificent piece of nonsense: on the roof, 100 meters up, hangs 'Over the Edge,' the highest swing in Europe, which pitches you back and forth out past the building's rim with the whole city under your shoes. Your boys will demand it the moment they see it, and honestly, so do I, every time. The observation deck alone earns the ferry ride at sunset. Come hold my hand on the swing, schatje. Fine, your husband's. But mine is steadier, just saying.",
       "funFact": "The rooftop 'Over the Edge' swing is the highest swing in Europe, arcing riders out over the tower's edge at 100 meters above the ground.",
       "link": "https://www.adamlookout.com/",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/adam-lookout.jpg",
+        "credit": "Quahadi",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "negen-straatjes",
       "name": "De 9 Straatjes (The Nine Streets)",
-      "lat": 52.3700,
+      "lat": 52.37,
       "lng": 4.8858,
       "category": "street",
       "tagline": "Nine boutique streets named after dead animals",
       "story": "Nine little cross-streets stitched across the grand canals, and the names tell you what this neighborhood really was: Huidenstraat, hides; Runstraat, the oak bark used for tanning; Berenstraat and Wolvenstraat, bear and wolf pelts. The tanners were put out here because tanning skins smells like the end of the world, and the fine canal gentlemen preferred their stink downwind. Today it is boutiques, cheese shops, and vintage in the same skinny buildings. One honest confession, because you deserve it: 'De 9 Straatjes' as a name was invented around 1996 by shopkeepers doing marketing. The streets are four hundred years old; the brand is younger than your marriage. Browse anyway. It works on me every time.",
       "funFact": "The collective name was invented by local shopkeepers around 1996 as a marketing label, though the streets themselves date to about 1612.",
       "link": "https://en.wikipedia.org/wiki/Negen_Straatjes",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/negen-straatjes.jpg",
+        "credit": "Alf van Beem",
+        "license": "Public domain"
+      }
     },
     {
       "id": "brouwersgracht",
@@ -423,7 +609,12 @@
       "story": "Ask an Amsterdammer for the prettiest canal and watch them betray their own street. In 2007 readers of our newspaper Het Parool voted the Brouwersgracht the most beautiful street in Amsterdam, and I have not won an argument against it yet. Named in 1594 for its breweries, it filled with warehouses for whale oil, leather, and spices, and those fat brown warehouses with their wooden shutters are now apartments people would trade a kidney for. A small detail I love: the whole canal ring counts from here. Singel to Prinsengracht, every house number starts at the Brouwersgracht. Come at golden hour, schatje. The light on this water does half my flirting for me.",
       "funFact": "Every canal in the great ring officially begins its house numbering at the Brouwersgracht.",
       "link": "https://en.wikipedia.org/wiki/Brouwersgracht",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/brouwersgracht.jpg",
+        "credit": "Jvhertum",
+        "license": "Public domain"
+      }
     },
     {
       "id": "reguliersgracht",
@@ -435,7 +626,12 @@
       "story": "Stand on the Herengracht bridge where it crosses this canal, look south, and count: seven arched bridges lined up like stepping stones into the distance. Now hear how close you came to never seeing it. In 1901 the city council proposed filling the Reguliersgracht in for an electric tram line. The painter Jan Veth fired off a furious pamphlet called 'Stedenschennis', city violation, Amsterdammers howled, and the council backed down. Stubbornness saved the postcard. Come back after dark when the arches are lit and doubled in the water, and bring the husband. Some views are wasted on a woman standing alone, and I cannot be everywhere at once.",
       "funFact": "The city council tried to pave over this canal for a tram line in 1901, and a furious pamphlet war stopped them.",
       "link": "https://en.wikipedia.org/wiki/Reguliersgracht",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/reguliersgracht.jpg",
+        "credit": "Marco Ober",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "munttoren",
@@ -447,19 +643,29 @@
       "story": "That solitary tower where the Amstel meets the Singel is a leftover, and I mean it with love. It was half of the Regulierspoort, a medieval city gate from the 1480s; a fire in 1618 ate the rest, and Hendrick de Keyser crowned the survivor with that elegant open spire. The name came later, in the Rampjaar of 1672, our official Disaster Year, when England and France attacked at once and silver could no longer travel safely to the mint towns. So Amsterdam struck its coins right here in the guard house. The emergency lasted about a year. The name Munttoren has now lasted three hundred and fifty. Very us: improvise once, brag forever. Listen for the carillon as you pass.",
       "funFact": "Coins were minted here for only about one year, 1672 to 1673, yet the tower has been called the Mint ever since.",
       "link": "https://en.wikipedia.org/wiki/Munttoren",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/munttoren.jpg",
+        "credit": "The original uploader was P.H. Louw at Dutch Wikipedia.",
+        "license": "CC BY 2.5 nl"
+      }
     },
     {
       "id": "beurs-van-berlage",
       "name": "Beurs van Berlage",
-      "lat": 52.3750,
+      "lat": 52.375,
       "lng": 4.8964,
       "category": "landmark",
       "tagline": "The stock exchange where a king got married",
       "story": "On the Damrak stands a great brick shed that quietly started modern Dutch architecture. Berlage built it as the commodity exchange in 1903, stripping away every frill until only honest brick and iron remained; the traders hated it, architects worshipped it, and the Amsterdam School grew up in its shadow. Trading left for good in 1998, and the building's second life is better: concerts, exhibitions, and one very good wedding. On February 2, 2002, our current king Willem-Alexander married his Máxima here, the civil ceremony, performed by the mayor of Amsterdam in the old trading hall beneath a statue of Mercury, god of commerce. A merchant city marries its future queen on a trading floor. We do not pretend to be something we are not.",
       "funFact": "King Willem-Alexander and Queen Máxima were legally married in 2002 on the main floor of this former commodity exchange.",
       "link": "https://en.wikipedia.org/wiki/Beurs_van_Berlage",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/beurs-van-berlage.jpg",
+        "credit": "Warren LeMay from Covington, KY, United States",
+        "license": "CC0"
+      }
     },
     {
       "id": "schreierstoren",
@@ -471,19 +677,29 @@
       "story": "The squat brick tower on the Prins Hendrikkade, finished in 1487, is the last real piece of the medieval city wall, and it accidentally launched your continent's biggest city. On April 4, 1609, Henry Hudson sailed from this spot on the Halve Maen, hired by our East India Company to find a shortcut to Asia. He got magnificently lost and found the river that now wears his name, with Manhattan sitting at the mouth of it. A plaque from 1927, sent over by the Greenwich Village Historical Society, marks the departure. The 'weeping tower' story, wives crying their sailors off to sea, is folklore; the old name likely just described the sharp corner the tower makes in the wall. I prefer the crying wives too. Print the legend.",
       "funFact": "New Yorkers installed a plaque here in 1927 because the voyage that stumbled onto Manhattan started at this tower.",
       "link": "https://en.wikipedia.org/wiki/Schreierstoren",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/schreierstoren.jpg",
+        "credit": "S Sepp",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "zeedijk-he-hua",
       "name": "Zeedijk & He Hua Temple",
       "lat": 52.3736,
-      "lng": 4.9000,
+      "lng": 4.9,
       "category": "street",
       "tagline": "The old sea dike, a Buddhist temple, and a bar full of monkeys",
       "story": "The Zeedijk is the old sea dike itself, the wall of mud that kept Amsterdam dry before Amsterdam was worth keeping dry. Sailors drank their wages here for centuries; now it is our little Chinatown, and halfway along stands the He Hua temple, the largest Buddhist temple built in traditional Chinese palace style in Europe, opened in 2000 by Queen Beatrix herself, with roof tiles installed by craftsmen from Taiwan. At the harbor end, at Zeedijk 1, the wooden house of In 't Aepjen has stood since 1519. Legend says broke sailors paid their bar tabs there in monkeys, and the fleas gave Dutch the saying 'je bent in de aap gelogeerd', you lodged in the monkey, meaning you are in trouble.",
       "funFact": "Dutch speakers still say 'you lodged in the monkey' for being in trouble, a phrase folklore traces to sailors paying this street's innkeeper in live monkeys.",
       "link": "https://en.wikipedia.org/wiki/He_Hua_Temple",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/zeedijk-he-hua.jpg",
+        "credit": "Shadowgate from Novara, ITALY",
+        "license": "CC BY 2.0"
+      }
     },
     {
       "id": "oudemanhuispoort",
@@ -495,7 +711,12 @@
       "story": "Between two canals hides a covered passage most visitors walk past forever. The Oudemanhuispoort was the gate of an old men's almshouse, and above one entrance a carved pair of spectacles still squints down at you, the seventeenth century's shorthand for old age. Traders have rented the little wooden display cabinets inside since 1757, gold and haberdashery first, then books: the second-hand book market here has run since 1879, and it now lives inside the University of Amsterdam's law faculty, so you browse old prints and sheet music while students hurry past to exams. The story goes that Van Gogh bought books here and, when short of cash, paid with paintings. Every bookseller in the passage has done worse deals since.",
       "funFact": "Lore holds that Vincent van Gogh paid for books in this passage with paintings when he had no money.",
       "link": "https://www.atlasobscura.com/places/oudemanhuispoort",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/oudemanhuispoort.jpg",
+        "credit": "Marcel mulder",
+        "license": "CC BY-SA 3.0 nl"
+      }
     },
     {
       "id": "spui-book-market",
@@ -507,7 +728,12 @@
       "story": "On Fridays this square fills with some twenty-five dealers of old books, maps, and prints, driving in from across the whole country. But look at the small bronze boy in the middle, the Lieverdje, the Little Darling. A cigarette manufacturer donated him in 1960, and that detail changed Dutch history: from 1964 the anti-smoking 'magician' Robert Jasper Grootveld held weekly midnight happenings at the statue precisely because tobacco money had paid for it, and out of those crowds in 1965 grew Provo, the playful anarchist movement that rattled the whole country and even smoke-bombed a royal wedding. A statue funded by cigarettes became the altar of anti-consumerism. Buy a book, pat the little troublemaker, and let op the tram behind you.",
       "funFact": "The Provo counterculture movement of the 1960s was born at midnight happenings around a statue paid for by a cigarette company.",
       "link": "https://en.wikipedia.org/wiki/Spui_(Amsterdam)",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/spui-book-market.jpg",
+        "credit": "Jvhertum",
+        "license": "Public domain"
+      }
     },
     {
       "id": "tuschinski",
@@ -519,19 +745,29 @@
       "story": "Walk into the lobby even if you see nothing else today; the staff are used to people coming just to gape. Abraham Tuschinski, a Polish Jewish tailor who stopped in Rotterdam on his way to America and never left, built this movie palace in 1921 and drenched it in Art Deco, Amsterdam School, and pure showmanship. The newspapers wrote that the wildest expectations had been exceeded. The Nazi occupiers stripped his name off the front and called it Tivoli; Tuschinski himself was murdered at Auschwitz in 1942. At liberation his name went straight back up, and it has stayed there since. In 2021, its hundredth year, it was named the most beautiful cinema in the world. Buy a ticket to anything.",
       "funFact": "In its centenary year of 2021 the Tuschinski was voted the most beautiful cinema in the world.",
       "link": "https://en.wikipedia.org/wiki/Tuschinski_Theatre",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/tuschinski.jpg",
+        "credit": "Thomas Laconis",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "de-poezenboot",
       "name": "De Poezenboot (The Cat Boat)",
       "lat": 52.3783,
-      "lng": 4.8930,
+      "lng": 4.893,
       "category": "quirky",
       "tagline": "A houseboat full of rescue cats, keeping feet dry since 1968",
       "story": "Moored on the Singel is a houseboat with the softest cargo in the harbor: the Poezenboot, a floating sanctuary for stray cats. It began in 1966 when Henriette van Weelde took in a cat family sheltering across from her house; more arrived, as cats do, until her rooms ran out, and in 1968 she reasoned like a true Amsterdammer: people here live on boats, so why not cats? It has kept their feet dry ever since, the only animal sanctuary anyone knows of that floats. Visiting hours are short and the donation box is honest. Careful, schatje. You came for a canal walk, and you will leave calculating how to get a Dutch cat through customs.",
       "funFact": "The Poezenboot is billed as the world's only animal sanctuary that floats.",
       "link": "https://depoezenboot.nl/en",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/de-poezenboot.jpg",
+        "credit": "Antony Stanley from Gloucester, UK",
+        "license": "CC BY-SA 2.0"
+      }
     },
     {
       "id": "homomonument",
@@ -543,7 +779,12 @@
       "story": "By the Westerkerk, three triangles of pink granite sit almost shyly in the pavement, one raised, one flush, one stepping down into the Keizersgracht itself, together forming one larger triangle. This is the Homomonument, unveiled in 1987, the first monument in the world to the gay men and lesbians persecuted and killed for who they were; the pink triangle was the badge the Nazis forced on them. Karin Daan designed it to be part of daily life rather than apart from it, so people sit on it, cyclists roll over it, and fresh flowers appear on the lowest step at the water. Point it out to your boys and give it its minute. The quiet monuments carry the most.",
       "funFact": "The monument's step down to the Keizersgracht is where flowers are laid, right at the waterline.",
       "link": "https://en.wikipedia.org/wiki/Homomonument",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/homomonument.jpg",
+        "credit": "Geert-Jan Edelenbosch",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "torensluis-multatuli",
@@ -555,7 +796,12 @@
       "story": "The widest old bridge in the city, some forty-two meters, room enough for two café terraces and a statue, and there is a reason: it was built in 1648 around a tower, the Jan Roodenpoortstoren, demolished in 1829 when it leaned more than fashion allowed. The tower's footprint is still traced in the paving. Better still, the vaults inside the bridge served as a jail, and from the canal side you can spot the barred little windows of the old cells in the brickwork. Above them broods the statue of Multatuli, the writer whose novel Max Havelaar shamed our colonial empire in 1860. Take a terrace chair. You are drinking coffee on top of a dungeon, and honestly, you carry it off beautifully.",
       "funFact": "Barred windows of the bridge's old jail cells are still visible in its flanks at canal level.",
       "link": "https://www.iamsterdam.com/en/whats-on/calendar/attractions-and-sights/sights/the-torensluis",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/torensluis-multatuli.jpg",
+        "credit": "Milliped",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "portuguese-synagogue",
@@ -567,7 +813,12 @@
       "story": "When Sephardic Jews fled Spain and Portugal, Amsterdam let them build, and in 1675 they raised the Esnoga, then the largest synagogue in the world, its design echoing descriptions of Solomon's Temple. Here is what stops people at the door: nothing inside has ever been electrified. No wiring, no heating; on dark days and at evening services the space is lit entirely by about a thousand candles in great brass chandeliers, exactly as it has been for three and a half centuries. Fine sand is strewn across the wooden floor in the old way, to take up dust and soften footsteps. Next door, the Ets Haim library, founded 1616, is the oldest functioning Jewish library on earth. Some places do not need my jokes. This is one of them.",
       "funFact": "The synagogue has never been wired for electricity and is still lit by roughly a thousand candles.",
       "link": "https://en.wikipedia.org/wiki/Portuguese_Synagogue_(Amsterdam)",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/portuguese-synagogue.jpg",
+        "credit": "A.A.W.J. Rietman",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "waterlooplein-market",
@@ -579,7 +830,12 @@
       "story": "Amsterdam's oldest flea market has traded here since 1893, when the city moved the Jewish street vendors of the Jodenbreestraat onto this newly made square. It became the beating heart of the Jewish quarter, everything under the sun for sale, closed only for the Sabbath. The war emptied it, market and neighborhood both, a loss this city still carries. But the market itself refused to die: it returned after liberation and roared back in the sixties as the trading floor of Dutch youth culture. Today it is three hundred-odd stalls of leather jackets, records, bike parts, and glorious junk, and it is the one market in town where haggling is not just allowed but expected. Your 16-year-old will find something. Negotiate as a family.",
       "funFact": "Waterlooplein is the oldest flea market in the Netherlands, and one of the few Amsterdam markets where haggling is expected.",
       "link": "https://en.wikipedia.org/wiki/Waterlooplein",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/waterlooplein-market.jpg",
+        "credit": "Txllxt TxllxT",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "rembrandt-house",
@@ -591,7 +847,12 @@
       "story": "The handsome red-shuttered house on the Jodenbreestraat is the one Rembrandt bought in 1639 for 13,000 guilders, an enormous sum he never quite had. He painted his greatest works upstairs, collected art and curiosities like a man allergic to savings, and the mortgage helped drag him into bankruptcy in 1656. And here is the strange gift inside the disaster: the clerks inventoried everything he owned, room by room, before it went to auction. Centuries later that bankruptcy paperwork let the museum refurnish the house almost exactly as he lived in it. His worst year became his time capsule. The facade alone is worth the detour, and the etching demonstrations inside are the hands-on kind your family actually enjoys.",
       "funFact": "The house could be refurnished accurately thanks to the room-by-room inventory drawn up for Rembrandt's 1656 bankruptcy.",
       "link": "https://en.wikipedia.org/wiki/Rembrandt_House_Museum",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/rembrandt-house.jpg",
+        "credit": "14:43, 17 October 2006",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "hortus-botanicus",
@@ -603,7 +864,12 @@
       "story": "Behind these gates since 1638 grows one of the oldest botanical gardens in the world, founded to raise medicinal herbs after plague had scythed through the Dutch cities. Its most consequential resident was a coffee plant. Seeds from Java were coaxed to life in the greenhouse around 1706, and in 1714 the mayor of Amsterdam handed a young plant to Louis XIV of France as a diplomatic present. From that line, seedlings crossed the Atlantic, and the coffee plantations of the Americas, Brazil included, descend substantially from this one garden's plant. Your morning cup owes Amsterdam a polite nod. Inside it is a small, calm, green hour, and the butterfly greenhouse earns its keep with an 11-year-old.",
       "funFact": "The coffee plantations of the Americas descend largely from a single plant raised in this garden and gifted to the French king in 1714.",
       "link": "https://en.wikipedia.org/wiki/Hortus_Botanicus_(Amsterdam)",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/hortus-botanicus.jpg",
+        "credit": "Elekes Andor",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "wertheimpark",
@@ -615,7 +881,12 @@
       "story": "The smallest and oldest park in the city, laid out in 1812 across from the Hortus and named for A.C. Wertheim, a Jewish banker who gave much of his fortune away. Near the entrance lies Jan Wolkers' Auschwitz monument, 'Nooit Meer Auschwitz': six panels of deliberately broken mirrors set flat in the ground, reflecting the sky in shards, above an urn of ashes brought from the camp itself. Wolkers said the sky can never again be seen unbroken after Auschwitz, and standing over it, watching clouds cross the cracks, you understand him without another word. Walk in, stand a moment, keep your voice low. It asks five minutes of your day and gives back considerably more.",
       "funFact": "The monument's shattered mirrors lie flat on the ground so that what you see broken is the sky itself.",
       "link": "https://www.tracesofwar.com/sights/217/Mirror-Memorial-for-Auschwitz.htm",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/wertheimpark.jpg",
+        "credit": "Jvhertum",
+        "license": "Public domain"
+      }
     },
     {
       "id": "westelijke-eilanden",
@@ -627,7 +898,12 @@
       "story": "Three artificial islands, Bickers, Prinsen, and Realen, raised from the water between 1611 and 1615 for the loud, tarry business of shipyards, herring packers, and warehouses. The industry moved on, artists moved in, and now it is the closest thing the center has to a secret village: wooden drawbridges, working boatyards, geraniums, silence. Find the Zandhoek on Realeneiland, a row of seventeenth-century captain's houses facing a little harbor, where for centuries sand barges alone were allowed to moor, selling their cargo for ship ballast and for raising the city's streets. A sand market, schatje. We traded in the ground itself. Ten minutes from Centraal, and you will likely have it to yourselves, which is honestly how I would want to show it to you.",
       "funFact": "The Zandhoek waterfront was a dedicated sand market, where barges sold their cargo for ship ballast and for raising Amsterdam's streets.",
       "link": "https://en.wikipedia.org/wiki/Westelijke_Eilanden_(Amsterdam)",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/westelijke-eilanden.jpg",
+        "credit": "Jvhertum",
+        "license": "Public domain"
+      }
     },
     {
       "id": "haarlemmerdijk",
@@ -639,7 +915,12 @@
       "story": "My favorite eating street sits on the old dike road to Haarlem: Haarlemmerstraat becoming Haarlemmerdijk, one long gezellig ribbon of bakeries, cheese shops, and stubborn independent businesses. In 2012 thirty thousand voters named it the best shopping street in the Netherlands, and the crowds still mostly have not noticed. Two detours while you graze. On the little Herenmarkt square stands the West-Indisch Huis, where in 1625 the West India Company's directors gave the order to build a fort on the island of Manhattan; New York was decided at a table just off this street. And at Haarlemmerdijk 161, The Movies has shown films since 1912, the oldest cinema in town still running. Buy something warm and keep walking.",
       "funFact": "The 1625 order to build Fort Amsterdam on Manhattan, the seed of New York City, was given in a building just off this street.",
       "link": "https://www.dutchamsterdam.nl/2171-amsterdams-nicest-shopping-street-haarlemmerstraat-and-haarlemmerdijk",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/haarlemmerdijk.jpg",
+        "credit": "Arch",
+        "license": "CC BY-SA 3.0 nl"
+      }
     },
     {
       "id": "concertgebouw",
@@ -651,7 +932,12 @@
       "story": "Our great concert hall opened in 1888 in a meadow outside the city limits: mud, pasture, and ambition. Architect Adolf van Gendt, a man his own family considered musically hopeless, designed it before the science of acoustics existed; he borrowed proportions from the Leipzig Gewandhaus and hoped. The result is one of the two or three finest-sounding halls on earth, mentioned in the same breath as Vienna and Boston, and the delicious part is that nobody can fully explain why. So every renovation since has been performed like surgery on a sleeping giant, changing as little as possible; when the rotting wooden piles beneath it were replaced in the 1980s, the concerts played on above. Sometimes the Dutch get lucky. Then we defend the luck ferociously.",
       "funFact": "The hall's celebrated acoustics were achieved by guesswork before acoustic science existed, and to this day no one fully understands them.",
       "link": "https://en.wikipedia.org/wiki/Concertgebouw,_Amsterdam",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/concertgebouw.jpg",
+        "credit": "C messier",
+        "license": "CC BY-SA 4.0"
+      }
     },
     {
       "id": "pc-hooftstraat",
@@ -663,7 +949,12 @@
       "story": "Amsterdam's luxury shopping street, and I say this with warmth: not for us. Watches priced like canal houses, handbags guarded like state secrets; your thrifty heart would file a complaint. But walk it once for one building, and I mean this. At numbers 94 to 96 stand the Crystal Houses: a traditional Amsterdam brick facade rebuilt entirely in glass bricks, each cast by hand in Italy, bonded with a transparent adhesive cured by UV light, and tested at Delft to be stronger in many ways than concrete. The builders even used a layer of full-fat milk as a reflecting surface to level the first row. A see-through brick house that could shrug off a truck. Admire it, buy nothing, and out.",
       "funFact": "The Crystal Houses' glass-brick facade was leveled using a layer of full-fat milk and tested to outperform concrete in strength.",
       "link": "https://www.mvrdv.com/projects/240/crystal-houses",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/pc-hooftstraat.jpg",
+        "credit": "Massimo Catarinella",
+        "license": "CC BY 3.0"
+      }
     },
     {
       "id": "roemer-visscherstraat",
@@ -675,7 +966,12 @@
       "story": "A quiet street beside the Vondelpark holds the cheapest grand tour of Europe ever offered: seven houses in a row, numbers 20 to 30A, each built in the style of a different country. Germany with its Gothic arches, France as a little Loire château, Moorish Spain, an Italian palazzo, Russia complete with an onion dome, a Dutch Renaissance gable, and a snug English cottage on the end. The banker Sam van Eeghen commissioned the whole set from architect Tjeerd Kuipers in 1894, when romantic longing for faraway places was the height of fashion. Seven countries in a hundred meters, no border control, no rail strikes. It sits thirty seconds off your bike route and is worth every one of them.",
       "funFact": "The English cottage of the seven is a hotel, so you can sleep in 'England' next door to 'Russia'.",
       "link": "https://www.atlasobscura.com/places/zevenlandenhuizen-seven-country-houses",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/roemer-visscherstraat.jpg",
+        "credit": "Fred Romero from Paris, France",
+        "license": "CC BY 2.0"
+      }
     },
     {
       "id": "oosterpark",
@@ -687,7 +983,12 @@
       "story": "The Vondelpark was paid for by the rich; the Oosterpark, opened in 1891, was the first big park Amsterdam built itself, for everyone, with winding English-style paths by Leonard Springer. Over time it has become the city's memory garden. Here stands the National Slavery Monument, unveiled in 2002, chains breaking mid-stride in bronze, where the Keti Koti ceremony every July 1 marks the abolition of slavery in the Dutch colonies. Nearby, De Schreeuw, The Scream, remembers the filmmaker Theo van Gogh, murdered one street away in 2004. And around all of it on a warm day: barbecues, drummers, kids, herons standing like retired judges. History and ordinary life sharing the same grass. That mix is the most Amsterdam thing in the park.",
       "funFact": "Building the park required relocating an entire centuries-old cemetery to what is now De Nieuwe Ooster.",
       "link": "https://en.wikipedia.org/wiki/Oosterpark_(Amsterdam)",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/oosterpark.jpg",
+        "credit": "S Sepp",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "dappermarkt",
@@ -699,7 +1000,12 @@
       "story": "East of the center, the Dappermarkt has run down the Dapperstraat since 1910: two hundred fifty-odd stalls of produce, fabric, spices, and fried things, serving one of the most mixed neighborhoods in the country. No tourist polish here. This is where Amsterdam actually shops, in twenty languages, and Het Parool calls it the city's true people's market. It has been voted the best market in the Netherlands, and in 2007 National Geographic ranked it among the world's top ten shopping streets, alongside Istanbul's Grand Bazaar, which made this whole city grin for a week. The street is named for Olfert Dapper, a seventeenth-century writer celebrated for his detailed description of Africa, written without ever once leaving the Netherlands. Come hungry, pay in coins, eat standing up.",
       "funFact": "The market's namesake, Olfert Dapper, wrote a celebrated 1668 description of Africa without ever leaving the Netherlands.",
       "link": "https://en.wikipedia.org/wiki/Dappermarkt",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/dappermarkt.jpg",
+        "credit": "Iijjccoo (talk)",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "de-ysbreeker",
@@ -711,7 +1017,12 @@
       "story": "Where the Weesperzijde meets the river, right where your Amstel ride begins, stands a grand café called De Ysbreeker, the Icebreaker, and the name is pure Dutch logistics. From 1702 an actual icebreaker ship was stationed on the Amstel out front, smashing the winter ice so that barges of fresh Vecht river water could keep reaching the city's breweries; beer, as always, was the priority. The inn took the ship's name and never gave it back. Later it became a famous billiards hall and a nest of arguing socialists, and now it is a fine terrace on the water. Coffee here before you pedal south, schatje, and raise the cup to the old ship. It broke the ice so I don't have to.",
       "funFact": "An actual icebreaker ship was stationed outside from 1702 until about 1860 to keep the brewers' fresh-water route open all winter.",
       "link": "https://www.deysbreeker.nl/de-ysbreeker-toen-en-nu/?lang=en",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/de-ysbreeker.jpg",
+        "credit": "Spider",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "amstelpark",
@@ -723,7 +1034,12 @@
       "story": "Halfway along your ride south, the city hides a park that is really a fossil. The Amstelpark is the leftover grounds of the Floriade of 1972, a world horticultural expo that drew four million visitors with cable cars, gondolas, and gardens from across the planet. When the expo closed, Amsterdam did the sensible thing and simply kept the good parts: the rose garden, the rhododendron valley, the orangery, a proper hedge maze, and, best of all for your crew, the miniature railway, still running its little loops in summer more than fifty years later. Park the bikes, lose the boys in the maze, rest the legs. The river and the open polder are waiting just outside the gate.",
       "funFact": "The park's miniature train is a surviving attraction from the 1972 Floriade world horticultural expo, still making its rounds every summer.",
       "link": "https://en.wikipedia.org/wiki/Amstelpark",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/amstelpark.jpg",
+        "credit": "Arthena",
+        "license": "CC BY-SA 3.0"
+      }
     },
     {
       "id": "eye-filmmuseum",
@@ -735,7 +1051,12 @@
       "story": "Across the water from Centraal, that sharp white building that looks about to take off is the Eye Filmmuseum, landed in 2012. Ride the free ferry over; the foyer and its terrace over the IJ cost nothing, and downstairs there are viewing pods where you can sit and watch pieces of film history, also free. The treasure inside is stranger than the architecture: the Desmet Collection, the complete stock of an early film distributor named Jean Desmet who never threw anything away, which means Eye holds silent films from the 1910s that survive nowhere else on earth. In 2011 it became the first film collection ever added to UNESCO's Memory of the World register. A hoarder saved the movies. Never let anyone clean out your attic.",
       "funFact": "Because distributor Jean Desmet never threw anything away, Eye preserves silent-era films that exist nowhere else in the world.",
       "link": "https://www.eyefilm.nl/en",
-      "itinerary": false
+      "itinerary": false,
+      "photo": {
+        "src": "photos/amsterdam/eye-filmmuseum.jpg",
+        "credit": "Jvhertum",
+        "license": "CC BY-SA 3.0"
+      }
     }
   ]
 }
