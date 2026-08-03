@@ -894,12 +894,46 @@ function maybeAutoCity() {
     if (d < bestD) { bestD = d; best = c; }
   }
   const geoCity = bestD < 50000 ? best : null;
-  if (geoCity && geoCity !== store.get('geo-city', null)) {
+  const from = store.get('geo-city', null);
+  if (geoCity && geoCity !== from) {
     store.set('geo-city', geoCity);
     store.set('city-pinned', false);
     state.cityPinned = false;
     if (geoCity !== state.city) setCity(geoCity);
+    // she has truly left a city she was in — the departed gentleman gets a last word
+    if (from) maybeFarewell(from, geoCity);
   }
+}
+
+/* ————— the farewell letter ————— */
+function tallyPhrase(city) {
+  const pois = state.data[city]?.pois || [];
+  const n = pois.filter(p => state.heard.has(p.id)).length;
+  if (!n) return 'none of my stories — which I choose to find mysterious';
+  if (n === 1) return 'just one of my stories';
+  return `${n} of my stories`;
+}
+function maybeFarewell(from, to) {
+  const g = state.data[from]?.guide, f = g?.farewell;
+  if (!f) return;
+  const shown = store.get('farewell-shown', {});
+  const key = `${from}>${to}`;
+  if (shown[key]) return;                    // one goodbye per border, ever
+  shown[key] = true;
+  store.set('farewell-shown', shown);
+  const el = $('farewell');
+  el.dataset.dayCity = from;                 // his colours, not his successor's
+  $('farewell-face').innerHTML = window.ART?.face ? window.ART.face(from, { label: false }) : '';
+  $('farewell-name').textContent = g.name;
+  $('farewell-sig').textContent = g.name;
+  $('farewell-body').textContent = f.body.replace('{tally}', tallyPhrase(from));
+  $('farewell-close').textContent = f.close || 'Farewell';
+  // let the new gentleman's takeover settle before the old one clears his throat
+  setTimeout(() => { $('farewell-scrim').hidden = false; el.hidden = false; }, 1200);
+}
+function closeFarewell() {
+  $('farewell').hidden = true;
+  $('farewell-scrim').hidden = true;
 }
 function maybeNudge() {
   if (!state.nudgesOn || !state.pos || state.currentPoi) return;
@@ -1095,6 +1129,8 @@ function wire() {
     const p = cityData()?.pois.find(x => x.id === id);
     if (p) openSheet(p);
   });
+  $('farewell-close').addEventListener('click', closeFarewell);
+  $('farewell-scrim').addEventListener('click', closeFarewell);
   $('nudge-toggle').addEventListener('change', e => {
     state.nudgesOn = e.target.checked;
     store.set('nudges-on', state.nudgesOn);

@@ -45,7 +45,11 @@
       "You chose me. I shall be insufferable about this for the rest of the day.",
       "Madame returns. The rooftops and I noticed immediately. Morale is much improved."
     ],
-    "nudgeAsk": "May I whisper it to you?"
+    "nudgeAsk": "May I whisper it to you?",
+    "farewell": {
+      "body": "So the rails have carried you north, and Willem is already reaching for his good pralines. Accept them — they are excellent — and think of me on every third bite. You let me tell you {tally}, and every one sounded better because it was you listening. Paris holds the rest on account: the rooftops, the gossip, the light on the Seine at eight in the evening. Come back and collect them, madame. I shall wait less patiently than I pretend.",
+      "close": "Au revoir, Julien"
+    }
   },
   "pois": [
     {

@@ -45,7 +45,11 @@
       "There you are, schat. I set the good pralines aside the moment I felt you switch.",
       "Welcome back. Stay close to me and the crowds will not touch you. The compliments, I cannot promise."
     ],
-    "nudgeAsk": "Shall I tell you about it, schat?"
+    "nudgeAsk": "Shall I tell you about it, schat?",
+    "farewell": {
+      "body": "One night, schat. Barely time to let the chocolate set — and yet you saw the only Bruges that matters, the one after the coaches leave, when the canals hold the streetlamps still. You let me tell you {tally}; the rest I keep in the shop window, with the pralines I do not sell to just anyone. Daan will mind you now. He is tall, cheerful, and my friend, so I shall be only moderately bitter about it. Mind the cobbles as you go — and remember: anything worth doing is worth doing deliciously.",
+      "close": "Tot ziens, Willem"
+    }
   },
   "pois": [
     {

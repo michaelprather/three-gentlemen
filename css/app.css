@@ -924,6 +924,30 @@ body.online .wifi-note { display: none; }
   font-style: italic; font-size: 12.5px; color: var(--ink-soft);
 }
 
+/* ————— his farewell — the letter he leaves at the border ————— */
+.farewell-scrim { position: fixed; inset: 0; z-index: 65; background: rgba(36,28,20,.42); animation: fadein .3s both; }
+.farewell {
+  position: fixed; z-index: 66; left: 50%; top: 50%;
+  transform: translate(-50%, -50%) rotate(-.6deg);
+  width: min(400px, calc(100vw - 36px)); max-height: 82dvh; overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background: var(--paper); border: 1.5px solid var(--line); border-radius: 14px;
+  box-shadow: 0 18px 50px rgba(36,28,20,.4);
+  padding: 20px 18px 16px; text-align: center;
+  animation: farewell-in .55s cubic-bezier(.2,1.1,.4,1) both;
+}
+@keyframes farewell-in { from { opacity: 0; transform: translate(-50%, -46%) rotate(-.6deg) scale(.92); } }
+.farewell-face { display: inline-block; width: 76px; height: 76px; }
+.farewell-eyebrow {
+  font-family: var(--display); font-weight: 600; font-size: 11.5px;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--accent);
+  margin-top: 6px;
+}
+.farewell .letter { text-align: left; }
+/* the body wears the successor's stationery by now — his farewell page stays plain */
+.farewell .letter::before, .farewell .letter::after { display: none; }
+.farewell-close { display: block; width: 100%; margin-top: 4px; }
+
 /* ————— his passing remarks — a little aside above the tab bar ————— */
 .aside-toast {
   position: fixed; left: 50%; transform: translateX(-50%);

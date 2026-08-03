@@ -45,7 +45,11 @@
       "Back with me? Verstandig. Julien talks about light, Willem talks about sugar — I get you across the street alive.",
       "Hallo again. The ferry is free, the stories are free, and the compliments — also free. Great value, this country."
     ],
-    "nudgeAsk": "Want the story? Of course you do."
+    "nudgeAsk": "Want the story? Of course you do.",
+    "farewell": {
+      "body": "Off home then, schatje? The city noticed — it looks flatter than usual, and we are famous for flat. You let me tell you {tally}, mostly while moving, which is the correct way to hear anything. Keep the three of us on your phone; we eat nothing and we hold the maps. And when they ask about your trip, tell them a tall Amsterdammer said you ride like a local. That compliment is not given twice. Goeie reis — the ferry is still free, and the door is always open.",
+      "close": "Dag, Daan"
+    }
   },
   "pois": [
     {

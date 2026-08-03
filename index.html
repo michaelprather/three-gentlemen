@@ -256,6 +256,20 @@
   </button>
 </div>
 
+<!-- his farewell — the letter he leaves when the GPS says she has truly crossed the border.
+     data-day-city keeps the departing guide's colours while the app already wears his successor's -->
+<div class="farewell-scrim" id="farewell-scrim" hidden></div>
+<article class="farewell" id="farewell" hidden role="dialog" aria-modal="true" data-day-city="paris">
+  <span class="farewell-face" id="farewell-face" aria-hidden="true"></span>
+  <p class="farewell-eyebrow">A last word from <span id="farewell-name">Julien</span></p>
+  <div class="letter">
+    <p class="letter-salutation">Dear Madame,</p>
+    <p class="letter-body" id="farewell-body"></p>
+    <p class="letter-sig">— <span id="farewell-sig"></span></p>
+  </div>
+  <button class="ghost-btn farewell-close" id="farewell-close">Au revoir</button>
+</article>
+
 <nav class="tabbar" aria-label="Views">
   <button class="tab is-active" data-tab="guide">
     <svg class="tab-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3,7.2 L12,13.4 L21,7.2"/></svg>
