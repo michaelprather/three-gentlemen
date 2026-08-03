@@ -445,6 +445,7 @@ body[data-city="amsterdam"] .orn::before { content: "✕\FE0E✕\FE0E✕\FE0E"; 
 .poi-dist { font-size: 12.5px; color: var(--accent); font-weight: 500; white-space: nowrap; }
 .poi-row.is-heard { opacity: .55; }
 .poi-row.is-heard .poi-name::after { content: " ✓"; color: var(--good); font-size: 14px; }
+.poi-row.is-kept .poi-name::before { content: "★ "; color: var(--accent-2); }
 
 .cat-chip {
   display: inline-block; padding: 2.5px 8px; border-radius: 4px;
@@ -735,6 +736,9 @@ body[data-city="amsterdam"] .orn::before { content: "✕\FE0E✕\FE0E✕\FE0E"; 
   font-size: 11px; color: var(--card); font-family: var(--display); font-weight: 700;
 }
 .pin.is-heard { background: #b3a68e; }
+/* kept for later: gilt — and it outranks the heard fade, she still wants to go */
+.pin.is-kept { background: var(--accent-2); }
+.legend-pin.legend-kept { background: var(--accent-2); }
 /* the bed: ink-dark and a size larger, so it reads as home at a glance */
 /* scale rather than resize — the divIcon box stays 26px, so the anchor stays true */
 .pin.is-stay {

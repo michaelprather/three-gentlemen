@@ -41,6 +41,7 @@ const state = {
   query: '',                // Guide-list search; while set, it outranks the filter
   pos: null,                // {lat, lng, ts}
   heard: new Set(store.get('heard', [])),
+  kept: new Set(store.get('kept', [])),   // starred "want to see" places
   nudgesOn: store.get('nudges-on', true),
   lastNudgeAt: 0,
   poiNudgedAt: store.get('poi-nudged', {}),
@@ -202,7 +203,7 @@ function setCity(slug, { pinned = false } = {}) {
 
 function poiRow(poi, { showDist = true, cardinalToo = false } = {}) {
   const btn = document.createElement('button');
-  btn.className = 'poi-row' + (state.heard.has(poi.id) ? ' is-heard' : '');
+  btn.className = 'poi-row' + (state.heard.has(poi.id) ? ' is-heard' : '') + (state.kept.has(poi.id) ? ' is-kept' : '');
   btn.dataset.poi = poi.id;
   let side = `<span class="cat-chip">${poi.category}</span>`;
   if (showDist && state.pos) {
@@ -494,7 +495,10 @@ function renderNear() {
     ? `${guide().name} is watching the street for you…`
     : `you’re not in ${d.city} yet — browse ahead, I’ll wait`;
   const pool = state.filter === 'all' ? d.pois : d.pois.filter(p => p.category === state.filter || p.category === 'stay');
-  const sorted = [...pool].sort((a, b) => distM(state.pos, a) - distM(state.pos, b));
+  // what she's kept for later floats to the top; within each half, nearest first
+  const keptRank = p => state.kept.has(p.id) ? 0 : 1;
+  const sorted = [...pool].sort((a, b) =>
+    keptRank(a) - keptRank(b) || distM(state.pos, a) - distM(state.pos, b));
   sorted.slice(0, 30).forEach(p => list.appendChild(poiRow(p, { showDist: true, cardinalToo: true })));
   renderFilterRows();
 }
@@ -641,7 +645,7 @@ function setupMapForCity() {
   (cityData()?.pois || []).filter(p => !p.offMap).forEach(p => {
     const icon = L.divIcon({
       className: '',
-      html: `<div class="pin${p.category === 'stay' ? ' is-stay' : ''}${state.heard.has(p.id) ? ' is-heard' : ''}"><i>${CAT_GLYPH[p.category] || '·'}</i></div>`,
+      html: `<div class="pin${p.category === 'stay' ? ' is-stay' : ''}${state.heard.has(p.id) ? ' is-heard' : ''}${state.kept.has(p.id) ? ' is-kept' : ''}"><i>${CAT_GLYPH[p.category] || '·'}</i></div>`,
       iconSize: [26, 26], iconAnchor: [13, 24],
     });
     const m = L.marker([p.lat, p.lng], { icon, zIndexOffset: p.category === 'stay' ? 500 : 0 }).addTo(map);
@@ -697,6 +701,7 @@ function openSheet(poi, { fromMap = false } = {}) {
   speakBtn.textContent = 'Read it to me ♪';
   speakBtn.classList.remove('is-speaking');
   TTS.stop();
+  $('sheet-kept-btn').textContent = state.kept.has(poi.id) ? 'Kept for you ★' : 'Keep this one for me ☆';
   $('sheet-heard-btn').textContent = state.heard.has(poi.id) ? 'Tell me again sometime' : 'I’ve heard this one ✓';
   $('sheet-map-btn').hidden = fromMap || !!poi.offMap;
   $('sheet').hidden = false;
@@ -791,6 +796,18 @@ function wireSheetDrag() {
   grip.addEventListener('pointerup', end);
   grip.addEventListener('pointercancel', end);
 }
+/* the star — she keeps a place for later; the sheet stays open, she's still reading */
+function markKept(poi) {
+  if (state.kept.has(poi.id)) state.kept.delete(poi.id); else state.kept.add(poi.id);
+  store.set('kept', [...state.kept]);
+  $('sheet-kept-btn').textContent = state.kept.has(poi.id) ? 'Kept for you ★' : 'Keep this one for me ☆';
+  renderGuide(); renderNear();
+  if (state.map) {
+    const m = state.markers[poi.id];
+    if (m) m.getElement()?.querySelector('.pin')?.classList.toggle('is-kept', state.kept.has(poi.id));
+  }
+}
+
 function markHeard(poi) {
   const adding = !state.heard.has(poi.id);
   if (adding) state.heard.add(poi.id); else state.heard.delete(poi.id);
@@ -1064,6 +1081,7 @@ function wire() {
   wireSheetDrag();
   $('sheet-compass').addEventListener('click', () => { if (!state.compassOn) startCompass(); });
   $('sheet-speak').addEventListener('click', speakSheet);
+  $('sheet-kept-btn').addEventListener('click', () => { if (state.currentPoi) markKept(state.currentPoi); });
   $('sheet-heard-btn').addEventListener('click', () => { if (state.currentPoi) { markHeard(state.currentPoi); closeSheet(); } });
   $('sheet-map-btn').addEventListener('click', () => {
     const p = state.currentPoi;
