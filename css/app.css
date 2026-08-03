@@ -71,7 +71,17 @@ body {
   padding: calc(10px + var(--safe-t)) 18px 10px;
   background: linear-gradient(var(--paper) 82%, transparent);
 }
-.mast-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.mast-row { display: flex; align-items: center; gap: 12px; }
+.mast-row .wordmark { margin-right: auto; }
+/* the ⌂ — one tap from anywhere and he walks her back to her own bed */
+.home-btn {
+  flex: none; width: 34px; height: 34px; border-radius: 50%;
+  border: 1.5px solid var(--accent); background: var(--card); color: var(--accent);
+  font-size: 18px; line-height: 1; display: grid; place-items: center; padding: 0;
+  box-shadow: 0 1px 0 rgba(36,28,20,.1);
+  transition: transform .12s ease, background .15s, border-color .45s, color .45s;
+}
+.home-btn:active { background: var(--accent-soft); transform: scale(.9); }
 .wordmark {
   font-family: var(--display);
   font-weight: 700; font-size: 16px; letter-spacing: .12em;

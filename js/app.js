@@ -993,6 +993,13 @@ function wire() {
     if (line) showMurmur(line);
   });
   $('murmur').addEventListener('click', hideMurmur);
+  // the ⌂ in the masthead: straight to tonight's bed, with distance and compass
+  $('home-btn').addEventListener('click', () => {
+    const bed = (cityData()?.pois || []).find(p => p.category === 'stay');
+    if (!bed) return;
+    startWatch(true);   // the tap doubles as the location grant iOS wants
+    openSheet(bed);
+  });
   // the little signature stamps wink too, for whoever finds them
   document.querySelectorAll('.sig-stamp').forEach(el =>
     el.addEventListener('click', () => wink(el)));
