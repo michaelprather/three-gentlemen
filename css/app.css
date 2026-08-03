@@ -1015,7 +1015,9 @@ body.online .wifi-note { display: none; }
 .sheet.is-stamped { animation: sheet-thud .3s ease .22s; }
 @keyframes sheet-thud { 0%, 100% { transform: none; } 45% { transform: translateY(4px); } }
 
-/* ————— splash: the envelope it all arrives in ————— */
+/* ————— splash: the envelope it all arrives in —————
+   One screen. A plane draws the flight in, the address is written, the three
+   gentlemen pop up and present themselves. Instructions stay folded in the P.S. */
 .splash {
   position: fixed; inset: 0; z-index: 70;
   background: var(--paper);
@@ -1023,78 +1025,182 @@ body.online .wifi-note { display: none; }
 }
 .splash.is-closing { animation: splash-out .35s ease both; }
 @keyframes splash-out { to { opacity: 0; transform: translateY(-3%); } }
-.splash-scroll {
-  height: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch;
-  padding: calc(26px + var(--safe-t)) 26px calc(30px + var(--safe-b));
-  max-width: 560px; margin: 0 auto;
-  display: flex; flex-direction: column;
-}
-/* staggered arrival, like pages slid out of an envelope */
-.splash-scroll > * { animation: splash-rise .5s cubic-bezier(.2,.8,.3,1) both; }
-.splash-scroll > *:nth-child(1) { animation-delay: .05s; }
-.splash-scroll > *:nth-child(2) { animation-delay: .12s; }
-.splash-scroll > *:nth-child(3) { animation-delay: .2s; }
-.splash-scroll > *:nth-child(4) { animation-delay: .28s; }
-.splash-scroll > *:nth-child(5) { animation-delay: .36s; }
-.splash-scroll > *:nth-child(6) { animation-delay: .44s; }
-.splash-scroll > *:nth-child(7) { animation-delay: .58s; }
-.splash-scroll > *:nth-child(8) { animation-delay: .68s; }
-.splash-scroll > *:nth-child(9) { animation-delay: .76s; }
-@keyframes splash-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; } }
 
+/* airmail edging, like the inside of the envelope */
+.splash-frame {
+  position: absolute; inset: 9px; z-index: 1; pointer-events: none;
+  border: 5px solid transparent;
+  border-image: repeating-linear-gradient(45deg,
+    var(--fl-red) 0 10px, var(--paper) 10px 17px,
+    var(--fl-blue) 17px 27px, var(--paper) 27px 34px) 5;
+  animation: frame-in .9s ease .1s both;
+}
+@keyframes frame-in { from { opacity: 0; } }
+
+.splash-inner {
+  position: relative; z-index: 2;
+  height: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch;
+  padding: calc(20px + var(--safe-t)) 24px calc(24px + var(--safe-b));
+  max-width: 560px; margin: 0 auto;
+  display: flex; flex-direction: column; text-align: center;
+}
+/* auto-margins centre the stack without clipping if a small screen must scroll */
+.splash-inner > :first-child { margin-top: auto; }
+.splash-inner > :last-child { margin-bottom: auto; }
+
+/* the flight in — a dashed line unspools behind the little plane (SMIL keeps
+   them in step; openSplash rewinds the SVG clock so it replays) */
+.splash-flight { flex: none; width: 100%; height: 74px; overflow: hidden; }
+.flight-trail {
+  fill: none; stroke: var(--accent-2); stroke-width: 1.7;
+  stroke-dasharray: .012 .014; opacity: .8;
+}
+.flight-cover {
+  fill: none; stroke: var(--paper); stroke-width: 5;
+  stroke-dasharray: 1 1;
+  animation: flight-cover 2.2s linear .25s both;
+}
+@keyframes flight-cover { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -1; } }
+.flight-plane path { fill: var(--accent); }
+.flight-plane { animation: plane-alive 2.2s linear .25s both; }
+@keyframes plane-alive {
+  0% { opacity: 0; } 3% { opacity: 1; } 95% { opacity: 1; } 100% { opacity: 0; }
+}
+
+@keyframes splash-rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; } }
 .splash-eyebrow {
   font-family: var(--display); font-weight: 600; font-size: 11px;
   letter-spacing: .22em; text-transform: uppercase; color: var(--accent-2);
+  animation: splash-rise .55s cubic-bezier(.2,.8,.3,1) .35s both;
 }
+/* the address is written with a little flourish… */
 .splash-title {
-  font-family: var(--display); font-weight: 700; font-size: 44px;
+  font-family: var(--display); font-weight: 700; font-size: 42px;
   color: var(--accent); margin: 6px 0 2px; letter-spacing: .01em;
+  animation: title-in .7s cubic-bezier(.2,1.3,.4,1) .5s both;
 }
-.splash-lede { font-style: italic; font-size: 17px; color: var(--ink-soft); }
-.splash-body { font-size: 15.5px; line-height: 1.6; margin: 14px 0 4px; }
+@keyframes title-in { from { opacity: 0; transform: translateY(24px) scale(.9) rotate(-1.4deg); } }
+/* …and the comma arrives late, dropped in from above, then keeps its wag */
+.splash-comma {
+  display: inline-block; transform-origin: top center; color: var(--accent-2);
+  animation:
+    comma-drop .55s cubic-bezier(.3,1.6,.5,1) 1.1s both,
+    comma-wag 9s ease-in-out 2.6s infinite;
+}
+@keyframes comma-drop {
+  from { opacity: 0; transform: translateY(-28px) rotate(28deg); }
+  60% { opacity: 1; transform: translateY(2px); }
+  to { opacity: 1; transform: none; }
+}
+.splash-lede {
+  font-style: italic; font-size: 17px; color: var(--ink-soft);
+  animation: splash-rise .55s cubic-bezier(.2,.8,.3,1) .65s both;
+}
+.splash-body {
+  font-size: 15px; line-height: 1.55; margin: 12px auto 0; max-width: 400px;
+  animation: splash-rise .55s cubic-bezier(.2,.8,.3,1) .8s both;
+}
 .splash-hint {
   font-family: var(--display); font-weight: 600; font-size: 12.5px;
-  letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft);
-  margin: 16px 0 8px;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft);
+  margin: 18px 0 0;
+  animation: splash-rise .55s cubic-bezier(.2,.8,.3,1) .95s both;
 }
-.splash-guides { display: flex; flex-direction: column; gap: 10px; }
+
+/* the three gentlemen, side by side, each popping up to present himself */
+.splash-guides { display: flex; justify-content: center; gap: 12px; margin-top: 12px; }
 .splash-guide {
-  display: flex; align-items: center; gap: 13px; text-align: left;
-  padding: 11px 13px; font: inherit; color: inherit;
-  background: var(--card); border: 1px solid var(--line); border-radius: 12px;
-  border-left: 3px solid var(--ga);
-  box-shadow: 2px 3px 0 rgba(36,28,20,.05);
+  position: relative; flex: 1; max-width: 126px;
+  display: flex; flex-direction: column; align-items: center;
+  padding: 11px 4px 9px; font: inherit; color: inherit;
+  background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+  border-top: 3px solid var(--ga);
+  box-shadow: 2px 4px 0 rgba(36,28,20,.07);
   transition: transform .12s ease, background .15s;
+  /* backwards fill only — a forwards fill would pin transform and defeat :active */
+  animation: guide-pop .65s cubic-bezier(.26,1.5,.42,1) backwards;
 }
-.splash-guide:active { transform: scale(.98); background: var(--gs); }
+.splash-guide:nth-child(1) { animation-delay: 1.05s; }
+.splash-guide:nth-child(2) { animation-delay: 1.2s; }
+.splash-guide:nth-child(3) { animation-delay: 1.35s; }
+@keyframes guide-pop {
+  from { opacity: 0; transform: translateY(32px) scale(.45) rotate(-6deg); }
+  70% { opacity: 1; transform: translateY(-4px) scale(1.05) rotate(1.4deg); }
+  to { opacity: 1; transform: none; }
+}
+.splash-guide:active { transform: scale(.94); background: var(--gs); }
 .splash-guide[data-splash-city="paris"] { --ga: #7c2438; --gs: #f1dee2; }
 .splash-guide[data-splash-city="bruges"] { --ga: #7a4522; --gs: #f2e3d3; }
 .splash-guide[data-splash-city="amsterdam"] { --ga: #24517e; --gs: #dfe7ee; }
-.splash-face { flex: none; width: 62px; height: 62px; }
-.splash-guide-text { display: flex; flex-direction: column; line-height: 1.35; }
-.splash-guide-text strong { font-family: var(--display); font-size: 17px; color: var(--ga); }
-.splash-guide-text em {
+/* each floats idly at his own tempo (the float lives on the face so it can
+   share the button with the pop-in) */
+.splash-face { width: 72px; height: 72px; animation: guide-float 4.6s ease-in-out 2s infinite; }
+.splash-guide:nth-child(2) .splash-face { animation-duration: 5.4s; animation-delay: 2.5s; }
+.splash-guide:nth-child(3) .splash-face { animation-duration: 5s; animation-delay: 2.2s; }
+@keyframes guide-float { 0%, 100% { transform: none; } 50% { transform: translateY(-3.5px) rotate(-1.5deg); } }
+.splash-guide strong { font-family: var(--display); font-size: 17px; color: var(--ga); margin-top: 5px; }
+.splash-guide em {
   font-style: normal; font-family: var(--display); font-weight: 600;
-  font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-soft);
-  margin: 1px 0 3px;
+  font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-soft);
+  margin-top: 1px;
 }
-.splash-guide-text > span { font-size: 13px; color: var(--ink-soft); }
+/* she chose: he swells with pride, the other two take it badly */
+.splash.is-choosing .splash-guide { pointer-events: none; }
+.splash.is-choosing .splash-guide.is-chosen { animation: guide-chosen .6s cubic-bezier(.3,1.4,.5,1) both; }
+@keyframes guide-chosen {
+  30% { transform: scale(1.1) rotate(1.5deg); }
+  to { transform: scale(1.06); }
+}
+.splash.is-choosing .splash-guide:not(.is-chosen) { animation: guide-adieu .5s ease both; }
+@keyframes guide-adieu {
+  to { opacity: .22; transform: translateY(7px) rotate(-2deg) scale(.93); filter: grayscale(.7); }
+}
+
+/* the P.S. — instructions folded away until she asks */
+.splash-foot { margin-top: 18px; animation: splash-rise .55s cubic-bezier(.2,.8,.3,1) 1.6s both; }
+.splash-ps {
+  font: inherit; font-style: italic; font-size: 14.5px; color: var(--accent);
+  background: none; border: none; padding: 6px 10px;
+  text-decoration: underline dotted; text-underline-offset: 3px;
+  transition: transform .12s ease;
+}
+.splash-ps:active { transform: scale(.95); }
+.splash-note {
+  display: grid; grid-template-rows: 0fr;
+  transition: grid-template-rows .45s cubic-bezier(.3,1,.4,1);
+}
+.splash-note.is-open { grid-template-rows: 1fr; }
+.splash-note-inner { overflow: hidden; }
 .splash-how {
-  list-style: none; margin: 18px 0 0; display: flex; flex-direction: column; gap: 8px;
-  font-size: 14px; line-height: 1.5; color: var(--ink-soft);
+  list-style: none; margin: 8px auto 2px; max-width: 350px; text-align: left;
+  background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+  padding: 13px 15px; transform: rotate(-.5deg);
+  box-shadow: 2px 3px 0 rgba(36,28,20,.06);
+  display: flex; flex-direction: column; gap: 7px;
+  font-size: 13.5px; line-height: 1.5; color: var(--ink-soft);
 }
 .splash-how li { padding-left: 18px; position: relative; }
 .splash-how li::before {
   content: "✎"; position: absolute; left: 0; top: 0; color: var(--accent-2); font-size: 12px;
 }
+/* the tips write themselves in as the note unfolds */
+.splash-note.is-open .splash-how li { animation: fadein .4s ease both; }
+.splash-note.is-open .splash-how li:nth-child(1) { animation-delay: .12s; }
+.splash-note.is-open .splash-how li:nth-child(2) { animation-delay: .2s; }
+.splash-note.is-open .splash-how li:nth-child(3) { animation-delay: .28s; }
+.splash-note.is-open .splash-how li:nth-child(4) { animation-delay: .36s; }
+.splash-note.is-open .splash-how li:nth-child(5) { animation-delay: .44s; }
 .splash-cta {
-  margin: 22px 0 0; padding: 13px 18px; font-size: 16px;
-  background: var(--accent); color: var(--paper); border-color: var(--accent);
+  display: block; margin: 8px auto 0; padding: 6px 10px;
+  font: inherit; font-style: italic; font-size: 12.5px; color: var(--ink-soft);
+  background: none; border: none;
+  text-decoration: underline; text-underline-offset: 3px;
 }
-.splash-cta:active { background: var(--accent); opacity: .85; }
-.splash-ps {
-  margin-top: 14px; text-align: center;
-  font-style: italic; font-size: 12.5px; color: var(--ink-soft);
+.splash-cta:active { opacity: .6; }
+
+@media (prefers-reduced-motion: reduce) {
+  /* the SMIL plane isn't caught by the global rule above */
+  .flight-plane, .flight-cover { display: none; }
 }
 
 /* ————— his farewell — the letter he leaves at the border ————— */

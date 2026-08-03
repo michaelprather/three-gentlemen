@@ -1189,9 +1189,19 @@ function openSplash() {
   splash.querySelectorAll('.splash-face').forEach(el => {
     el.innerHTML = window.ART?.face ? window.ART.face(el.dataset.face, { label: false }) : '';
   });
-  splash.classList.remove('is-closing');
+  splash.classList.remove('is-closing', 'is-choosing');
+  splash.querySelectorAll('.splash-guide').forEach(b => b.classList.remove('is-chosen'));
+  toggleSplashNote(false);
   splash.hidden = false;
-  splash.querySelector('.splash-scroll').scrollTop = 0;
+  $('splash-flight')?.setCurrentTime?.(0); // rewind the SVG clock so the plane flies again
+  splash.querySelector('.splash-inner').scrollTop = 0;
+}
+function toggleSplashNote(open) {
+  const note = $('splash-note');
+  if (open === undefined) open = !note.classList.contains('is-open');
+  note.classList.toggle('is-open', open);
+  note.setAttribute('aria-hidden', String(!open));
+  $('splash-ps').setAttribute('aria-expanded', String(open));
 }
 function closeSplash() {
   store.set('splash-seen', true);
@@ -1204,14 +1214,20 @@ function closeSplash() {
 function wire() {
   $('wordmark').addEventListener('click', openSplash);
   $('splash-cta').addEventListener('click', closeSplash);
+  $('splash-ps').addEventListener('click', () => toggleSplashNote());
   document.querySelectorAll('[data-splash-city]').forEach(b =>
     b.addEventListener('click', () => {
-      wink(b); // he winks before he takes her arm
+      const splash = $('splash');
+      if (splash.classList.contains('is-choosing')) return;
+      splash.classList.add('is-choosing');
+      b.classList.add('is-chosen');
+      wink(b);        // he winks before he takes her arm
+      spawnHearts(b); // and pretends not to notice the hearts
       setTimeout(() => {
         setCity(b.dataset.splashCity, { pinned: true });
         setTab('guide');
         closeSplash();
-      }, 420);
+      }, 620);
     }));
   // tap his portrait: a wink, a compliment, and a few hearts he pretends not to notice
   $('guide-stamp').addEventListener('click', () => {
