@@ -7,9 +7,9 @@
     "amsterdam": "The Dutch finale"
   },
   "intros": {
-    "paris": "Only my days here, madame — the night you fly to me, our two days together, and the dawn I must hand you to Willem. The other gentlemen's days lie folded between; tap one and he takes over. All times local, and no dates — this little book sits on the open internet.",
-    "bruges": "Bruges is given one afternoon, one evening, and one early morning, and I intend to waste none of them. The folded slips on either side belong to Julien and Daan — tap one and I shall fetch him. All times local, no dates; the internet reads over our shoulders.",
-    "amsterdam": "The finish is mine: your arrival, the bike day, and the flight home. The week before me sits folded above — tap a day and its gentleman takes it from there. All times local, no dates written down; this little book lives on the open internet."
+    "paris": "Only my days here, madame — the night you fly to me, our two days together, and the dawn I must hand you to Willem. Pick a day below and I shall lay it out. All times local, and no dates — this little book sits on the open internet.",
+    "bruges": "Bruges is given one afternoon, one evening, and one early morning, and I intend to waste none of them. Pick your day below; the rest of the week belongs to Julien and Daan. All times local, no dates; the internet reads over our shoulders.",
+    "amsterdam": "The finish is mine: your arrival, the bike day, and the flight home. Pick a day below and I shall walk you through it. All times local, no dates written down; this little book lives on the open internet."
   },
   "days": [
     {
@@ -17,24 +17,45 @@
       "label": "",
       "route": "Toronto → Paris",
       "city": null,
-      "cities": ["paris"],
+      "cities": [
+        "paris"
+      ],
       "items": [
-        { "t": "17:00", "d": "Car parked off-airport, shuttle to Terminal 3. Four hours before departure is not excessive with ten bags." },
-        { "t": "21:05", "d": "Air Transat TS 188 · Toronto YYZ, Terminal 3 → Paris CDG, Terminal 3. Non-stop, overnight." }
+        {
+          "t": "17:00",
+          "d": "Car parked off-airport, shuttle to Terminal 3. Four hours before departure is not excessive with ten bags."
+        },
+        {
+          "t": "21:05",
+          "d": "Air Transat TS 188 · Toronto YYZ, Terminal 3 → Paris CDG, Terminal 3. Non-stop, overnight."
+        }
       ],
       "note": "",
-      "stay": { "text": "An airline seat over the Atlantic" }
+      "stay": {
+        "text": "An airline seat over the Atlantic"
+      }
     },
     {
       "day": "Friday",
       "label": "",
       "route": "Land Paris",
       "city": "paris",
-      "cities": ["paris"],
+      "cities": [
+        "paris"
+      ],
       "items": [
-        { "t": "10:30", "d": "TS 188 lands at CDG, Terminal 3. Passport control is non-Schengen — allow for the queue." },
-        { "t": "", "d": "Private transfer, booked and paid. The driver meets you in Arrivals holding a sign, and waits 45 minutes from touchdown. Move straight through; message him from the queue if immigration is slow." },
-        { "t": "12:15", "d": "At the hotel, roughly — about 32 minutes from CDG." }
+        {
+          "t": "10:30",
+          "d": "TS 188 lands at CDG, Terminal 3. Passport control is non-Schengen — allow for the queue."
+        },
+        {
+          "t": "",
+          "d": "Private transfer, booked and paid. The driver meets you in Arrivals holding a sign, and waits 45 minutes from touchdown. Move straight through; message him from the queue if immigration is slow."
+        },
+        {
+          "t": "12:15",
+          "d": "At the hotel, roughly — about 32 minutes from CDG."
+        }
       ],
       "note": "Nothing else moves today.",
       "stay": {
@@ -49,9 +70,14 @@
       "label": "",
       "route": "",
       "city": "paris",
-      "cities": ["paris"],
+      "cities": [
+        "paris"
+      ],
       "items": [
-        { "t": "", "d": "No trains, no transfers. The Métro is the only thing you need to catch." }
+        {
+          "t": "",
+          "d": "No trains, no transfers. The Métro is the only thing you need to catch."
+        }
       ],
       "note": "A single Métro ticket is t+; a Navigo Day pass covers all zones for about €12.30 a head if you plan to ride hard.",
       "stay": {
@@ -66,15 +92,39 @@
       "label": "",
       "route": "Paris → Bruges",
       "city": "bruges",
-      "cities": ["paris", "bruges"],
+      "cities": [
+        "paris",
+        "bruges"
+      ],
       "items": [
-        { "t": "06:45", "d": "Leave the hotel. Métro 2 from Ternes, change at Barbès-Rochechouart to Métro 4 for Gare du Nord — about 25 minutes. Stay on the platforms; do not go up to the street." },
-        { "t": "07:15", "d": "Gare du Nord. No security, no passport control, no check-in gate on this route — the only deadline is the doors." },
-        { "t": "07:25", "d": "Platform posted. Continental departures use platforms 3–6 — check the board." },
-        { "t": "07:35", "d": "Be standing on the platform. Doors close 07:46." },
-        { "t": "07:48", "d": "Train 9415 · Paris Nord → Bruxelles-Midi, arriving 09:34. Eurostar Standard, all four." },
-        { "t": "09:51", "d": "Train 2831 · Bruxelles-Midi → Brugge, arriving 10:49. Seventeen minutes to change — read the board and walk straight to it. Brussels–Bruges runs about twice an hour if it slips." },
-        { "t": "11:15", "d": "Into town: about 30 minutes on foot with the rollers over cobbles, or De Lijn bus 1 or 2 from platform A1 immediately left of the station door, off at Dijver. Taxi rank outside, about €11." }
+        {
+          "t": "06:45",
+          "d": "Leave the hotel. Métro 2 from Ternes, change at Barbès-Rochechouart to Métro 4 for Gare du Nord — about 25 minutes. Stay on the platforms; do not go up to the street."
+        },
+        {
+          "t": "07:15",
+          "d": "Gare du Nord. No security, no passport control, no check-in gate on this route — the only deadline is the doors."
+        },
+        {
+          "t": "07:25",
+          "d": "Platform posted. Continental departures use platforms 3–6 — check the board."
+        },
+        {
+          "t": "07:35",
+          "d": "Be standing on the platform. Doors close 07:46."
+        },
+        {
+          "t": "07:48",
+          "d": "Train 9415 · Paris Nord → Bruxelles-Midi, arriving 09:34. Eurostar Standard, all four."
+        },
+        {
+          "t": "09:51",
+          "d": "Train 2831 · Bruxelles-Midi → Brugge, arriving 10:49. Seventeen minutes to change — read the board and walk straight to it. Brussels–Bruges runs about twice an hour if it slips."
+        },
+        {
+          "t": "11:15",
+          "d": "Into town: about 30 minutes on foot with the rollers over cobbles, or De Lijn bus 1 or 2 from platform A1 immediately left of the station door, off at Dijver. Taxi rank outside, about €11."
+        }
       ],
       "note": "If a train runs late, get a delay confirmation from the staff of that train and show it to the next carrier — the journey-continuation agreement covers you onto the next service at no charge. Missing one through your own dawdling, it does not.",
       "stay": {
@@ -89,15 +139,39 @@
       "label": "",
       "route": "Bruges → Amsterdam",
       "city": "amsterdam",
-      "cities": ["bruges", "amsterdam"],
+      "cities": [
+        "bruges",
+        "amsterdam"
+      ],
       "items": [
-        { "t": "08:00", "d": "Out of the hotel, back to Brugge station — same 30 minutes, or the bus." },
-        { "t": "08:30", "d": "Train 1508 · Brugge → Bruxelles-Midi, arriving 09:28." },
-        { "t": "", "d": "1 hr 21 min at Bruxelles-Midi. Stay inside the station." },
-        { "t": "10:49", "d": "Train 9539 · Bruxelles-Midi → Schiphol, arriving 12:47." },
-        { "t": "12:59", "d": "Train 8340 · Schiphol → Amsterdam Centraal, arriving 13:16. These run every few minutes if you miss it." },
-        { "t": "13:20", "d": "Metro 52 southbound from Centraal, two stops — Rokin, then Vijzelgracht. About 4 minutes, then a short walk." },
-        { "t": "13:45", "d": "At the hotel, against a 15:00 check-in. Early check-in and bag storage are requested but not promised — expect to leave the bags and go back out." }
+        {
+          "t": "08:00",
+          "d": "Out of the hotel, back to Brugge station — same 30 minutes, or the bus."
+        },
+        {
+          "t": "08:30",
+          "d": "Train 1508 · Brugge → Bruxelles-Midi, arriving 09:28."
+        },
+        {
+          "t": "",
+          "d": "1 hr 21 min at Bruxelles-Midi. Stay inside the station."
+        },
+        {
+          "t": "10:49",
+          "d": "Train 9539 · Bruxelles-Midi → Schiphol, arriving 12:47."
+        },
+        {
+          "t": "12:59",
+          "d": "Train 8340 · Schiphol → Amsterdam Centraal, arriving 13:16. These run every few minutes if you miss it."
+        },
+        {
+          "t": "13:20",
+          "d": "Metro 52 southbound from Centraal, two stops — Rokin, then Vijzelgracht. About 4 minutes, then a short walk."
+        },
+        {
+          "t": "13:45",
+          "d": "At the hotel, against a 15:00 check-in. Early check-in and bag storage are requested but not promised — expect to leave the bags and go back out."
+        }
       ],
       "note": "Re-check both timetables the day before you travel. Engineering works run on this corridor in August and the booking confirmation says times may move.",
       "stay": {
@@ -112,9 +186,14 @@
       "label": "",
       "route": "",
       "city": "amsterdam",
-      "cities": ["amsterdam"],
+      "cities": [
+        "amsterdam"
+      ],
       "items": [
-        { "t": "", "d": "Nothing to catch. The bikes are the transport today." }
+        {
+          "t": "",
+          "d": "Nothing to catch. The bikes are the transport today."
+        }
       ],
       "note": "",
       "stay": {
@@ -129,15 +208,31 @@
       "label": "",
       "route": "Amsterdam → Toronto",
       "city": "amsterdam",
-      "cities": ["amsterdam"],
+      "cities": [
+        "amsterdam"
+      ],
       "items": [
-        { "t": "11:00", "d": "Out of the hotel. Check-out is 12:00 — collect the €100 deposit at the desk." },
-        { "t": "11:15", "d": "Metro 52 southbound to Amsterdam Zuid, about 7 minutes — south, not north. Then a Schiphol train, about 10 minutes, frequent. If line 52 is down: Centraal to Schiphol direct, about 17 minutes." },
-        { "t": "14:55", "d": "Air Transat TS 377 · Amsterdam AMS → Toronto YYZ, Terminal 3. Non-stop, landing 17:10." },
-        { "t": "18:00", "d": "Car collected." }
+        {
+          "t": "11:00",
+          "d": "Out of the hotel. Check-out is 12:00 — collect the €100 deposit at the desk."
+        },
+        {
+          "t": "11:15",
+          "d": "Metro 52 southbound to Amsterdam Zuid, about 7 minutes — south, not north. Then a Schiphol train, about 10 minutes, frequent. If line 52 is down: Centraal to Schiphol direct, about 17 minutes."
+        },
+        {
+          "t": "14:55",
+          "d": "Air Transat TS 377 · Amsterdam AMS → Toronto YYZ, Terminal 3. Non-stop, landing 17:10."
+        },
+        {
+          "t": "18:00",
+          "d": "Car collected."
+        }
       ],
       "note": "",
-      "stay": { "text": "Your own bed" }
+      "stay": {
+        "text": "Your own bed"
+      }
     }
   ]
 }

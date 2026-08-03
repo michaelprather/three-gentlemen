@@ -1,0 +1,128 @@
+{
+  "paris": [
+    {
+      "poi": "eiffel-tower",
+      "name": "Eiffel Tower (stairs to 2nd floor)",
+      "src": "photos/paris/eiffel-tower.jpg",
+      "credit": "Benh LIEU SONG",
+      "license": "Public domain",
+      "caption": "She wears iron better than anyone else wears silk."
+    },
+    {
+      "poi": "sacre-coeur",
+      "name": "Sacré-Cœur Basilica",
+      "src": "photos/paris/sacre-coeur.jpg",
+      "credit": "Tonchino",
+      "license": "CC BY-SA 3.0",
+      "caption": "White as a meringue, keeping an eye on the whole affair."
+    },
+    {
+      "poi": "louvre-pyramid",
+      "name": "Louvre Pyramid & Cour Napoléon",
+      "src": "photos/paris/louvre-pyramid.jpg",
+      "credit": "Benh LIEU SONG (Flickr)",
+      "license": "CC BY-SA 3.0",
+      "caption": "The courtyard at night, when the palace has it to itself."
+    },
+    {
+      "poi": "pont-alexandre-iii",
+      "name": "Pont Alexandre III",
+      "src": "photos/paris/pont-alexandre-iii.jpg",
+      "credit": "Jebulon",
+      "license": "CC0",
+      "caption": "The most shameless bridge in Paris — and the most correct."
+    },
+    {
+      "poi": "pont-neuf",
+      "name": "Pont Neuf",
+      "src": "photos/paris/pont-neuf.jpg",
+      "credit": "Rmrfstar",
+      "license": "CC BY-SA 3.0",
+      "caption": "The 'new bridge', four hundred years into the joke."
+    }
+  ],
+  "bruges": [
+    {
+      "poi": "rozenhoedkaai",
+      "name": "Rozenhoedkaai",
+      "src": "photos/bruges/rozenhoedkaai.jpg",
+      "credit": "Ank Kumar",
+      "license": "CC BY-SA 4.0",
+      "caption": "The corner every painter in Flanders has attempted. The water does it better."
+    },
+    {
+      "poi": "markt",
+      "name": "The Markt",
+      "src": "photos/bruges/markt.jpg",
+      "credit": "Wolfgang Staudt [1]",
+      "license": "CC BY 2.0",
+      "caption": "The Markt and my Belfort — wait for the carriages to clock off."
+    },
+    {
+      "poi": "groenerei-canal-walk",
+      "name": "Groenerei Canal Walk",
+      "src": "photos/bruges/groenerei-canal-walk.jpg",
+      "credit": "Giles Laurent",
+      "license": "CC BY-SA 4.0",
+      "caption": "My whole town at dusk, lit like a chocolate shop window."
+    },
+    {
+      "poi": "bonifacius-bridge",
+      "name": "Bonifacius Bridge",
+      "src": "photos/bruges/bonifacius-bridge.jpg",
+      "credit": "CEphoto, Uwe Aranas",
+      "license": "CC BY-SA 3.0",
+      "caption": "The little bridge everyone swears is medieval. Let them."
+    },
+    {
+      "poi": "minnewater",
+      "name": "Minnewater — the Lake of Love",
+      "src": "photos/bruges/minnewater.jpg",
+      "credit": "Heribert Bechen, 5 million visits - many thanks!",
+      "license": "CC BY-SA 2.0",
+      "caption": "By the Minnewater — the Lake of Love. I promise nothing, madame."
+    }
+  ],
+  "amsterdam": [
+    {
+      "poi": "canal-ring",
+      "name": "The Canal Ring (Herengracht, Keizersgracht, Prinsengracht)",
+      "src": "photos/amsterdam/canal-ring.jpg",
+      "credit": "Andrés Barrios",
+      "license": "CC BY-SA 4.0",
+      "caption": "The whole ring from above — the prettiest trick in town planning."
+    },
+    {
+      "poi": "magere-brug",
+      "name": "Magere Brug (Skinny Bridge)",
+      "src": "photos/amsterdam/magere-brug.jpg",
+      "credit": "Zairon",
+      "license": "CC BY-SA 4.0",
+      "caption": "The Skinny Bridge, best at dusk when the bulbs come on."
+    },
+    {
+      "poi": "reguliersgracht",
+      "name": "Reguliersgracht — the Seven Bridges",
+      "src": "photos/amsterdam/reguliersgracht.jpg",
+      "credit": "Marco Ober",
+      "license": "CC BY-SA 4.0",
+      "caption": "Storm light on the Reguliersgracht. Seven bridges from the right spot — I know the spot."
+    },
+    {
+      "poi": "brouwersgracht",
+      "name": "Brouwersgracht",
+      "src": "photos/amsterdam/brouwersgracht.jpg",
+      "credit": "Jvhertum",
+      "license": "Public domain",
+      "caption": "Warehouses gone soft in their old age. My favourite water."
+    },
+    {
+      "poi": "vondelpark",
+      "name": "Vondelpark",
+      "src": "photos/amsterdam/vondelpark.jpg",
+      "credit": "Dguendel",
+      "license": "CC BY 4.0",
+      "caption": "The city's shared back garden, madame."
+    }
+  ]
+}

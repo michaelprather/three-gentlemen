@@ -10,12 +10,16 @@ history, oddities, and food wisdom for whatever you wander past.
   offline, including in airplane mode (GPS still works without cell data).
 - First launch opens the **splash** — the envelope introducing the three
   gentlemen. Tap the "Dear Madame," wordmark to see it again.
-- Views: **Guide** (his letter + everything worth seeing, with category
-  filters), **Days** (the trip, day by day, today's card flagged),
-  **Country** (his homeland: phrases, tourist FAQs, and a reshuffling deck of
-  odd facts — the tab wears the country's flag and name), **Near me** (sorted
-  by distance from you, filterable), **Map** (offline street maps, pins, blue
-  dot, and a Key for the pin glyphs).
+- Five tabs, one set per country: **Country** (the flag tab — his homeland:
+  phrases, tourist FAQs, a reshuffling deck of odd facts; tap the flag again,
+  or the button at the bottom, to switch countries), **Guide** (his portrait
+  tab: the letter, and his settings), **City** (his skyline tab: a swipeable
+  carousel of the city in her best light, a search field, and everything worth
+  seeing with category filters), **Days** (only that country's days — one chip
+  per day, today flagged; border days appear in both countries), **Map**
+  (offline street maps, pins, blue dot, and a Key for the pin glyphs).
+- **Near me** lives in the masthead — the **◎ beside the ⌂** — and rises as a
+  panel over any tab: everything sorted by distance from your feet, filterable.
 - Each city wears its country: bordeaux ink, gilt rules and fleurons for
   France; chocolate, Belgian gold and scalloped edges for Belgium; Delft blue,
   Dutch orange and De Stijl bars for the Netherlands. City skylines rise
@@ -29,7 +33,7 @@ history, oddities, and food wisdom for whatever you wander past.
   the phrase in French or Dutch.
 - The **⌂ in the masthead** opens tonight's hotel from any tab — distance,
   compass, and the front-desk number one tap away.
-- A **search field** on the Guide tab filters by name, tagline, address, and
+- A **search field** on the City tab filters by name, tagline, address, and
   story text, accents ignored.
 - **Keep this one for me ☆** stars a place for later: gilt star on its row,
   top of Near me, gilt pin on the map. Separate from "heard".

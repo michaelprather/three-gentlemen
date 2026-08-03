@@ -36,11 +36,14 @@ const store = {
 const state = {
   data: {},                 // citySlug -> city file
   itinerary: null,          // day-by-day plan, weekdays only — no dates on the public web
+  beauty: null,             // per-city carousel of the city at her best
   city: store.get('city', 'paris'),
   cityPinned: store.get('city-pinned', false),
   tab: 'guide',
-  filter: 'all',         // POI category filter, shared by Guide + Near lists
-  query: '',                // Guide-list search; while set, it outranks the filter
+  filter: 'all',         // POI category filter, shared by City + Near lists
+  query: '',                // City-list search; while set, it outranks the filter
+  dayPick: null,            // weekday chosen on the Days chips; follows across borders
+  nearOpen: false,          // the ◎ panel is up
   pos: null,                // {lat, lng, ts}
   heard: new Set(store.get('heard', [])),
   kept: new Set(store.get('kept', [])),   // starred "want to see" places
@@ -151,12 +154,13 @@ const fmtDistProse = m =>
 
 /* ————— data ————— */
 async function loadData() {
-  const files = [...CITIES.map(c => `data/${c}.json`), 'data/itinerary.json', 'data/countries.json'];
+  const files = [...CITIES.map(c => `data/${c}.json`), 'data/itinerary.json', 'data/countries.json', 'data/beauty.json'];
   const results = await Promise.all(files.map(f =>
     fetch(f).then(r => r.json()).catch(() => null)));
   CITIES.forEach((c, i) => { if (results[i]) state.data[c] = results[i]; });
   state.itinerary = results[CITIES.length] || null;
   state.countries = results[CITIES.length + 1] || null;
+  state.beauty = results[CITIES.length + 2] || null;
 }
 
 /* accent-blind matching — 'creperie' must find the crêperie */
@@ -185,13 +189,21 @@ function setCity(slug, { pinned = false } = {}) {
     b.classList.toggle('is-active', b.dataset.pickCity === slug));
   const skyline = $('hero-skyline');
   if (skyline && window.ART) skyline.innerHTML = window.ART.skyline(slug);
-  const tabCountry = $('tab-country-name');
-  if (tabCountry) tabCountry.textContent = COUNTRY_NAME[slug];
+  // the tab bar is his: flag, his face, his skyline, his names
+  $('tab-country-name').textContent = COUNTRY_NAME[slug];
+  $('tab-guide-name').textContent = guide().name;
+  $('tab-city-name').textContent = cityData()?.city || '';
+  if (window.ART) {
+    $('tab-face').innerHTML = window.ART.face(slug, { label: false });
+    $('tab-skyline').innerHTML = window.ART.skyline(slug);
+  }
   if (state.tab === 'country') renderCountry();
   if (state.tab === 'days') renderDays();
   const stamp = $('guide-stamp');
   if (stamp) { stamp.style.animation = 'none'; void stamp.offsetWidth; stamp.style.animation = ''; }
   renderGuide();
+  renderCity();
+  renderBeauty();
   // a new gentleman takes over: he greets her, he winks about it, and his
   // flag ripples up the mast and the tab bar
   if (slug !== prev) {
@@ -234,8 +246,8 @@ function dealIn(list) {
   [...list.children].forEach((el, i) => el.style.setProperty('--d', `${Math.min(i, 8) * 26}ms`));
 }
 
-function renderGuide({ deal = true } = {}) {
-  const g = guide(), d = cityData();
+function renderGuide() {
+  const g = guide();
   const stamp = $('guide-stamp');
   if (window.ART?.face) {
     stamp.classList.add('has-face');
@@ -254,6 +266,15 @@ function renderGuide({ deal = true } = {}) {
   const quips = g.quips || [];
   if (quips.length) setQuip(quips[Math.floor(Math.random() * quips.length)]);
   else $('quip').hidden = true;
+  $('nudge-toggle').checked = state.nudgesOn;
+}
+
+/* ————— his city: her portraits, his list ————— */
+function renderCity({ deal = true } = {}) {
+  const g = guide(), d = cityData();
+  $('city-title').textContent = d?.city || '';
+  $('city-sub').textContent = g.name === '…' ? '' :
+    `every stone of it in ${g.name}’s keeping`;
 
   const stay = $('list-stay'), iti = $('list-itinerary'), wan = $('list-wander');
   stay.textContent = ''; iti.textContent = ''; wan.textContent = '';
@@ -286,7 +307,62 @@ function renderGuide({ deal = true } = {}) {
     wan.appendChild(empty);
   }
   renderFilterRows();
-  $('nudge-toggle').checked = state.nudgesOn;
+}
+
+/* ————— the beauty of the place — a few photographs he keeps in his coat ————— */
+function renderBeauty() {
+  const wrap = $('beauty'), track = $('beauty-track'), dots = $('beauty-dots');
+  if (!wrap) return;
+  const shots = state.beauty?.[state.city] || [];
+  wrap.hidden = !shots.length;
+  track.textContent = '';
+  dots.textContent = '';
+  shots.forEach((s, i) => {
+    const fig = document.createElement('figure');
+    fig.className = 'beauty-slide';
+    fig.style.setProperty('--tilt', `${i % 2 ? .7 : -.7}deg`);
+    const img = document.createElement('img');
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.src = s.src;
+    img.alt = s.name || '';
+    const cap = document.createElement('figcaption');
+    const line = document.createElement('span');
+    line.className = 'beauty-cap';
+    line.textContent = s.caption || '';
+    const credit = document.createElement('span');
+    credit.className = 'beauty-credit';
+    credit.textContent = `Photo: ${s.credit} · ${s.license}`;
+    cap.append(line, credit);
+    fig.append(img, cap);
+    // the photograph is also a door — tap it and he tells the story
+    if (s.poi) fig.addEventListener('click', () => {
+      const p = poiById(state.city, s.poi);
+      if (p) openSheet(p);
+    });
+    track.appendChild(fig);
+    const dot = document.createElement('span');
+    dot.className = 'beauty-dot' + (i ? '' : ' is-active');
+    dots.appendChild(dot);
+  });
+  track.scrollLeft = 0;
+}
+
+/* keep the dots under the carousel honest as she swipes */
+let beautyRaf = 0;
+function onBeautyScroll() {
+  if (beautyRaf) return;
+  beautyRaf = requestAnimationFrame(() => {
+    beautyRaf = 0;
+    const track = $('beauty-track');
+    const mid = track.scrollLeft + track.clientWidth / 2;
+    let best = 0, bestD = Infinity;
+    [...track.children].forEach((el, i) => {
+      const c = el.offsetLeft + el.offsetWidth / 2;
+      if (Math.abs(c - mid) < bestD) { bestD = Math.abs(c - mid); best = i; }
+    });
+    [...$('beauty-dots').children].forEach((d, i) => d.classList.toggle('is-active', i === best));
+  });
 }
 
 /* ————— his charm ————— */
@@ -415,7 +491,7 @@ function renderFilterRows() {
       b.textContent = label;
       b.addEventListener('click', () => {
         state.filter = state.filter === key ? 'all' : key;
-        renderGuide();
+        renderCity();
         renderNear({ deal: true });
       });
       row.appendChild(b);
@@ -431,90 +507,93 @@ function openPoiFrom(city, id) {
   openSheet(p);
 }
 
+function dayCard(day, isToday) {
+  const card = document.createElement('section');
+  card.className = 'day-card';
+  card.dataset.day = day.day;
+  if (day.city) card.dataset.dayCity = day.city;
+  if (isToday) card.classList.add('is-today');
+
+  const head = document.createElement('div');
+  head.className = 'day-head';
+  head.innerHTML =
+    `<span class="day-name">${day.day}${isToday ? ' <span class="today-badge">today</span>' : ''}</span>` +
+    (day.route ? `<span class="day-route">${day.route}</span>` : '');
+  card.appendChild(head);
+
+  const times = document.createElement('ol');
+  times.className = 'day-times';
+  (day.items || []).forEach(item => {
+    const li = document.createElement('li');
+    li.innerHTML = `<span class="day-t">${item.t || '·'}</span><span class="day-d"></span>`;
+    li.querySelector('.day-d').textContent = item.d;
+    times.appendChild(li);
+  });
+  card.appendChild(times);
+
+  if (day.note) {
+    const note = document.createElement('p');
+    note.className = 'day-note';
+    note.textContent = day.note;
+    card.appendChild(note);
+  }
+
+  if (day.stay) {
+    // tappable when there's a real bed behind it — that opens the hotel's pin, map, and compass
+    const tappable = day.stay.poi && poiById(day.stay.city, day.stay.poi);
+    const bed = document.createElement(tappable ? 'button' : 'div');
+    bed.className = 'day-bed' + (tappable ? ' is-tappable' : '');
+    bed.innerHTML =
+      `<span class="day-bed-glyph">⌂</span>` +
+      `<span class="day-bed-body"><span class="day-bed-text"></span>` +
+      (day.stay.detail ? `<span class="day-bed-detail"></span>` : '') + `</span>`;
+    bed.querySelector('.day-bed-text').textContent = day.stay.text;
+    if (day.stay.detail) bed.querySelector('.day-bed-detail').textContent = day.stay.detail;
+    if (tappable) bed.addEventListener('click', () => openPoiFrom(day.stay.city, day.stay.poi));
+    card.appendChild(bed);
+  }
+  return card;
+}
+
 function renderDays() {
-  const it = state.itinerary, list = $('day-list');
+  const it = state.itinerary;
   if (!it) return;
   $('days-title').textContent = (it.titles || {})[state.city] || it.title || 'The shape of the week';
   $('days-intro').textContent = (it.intros || {})[state.city] || it.intro || '';
-  list.textContent = '';
+
+  // only his own days — the week's other pages belong to the other gentlemen.
+  // Border days (Sun, Mon) carry both cities and appear in both countries.
+  const days = (it.days || []).filter(d =>
+    (d.cities || (d.city ? [d.city] : [])).includes(state.city));
+
   // the trip is one of each weekday, so the weekday name is enough to know "today"
   const todayName = new Date().toLocaleDateString('en-US', { weekday: 'long' });
-  let todayCard = null;
-  (it.days || []).forEach(day => {
-    const cities = day.cities || (day.city ? [day.city] : []);
-    const isToday = day.day === todayName;
+  let sel = state.dayPick;
+  if (!days.some(d => d.day === sel)) {
+    sel = days.some(d => d.day === todayName) ? todayName : days[0]?.day;
+  }
+  state.dayPick = sel;
 
-    // another gentleman's day — folded to a slip so the week keeps its shape
-    if (cities.length && !cities.includes(state.city)) {
-      const other = day.city || cities[0];
-      const slip = document.createElement('button');
-      slip.className = 'day-else' + (isToday ? ' is-today' : '');
-      slip.dataset.dayCity = other;
-      const gName = state.data[other]?.guide?.name || COUNTRY_NAME[other];
-      slip.innerHTML =
-        `<span class="day-name">${day.day}${isToday ? ' <span class="today-badge">today</span>' : ''}</span>` +
-        `<span class="day-else-flag"></span>` +
-        `<span class="day-else-hint">` +
-        (day.route ? `<span class="day-else-route">${day.route}</span>` : '') +
-        `<span>in ${gName}’s care ›</span></span>`;
-      slip.addEventListener('click', () => {
-        setCity(other, { pinned: true });   // he takes over, and the list redraws under his hand
-        const card = list.querySelector(`.day-card[data-day="${day.day}"]`);
-        if (card) requestAnimationFrame(() => card.scrollIntoView({ block: 'center', behavior: 'smooth' }));
-      });
-      list.appendChild(slip);
-      if (isToday) todayCard = slip;
-      return;
-    }
-
-    const card = document.createElement('section');
-    card.className = 'day-card';
-    card.dataset.day = day.day;
-    if (day.city) card.dataset.dayCity = day.city;
-    if (isToday) { card.classList.add('is-today'); todayCard = card; }
-
-    const head = document.createElement('div');
-    head.className = 'day-head';
-    head.innerHTML =
-      `<span class="day-name">${day.day}${isToday ? ' <span class="today-badge">today</span>' : ''}</span>` +
-      (day.route ? `<span class="day-route">${day.route}</span>` : '');
-    card.appendChild(head);
-
-    const times = document.createElement('ol');
-    times.className = 'day-times';
-    (day.items || []).forEach(item => {
-      const li = document.createElement('li');
-      li.innerHTML = `<span class="day-t">${item.t || '·'}</span><span class="day-d"></span>`;
-      li.querySelector('.day-d').textContent = item.d;
-      times.appendChild(li);
-    });
-    card.appendChild(times);
-
-    if (day.note) {
-      const note = document.createElement('p');
-      note.className = 'day-note';
-      note.textContent = day.note;
-      card.appendChild(note);
-    }
-
-    if (day.stay) {
-      // tappable when there's a real bed behind it — that opens the hotel's pin, map, and compass
-      const tappable = day.stay.poi && poiById(day.stay.city, day.stay.poi);
-      const bed = document.createElement(tappable ? 'button' : 'div');
-      bed.className = 'day-bed' + (tappable ? ' is-tappable' : '');
-      bed.innerHTML =
-        `<span class="day-bed-glyph">⌂</span>` +
-        `<span class="day-bed-body"><span class="day-bed-text"></span>` +
-        (day.stay.detail ? `<span class="day-bed-detail"></span>` : '') + `</span>`;
-      bed.querySelector('.day-bed-text').textContent = day.stay.text;
-      if (day.stay.detail) bed.querySelector('.day-bed-detail').textContent = day.stay.detail;
-      if (tappable) bed.addEventListener('click', () => openPoiFrom(day.stay.city, day.stay.poi));
-      card.appendChild(bed);
-    }
-    list.appendChild(card);
+  const chips = $('day-chips');
+  chips.textContent = '';
+  days.forEach(d => {
+    const chip = document.createElement('button');
+    chip.className = 'day-chip'
+      + (d.day === sel ? ' is-active' : '')
+      + (d.day === todayName ? ' is-today' : '');
+    chip.setAttribute('role', 'tab');
+    chip.setAttribute('aria-selected', d.day === sel ? 'true' : 'false');
+    chip.innerHTML =
+      `<span class="day-chip-name">${d.day.slice(0, 3)}</span>` +
+      (d.route ? `<span class="day-chip-route">${d.route}</span>` : '');
+    chip.addEventListener('click', () => { state.dayPick = d.day; renderDays(); });
+    chips.appendChild(chip);
   });
-  if (todayCard) requestAnimationFrame(() =>
-    todayCard.scrollIntoView({ block: 'center', behavior: 'auto' }));
+
+  const list = $('day-list');
+  list.textContent = '';
+  const day = days.find(d => d.day === sel);
+  if (day) list.appendChild(dayCard(day, day.day === todayName));
 }
 
 function renderNear({ deal = false } = {}) {
@@ -573,8 +652,22 @@ function setTab(tab) {
   if (tab === 'map') initMap();
   if (tab === 'days') renderDays();
   if (tab === 'country') renderCountry();
-  if (tab === 'near') { renderNear({ deal: true }); startWatch(false); }
   window.scrollTo(0, 0);
+}
+
+/* ————— near me — the ◎ panel, up from the masthead ————— */
+function openNear() {
+  state.nearOpen = true;
+  $('near-panel').hidden = false;
+  $('near-scrim').hidden = false;
+  $('near-panel').querySelector('.near-scroll').scrollTop = 0;
+  renderNear({ deal: true });
+  startWatch(false);
+}
+function closeNear() {
+  state.nearOpen = false;
+  $('near-panel').hidden = true;
+  $('near-scrim').hidden = true;
 }
 
 /* ————— country picker ————— */
@@ -866,7 +959,7 @@ function markKept(poi) {
   else state.kept.delete(poi.id);
   store.set('kept', [...state.kept]);
   $('sheet-kept-btn').textContent = state.kept.has(poi.id) ? 'Kept for you ★' : 'Keep this one for me ☆';
-  renderGuide({ deal: false }); renderNear();
+  renderCity({ deal: false }); renderNear();
   if (state.map) {
     const m = state.markers[poi.id];
     if (m) m.getElement()?.querySelector('.pin')?.classList.toggle('is-kept', state.kept.has(poi.id));
@@ -878,7 +971,7 @@ function markHeard(poi) {
   if (adding) state.heard.add(poi.id); else state.heard.delete(poi.id);
   store.set('heard', [...state.heard]);
   if (adding) showAside();
-  renderGuide({ deal: false }); renderNear();
+  renderCity({ deal: false }); renderNear();
   if (state.map) {
     const m = state.markers[poi.id];
     if (m) m.getElement()?.querySelector('.pin')?.classList.toggle('is-heard', state.heard.has(poi.id));
@@ -942,7 +1035,7 @@ function startWatch(fromTap) {
     store.set('geo-ok', true);
     state.pos = { lat: pos.coords.latitude, lng: pos.coords.longitude, ts: Date.now() };
     maybeAutoCity();
-    if (state.tab === 'near') renderNear();
+    if (state.nearOpen) renderNear();
     updateYouMarker();
     updateSheetWhere();
     maybeNudge();
@@ -1140,11 +1233,12 @@ function wire() {
     el.addEventListener('click', () => wink(el)));
   document.querySelectorAll('.tab').forEach(b =>
     b.addEventListener('click', () => {
-      // the flag tab is the country switcher — it asks before it navigates
-      if (b.dataset.tab === 'country') { toggleCountryPicker(); return; }
+      // the flag tab opens his country; a second tap asks which country
+      if (b.dataset.tab === 'country' && state.tab === 'country') { toggleCountryPicker(); return; }
       closeCountryPicker();
       setTab(b.dataset.tab);
     }));
+  $('country-switch').addEventListener('click', openCountryPicker);
   document.querySelectorAll('[data-pick-city]').forEach(b =>
     b.addEventListener('click', () => {
       closeCountryPicker();
@@ -1152,16 +1246,20 @@ function wire() {
       setTab('country');
     }));
   $('picker-scrim').addEventListener('click', closeCountryPicker);
+  $('near-btn').addEventListener('click', openNear);
+  $('near-close').addEventListener('click', closeNear);
+  $('near-scrim').addEventListener('click', closeNear);
+  $('beauty-track').addEventListener('scroll', onBeautyScroll, { passive: true });
   $('search').addEventListener('input', e => {
     state.query = e.target.value;
     $('search-clear').hidden = !state.query;
-    renderGuide();
+    renderCity();
   });
   $('search-clear').addEventListener('click', () => {
     state.query = '';
     $('search').value = '';
     $('search-clear').hidden = true;
-    renderGuide();
+    renderCity();
     $('search').focus();
   });
   $('near-locate').addEventListener('click', () => {
@@ -1209,7 +1307,7 @@ function wire() {
   });
   $('reset-heard').addEventListener('click', () => {
     state.heard.clear(); store.set('heard', []);
-    renderGuide(); renderNear();
+    renderCity(); renderNear();
     if (state.map) setupMapForCity();
   });
   const setOnline = () => document.body.classList.toggle('online', navigator.onLine);
