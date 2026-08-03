@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 
-const ROOT = '/app';
+const ROOT = process.env.APP_ROOT || '/app';
 
 function walk(dir, out = []) {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -22,7 +22,7 @@ const tiles = walk(path.join(ROOT, 'tiles'))
 fs.writeFileSync(path.join(ROOT, 'tiles-index.json'), JSON.stringify({ tiles }));
 
 // app shell precache list
-const SHELL_DIRS = ['css', 'fonts', 'icons', 'js', 'data'];
+const SHELL_DIRS = ['css', 'fonts', 'icons', 'js', 'data', 'photos'];
 const shell = ['index.html', 'manifest.webmanifest', 'tiles-index.json'];
 for (const d of SHELL_DIRS) {
   for (const f of walk(path.join(ROOT, d))) {

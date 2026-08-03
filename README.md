@@ -13,4 +13,6 @@ history, oddities, and food wisdom for whatever you wander past.
   Toggle that off at the bottom of the Guide tab.
 
 Map data © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors.
+POI photos via [Wikimedia Commons](https://commons.wikimedia.org), individually
+credited on each card and in `photos/credits.json`.
 Built with Leaflet. Fonts: Fraunces & Literata (OFL).
