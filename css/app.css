@@ -576,7 +576,20 @@ body[data-city="amsterdam"] .orn::before { content: "✕\FE0E✕\FE0E✕\FE0E"; 
   background: var(--card); border: 1px solid var(--line); border-radius: 10px;
   border-left: 3px solid var(--accent-2);
 }
+.phrase { position: relative; padding-right: 56px; }
 .phrase-say { font-family: var(--display); font-weight: 600; font-size: 17px; color: var(--accent); }
+/* he says it aloud — dashed at rest, solid while speaking */
+.phrase-speak {
+  position: absolute; top: 12px; right: 11px;
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 1.5px dashed var(--accent); background: var(--accent-soft); color: var(--accent);
+  font-size: 15px; display: grid; place-items: center; padding: 0;
+  transition: transform .12s ease;
+}
+.phrase-speak:active { transform: scale(.9); }
+.phrase-speak.is-speaking, #sheet-speak.is-speaking {
+  border-style: solid; background: var(--accent); color: var(--paper);
+}
 .phrase-pron { font-style: italic; font-size: 12.5px; color: var(--accent-2); letter-spacing: .04em; }
 .phrase-when { font-size: 13.5px; color: var(--ink-soft); line-height: 1.5; margin-top: 3px; }
 

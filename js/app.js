@@ -53,6 +53,68 @@ const state = {
   charmTaps: 0,
 };
 
+/* ————— his voice — the Web Speech API, offline with the iPhone's own voices ————— */
+const PHRASE_LANG = { paris: 'fr-FR', bruges: 'nl-BE', amsterdam: 'nl-NL' };
+const TTS = (() => {
+  const ok = 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
+  let voices = [];
+  const load = () => { voices = speechSynthesis.getVoices(); };
+  if (ok) { load(); speechSynthesis.addEventListener?.('voiceschanged', load); }
+  function pick(lang) {
+    const base = lang.split('-')[0];
+    return voices.find(v => v.lang.replace('_', '-') === lang)
+        || voices.find(v => v.lang.replace('_', '-').startsWith(base))
+        || null;
+  }
+  let current = null;   // the utterance now speaking, carrying its own cleanup
+  function stop() {
+    if (!ok || !current) return;
+    const c = current;
+    current = null;
+    speechSynthesis.cancel();
+    c._done?.();
+  }
+  function speak(text, lang, { rate = 1, done } = {}) {
+    if (!ok) return;
+    stop();
+    const u = new SpeechSynthesisUtterance(text);
+    const v = pick(lang);
+    if (v) u.voice = v;
+    u.lang = v ? v.lang : lang;
+    u.rate = rate;
+    u._done = done;
+    u.onend = u.onerror = () => { if (current === u) { current = null; done?.(); } };
+    current = u;
+    // iOS drops an utterance queued in the same tick as a cancel — breathe first
+    setTimeout(() => { if (current === u) speechSynthesis.speak(u); }, 60);
+  }
+  return { ok, speak, stop };
+})();
+
+/* the sheet's story, in an English voice — continental gentlemen prefer the British one */
+function speakSheet() {
+  const poi = state.currentPoi;
+  if (!poi) return;
+  const btn = $('sheet-speak');
+  if (btn.classList.contains('is-speaking')) { TTS.stop(); return; }
+  const bits = [poi.name + '.', poi.story];
+  if (poi.funFact) bits.push('And between us…', poi.funFact);
+  btn.textContent = 'Hush — that will do';
+  btn.classList.add('is-speaking');
+  TTS.speak(bits.join(' '), 'en-GB', { rate: .96, done: () => {
+    btn.textContent = 'Read it to me ♪';
+    btn.classList.remove('is-speaking');
+  } });
+}
+
+/* a phrase, said slowly in the country's own tongue */
+function speakPhrase(text, btn) {
+  if (btn.classList.contains('is-speaking')) { TTS.stop(); return; }
+  btn.classList.add('is-speaking');
+  TTS.speak(text, PHRASE_LANG[state.city] || 'fr-FR',
+    { rate: .8, done: () => btn.classList.remove('is-speaking') });
+}
+
 /* ————— geometry ————— */
 const R = 6371000;
 function distM(a, b) {
@@ -423,6 +485,7 @@ function tabOrder() {
   return [...document.querySelectorAll('.tab')].map(b => b.dataset.tab);
 }
 function setTab(tab) {
+  TTS.stop();
   const order = tabOrder();
   const dir = order.indexOf(tab) - order.indexOf(state.tab);
   state.tab = tab;
@@ -481,6 +544,14 @@ function renderCountry() {
     el.querySelector('.phrase-say').textContent = p.say;
     el.querySelector('.phrase-pron').textContent = p.pron || '';
     el.querySelector('.phrase-when').textContent = p.when || '';
+    if (TTS.ok) {
+      const b = document.createElement('button');
+      b.className = 'phrase-speak';
+      b.textContent = '♪';
+      b.setAttribute('aria-label', `Hear “${p.say}” said aloud`);
+      b.addEventListener('click', () => speakPhrase(p.say, b));
+      el.appendChild(b);
+    }
     phrases.appendChild(el);
   });
 
@@ -602,6 +673,11 @@ function openSheet(poi, { fromMap = false } = {}) {
   const phone = $('sheet-phone');
   // a tel: link works with no data connection — the one action on this page that always does
   if (poi.phone) { phone.hidden = false; phone.href = `tel:${poi.phone}`; } else phone.hidden = true;
+  const speakBtn = $('sheet-speak');
+  speakBtn.hidden = !TTS.ok;
+  speakBtn.textContent = 'Read it to me ♪';
+  speakBtn.classList.remove('is-speaking');
+  TTS.stop();
   $('sheet-heard-btn').textContent = state.heard.has(poi.id) ? 'Tell me again sometime' : 'I’ve heard this one ✓';
   $('sheet-map-btn').hidden = fromMap || !!poi.offMap;
   $('sheet').hidden = false;
@@ -618,6 +694,7 @@ function updateSheetWhere() {
 }
 
 function closeSheet() {
+  TTS.stop();
   const sheet = $('sheet');
   sheet.hidden = true;
   sheet.classList.remove('is-dragging', 'is-settling');
@@ -948,6 +1025,7 @@ function wire() {
   $('sheet-scrim').addEventListener('click', closeSheet);
   wireSheetDrag();
   $('sheet-compass').addEventListener('click', () => { if (!state.compassOn) startCompass(); });
+  $('sheet-speak').addEventListener('click', speakSheet);
   $('sheet-heard-btn').addEventListener('click', () => { if (state.currentPoi) { markHeard(state.currentPoi); closeSheet(); } });
   $('sheet-map-btn').addEventListener('click', () => {
     const p = state.currentPoi;
