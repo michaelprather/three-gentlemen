@@ -22,6 +22,19 @@ history, oddities, and food wisdom for whatever you wander past.
   behind each guide's portrait; flag ribbons run through the chrome.
 - He'll gently interrupt when you walk within ~130 m of something good.
   Toggle that off at the bottom of the Guide tab.
+- Distances read as **walking minutes** ("a 6-minute walk northeast of you");
+  far-off things fall back to kilometres.
+- **Read it to me ♪** on any card has him read the story aloud (on-device
+  voices, works offline); phrase cards on the Country tab get a ♪ that says
+  the phrase in French or Dutch.
+- The **⌂ in the masthead** opens tonight's hotel from any tab — distance,
+  compass, and the front-desk number one tap away.
+- A **search field** on the Guide tab filters by name, tagline, address, and
+  story text, accents ignored.
+- **Keep this one for me ☆** stars a place for later: gilt star on its row,
+  top of Near me, gilt pin on the map. Separate from "heard".
+- Cross a border and the departed guide leaves a **farewell letter** — with a
+  tally of how many of his stories you heard. Once per border, ever.
 
 Map data © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors.
 POI photos via [Wikimedia Commons](https://commons.wikimedia.org), individually
