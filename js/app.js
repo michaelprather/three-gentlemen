@@ -71,7 +71,17 @@ function bearingDeg(a, b) {
 function cardinal(a, b) {
   return ['north', 'northeast', 'east', 'southeast', 'south', 'southwest', 'west', 'northwest'][Math.round(bearingDeg(a, b) / 45) % 8];
 }
-const fmtDist = m => m < 950 ? `${Math.round(m / 10) * 10} m` : `${(m / 1000).toFixed(1)} km`;
+/* she thinks in minutes, not metres — 80 m/min is an honest stroll with stops.
+   Anything past a real walk (or browsed from home) falls back to kilometres. */
+const walkMin = m => Math.max(1, Math.round(m / 80));
+const fmtKm = m => m < 9950 ? `${(m / 1000).toFixed(1)} km` : `${Math.round(m / 1000)} km`;
+const fmtDist = m =>
+  m < 45 ? 'right here' :
+  m < 8000 ? `${walkMin(m)} min walk` : fmtKm(m);
+/* the prose form, for sentences he says out loud */
+const fmtDistProse = m =>
+  m < 45 ? 'a few steps' :
+  m < 8000 ? `a ${walkMin(m)}-minute walk` : fmtKm(m);
 
 /* ————— data ————— */
 async function loadData() {
@@ -603,7 +613,7 @@ function openSheet(poi, { fromMap = false } = {}) {
 function updateSheetWhere() {
   const poi = state.currentPoi;
   if (!poi) return;
-  $('sheet-dist').textContent = state.pos ? `${fmtDist(distM(state.pos, poi))} ${cardinal(state.pos, poi)} of you` : '';
+  $('sheet-dist').textContent = state.pos ? `${fmtDistProse(distM(state.pos, poi))} ${cardinal(state.pos, poi)} of you` : '';
   updateCompass();
 }
 
@@ -803,7 +813,7 @@ function maybeNudge() {
     nudgeStamp.innerHTML = window.ART.face(state.city, { label: false });
   } else nudgeStamp.textContent = g.name[0];
   $('nudge-guide').textContent = g.name;
-  $('nudge-msg').textContent = `${best.name} is ${fmtDist(bestDist)} away. ${g.nudgeAsk || 'May I tell you about it?'}`;
+  $('nudge-msg').textContent = `${best.name} is ${fmtDistProse(bestDist)} away. ${g.nudgeAsk || 'May I tell you about it?'}`;
   const nudge = $('nudge');
   nudge.hidden = false;
   nudge.dataset.poi = best.id;
