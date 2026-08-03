@@ -1,0 +1,686 @@
+{
+  "photos/paris/elysees-ceramic.jpg": {
+    "credit": "Tangopaso",
+    "license": "Public domain"
+  },
+  "photos/paris/marche-poncelet.jpg": {
+    "credit": "Chabe01",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/paris/parc-monceau.jpg": {
+    "credit": "Chabe01",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/paris/galeries-lafayette-rooftop.jpg": {
+    "credit": "Chabe01",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/paris/rue-des-martyrs.jpg": {
+    "credit": "A bit iffy",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/paris/arc-de-triomphe.jpg": {
+    "credit": "Jiuguang Wang",
+    "license": "CC BY-SA 2.0"
+  },
+  "photos/paris/eiffel-tower.jpg": {
+    "credit": "Benh LIEU SONG",
+    "license": "Public domain"
+  },
+  "photos/paris/notre-dame.jpg": {
+    "credit": "Ali Sabbagh",
+    "license": "CC0"
+  },
+  "photos/paris/jardin-du-luxembourg.jpg": {
+    "credit": "Kirua",
+    "license": "Public domain"
+  },
+  "photos/paris/rue-mouffetard.jpg": {
+    "credit": "David Monniaux",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/paris/place-des-vosges.jpg": {
+    "credit": "Des Racines et des Ailes",
+    "license": "CC BY 3.0"
+  },
+  "photos/paris/rue-des-rosiers.jpg": {
+    "credit": "Chabe01",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/paris/marche-des-enfants-rouges.jpg": {
+    "credit": "Connie Ma from Chicago, United States of America",
+    "license": "CC BY-SA 2.0"
+  },
+  "photos/paris/sacre-coeur.jpg": {
+    "credit": "Tonchino",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/paris/place-du-tertre.jpg": {
+    "credit": "Pierre Blaché from Paris, France",
+    "license": "CC0"
+  },
+  "photos/paris/clos-montmartre.jpg": {
+    "credit": "Tangopaso",
+    "license": "Public domain"
+  },
+  "photos/paris/rue-de-labreuvoir.jpg": {
+    "credit": "Joe deSousa",
+    "license": "CC0"
+  },
+  "photos/paris/rue-denoyez.jpg": {
+    "credit": "Wikinade",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/paris/parc-de-belleville-belvedere.jpg": {
+    "credit": "Chabe01",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/paris/parc-des-buttes-chaumont.jpg": {
+    "credit": "Clem from Paris, France",
+    "license": "CC BY-SA 2.0"
+  },
+  "photos/paris/canal-saint-martin.jpg": {
+    "credit": "Coyau",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/paris/bassin-de-la-villette.jpg": {
+    "credit": "Wikimedia Commons",
+    "license": "FAL"
+  },
+  "photos/paris/coulee-verte.jpg": {
+    "credit": "Guilhem Vellut from Paris, France",
+    "license": "CC BY 2.0"
+  },
+  "photos/paris/marche-daligre.jpg": {
+    "credit": "Jesús Gorriti",
+    "license": "CC BY-SA 2.0"
+  },
+  "photos/paris/catacombs.jpg": {
+    "credit": "Diego Delso",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/paris/louvre-pyramid.jpg": {
+    "credit": "Benh LIEU SONG (Flickr)",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/paris/tuileries.jpg": {
+    "credit": "Guilhem Vellut from Tokyo, Japan",
+    "license": "CC BY 2.0"
+  },
+  "photos/paris/palais-garnier.jpg": {
+    "credit": "Peter Rivera",
+    "license": "CC BY 2.0"
+  },
+  "photos/paris/pont-neuf.jpg": {
+    "credit": "Rmrfstar",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/paris/square-du-vert-galant.jpg": {
+    "credit": "Inocybe - Piero d'Houin",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/paris/ile-saint-louis-berthillon.jpg": {
+    "credit": "Jean-Pierre Dalbéra",
+    "license": "CC BY 2.0"
+  },
+  "photos/paris/shakespeare-and-company.jpg": {
+    "credit": "Shadowgate from Novara, ITALY",
+    "license": "CC BY 2.0"
+  },
+  "photos/paris/sainte-chapelle.jpg": {
+    "credit": "Didier B (Sam67fr)",
+    "license": "CC BY-SA 2.5"
+  },
+  "photos/paris/pantheon.jpg": {
+    "credit": "Moonik",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/paris/place-de-la-concorde.jpg": {
+    "credit": "Cristian Bortes from Cluj-Napoca, Romania",
+    "license": "CC BY 2.0"
+  },
+  "photos/paris/champs-elysees.jpg": {
+    "credit": "Josh Hallett",
+    "license": "CC BY-SA 2.0"
+  },
+  "photos/paris/pont-alexandre-iii.jpg": {
+    "credit": "Jebulon",
+    "license": "CC0"
+  },
+  "photos/paris/trocadero.jpg": {
+    "credit": "Eutouring",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/paris/butte-aux-cailles.jpg": {
+    "credit": "Mbzt",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/paris/cite-florale.jpg": {
+    "credit": "LPLT",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/paris/hotel-de-ville.jpg": {
+    "credit": "Chabe01",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/paris/gare-du-nord.jpg": {
+    "credit": "Chabe01",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/paris/galerie-vivienne.jpg": {
+    "credit": "David Pendery",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/paris/passage-des-panoramas.jpg": {
+    "credit": "No machine-readable author provided. CaptainHaddock assumed (based on copyright ",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/paris/palais-royal.jpg": {
+    "credit": "Marie-Lan Nguyen",
+    "license": "Public domain"
+  },
+  "photos/paris/tour-saint-jacques.jpg": {
+    "credit": "Benh LIEU SONG",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/paris/saint-eustache.jpg": {
+    "credit": "Pavel Krok",
+    "license": "CC BY-SA 2.5"
+  },
+  "photos/paris/fontaine-stravinsky.jpg": {
+    "credit": "Jorge Láscar from Melbourne, Australia",
+    "license": "CC BY 2.0"
+  },
+  "photos/paris/centre-pompidou.jpg": {
+    "credit": "Alf van Beem",
+    "license": "CC0"
+  },
+  "photos/paris/arenes-de-lutece.jpg": {
+    "credit": "Mbzt",
+    "license": "CC BY 3.0"
+  },
+  "photos/paris/saint-etienne-du-mont.jpg": {
+    "credit": "Diliff",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/paris/grande-mosquee-de-paris.jpg": {
+    "credit": "LPLT",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/paris/rue-de-la-huchette.jpg": {
+    "credit": "dalbera",
+    "license": "CC BY 2.0"
+  },
+  "photos/paris/musee-de-cluny-thermes.jpg": {
+    "credit": "Pline",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/paris/marche-aux-fleurs.jpg": {
+    "credit": "Mbzt",
+    "license": "CC BY 3.0"
+  },
+  "photos/paris/pont-des-arts.jpg": {
+    "credit": "Myrabella",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/paris/cafe-de-flore-deux-magots.jpg": {
+    "credit": "Celette",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/paris/saint-sulpice.jpg": {
+    "credit": "Zairon",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/paris/mur-des-je-taime.jpg": {
+    "credit": "Britchi Mirela",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/paris/abbesses-metro.jpg": {
+    "credit": "Wikimedia Commons",
+    "license": "CC BY-SA 2.0"
+  },
+  "photos/paris/moulin-rouge.jpg": {
+    "credit": "Juanedc from Zaragoza, España",
+    "license": "CC BY 2.0"
+  },
+  "photos/paris/montmartre-funicular.jpg": {
+    "credit": "Roel Hemkes from Amersfoort, Netherlands",
+    "license": "CC BY 2.0"
+  },
+  "photos/paris/rue-cler.jpg": {
+    "credit": "CVB",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/paris/les-invalides.jpg": {
+    "credit": "CaBLe27",
+    "license": "CC BY 2.0"
+  },
+  "photos/paris/musee-dorsay-clock.jpg": {
+    "credit": "Andy / Andrew Fogg from near Cambridge, UK",
+    "license": "CC BY 2.0"
+  },
+  "photos/paris/flamme-de-la-liberte.jpg": {
+    "credit": "ignis",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/paris/ile-aux-cygnes-liberty.jpg": {
+    "credit": "Taken by Adrian Pingstone in June 2002 and released to the public domain.",
+    "license": "Public domain"
+  },
+  "photos/paris/rue-cremieux.jpg": {
+    "credit": "Patrick Nouhailler's…",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/paris/place-de-la-bastille.jpg": {
+    "credit": "Guillaume Flament",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/paris/rue-montorgueil.jpg": {
+    "credit": "Minato ku",
+    "license": "CC BY 3.0"
+  },
+  "photos/paris/place-de-la-republique.jpg": {
+    "credit": "Britchi Mirela",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/paris/pere-lachaise.jpg": {
+    "credit": "Peter Poradisch",
+    "license": "CC BY 2.5"
+  },
+  "photos/paris/place-saint-georges.jpg": {
+    "credit": "Clément Gruin",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/bruges/hotel-acacia.jpg": {
+    "credit": "Marc Ryckaert (MJJR)",
+    "license": "CC BY 3.0"
+  },
+  "photos/bruges/markt.jpg": {
+    "credit": "Wolfgang Staudt [1]",
+    "license": "CC BY 2.0"
+  },
+  "photos/bruges/belfort.jpg": {
+    "credit": "Adiel lo",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/bruges/groenerei-canal-walk.jpg": {
+    "credit": "Giles Laurent",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/bruges/rozenhoedkaai.jpg": {
+    "credit": "Ank Kumar",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/bruges/burg-holy-blood.jpg": {
+    "credit": "Jim Linwood",
+    "license": "CC BY 2.0"
+  },
+  "photos/bruges/stadhuis.jpg": {
+    "credit": "Marc Ryckaert",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/bruges/vismarkt.jpg": {
+    "credit": "Zairon",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/bruges/jan-van-eyckplein.jpg": {
+    "credit": "Chad K",
+    "license": "CC BY 2.0"
+  },
+  "photos/bruges/church-of-our-lady.jpg": {
+    "credit": "Wolfgang Staudt",
+    "license": "CC BY 2.0"
+  },
+  "photos/bruges/sint-janshospitaal.jpg": {
+    "credit": "Jan Beerblock",
+    "license": "Public domain"
+  },
+  "photos/bruges/bonifacius-bridge.jpg": {
+    "credit": "CEphoto, Uwe Aranas",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/bruges/katelijnestraat.jpg": {
+    "credit": "Zairon",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/bruges/wijngaardstraat-walplein.jpg": {
+    "credit": "Zairon",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/bruges/halve-maan-brewery.jpg": {
+    "credit": "Ricardalovesmonuments",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/bruges/begijnhof.jpg": {
+    "credit": "Pere prlpz",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/bruges/minnewater.jpg": {
+    "credit": "Heribert Bechen, 5 million visits - many thanks!",
+    "license": "CC BY-SA 2.0"
+  },
+  "photos/bruges/sint-janshuismolen.jpg": {
+    "credit": "Tania Dey",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/bruges/frietkot.jpg": {
+    "credit": "Laurent van Roy",
+    "license": "CC BY 2.5"
+  },
+  "photos/bruges/chocolate-honesty.jpg": {
+    "credit": "frank wouters from antwerpen, belgium",
+    "license": "CC BY 2.0"
+  },
+  "photos/bruges/sint-salvator-cathedral.jpg": {
+    "credit": "Cmcmcm1",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/bruges/jeruzalemkapel.jpg": {
+    "credit": "Ricardalovesmonuments",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/bruges/sint-annakerk.jpg": {
+    "credit": "Wolfgang Staudt",
+    "license": "CC BY 2.0"
+  },
+  "photos/bruges/kantcentrum-balstraat.jpg": {
+    "credit": "Qwertzu111111",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/bruges/godshuis-de-vos.jpg": {
+    "credit": "Ricardalovesmonuments",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/bruges/boeveriestraat-godshuizen.jpg": {
+    "credit": "Marc Ryckaert",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/bruges/bonne-chieremolen.jpg": {
+    "credit": "Sjaak Kempe",
+    "license": "CC BY 2.0"
+  },
+  "photos/bruges/kruispoort.jpg": {
+    "credit": "Tania Dey",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/bruges/gentpoort.jpg": {
+    "credit": "Donarreiskoffer",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/bruges/gouden-handrei.jpg": {
+    "credit": "Рустам Абдрахимов",
+    "license": "CC BY 3.0"
+  },
+  "photos/bruges/spiegelrei.jpg": {
+    "credit": "Ricardalovesmonuments",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/bruges/ezelstraat.jpg": {
+    "credit": "Ricardalovesmonuments",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/bruges/sint-jakobskerk.jpg": {
+    "credit": "Séraphin Vermote",
+    "license": "CC0"
+  },
+  "photos/bruges/t-zand-concertgebouw.jpg": {
+    "credit": "Wikifalcon",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/bruges/simon-stevinplein.jpg": {
+    "credit": "Spotter2",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/bruges/koningin-astridpark.jpg": {
+    "credit": "Marc Ryckaert",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/bruges/de-garre.jpg": {
+    "credit": "Spotter2",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/amsterdam/hotel-notting-hill.jpg": {
+    "credit": "Pbech",
+    "license": "CC0"
+  },
+  "photos/amsterdam/frederiksplein.jpg": {
+    "credit": "Jacob Olie",
+    "license": "Public domain"
+  },
+  "photos/amsterdam/albert-cuyp-market.jpg": {
+    "credit": "Michiel1972 at Dutch Wikipedia",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/amsterdam/de-pijp.jpg": {
+    "credit": "A. Bakker",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/amsterdam/sarphatipark.jpg": {
+    "credit": "Błażej Pindor",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/amsterdam/vondelpark.jpg": {
+    "credit": "Dguendel",
+    "license": "CC BY 4.0"
+  },
+  "photos/amsterdam/amstel-ride.jpg": {
+    "credit": "Zairon",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/amsterdam/ouderkerk-aan-de-amstel.jpg": {
+    "credit": "MartinD",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/amsterdam/magere-brug.jpg": {
+    "credit": "Zairon",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/amsterdam/canal-ring.jpg": {
+    "credit": "Andrés Barrios",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/amsterdam/rijsttafel-utrechtsestraat.jpg": {
+    "credit": "Takeaway",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/amsterdam/rembrandtplein.jpg": {
+    "credit": "Marion Golsteijn",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/amsterdam/bloemenmarkt.jpg": {
+    "credit": "Massimo Catarinella",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/amsterdam/begijnhof.jpg": {
+    "credit": "Massimo Catarinella",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/amsterdam/dam-square-royal-palace.jpg": {
+    "credit": "Diego Delso",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/amsterdam/damrak.jpg": {
+    "credit": "Hay Kranen",
+    "license": "CC BY 4.0"
+  },
+  "photos/amsterdam/oude-kerk.jpg": {
+    "credit": "Suicasmo",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/amsterdam/nieuwmarkt-de-waag.jpg": {
+    "credit": "Kmhofmann at English Wikipedia.",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/amsterdam/amsterdam-centraal.jpg": {
+    "credit": "Slaunger",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/amsterdam/ij-ferry.jpg": {
+    "credit": "David Spender from United Kingdom",
+    "license": "CC BY 2.0"
+  },
+  "photos/amsterdam/jordaan.jpg": {
+    "credit": "Jvhertum",
+    "license": "Public domain"
+  },
+  "photos/amsterdam/jordaan-hofjes.jpg": {
+    "credit": "Photo: Andreas Praefcke",
+    "license": "CC BY 3.0"
+  },
+  "photos/amsterdam/westerkerk-anne-frank.jpg": {
+    "credit": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/amsterdam/leaning-houses.jpg": {
+    "credit": "CAPTAIN RAJU",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/amsterdam/herring-cart.jpg": {
+    "credit": "Takeaway",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/amsterdam/rijksmuseum-passage.jpg": {
+    "credit": "Trougnouf (Benoit Brummer)",
+    "license": "CC BY 4.0"
+  },
+  "photos/amsterdam/foodhallen.jpg": {
+    "credit": "Minke Wagenaar from Amsterdam, NL",
+    "license": "CC BY-SA 2.0"
+  },
+  "photos/amsterdam/westerpark.jpg": {
+    "credit": "No machine-readable author provided. Arch assumed (based on copyright claims).",
+    "license": "Public domain"
+  },
+  "photos/amsterdam/de-gooyer-brouwerij-t-ij.jpg": {
+    "credit": "Jvhertum",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/amsterdam/nemo-oosterdok.jpg": {
+    "credit": "pj soans",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/amsterdam/ndsm-wharf.jpg": {
+    "credit": "MrBenjo",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/amsterdam/nieuwendammerdijk.jpg": {
+    "credit": "Jvhertum",
+    "license": "Public domain"
+  },
+  "photos/amsterdam/adam-lookout.jpg": {
+    "credit": "Quahadi",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/amsterdam/negen-straatjes.jpg": {
+    "credit": "Alf van Beem",
+    "license": "Public domain"
+  },
+  "photos/amsterdam/brouwersgracht.jpg": {
+    "credit": "Jvhertum",
+    "license": "Public domain"
+  },
+  "photos/amsterdam/reguliersgracht.jpg": {
+    "credit": "Marco Ober",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/amsterdam/munttoren.jpg": {
+    "credit": "The original uploader was P.H. Louw at Dutch Wikipedia.",
+    "license": "CC BY 2.5 nl"
+  },
+  "photos/amsterdam/beurs-van-berlage.jpg": {
+    "credit": "Warren LeMay from Covington, KY, United States",
+    "license": "CC0"
+  },
+  "photos/amsterdam/schreierstoren.jpg": {
+    "credit": "S Sepp",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/amsterdam/zeedijk-he-hua.jpg": {
+    "credit": "Shadowgate from Novara, ITALY",
+    "license": "CC BY 2.0"
+  },
+  "photos/amsterdam/oudemanhuispoort.jpg": {
+    "credit": "Marcel mulder",
+    "license": "CC BY-SA 3.0 nl"
+  },
+  "photos/amsterdam/spui-book-market.jpg": {
+    "credit": "Jvhertum",
+    "license": "Public domain"
+  },
+  "photos/amsterdam/tuschinski.jpg": {
+    "credit": "Thomas Laconis",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/amsterdam/de-poezenboot.jpg": {
+    "credit": "Antony Stanley from Gloucester, UK",
+    "license": "CC BY-SA 2.0"
+  },
+  "photos/amsterdam/homomonument.jpg": {
+    "credit": "Geert-Jan Edelenbosch",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/amsterdam/torensluis-multatuli.jpg": {
+    "credit": "Milliped",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/amsterdam/portuguese-synagogue.jpg": {
+    "credit": "A.A.W.J. Rietman",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/amsterdam/waterlooplein-market.jpg": {
+    "credit": "Txllxt TxllxT",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/amsterdam/rembrandt-house.jpg": {
+    "credit": "14:43, 17 October 2006",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/amsterdam/hortus-botanicus.jpg": {
+    "credit": "Elekes Andor",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/amsterdam/wertheimpark.jpg": {
+    "credit": "Jvhertum",
+    "license": "Public domain"
+  },
+  "photos/amsterdam/westelijke-eilanden.jpg": {
+    "credit": "Jvhertum",
+    "license": "Public domain"
+  },
+  "photos/amsterdam/haarlemmerdijk.jpg": {
+    "credit": "Arch",
+    "license": "CC BY-SA 3.0 nl"
+  },
+  "photos/amsterdam/concertgebouw.jpg": {
+    "credit": "C messier",
+    "license": "CC BY-SA 4.0"
+  },
+  "photos/amsterdam/pc-hooftstraat.jpg": {
+    "credit": "Massimo Catarinella",
+    "license": "CC BY 3.0"
+  },
+  "photos/amsterdam/roemer-visscherstraat.jpg": {
+    "credit": "Fred Romero from Paris, France",
+    "license": "CC BY 2.0"
+  },
+  "photos/amsterdam/oosterpark.jpg": {
+    "credit": "S Sepp",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/amsterdam/dappermarkt.jpg": {
+    "credit": "Iijjccoo (talk)",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/amsterdam/de-ysbreeker.jpg": {
+    "credit": "Spider",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/amsterdam/amstelpark.jpg": {
+    "credit": "Arthena",
+    "license": "CC BY-SA 3.0"
+  },
+  "photos/amsterdam/eye-filmmuseum.jpg": {
+    "credit": "Jvhertum",
+    "license": "CC BY-SA 3.0"
+  }
+}

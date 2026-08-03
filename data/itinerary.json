@@ -1,0 +1,126 @@
+{
+  "title": "Getting about",
+  "intro": "Seven days of trains, planes, and beds, in order — no dates on them, madame, since this little book of ours sits on the open internet. All times local. What you do between them is your own affair, and we have plenty to say about that elsewhere.",
+  "days": [
+    {
+      "day": "Thursday",
+      "label": "",
+      "route": "Toronto → Paris",
+      "city": null,
+      "items": [
+        { "t": "17:00", "d": "Car parked off-airport, shuttle to Terminal 3. Four hours before departure is not excessive with ten bags." },
+        { "t": "21:05", "d": "Air Transat TS 188 · Toronto YYZ, Terminal 3 → Paris CDG, Terminal 3. Non-stop, overnight." }
+      ],
+      "note": "",
+      "stay": { "text": "An airline seat over the Atlantic" }
+    },
+    {
+      "day": "Friday",
+      "label": "",
+      "route": "Land Paris",
+      "city": "paris",
+      "items": [
+        { "t": "10:30", "d": "TS 188 lands at CDG, Terminal 3. Passport control is non-Schengen — allow for the queue." },
+        { "t": "", "d": "Private transfer, booked and paid. The driver meets you in Arrivals holding a sign, and waits 45 minutes from touchdown. Move straight through; message him from the queue if immigration is slow." },
+        { "t": "12:15", "d": "At the hotel, roughly — about 32 minutes from CDG." }
+      ],
+      "note": "Nothing else moves today.",
+      "stay": {
+        "poi": "hotel-elysees-ceramic",
+        "city": "paris",
+        "text": "Élysées Céramic — 34 Av. de Wagram, 75008",
+        "detail": "+33 1 42 27 20 30 · Métro Ternes (line 2), 150 m · check-in time not confirmed — ask about bag storage if you land before it"
+      }
+    },
+    {
+      "day": "Saturday",
+      "label": "",
+      "route": "",
+      "city": "paris",
+      "items": [
+        { "t": "", "d": "No trains, no transfers. The Métro is the only thing you need to catch." }
+      ],
+      "note": "A single Métro ticket is t+; a Navigo Day pass covers all zones for about €12.30 a head if you plan to ride hard.",
+      "stay": {
+        "poi": "hotel-elysees-ceramic",
+        "city": "paris",
+        "text": "Élysées Céramic — 34 Av. de Wagram, 75008",
+        "detail": "+33 1 42 27 20 30 · Métro Ternes (line 2), 150 m"
+      }
+    },
+    {
+      "day": "Sunday",
+      "label": "",
+      "route": "Paris → Bruges",
+      "city": "bruges",
+      "items": [
+        { "t": "06:45", "d": "Leave the hotel. Métro 2 from Ternes, change at Barbès-Rochechouart to Métro 4 for Gare du Nord — about 25 minutes. Stay on the platforms; do not go up to the street." },
+        { "t": "07:15", "d": "Gare du Nord. No security, no passport control, no check-in gate on this route — the only deadline is the doors." },
+        { "t": "07:25", "d": "Platform posted. Continental departures use platforms 3–6 — check the board." },
+        { "t": "07:35", "d": "Be standing on the platform. Doors close 07:46." },
+        { "t": "07:48", "d": "Train 9415 · Paris Nord → Bruxelles-Midi, arriving 09:34. Eurostar Standard, all four." },
+        { "t": "09:51", "d": "Train 2831 · Bruxelles-Midi → Brugge, arriving 10:49. Seventeen minutes to change — read the board and walk straight to it. Brussels–Bruges runs about twice an hour if it slips." },
+        { "t": "11:15", "d": "Into town: about 30 minutes on foot with the rollers over cobbles, or De Lijn bus 1 or 2 from platform A1 immediately left of the station door, off at Dijver. Taxi rank outside, about €11." }
+      ],
+      "note": "If a train runs late, get a delay confirmation from the staff of that train and show it to the next carrier — the journey-continuation agreement covers you onto the next service at no charge. Missing one through your own dawdling, it does not.",
+      "stay": {
+        "poi": "hotel-acacia",
+        "city": "bruges",
+        "text": "Hotel Acacia — Korte Zilverstraat 5, 8000 Brugge",
+        "detail": "+32 50 34 44 11 · inside the ring, 200 m off the Markt · check-in time not confirmed — ask about bag storage, you arrive before noon"
+      }
+    },
+    {
+      "day": "Monday",
+      "label": "",
+      "route": "Bruges → Amsterdam",
+      "city": "amsterdam",
+      "items": [
+        { "t": "08:00", "d": "Out of the hotel, back to Brugge station — same 30 minutes, or the bus." },
+        { "t": "08:30", "d": "Train 1508 · Brugge → Bruxelles-Midi, arriving 09:28." },
+        { "t": "", "d": "1 hr 21 min at Bruxelles-Midi. Stay inside the station." },
+        { "t": "10:49", "d": "Train 9539 · Bruxelles-Midi → Schiphol, arriving 12:47." },
+        { "t": "12:59", "d": "Train 8340 · Schiphol → Amsterdam Centraal, arriving 13:16. These run every few minutes if you miss it." },
+        { "t": "13:20", "d": "Metro 52 southbound from Centraal, two stops — Rokin, then Vijzelgracht. About 4 minutes, then a short walk." },
+        { "t": "13:45", "d": "At the hotel, against a 15:00 check-in. Early check-in and bag storage are requested but not promised — expect to leave the bags and go back out." }
+      ],
+      "note": "Re-check both timetables the day before you travel. Engineering works run on this corridor in August and the booking confirmation says times may move.",
+      "stay": {
+        "poi": "hotel-notting-hill",
+        "city": "amsterdam",
+        "text": "Boutique Hotel Notting Hill — Westeinde 26, 1017 ZP",
+        "detail": "+31 20 523 1030 · Metro 52 Vijzelgracht, 4 min on foot · check-in 15:00, check-out 12:00 · photo ID and a credit card at the desk, plus a €100 damage deposit refunded at check-out"
+      }
+    },
+    {
+      "day": "Tuesday",
+      "label": "",
+      "route": "",
+      "city": "amsterdam",
+      "items": [
+        { "t": "", "d": "Nothing to catch. The bikes are the transport today." }
+      ],
+      "note": "",
+      "stay": {
+        "poi": "hotel-notting-hill",
+        "city": "amsterdam",
+        "text": "Boutique Hotel Notting Hill — Westeinde 26, 1017 ZP",
+        "detail": "+31 20 523 1030 · Metro 52 Vijzelgracht, 4 min on foot"
+      }
+    },
+    {
+      "day": "Wednesday",
+      "label": "",
+      "route": "Amsterdam → Toronto",
+      "city": "amsterdam",
+      "items": [
+        { "t": "11:00", "d": "Out of the hotel. Check-out is 12:00 — collect the €100 deposit at the desk." },
+        { "t": "11:15", "d": "Metro 52 southbound to Amsterdam Zuid, about 7 minutes — south, not north. Then a Schiphol train, about 10 minutes, frequent. If line 52 is down: Centraal to Schiphol direct, about 17 minutes." },
+        { "t": "14:55", "d": "Air Transat TS 377 · Amsterdam AMS → Toronto YYZ, Terminal 3. Non-stop, landing 17:10." },
+        { "t": "18:00", "d": "Car collected." }
+      ],
+      "note": "",
+      "stay": { "text": "Your own bed" }
+    }
+  ]
+}
