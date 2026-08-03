@@ -1204,7 +1204,6 @@ function toggleSplashNote(open) {
   $('splash-ps').setAttribute('aria-expanded', String(open));
 }
 function closeSplash() {
-  store.set('splash-seen', true);
   const splash = $('splash');
   splash.classList.add('is-closing');
   setTimeout(() => { splash.hidden = true; splash.classList.remove('is-closing'); }, 380);
@@ -1343,7 +1342,7 @@ function wire() {
   await loadData();
   setCity(state.city);
   setTab('guide');
-  if (!store.get('splash-seen', false)) openSplash();
+  openSplash();
   startWatch(false);
   verifyOfflinePack().then(warmOfflinePack);
   setInterval(() => {
