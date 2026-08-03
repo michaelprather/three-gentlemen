@@ -38,6 +38,7 @@ const state = {
   cityPinned: store.get('city-pinned', false),
   tab: 'guide',
   filter: 'all',         // POI category filter, shared by Guide + Near lists
+  query: '',                // Guide-list search; while set, it outranks the filter
   pos: null,                // {lat, lng, ts}
   heard: new Set(store.get('heard', [])),
   nudgesOn: store.get('nudges-on', true),
@@ -155,6 +156,9 @@ async function loadData() {
   state.countries = results[CITIES.length + 1] || null;
 }
 
+/* accent-blind matching — 'creperie' must find the crêperie */
+const fold = s => (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+
 const cityData = () => state.data[state.city];
 const poiById = (city, id) => state.data[city]?.pois.find(p => p.id === id) || null;
 const guide = () => cityData()?.guide || { name: '…', title: '', intro: '', quips: [] };
@@ -164,7 +168,13 @@ function setCity(slug, { pinned = false } = {}) {
   if (!CITIES.includes(slug)) return;
   const prev = state.city;
   state.city = slug;
-  if (slug !== prev) { state.charmDeck = []; }
+  if (slug !== prev) {
+    state.charmDeck = [];
+    // a new gentleman, a fresh page — the old search doesn't follow her across the border
+    state.query = '';
+    $('search').value = '';
+    $('search-clear').hidden = true;
+  }
   if (pinned) { state.cityPinned = true; store.set('city-pinned', true); }
   store.set('city', slug);
   document.body.dataset.city = slug;
@@ -231,16 +241,25 @@ function renderGuide() {
 
   const stay = $('list-stay'), iti = $('list-itinerary'), wan = $('list-wander');
   stay.textContent = ''; iti.textContent = ''; wan.textContent = '';
+  // while she's searching, the query searches everything and the chips stand down
+  const q = fold(state.query.trim());
+  const matches = p => !q || fold(`${p.name} ${p.tagline} ${p.address || ''} ${p.story}`).includes(q);
   (d?.pois || []).forEach(p => {
     // the hotel gets its own section — it is the one pin she'll want at 23:00
     const target = p.category === 'stay' ? stay : p.itinerary ? iti : wan;
-    if (target === wan && state.filter !== 'all' && p.category !== state.filter) return;
+    if (!matches(p)) return;
+    if (!q && target === wan && state.filter !== 'all' && p.category !== state.filter) return;
     target.appendChild(poiRow(p, { showDist: p.category === 'stay' }));
   });
+  $('head-stay').hidden = !stay.children.length;
+  $('head-itinerary').hidden = !iti.children.length;
+  $('filter-wander').hidden = !!q;
   if (!wan.children.length) {
     const empty = document.createElement('p');
     empty.className = 'filter-empty';
-    empty.textContent = `${g.name} has nothing of that kind here — try another.`;
+    empty.textContent = q
+      ? `${g.name} has nothing by that name — try another word.`
+      : `${g.name} has nothing of that kind here — try another.`;
     wan.appendChild(empty);
   }
   renderFilterRows();
@@ -1017,6 +1036,18 @@ function wire() {
       setTab('country');
     }));
   $('picker-scrim').addEventListener('click', closeCountryPicker);
+  $('search').addEventListener('input', e => {
+    state.query = e.target.value;
+    $('search-clear').hidden = !state.query;
+    renderGuide();
+  });
+  $('search-clear').addEventListener('click', () => {
+    state.query = '';
+    $('search').value = '';
+    $('search-clear').hidden = true;
+    renderGuide();
+    $('search').focus();
+  });
   $('near-locate').addEventListener('click', () => {
     $('near-msg').textContent = 'un moment — finding you…';
     startWatch(true);

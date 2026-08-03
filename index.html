@@ -51,11 +51,16 @@
     <div class="quip" id="quip" hidden>
       <span class="quip-mark">❝</span><span id="quip-text"></span>
     </div>
-    <div class="section-head"><span class="orn" aria-hidden="true"></span><span>Where you sleep</span></div>
+    <div class="search-row">
+      <input class="search" id="search" type="search" inputmode="search" autocomplete="off"
+        spellcheck="false" placeholder="Looking for something, madame?" aria-label="Search his list">
+      <button class="search-clear" id="search-clear" hidden aria-label="Clear the search">✕</button>
+    </div>
+    <div class="section-head" id="head-stay"><span class="orn" aria-hidden="true"></span><span>Where you sleep</span></div>
     <div class="poi-list" id="list-stay"></div>
-    <div class="section-head"><span class="orn" aria-hidden="true"></span><span>On your plan</span></div>
+    <div class="section-head" id="head-itinerary"><span class="orn" aria-hidden="true"></span><span>On your plan</span></div>
     <div class="poi-list" id="list-itinerary"></div>
-    <div class="section-head"><span class="orn" aria-hidden="true"></span><span>As you wander</span></div>
+    <div class="section-head" id="head-wander"><span class="orn" aria-hidden="true"></span><span>As you wander</span></div>
     <div class="filter-row" id="filter-wander" aria-label="Filter by kind"></div>
     <div class="poi-list" id="list-wander"></div>
     <div class="guide-settings">
