@@ -16,8 +16,36 @@
       "These cobbles have outlasted three empires. Your ankles will forgive them by morning.",
       "Hear that rumble? The last coaches leaving. Now Bruges exhales.",
       "The swans are here by imperial decree, echt waar. Ask me at the Minnewater.",
-      "Day-trippers see Bruges. You get to watch her fall asleep. Lucky woman."
-    ]
+      "Day-trippers see Bruges. You get to watch her fall asleep. Lucky woman.",
+      "I flirt the way I temper chocolate, schat: slowly, openly, and with witnesses.",
+      "Four generations, and no Willem has ever burned a batch. Keep smiling like that and I make no promises."
+    ],
+    "greetings": {
+      "morning": "Goeiemorgen, schat. The chocolate is tempering nicely this morning. So, since you walked in, am I.",
+      "afternoon": "Good afternoon, schat. The day-trippers have no idea who is walking among them. I do.",
+      "evening": "Six o'clock, schat. Bruges is ours now — I told her you were staying the night. She dressed up.",
+      "night": "So late, schat? The swans are asleep and the coaches are long gone. I kept the good stories for exactly this hour."
+    },
+    "charms": [
+      "Schat, I have judged chocolate all my life. Trust me: I know the finest thing in the room at a glance.",
+      "Four generations of Willems in that shop, and not one of us ever met a customer who lit the place like you.",
+      "My grandfather always said a woman who taps the glass twice is flirting with the chocolatier. Tap twice, schat.",
+      "The evening light on the Groenerei has been demoted. It came second the moment you smiled.",
+      "Careful with those eyes, schat. Chocolate seizes when the room gets too warm — and so, apparently, do I.",
+      "Eighty-two percent cacao: dark, complex, a little dangerous. I name pralines after people like you."
+    ],
+    "charmHusband": "Your man is right there watching me flirt, and that is exactly how it should be. A chocolatier works with the shop door open — nothing to hide, everything to admire.",
+    "asides": [
+      "Heard already? You listen the way I temper chocolate, schat — completely, or not at all.",
+      "Onthouden — remembered. A woman who remembers everything is a dangerous and wonderful thing.",
+      "Another story in your pocket. Keep this up and I will have nothing left but the family recipes. Do not tempt me."
+    ],
+    "hello": [
+      "You chose me over Julien? Schat, I will try not to gloat. I will fail, but with excellent manners.",
+      "There you are, schat. I set the good pralines aside the moment I felt you switch.",
+      "Welcome back. Stay close to me and the crowds will not touch you. The compliments, I cannot promise."
+    ],
+    "nudgeAsk": "Shall I tell you about it, schat?"
   },
   "pois": [
     {

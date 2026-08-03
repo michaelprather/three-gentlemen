@@ -16,8 +16,36 @@
       "The houses lean forward on purpose. The ones leaning sideways, we do not discuss.",
       "Gezellig has no English translation. It happens around a small table, about seven in the evening.",
       "Yes, we are all this tall. No, I will not reach the top shelf for free. For you, maybe.",
-      "A canal is just a street that learned to relax. Do not park a bike near one."
-    ]
+      "A canal is just a street that learned to relax. Do not park a bike near one.",
+      "I flirt at a respectful Dutch distance, schatje: one bike-length. Safety first.",
+      "Your husband and I have an arrangement — he carries the bags, I carry the compliments. Everyone is useful."
+    ],
+    "greetings": {
+      "morning": "Morgen, schatje. Eight o'clock — the city belongs to the bikes, the gulls, and you. Mostly you.",
+      "afternoon": "Middag, schatje. Wind calm, canals flat, and I am out in public with the best-looking tourist in the city. Good day.",
+      "evening": "Evening, schatje. Gezellig hour — small table, warm light, present company outstanding.",
+      "night": "Still up, hoor? The canals hold the lamplight all night. So can I."
+    },
+    "charms": [
+      "Ja, you tapped me. Bold. I like that in a person shorter than me — which is everyone, so mostly I like you.",
+      "I have seen every sunset this city owns, schatje. You are still the best thing on this screen.",
+      "The houses here lean toward the water. I lean toward you. It is structural — nothing can be done.",
+      "In Amsterdam we say what we mean, so I will say it plainly: you are excellent company, and your bike posture is going to be fantastic.",
+      "Tap me again and I will ring my bell at you. In this city that is practically a love letter.",
+      "There are sixty-seven bridges on your route this week, and you will be the best view on every one of them."
+    ],
+    "charmHusband": "Your husband is right there, watching me flirt. Dutch directness, my friend — I would say it to your face too: your wife is terrific company, and you carry the bags well.",
+    "asides": [
+      "Heard it, logged it. You would make a decent Amsterdammer, schatje — you listen and you keep moving.",
+      "Done. The next story is better. I save the good ones for you, obviously.",
+      "That one is yours now. Careful — collect enough of these and the city starts thinking you are a local."
+    ],
+    "hello": [
+      "Good choice, schatje. The tall one. I will tell the others you said that.",
+      "Back with me? Verstandig. Julien talks about light, Willem talks about sugar — I get you across the street alive.",
+      "Hallo again. The ferry is free, the stories are free, and the compliments — also free. Great value, this country."
+    ],
+    "nudgeAsk": "Want the story? Of course you do."
   },
   "pois": [
     {

@@ -16,8 +16,36 @@
       "If the menu has photographs, keep walking. If it promises 'authentic', run.",
       "The best views in Paris are the ones you climb for, n'est-ce pas?",
       "Bof, the monuments have waited centuries. The market closes at one. Priorities.",
-      "You navigate beautifully for someone who claims otherwise. Or perhaps I am simply good luck."
-    ]
+      "You navigate beautifully for someone who claims otherwise. Or perhaps I am simply good luck.",
+      "I do not flirt, madame. I annotate beauty. It is a scholarly discipline, and I am very thorough.",
+      "The Mona Lisa is famous for half a smile. Yours would have ended Leonardo — nothing painted after it would sell."
+    ],
+    "greetings": {
+      "morning": "Good morning, madame. The light over the rooftops is doing its best today. It is not enough, but let it try.",
+      "afternoon": "Good afternoon, madame. Paris is at her golden best this hour — and still, somehow, second-best in present company.",
+      "evening": "Ah, the golden hour, madame. At last the city has some competition.",
+      "night": "Still awake, madame? I am flattered. It is just you, me, and the streetlamps now — and I am famously discreet."
+    },
+    "charms": [
+      "You tapped, madame? I felt it somewhere between the heart and the eighth arrondissement.",
+      "I lectured on beauty for fifteen years. This afternoon I find myself entirely unqualified.",
+      "They call Paris the most beautiful thing in France. Paris has clearly never watched you cross a bridge.",
+      "Careful, madame. Tap me like that again and I shall have to write you into the curriculum.",
+      "I have admired the Winged Victory from every angle. She never once winked back. You see my dilemma.",
+      "A woman who taps a portrait wants a compliment or a story. With me, madame, it is always both."
+    ],
+    "charmHusband": "Your husband is standing right there — and still I say it: magnifique. He can hardly object. He agreed first, at the altar.",
+    "asides": [
+      "Noted, chérie. You collect stories the way the Seine collects light.",
+      "Heard and remembered. At this rate you will know Paris better than her mayor. He does not walk. You do.",
+      "Another one down. My best material, and you devour it. I have never been happier to be used."
+    ],
+    "hello": [
+      "Back to me, madame? Of course you are. The others are charming — but I am Paris.",
+      "You chose me. I shall be insufferable about this for the rest of the day.",
+      "Madame returns. The rooftops and I noticed immediately. Morale is much improved."
+    ],
+    "nudgeAsk": "May I whisper it to you?"
   },
   "pois": [
     {

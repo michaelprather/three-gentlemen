@@ -73,8 +73,8 @@ window.ART = (() => {
     `<circle cx="${lx}" cy="${y}" r="4" fill="${SKIN}" stroke="${INK}" stroke-width="1.2"/>` +
     `<circle cx="${rx}" cy="${y}" r="4" fill="${SKIN}" stroke="${INK}" stroke-width="1.2"/>`;
   const eyes = (lx, rx, y, r) =>
-    `<g class="eye"><circle cx="${lx}" cy="${y}" r="${r}" fill="${INK}"/></g>` +
-    `<g class="eye"><circle cx="${rx}" cy="${y}" r="${r}" fill="${INK}"/></g>`;
+    `<g class="eye eye-l"><circle cx="${lx}" cy="${y}" r="${r}" fill="${INK}"/></g>` +
+    `<g class="eye eye-r"><circle cx="${rx}" cy="${y}" r="${r}" fill="${INK}"/></g>`;
 
   const BODIES = {
     julien: accent =>

@@ -37,11 +37,13 @@
   <section id="view-guide" class="view" data-view="guide">
     <div class="guide-hero">
       <div class="hero-skyline" id="hero-skyline" aria-hidden="true"></div>
-      <div class="stamp" id="guide-stamp"><span id="guide-initial">J</span></div>
+      <button class="stamp" id="guide-stamp" aria-label="Give him a tap"><span id="guide-initial">J</span></button>
       <h1 class="guide-name" id="guide-name">Julien</h1>
       <p class="guide-title" id="guide-title"></p>
+      <div class="murmur" id="murmur" hidden aria-live="polite"><span id="murmur-text"></span></div>
     </div>
     <article class="letter" id="guide-intro-letter">
+      <p class="letter-salutation" id="guide-greeting" hidden></p>
       <p class="letter-body" id="guide-intro"></p>
       <p class="letter-sig">— <span id="guide-sig">Julien</span></p>
     </article>
@@ -210,6 +212,12 @@
     <button class="splash-cta ghost-btn" id="splash-cta">Open my letters</button>
     <p class="splash-ps">P.S. — tap “Dear Madame,” up top to hear this again.</p>
   </div>
+</div>
+
+<!-- a passing remark from the gentleman on duty -->
+<div class="aside-toast" id="aside" hidden>
+  <span class="aside-stamp" id="aside-stamp" aria-hidden="true"></span>
+  <span class="aside-text" id="aside-text"></span>
 </div>
 
 <!-- proximity nudge -->

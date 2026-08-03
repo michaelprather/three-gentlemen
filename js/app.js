@@ -49,6 +49,8 @@ const state = {
   scrollLockY: 0,
   heading: null,            // compass heading, ° clockwise from true north
   compassOn: false,
+  charmDeck: [],            // shuffled compliment order for the current guide
+  charmTaps: 0,
 };
 
 /* ————— geometry ————— */
@@ -88,7 +90,9 @@ const guide = () => cityData()?.guide || { name: '…', title: '', intro: '', qu
 /* ————— rendering ————— */
 function setCity(slug, { pinned = false } = {}) {
   if (!CITIES.includes(slug)) return;
+  const prev = state.city;
   state.city = slug;
+  if (slug !== prev) { state.charmDeck = []; }
   if (pinned) { state.cityPinned = true; store.set('city-pinned', true); }
   store.set('city', slug);
   document.body.dataset.city = slug;
@@ -102,6 +106,12 @@ function setCity(slug, { pinned = false } = {}) {
   const stamp = $('guide-stamp');
   if (stamp) { stamp.style.animation = 'none'; void stamp.offsetWidth; stamp.style.animation = ''; }
   renderGuide();
+  // a new gentleman takes over: he greets her, and he winks about it
+  if (slug !== prev) {
+    const hellos = guide().hello || [];
+    if (hellos.length) setQuip(hellos[Math.floor(Math.random() * hellos.length)]);
+    wink($('guide-stamp'));
+  }
   renderNear();
   if (state.map) setupMapForCity();
   closeSheet();
@@ -138,12 +148,13 @@ function renderGuide() {
   $('guide-sig').textContent = g.name;
   $('guide-title').textContent = g.title || '';
   $('guide-intro').textContent = g.intro || 'Loading his letter…';
+  const greet = (g.greetings || {})[timeBucket()] || '';
+  $('guide-greeting').hidden = !greet;
+  $('guide-greeting').textContent = greet;
   document.querySelectorAll('.guide-name-inline').forEach(el => el.textContent = g.name);
   const quips = g.quips || [];
-  if (quips.length) {
-    $('quip').hidden = false;
-    $('quip-text').textContent = quips[Math.floor(Math.random() * quips.length)];
-  } else $('quip').hidden = true;
+  if (quips.length) setQuip(quips[Math.floor(Math.random() * quips.length)]);
+  else $('quip').hidden = true;
 
   const stay = $('list-stay'), iti = $('list-itinerary'), wan = $('list-wander');
   stay.textContent = ''; iti.textContent = ''; wan.textContent = '';
@@ -161,6 +172,96 @@ function renderGuide() {
   }
   renderFilterRows();
   $('nudge-toggle').checked = state.nudgesOn;
+}
+
+/* ————— his charm ————— */
+function timeBucket() {
+  const h = new Date().getHours();
+  if (h >= 5 && h < 12) return 'morning';
+  if (h < 18) return 'afternoon';
+  if (h < 23) return 'evening';
+  return 'night';
+}
+
+/* swap the quip with its little fade — the CSS was waiting for this class */
+function setQuip(text) {
+  const q = $('quip');
+  q.hidden = false;
+  q.classList.remove('is-turning');
+  void q.offsetWidth;
+  $('quip-text').textContent = text;
+  q.classList.add('is-turning');
+}
+
+/* compliments come off a shuffled deck so he never repeats himself early;
+   every fifth tap he addresses the husband, who is, after all, right there */
+function nextCharm() {
+  const g = guide();
+  state.charmTaps++;
+  if (g.charmHusband && state.charmTaps % 5 === 0) return g.charmHusband;
+  const pool = g.charms || [];
+  if (!pool.length) return null;
+  if (!state.charmDeck.length) state.charmDeck = pool.map((_, i) => i).sort(() => Math.random() - .5);
+  return pool[state.charmDeck.shift()];
+}
+
+function wink(container) {
+  const face = container?.querySelector('.face');
+  if (!face) return;
+  face.classList.remove('is-winking');
+  void face.getBoundingClientRect(); // restart the animation on rapid taps
+  face.classList.add('is-winking');
+  clearTimeout(face._winkT);
+  face._winkT = setTimeout(() => face.classList.remove('is-winking'), 1050);
+}
+
+function spawnHearts(hero) {
+  if (!hero) return;
+  for (let i = 0; i < 3; i++) {
+    const h = document.createElement('span');
+    h.className = 'heart';
+    h.textContent = '♥';
+    h.style.setProperty('--dx', `${Math.round(Math.random() * 72 - 36)}px`);
+    h.style.setProperty('--rot', `${Math.round(Math.random() * 28 - 14)}deg`);
+    h.style.animationDelay = `${i * 110}ms`;
+    hero.appendChild(h);
+    setTimeout(() => h.remove(), 1400 + i * 110);
+  }
+}
+
+let murmurT = 0;
+function showMurmur(text) {
+  const m = $('murmur');
+  m.classList.remove('is-leaving');
+  $('murmur-text').textContent = text;
+  m.hidden = false;
+  m.style.animation = 'none';
+  void m.offsetWidth;
+  m.style.animation = '';
+  clearTimeout(murmurT);
+  murmurT = setTimeout(() => {
+    m.classList.add('is-leaving');
+    setTimeout(() => { m.hidden = true; m.classList.remove('is-leaving'); }, 290);
+  }, 4600);
+}
+
+let asideT = 0;
+function showAside() {
+  const lines = guide().asides || [];
+  if (!lines.length) return;
+  const el = $('aside');
+  $('aside-stamp').innerHTML = window.ART?.face ? window.ART.face(state.city, { label: false }) : '';
+  $('aside-text').textContent = lines[Math.floor(Math.random() * lines.length)];
+  el.classList.remove('is-leaving');
+  el.hidden = false;
+  el.style.animation = 'none';
+  void el.offsetWidth;
+  el.style.animation = '';
+  clearTimeout(asideT);
+  asideT = setTimeout(() => {
+    el.classList.add('is-leaving');
+    setTimeout(() => { el.hidden = true; el.classList.remove('is-leaving'); }, 290);
+  }, 3800);
 }
 
 /* ————— category filters ————— */
@@ -552,8 +653,10 @@ function wireSheetDrag() {
   grip.addEventListener('pointercancel', end);
 }
 function markHeard(poi) {
-  if (state.heard.has(poi.id)) state.heard.delete(poi.id); else state.heard.add(poi.id);
+  const adding = !state.heard.has(poi.id);
+  if (adding) state.heard.add(poi.id); else state.heard.delete(poi.id);
   store.set('heard', [...state.heard]);
+  if (adding) showAside();
   renderGuide(); renderNear();
   if (state.map) {
     const m = state.markers[poi.id];
@@ -667,7 +770,7 @@ function maybeNudge() {
     nudgeStamp.innerHTML = window.ART.face(state.city, { label: false });
   } else nudgeStamp.textContent = g.name[0];
   $('nudge-guide').textContent = g.name;
-  $('nudge-msg').textContent = `${best.name} is ${fmtDist(bestDist)} away. May I tell you about it?`;
+  $('nudge-msg').textContent = `${best.name} is ${fmtDist(bestDist)} away. ${g.nudgeAsk || 'May I tell you about it?'}`;
   const nudge = $('nudge');
   nudge.hidden = false;
   nudge.dataset.poi = best.id;
@@ -755,10 +858,23 @@ function wire() {
   $('splash-cta').addEventListener('click', closeSplash);
   document.querySelectorAll('[data-splash-city]').forEach(b =>
     b.addEventListener('click', () => {
-      setCity(b.dataset.splashCity, { pinned: true });
-      setTab('guide');
-      closeSplash();
+      wink(b); // he winks before he takes her arm
+      setTimeout(() => {
+        setCity(b.dataset.splashCity, { pinned: true });
+        setTab('guide');
+        closeSplash();
+      }, 420);
     }));
+  // tap his portrait: a wink, a compliment, and a few hearts he pretends not to notice
+  $('guide-stamp').addEventListener('click', () => {
+    wink($('guide-stamp'));
+    spawnHearts(document.querySelector('.guide-hero'));
+    const line = nextCharm();
+    if (line) showMurmur(line);
+  });
+  // the little signature stamps wink too, for whoever finds them
+  document.querySelectorAll('.sig-stamp').forEach(el =>
+    el.addEventListener('click', () => wink(el)));
   document.querySelectorAll('.tab').forEach(b =>
     b.addEventListener('click', () => {
       // the flag tab is the country switcher — it asks before it navigates
@@ -833,7 +949,7 @@ function wire() {
   setInterval(() => {
     const quips = guide().quips || [];
     if (quips.length && state.tab === 'guide') {
-      $('quip-text').textContent = quips[Math.floor(Math.random() * quips.length)];
+      setQuip(quips[Math.floor(Math.random() * quips.length)]);
     }
   }, 30000);
 })();
