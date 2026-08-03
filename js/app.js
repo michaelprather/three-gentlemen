@@ -644,8 +644,33 @@ async function warmOfflinePack() {
   setTimeout(() => { pill.hidden = true; }, 6000);
 }
 
+/* ————— splash ————— */
+function openSplash() {
+  const splash = $('splash');
+  splash.querySelectorAll('.splash-face').forEach(el => {
+    el.innerHTML = window.ART?.face ? window.ART.face(el.dataset.face, { label: false }) : '';
+  });
+  splash.classList.remove('is-closing');
+  splash.hidden = false;
+  splash.querySelector('.splash-scroll').scrollTop = 0;
+}
+function closeSplash() {
+  store.set('splash-seen', true);
+  const splash = $('splash');
+  splash.classList.add('is-closing');
+  setTimeout(() => { splash.hidden = true; splash.classList.remove('is-closing'); }, 380);
+}
+
 /* ————— wiring ————— */
 function wire() {
+  $('wordmark').addEventListener('click', openSplash);
+  $('splash-cta').addEventListener('click', closeSplash);
+  document.querySelectorAll('[data-splash-city]').forEach(b =>
+    b.addEventListener('click', () => {
+      setCity(b.dataset.splashCity, { pinned: true });
+      setTab('guide');
+      closeSplash();
+    }));
   document.querySelectorAll('[data-city-chip]').forEach(b =>
     b.addEventListener('click', () => {
       store.set('city-pinned-at-city', b.dataset.cityChip);
@@ -706,6 +731,7 @@ function wire() {
   await loadData();
   setCity(state.city);
   setTab('guide');
+  if (!store.get('splash-seen', false)) openSplash();
   startWatch(false);
   verifyOfflinePack().then(warmOfflinePack);
   setInterval(() => {
