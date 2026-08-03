@@ -1313,19 +1313,19 @@ body.online .wifi-note { display: none; }
   transition: transform .25s cubic-bezier(.3,1.6,.5,1);
 }
 .tab-face .face { display: block; width: 100%; height: 100%; }
-/* and his skyline stands in for the city */
-.tab-skyline {
-  width: 34px; height: 15px; margin: 4px 0;
+/* and one building — his best-known — stands in for the city */
+.tab-landmark {
+  width: 23px; height: 21px; margin: 1px 0;
   display: block; color: currentColor;
   transition: transform .25s cubic-bezier(.3,1.6,.5,1);
 }
-.tab-skyline .skyline { display: block; width: 100%; height: 100%; }
+.tab-landmark .landmark { display: block; width: 100%; height: 100%; }
 .tab.is-active .tab-flag { transform: translateY(-1px) scale(1.08); }
 .tab.is-active { color: var(--accent); }
-.tab.is-active .tab-icon, .tab.is-active .tab-face, .tab.is-active .tab-skyline { transform: translateY(-1px) scale(1.06); }
+.tab.is-active .tab-icon, .tab.is-active .tab-face, .tab.is-active .tab-landmark { transform: translateY(-1px) scale(1.06); }
 /* the icon gives a springy hop on arrival — restarts because is-active is re-applied */
 .tab.is-active .tab-icon, .tab.is-active .tab-flag,
-.tab.is-active .tab-face, .tab.is-active .tab-skyline { animation: tab-pop .5s cubic-bezier(.3,1.6,.5,1); }
+.tab.is-active .tab-face, .tab.is-active .tab-landmark { animation: tab-pop .5s cubic-bezier(.3,1.6,.5,1); }
 @keyframes tab-pop {
   0%, 100% { transform: translateY(-1px) scale(1.06); }
   45% { transform: translateY(-4px) scale(1.22) rotate(-4deg); }

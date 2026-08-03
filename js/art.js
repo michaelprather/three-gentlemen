@@ -57,6 +57,27 @@ window.ART = (() => {
     amsterdam: sky(AMSTERDAM, '', 'evenodd'),
   };
 
+  /* One building lifted from each horizon for the city tab — the same paths as
+     the skylines above, re-origined to stand alone: the Eiffel Tower, the
+     Belfort, the Westerkerk. Drawn to a shared 64-unit height so their true
+     proportions survive side by side. */
+  const land = (w, d, rule = 'nonzero') =>
+    `<svg class="landmark" viewBox="0 0 ${w} 64" preserveAspectRatio="xMidYMax meet" aria-hidden="true">` +
+    `<path fill="currentColor" fill-rule="${rule}" d="${d}"/></svg>`;
+
+  const LANDMARKS = {
+    paris: land(55,
+      'M0,64 Q11,40 18,28 L16,28 L16,25 L20,25 L22,14 L21,14 L21,11 L24,11 L26,3 L27,0 L28,0 L29,3' +
+      ' L31,11 L34,11 L34,14 L33,14 L35,25 L39,25 L39,28 L37,28 Q44,40 55,64 Z' +
+      ' M6,64 Q27,38 48,64 Z', 'evenodd'),
+    bruges: land(48,
+      'M0,64 L0,34 L8,34 L8,20 L14,20 L14,6 L17,6 L17,10 L22,10 L22,3 L25,3 L25,10 L30,10 L30,6' +
+      ' L33,6 L33,10 L34,10 L34,20 L40,20 L40,34 L48,34 L48,64 Z'),
+    amsterdam: land(32,
+      'M0,64 L0,26 L6,26 L6,18 L9,18 Q6,14 9,11 L13,9 L16,1 L19,9 L23,11 Q26,14 23,18' +
+      ' L26,18 L26,26 L32,26 L32,64 Z'),
+  };
+
   /* ————— the gentlemen themselves —————
      One drawing style, three characters: paper skin, ink lines, each in his
      country's colours. Class hooks (.head .eye .brow-* .mouth .hair) are
@@ -172,6 +193,7 @@ window.ART = (() => {
 
   return {
     skyline: city => SKYLINES[city] || '',
+    landmark: city => LANDMARKS[city] || '',
     face,
   };
 })();

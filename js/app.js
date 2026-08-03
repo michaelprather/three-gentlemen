@@ -189,13 +189,13 @@ function setCity(slug, { pinned = false } = {}) {
     b.classList.toggle('is-active', b.dataset.pickCity === slug));
   const skyline = $('hero-skyline');
   if (skyline && window.ART) skyline.innerHTML = window.ART.skyline(slug);
-  // the tab bar is his: flag, his face, his skyline, his names
+  // the tab bar is his: flag, his face, his best-known building, his names
   $('tab-country-name').textContent = COUNTRY_NAME[slug];
   $('tab-guide-name').textContent = guide().name;
   $('tab-city-name').textContent = cityData()?.city || '';
   if (window.ART) {
     $('tab-face').innerHTML = window.ART.face(slug, { label: false });
-    $('tab-skyline').innerHTML = window.ART.skyline(slug);
+    $('tab-landmark').innerHTML = window.ART.landmark(slug);
   }
   if (state.tab === 'country') renderCountry();
   if (state.tab === 'days') renderDays();
