@@ -230,6 +230,13 @@ function spawnHearts(hero) {
 }
 
 let murmurT = 0;
+function hideMurmur() {
+  const m = $('murmur');
+  if (m.hidden) return;
+  clearTimeout(murmurT);
+  m.classList.add('is-leaving');
+  setTimeout(() => { m.hidden = true; m.classList.remove('is-leaving'); }, 290);
+}
 function showMurmur(text) {
   const m = $('murmur');
   m.classList.remove('is-leaving');
@@ -239,10 +246,9 @@ function showMurmur(text) {
   void m.offsetWidth;
   m.style.animation = '';
   clearTimeout(murmurT);
-  murmurT = setTimeout(() => {
-    m.classList.add('is-leaving');
-    setTimeout(() => { m.hidden = true; m.classList.remove('is-leaving'); }, 290);
-  }, 4600);
+  // he says it at a reading pace — long lines linger, and a tap sends him off early
+  const dwell = Math.min(14000, 4200 + text.length * 70);
+  murmurT = setTimeout(hideMurmur, dwell);
 }
 
 let asideT = 0;
@@ -872,6 +878,7 @@ function wire() {
     const line = nextCharm();
     if (line) showMurmur(line);
   });
+  $('murmur').addEventListener('click', hideMurmur);
   // the little signature stamps wink too, for whoever finds them
   document.querySelectorAll('.sig-stamp').forEach(el =>
     el.addEventListener('click', () => wink(el)));

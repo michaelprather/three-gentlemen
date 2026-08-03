@@ -299,7 +299,7 @@ main { padding-bottom: calc(92px + var(--safe-b)); }
   font-style: italic; font-size: 14px; line-height: 1.5; text-align: center;
   box-shadow: 3px 4px 0 rgba(36,28,20,.12);
   animation: murmur-pop .38s cubic-bezier(.2,1.5,.4,1) both;
-  pointer-events: none;
+  cursor: pointer;
 }
 .murmur::before {
   content: ""; position: absolute; top: -6.5px; left: 50%;
