@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
-<title>Three Gentlemen — your private guides</title>
-<meta name="description" content="Julien, Willem &amp; Daan — three gentlemen, three cities, one lady.">
+<title>Dear Madame — letters from your gentlemen guides</title>
+<meta name="description" content="Julien, Willem &amp; Daan — three cities, three gentlemen, one lady.">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Gentlemen">
+<meta name="apple-mobile-web-app-title" content="Madame">
 <meta name="theme-color" content="#f6efe3">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icons/icon-180.png">
@@ -21,11 +21,14 @@
 <div class="grain" aria-hidden="true"></div>
 
 <header class="masthead">
-  <div class="wordmark">Three&nbsp;Gentlemen</div>
+  <div class="mast-row">
+    <button class="wordmark" id="wordmark">Dear&nbsp;Madame<span class="wordmark-comma">,</span></button>
+    <span class="mast-flag" aria-hidden="true"></span>
+  </div>
   <nav class="city-chips" aria-label="City">
-    <button class="chip" data-city-chip="paris">Paris</button>
-    <button class="chip" data-city-chip="bruges">Bruges</button>
-    <button class="chip" data-city-chip="amsterdam">Amsterdam</button>
+    <button class="chip" data-city-chip="paris"><i class="chip-flag" aria-hidden="true"></i>Paris</button>
+    <button class="chip" data-city-chip="bruges"><i class="chip-flag" aria-hidden="true"></i>Bruges</button>
+    <button class="chip" data-city-chip="amsterdam"><i class="chip-flag" aria-hidden="true"></i>Amsterdam</button>
   </nav>
 </header>
 
@@ -38,6 +41,7 @@
   <!-- ————— GUIDE ————— -->
   <section id="view-guide" class="view" data-view="guide">
     <div class="guide-hero">
+      <div class="hero-skyline" id="hero-skyline" aria-hidden="true"></div>
       <div class="stamp" id="guide-stamp"><span id="guide-initial">J</span></div>
       <h1 class="guide-name" id="guide-name">Julien</h1>
       <p class="guide-title" id="guide-title"></p>
@@ -49,11 +53,11 @@
     <div class="quip" id="quip" hidden>
       <span class="quip-mark">❝</span><span id="quip-text"></span>
     </div>
-    <div class="section-head"><span>Where you sleep</span></div>
+    <div class="section-head"><span class="orn" aria-hidden="true"></span><span>Where you sleep</span></div>
     <div class="poi-list" id="list-stay"></div>
-    <div class="section-head"><span>On your plan</span></div>
+    <div class="section-head"><span class="orn" aria-hidden="true"></span><span>On your plan</span></div>
     <div class="poi-list" id="list-itinerary"></div>
-    <div class="section-head"><span>As you wander</span></div>
+    <div class="section-head"><span class="orn" aria-hidden="true"></span><span>As you wander</span></div>
     <div class="poi-list" id="list-wander"></div>
     <div class="guide-settings">
       <label class="toggle-row">
@@ -138,13 +142,22 @@
 </button>
 
 <nav class="tabbar" aria-label="Views">
-  <button class="tab is-active" data-tab="guide"><span class="tab-glyph">✎</span>Guide</button>
-  <button class="tab" data-tab="days"><span class="tab-glyph">❖</span>Days</button>
-  <button class="tab" data-tab="near"><span class="tab-glyph">◍</span>Near me</button>
-  <button class="tab" data-tab="map"><span class="tab-glyph">◈</span>Map</button>
+  <button class="tab is-active" data-tab="guide">
+    <svg class="tab-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3,7.2 L12,13.4 L21,7.2"/></svg>
+    Guide</button>
+  <button class="tab" data-tab="days">
+    <svg class="tab-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8,3 v4 M16,3 v4 M8,12.5 h8 M8,16 h5"/></svg>
+    Days</button>
+  <button class="tab" data-tab="near">
+    <svg class="tab-icon" viewBox="0 0 24 24" aria-hidden="true"><circle class="tab-icon-dot" cx="12" cy="12" r="2.4"/><path d="M7.2,7.2 A6.8,6.8 0 0 0 7.2,16.8 M16.8,7.2 A6.8,6.8 0 0 1 16.8,16.8 M4.4,4.4 A10.7,10.7 0 0 0 4.4,19.6 M19.6,4.4 A10.7,10.7 0 0 1 19.6,19.6"/></svg>
+    Near me</button>
+  <button class="tab" data-tab="map">
+    <svg class="tab-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3,6 L9,4 L15,6 L21,4 L21,18 L15,20 L9,18 L3,20 Z M9,4 v14 M15,6 v14"/></svg>
+    Map</button>
 </nav>
 
 <script src="js/leaflet/leaflet.js"></script>
+<script src="js/art.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

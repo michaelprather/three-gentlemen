@@ -1,11 +1,16 @@
-/* ————————————————————————————————————————————
-   Three Gentlemen — letters from a charming local
-   cream paper · ink · one accent per gentleman
-   ———————————————————————————————————————————— */
+/* ————————————————————————————————————————————————————————
+   Dear Madame — letters from three gentlemen
+   cream paper · ink · each country wears its own colours
+
+   Julien / Paris ······ bordeaux ink, gilt double-rules, fleurons
+   Willem / Bruges ····· chocolate, Belgian gold, scalloped edges
+   Daan / Amsterdam ···· Delft blue, Dutch orange, De Stijl bars
+   ———————————————————————————————————————————————————————— */
 
 :root {
   --paper: #f6efe3;
   --paper-deep: #efe5d2;
+  --card: #fbf6ec;
   --ink: #241c14;
   --ink-soft: #5d5243;
   --line: #d9ccb4;
@@ -13,21 +18,45 @@
   --sheet-radius: 22px;
   --safe-b: env(safe-area-inset-bottom, 0px);
   --safe-t: env(safe-area-inset-top, 0px);
+  --display: 'Fraunces', 'Iowan Old Style', serif;
+  --serif: 'Literata', Georgia, serif;
+  /* flag inks, shared and slightly aged so they sit on paper */
+  --fl-blue: #35568f;
+  --fl-red: #b8434c;
+  --fl-white: #f3ecdd;
+  --fl-black: #2a211a;
+  --fl-gold: #dfae35;
 }
-body[data-city="paris"]     { --accent: #7c2438; --accent-soft: #f0dee2; }
-body[data-city="bruges"]    { --accent: #9c4a1d; --accent-soft: #f2e2d5; }
-body[data-city="amsterdam"] { --accent: #1f4e79; --accent-soft: #dde6ee; }
+
+/* ————— the three countries ————— */
+body[data-city="paris"], .day-card[data-day-city="paris"] {
+  --accent: #7c2438;            /* bordeaux ink */
+  --accent-2: #ab8433;          /* gilt */
+  --accent-soft: #f1dee2;
+  --flag-g: linear-gradient(90deg, var(--fl-blue) 0 33.4%, var(--fl-white) 33.4% 66.7%, var(--fl-red) 66.7% 100%);
+}
+body[data-city="bruges"], .day-card[data-day-city="bruges"] {
+  --accent: #7a4522;            /* chocolate */
+  --accent-2: #c2922b;          /* Belgian gold */
+  --accent-soft: #f2e3d3;
+  --flag-g: linear-gradient(90deg, var(--fl-black) 0 33.4%, var(--fl-gold) 33.4% 66.7%, var(--fl-red) 66.7% 100%);
+}
+body[data-city="amsterdam"], .day-card[data-day-city="amsterdam"] {
+  --accent: #24517e;            /* Delft blue */
+  --accent-2: #c9682e;          /* Dutch orange */
+  --accent-soft: #dfe7ee;
+  --flag-g: linear-gradient(90deg, var(--fl-red) 0 33.4%, var(--fl-white) 33.4% 66.7%, var(--fl-blue) 66.7% 100%);
+}
 
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 [hidden] { display: none !important; }
 html { -webkit-text-size-adjust: 100%; }
 body {
-  font-family: 'Literata', Georgia, serif;
+  font-family: var(--serif);
   background: var(--paper);
   color: var(--ink);
   min-height: 100dvh;
   overscroll-behavior-y: none;
-  transition: --accent .3s;
 }
 
 /* paper grain */
@@ -42,20 +71,37 @@ body {
   padding: calc(10px + var(--safe-t)) 18px 0;
   background: linear-gradient(var(--paper) 82%, transparent);
 }
+.mast-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .wordmark {
-  font-family: 'Fraunces', serif;
-  font-weight: 700; font-size: 15px; letter-spacing: .14em;
+  font-family: var(--display);
+  font-weight: 700; font-size: 16px; letter-spacing: .12em;
   text-transform: uppercase; color: var(--accent);
+  background: none; border: none; padding: 0; text-align: left;
+  transition: color .45s;
+}
+.wordmark-comma { color: var(--accent-2); text-transform: none; }
+.mast-flag {
+  width: 26px; height: 8px; border-radius: 2px;
+  background: var(--flag-g);
+  box-shadow: 0 1px 0 rgba(36,28,20,.18);
 }
 .city-chips { display: flex; gap: 8px; margin: 10px 0 8px; }
 .chip {
-  font-family: 'Fraunces', serif; font-weight: 600; font-size: 14px;
+  font-family: var(--display); font-weight: 600; font-size: 14px;
+  display: inline-flex; align-items: center; gap: 7px;
   padding: 7px 14px; border-radius: 999px;
   border: 1.5px solid var(--line); background: transparent; color: var(--ink-soft);
+  transition: background .35s, border-color .35s, color .35s, transform .15s;
 }
-.chip.is-active {
-  border-color: var(--accent); background: var(--accent); color: var(--paper);
+.chip:active { transform: scale(.96); }
+.chip-flag {
+  width: 13px; height: 9px; border-radius: 1.5px; flex: none;
+  box-shadow: 0 0 0 1px rgba(36,28,20,.12);
 }
+.chip[data-city-chip="paris"] .chip-flag { background: linear-gradient(90deg, var(--fl-blue) 0 33.4%, var(--fl-white) 33.4% 66.7%, var(--fl-red) 66.7% 100%); }
+.chip[data-city-chip="bruges"] .chip-flag { background: linear-gradient(90deg, var(--fl-black) 0 33.4%, var(--fl-gold) 33.4% 66.7%, var(--fl-red) 66.7% 100%); }
+.chip[data-city-chip="amsterdam"] .chip-flag { background: linear-gradient(180deg, var(--fl-red) 0 33.4%, var(--fl-white) 33.4% 66.7%, var(--fl-blue) 66.7% 100%); }
+.chip.is-active { border-color: var(--accent); background: var(--accent); color: var(--paper); }
 
 /* offline pack progress */
 .pack-pill {
@@ -64,55 +110,111 @@ body {
   font-size: 12.5px; color: var(--ink-soft);
   display: flex; align-items: center; gap: 10px;
 }
-.pack-bar { flex: 1; height: 5px; border-radius: 3px; background: var(--paper-deep); overflow: hidden; }
-.pack-fill { display: block; height: 100%; background: var(--accent); transition: width .4s; }
+.pack-bar { flex: 1; height: 5px; border-radius: 3px; background: var(--paper-deep); overflow: hidden; position: relative; }
+.pack-fill {
+  display: block; height: 100%; background: var(--accent); transition: width .4s;
+  background-image: linear-gradient(105deg, transparent 30%, rgba(251,246,236,.45) 50%, transparent 70%);
+  background-size: 60px 100%; background-repeat: no-repeat;
+  animation: shimmer 1.6s linear infinite;
+}
+@keyframes shimmer { from { background-position: -60px 0; } to { background-position: 260px 0; } }
 
 /* ————— views ————— */
-main { padding-bottom: calc(86px + var(--safe-b)); }
+main { padding-bottom: calc(92px + var(--safe-b)); }
 .view { padding: 6px 18px 24px; animation: fadein .35s ease both; }
 @keyframes fadein { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; } }
 
-/* guide hero */
-.guide-hero { text-align: center; padding: 18px 0 6px; }
+/* ————— guide hero: his skyline on his horizon ————— */
+.guide-hero {
+  text-align: center; padding: 20px 0 2px;
+  position: relative; overflow: hidden;
+  margin: 0 -18px; padding-left: 18px; padding-right: 18px;
+}
+.hero-skyline {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 58px;
+  color: var(--accent); opacity: .16; pointer-events: none;
+  animation: skyrise .8s cubic-bezier(.2,.8,.3,1) both;
+}
+.hero-skyline .skyline { display: block; width: 100%; height: 100%; }
+@keyframes skyrise { from { transform: translateY(30px); opacity: 0; } to { transform: none; opacity: .16; } }
+.guide-hero .stamp { position: relative; z-index: 2; }
+.guide-name {
+  font-family: var(--display); font-weight: 700; font-size: 36px;
+  position: relative; z-index: 2; letter-spacing: .01em;
+}
+.guide-title {
+  color: var(--ink-soft); font-style: italic; font-size: 14.5px;
+  margin: 2px auto 0; max-width: 34ch; position: relative; z-index: 2;
+  padding-bottom: 40px;
+}
+
+/* the stamp — a postmark waiting for his portrait */
 .stamp {
-  width: 84px; height: 84px; margin: 0 auto 10px;
+  width: 96px; height: 96px; margin: 0 auto 10px;
   border: 2px solid var(--accent); border-radius: 50%;
   display: grid; place-items: center;
   position: relative; transform: rotate(-4deg);
   background: var(--accent-soft);
+  animation: stampin .5s cubic-bezier(.2,1.4,.4,1) both;
+}
+@keyframes stampin {
+  from { transform: rotate(-14deg) scale(1.3); opacity: 0; }
+  to { transform: rotate(-4deg) scale(1); opacity: 1; }
 }
 .stamp::after {
   content: ""; position: absolute; inset: 5px;
   border: 1px dashed var(--accent); border-radius: 50%;
 }
-.stamp span {
-  font-family: 'Fraunces', serif; font-weight: 700; font-size: 40px; color: var(--accent);
+.stamp > span {
+  font-family: var(--display); font-weight: 700; font-size: 44px; color: var(--accent);
 }
-.guide-name { font-family: 'Fraunces', serif; font-weight: 700; font-size: 34px; }
-.guide-title { color: var(--ink-soft); font-style: italic; font-size: 14.5px; margin-top: 2px; }
 
-/* the letter */
+/* ————— the letter — each gentleman's own stationery ————— */
 .letter {
-  margin: 16px 0; padding: 18px 18px 12px;
-  background: #fbf6ec;
+  margin: 16px 0; padding: 20px 18px 12px;
+  background: var(--card);
   border: 1px solid var(--line); border-radius: 4px;
   box-shadow: 2px 3px 0 rgba(36,28,20,.06);
   position: relative;
 }
-.letter::before {
-  content: ""; position: absolute; top: -1px; left: 16px; right: 16px; height: 3px;
-  background: var(--accent); opacity: .55;
-}
 .letter-body { font-size: 16px; line-height: 1.62; }
 .letter-body.dropcap::first-letter {
-  font-family: 'Fraunces', serif; font-weight: 700;
+  font-family: var(--display); font-weight: 700;
   font-size: 46px; line-height: .85;
   float: left; padding: 4px 8px 0 0; color: var(--accent);
 }
 .letter-sig {
   text-align: right; margin-top: 10px;
-  font-family: 'Fraunces', serif; font-style: italic; font-weight: 600;
+  font-family: var(--display); font-style: italic; font-weight: 600;
   color: var(--accent); font-size: 17px;
+}
+
+/* Julien writes on gilt-ruled stock, a fleuron pressed at the head */
+body[data-city="paris"] .letter::before {
+  content: ""; position: absolute; top: 4px; left: 14px; right: 14px; height: 7px;
+  background: linear-gradient(180deg, var(--accent-2) 0 1.5px, transparent 1.5px 5.5px, var(--accent-2) 5.5px 7px);
+  opacity: .75;
+}
+body[data-city="paris"] .letter::after {
+  content: "⚜\FE0E"; position: absolute; top: -4px; left: 50%; transform: translateX(-50%);
+  background: var(--card); padding: 0 10px;
+  color: var(--accent-2); font-size: 15px; line-height: 1;
+}
+/* Willem's paper comes out of the chocolate box, scalloped in couverture */
+body[data-city="bruges"] .letter::before {
+  content: ""; position: absolute; top: -1px; left: 8px; right: 8px; height: 8px;
+  background: radial-gradient(9px 8px at 8px -2px, var(--accent) 6.5px, transparent 7.5px);
+  background-size: 16px 8px; background-repeat: repeat-x;
+  opacity: .8;
+}
+/* Daan rules his page like a Rietveld façade — blue, a breath, orange, a breath, ink */
+body[data-city="amsterdam"] .letter::before {
+  content: ""; position: absolute; top: -1px; left: 14px; right: 14px; height: 6px;
+  background: linear-gradient(90deg,
+    var(--accent) 0 56%, transparent 56% 60%,
+    var(--accent-2) 60% 82%, transparent 82% 86%,
+    var(--ink) 86% 100%);
+  opacity: .85;
 }
 
 /* quips */
@@ -121,16 +223,22 @@ main { padding-bottom: calc(86px + var(--safe-b)); }
   margin: 4px 2px 14px; padding: 0 6px;
   font-style: italic; color: var(--ink-soft); font-size: 14.5px; line-height: 1.5;
 }
-.quip-mark { font-family: 'Fraunces', serif; color: var(--accent); font-size: 20px; }
+.quip-mark { font-family: var(--display); color: var(--accent-2); font-size: 20px; }
+.quip.is-turning #quip-text { animation: quipfade 1s ease both; }
+@keyframes quipfade { from { opacity: 0; } to { opacity: 1; } }
 
-/* section heads */
+/* section heads, each with the country's own ornament */
 .section-head {
-  display: flex; align-items: center; gap: 12px;
-  margin: 22px 0 10px;
-  font-family: 'Fraunces', serif; font-weight: 600; font-size: 13px;
+  display: flex; align-items: center; gap: 10px;
+  margin: 24px 0 10px;
+  font-family: var(--display); font-weight: 600; font-size: 13px;
   letter-spacing: .16em; text-transform: uppercase; color: var(--accent);
 }
 .section-head::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.section-head .orn { color: var(--accent-2); font-size: 13px; line-height: 1; }
+body[data-city="paris"] .orn::before { content: "⚜\FE0E"; }
+body[data-city="bruges"] .orn::before { content: "❖"; }
+body[data-city="amsterdam"] .orn::before { content: "✕\FE0E✕\FE0E✕\FE0E"; letter-spacing: .06em; font-size: 10px; }
 
 /* poi rows */
 .poi-list { display: flex; flex-direction: column; gap: 9px; }
@@ -138,12 +246,14 @@ main { padding-bottom: calc(86px + var(--safe-b)); }
   text-align: left; width: 100%;
   display: grid; grid-template-columns: 1fr auto; gap: 2px 10px;
   padding: 12px 14px;
-  background: #fbf6ec; border: 1px solid var(--line); border-radius: 10px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 10px;
   font: inherit; color: inherit;
+  box-shadow: 0 1px 0 rgba(36,28,20,.04);
+  transition: transform .12s ease, background .15s;
 }
-.poi-row:active { background: var(--accent-soft); }
+.poi-row:active { background: var(--accent-soft); transform: scale(.985); }
 .poi-row .poi-name {
-  font-family: 'Fraunces', serif; font-weight: 600; font-size: 17px; grid-column: 1;
+  font-family: var(--display); font-weight: 600; font-size: 17px; grid-column: 1;
 }
 .poi-row .poi-tag { color: var(--ink-soft); font-size: 13.5px; grid-column: 1; }
 .poi-row .poi-side {
@@ -157,7 +267,7 @@ main { padding-bottom: calc(86px + var(--safe-b)); }
 .cat-chip {
   display: inline-block; padding: 2.5px 8px; border-radius: 4px;
   font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase;
-  font-family: 'Fraunces', serif; font-weight: 600;
+  font-family: var(--display); font-weight: 600;
   background: var(--accent-soft); color: var(--accent);
 }
 
@@ -174,19 +284,20 @@ main { padding-bottom: calc(86px + var(--safe-b)); }
 }
 .toggle-ui::after {
   content: ""; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px;
-  border-radius: 50%; background: #fbf6ec; transition: transform .2s;
+  border-radius: 50%; background: var(--card); transition: transform .22s cubic-bezier(.3,1.4,.5,1);
   box-shadow: 0 1px 2px rgba(0,0,0,.25);
 }
 .toggle-row input:checked + .toggle-ui { background: var(--accent); }
 .toggle-row input:checked + .toggle-ui::after { transform: translateX(18px); }
 
 .ghost-btn {
-  font-family: 'Fraunces', serif; font-weight: 600; font-size: 14px;
+  font-family: var(--display); font-weight: 600; font-size: 14px;
   color: var(--accent); background: transparent;
   border: 1.5px solid var(--accent); border-radius: 999px;
   padding: 9px 16px; text-decoration: none; text-align: center;
+  transition: transform .12s ease, background .15s;
 }
-.ghost-btn:active { background: var(--accent-soft); }
+.ghost-btn:active { background: var(--accent-soft); transform: scale(.97); }
 .colophon {
   margin-top: 30px; font-size: 11.5px; color: var(--ink-soft); text-align: center;
 }
@@ -194,7 +305,7 @@ main { padding-bottom: calc(86px + var(--safe-b)); }
 
 /* ————— the days ————— */
 .days-title {
-  font-family: 'Fraunces', serif; font-weight: 700; font-size: 30px;
+  font-family: var(--display); font-weight: 700; font-size: 30px;
   margin: 14px 0 6px;
 }
 .days-intro { font-size: 14.5px; line-height: 1.6; color: var(--ink-soft); font-style: italic; }
@@ -202,30 +313,32 @@ main { padding-bottom: calc(86px + var(--safe-b)); }
 
 .day-card {
   padding: 15px 16px 14px;
-  background: #fbf6ec; border: 1px solid var(--line); border-radius: 10px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 10px;
   box-shadow: 2px 3px 0 rgba(36,28,20,.05);
   border-left: 3px solid var(--accent);
+  position: relative;
 }
-/* each day wears the colours of the city it ends in */
-.day-card[data-day-city="paris"]     { --accent: #7c2438; --accent-soft: #f0dee2; }
-.day-card[data-day-city="bruges"]    { --accent: #9c4a1d; --accent-soft: #f2e2d5; }
-.day-card[data-day-city="amsterdam"] { --accent: #1f4e79; --accent-soft: #dde6ee; }
-
 .day-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
 .day-name {
-  font-family: 'Fraunces', serif; font-weight: 700; font-size: 20px;
+  font-family: var(--display); font-weight: 700; font-size: 20px;
   letter-spacing: .01em;
 }
 .day-route {
   font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
-  font-family: 'Fraunces', serif; font-weight: 600;
+  font-family: var(--display); font-weight: 600;
   color: var(--accent); text-align: right;
+}
+.day-card[data-day-city] .day-route::after {
+  content: ""; display: inline-block; margin-left: 6px;
+  width: 13px; height: 8px; border-radius: 1.5px; vertical-align: baseline;
+  background: var(--flag-g);
+  box-shadow: 0 0 0 1px rgba(36,28,20,.1);
 }
 
 .day-times { list-style: none; margin: 12px 0 0; display: flex; flex-direction: column; gap: 9px; }
 .day-times li { display: grid; grid-template-columns: 52px 1fr; gap: 10px; align-items: baseline; }
 .day-t {
-  font-family: 'Fraunces', serif; font-weight: 700; font-size: 14px;
+  font-family: var(--display); font-weight: 700; font-size: 14px;
   color: var(--accent); font-variant-numeric: tabular-nums;
 }
 .day-d { font-size: 14.5px; line-height: 1.55; }
@@ -243,11 +356,9 @@ main { padding-bottom: calc(86px + var(--safe-b)); }
 }
 .day-bed.is-tappable { border-color: var(--accent); }
 .day-bed.is-tappable:active { background: var(--accent-soft); }
-.day-bed-glyph {
-  flex: none; font-size: 17px; line-height: 1.2; color: var(--accent);
-}
+.day-bed-glyph { flex: none; font-size: 17px; line-height: 1.2; color: var(--accent); }
 .day-bed-body { display: flex; flex-direction: column; gap: 3px; }
-.day-bed-text { font-family: 'Fraunces', serif; font-weight: 600; font-size: 14.5px; }
+.day-bed-text { font-family: var(--display); font-weight: 600; font-size: 14.5px; }
 .day-bed-detail { font-size: 12.5px; line-height: 1.5; color: var(--ink-soft); }
 
 /* ————— near me ————— */
@@ -257,36 +368,42 @@ main { padding-bottom: calc(86px + var(--safe-b)); }
 }
 .locate-btn {
   flex: none;
-  font-family: 'Fraunces', serif; font-weight: 700; font-size: 15px;
+  font-family: var(--display); font-weight: 700; font-size: 15px;
   background: var(--accent); color: var(--paper);
   border: none; border-radius: 999px; padding: 11px 20px;
+  transition: transform .12s ease;
 }
+.locate-btn:active { transform: scale(.95); }
 .near-list .poi-row { padding: 14px; }
 .near-cardinal { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
 
 /* ————— map ————— */
 .view-map { padding: 0; }
 #map {
-  height: calc(100dvh - 152px - var(--safe-b) - var(--safe-t));
+  height: calc(100dvh - 158px - var(--safe-b) - var(--safe-t));
   background: var(--paper-deep);
 }
-.leaflet-container { font-family: 'Literata', Georgia, serif; }
+.leaflet-container { font-family: var(--serif); }
+/* age the tiles slightly so the map reads as part of the stationery */
+.leaflet-tile { filter: sepia(.22) saturate(.85); }
 .map-locate {
-  position: fixed; right: 16px; bottom: calc(104px + var(--safe-b)); z-index: 25;
+  position: fixed; right: 16px; bottom: calc(110px + var(--safe-b)); z-index: 25;
   width: 52px; height: 52px; border-radius: 50%;
   background: var(--accent); color: var(--paper); border: none;
   font-size: 24px; box-shadow: 0 3px 10px rgba(36,28,20,.3);
+  transition: transform .12s ease;
 }
+.map-locate:active { transform: scale(.92); }
 .pin {
   width: 26px; height: 26px; border-radius: 50% 50% 50% 4px;
   transform: rotate(-45deg);
-  background: var(--accent); border: 2px solid #fbf6ec;
+  background: var(--accent); border: 2px solid var(--card);
   box-shadow: 0 2px 5px rgba(36,28,20,.4);
   display: grid; place-items: center;
 }
 .pin i {
   transform: rotate(45deg); font-style: normal;
-  font-size: 11px; color: #fbf6ec; font-family: 'Fraunces', serif; font-weight: 700;
+  font-size: 11px; color: var(--card); font-family: var(--display); font-weight: 700;
 }
 .pin.is-heard { background: #b3a68e; }
 /* the bed: ink-dark and a size larger, so it reads as home at a glance */
@@ -318,6 +435,12 @@ main { padding-bottom: calc(86px + var(--safe-b)); }
   background: var(--paper); border-radius: var(--sheet-radius) var(--sheet-radius) 0 0;
   box-shadow: 0 -8px 30px rgba(36,28,20,.25);
   animation: sheetup .32s cubic-bezier(.2,.9,.3,1) both;
+  overflow: hidden;
+}
+/* his country's ribbon runs along the top edge of every card he deals */
+.sheet::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: var(--flag-g); opacity: .85; z-index: 1;
 }
 @keyframes sheetup { from { transform: translateY(60%); opacity: .4; } to { transform: none; opacity: 1; } }
 /* while a finger is on it, the sheet tracks it exactly — no entry animation, no easing lag.
@@ -351,20 +474,26 @@ main { padding-bottom: calc(86px + var(--safe-b)); }
 }
 .compass-btn.is-live { border-style: solid; background: var(--accent); color: var(--paper); }
 .compass-arrow { display: block; line-height: 1; transition: transform .15s linear; transform: rotate(-90deg); }
-.sheet-name { font-family: 'Fraunces', serif; font-weight: 700; font-size: 27px; margin-top: 10px; }
+.sheet-name { font-family: var(--display); font-weight: 700; font-size: 27px; margin-top: 10px; }
 .sheet-tagline { font-style: italic; color: var(--ink-soft); margin: 3px 0 4px; font-size: 15px; }
 .sheet-address {
   font-size: 13px; letter-spacing: .02em; color: var(--accent);
-  font-family: 'Fraunces', serif; font-weight: 600; margin-bottom: 2px;
+  font-family: var(--display); font-weight: 600; margin-bottom: 2px;
 }
 .sheet-letter { margin-top: 14px; }
-.sheet-photo { margin: 12px 0 0; }
+/* the photograph he slides across the table, slightly askew */
+.sheet-photo {
+  margin: 14px 2px 2px; padding: 7px 7px 6px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 3px;
+  box-shadow: 2px 3px 8px rgba(36,28,20,.14);
+  transform: rotate(-1.1deg);
+}
 .sheet-photo img {
   display: block; width: 100%; max-height: 230px; object-fit: cover;
-  border-radius: 10px; border: 1px solid var(--line); background: var(--paper-deep);
+  border-radius: 2px; background: var(--paper-deep);
 }
 .sheet-photo figcaption {
-  margin-top: 4px; font-size: 10.5px; color: var(--ink-soft);
+  margin-top: 5px; font-size: 10.5px; color: var(--ink-soft);
   text-align: right; font-style: italic;
 }
 .funfact {
@@ -373,7 +502,7 @@ main { padding-bottom: calc(86px + var(--safe-b)); }
   font-size: 14.5px; line-height: 1.55;
 }
 .funfact-label {
-  font-family: 'Fraunces', serif; font-weight: 700; font-style: italic;
+  font-family: var(--display); font-weight: 700; font-style: italic;
   color: var(--accent); font-size: 14px; margin-bottom: 4px;
 }
 .sheet-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
@@ -390,15 +519,20 @@ body.online .wifi-note { display: none; }
   box-shadow: 0 6px 20px rgba(36,28,20,.4);
   font: inherit; font-size: 14.5px; line-height: 1.4;
   animation: nudgein .4s cubic-bezier(.2,.9,.3,1) both;
+  overflow: hidden;
+}
+.nudge::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--flag-g); opacity: .9;
 }
 @keyframes nudgein { from { transform: translateY(-120%); } to { transform: none; } }
 .nudge-stamp {
   flex: none; width: 38px; height: 38px; border-radius: 50%;
   border: 1.5px dashed var(--paper);
   display: grid; place-items: center;
-  font-family: 'Fraunces', serif; font-weight: 700; font-size: 19px;
+  font-family: var(--display); font-weight: 700; font-size: 19px;
 }
-.nudge strong { font-family: 'Fraunces', serif; }
+.nudge strong { font-family: var(--display); }
 
 /* ————— tab bar ————— */
 .tabbar {
@@ -406,16 +540,29 @@ body.online .wifi-note { display: none; }
   display: flex;
   background: #fbf6ecf2; backdrop-filter: blur(8px);
   border-top: 1px solid var(--line);
-  padding: 6px 10px calc(8px + var(--safe-b));
+  padding: 7px 10px calc(9px + var(--safe-b));
 }
 .tab {
-  flex: 1; display: flex; flex-direction: column; align-items: center; gap: 2px;
-  font-family: 'Fraunces', serif; font-weight: 600; font-size: 12px;
-  color: var(--ink-soft); background: none; border: none; padding: 6px 0;
+  flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px;
+  font-family: var(--display); font-weight: 600; font-size: 11.5px;
+  color: var(--ink-soft); background: none; border: none; padding: 6px 0 4px;
+  transition: color .25s;
+  position: relative;
 }
-.tab-glyph { font-size: 19px; line-height: 1; }
+.tab-icon {
+  width: 23px; height: 23px;
+  fill: none; stroke: currentColor; stroke-width: 1.8;
+  stroke-linecap: round; stroke-linejoin: round;
+  transition: transform .25s cubic-bezier(.3,1.6,.5,1);
+}
+.tab-icon-dot { fill: currentColor; stroke: none; }
 .tab.is-active { color: var(--accent); }
-.tab.is-active .tab-glyph { transform: translateY(-1px); }
+.tab.is-active .tab-icon { transform: translateY(-1px) scale(1.06); }
+
+/* ————— motion respect ————— */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
 
 @media (min-width: 700px) {
   main, .masthead, .pack-pill { max-width: 560px; margin-left: auto; margin-right: auto; }

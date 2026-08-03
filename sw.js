@@ -1,4 +1,4 @@
-/* Three Gentlemen — service worker: offline-first everything */
+/* Dear Madame — service worker: offline-first everything */
 importScripts('precache-manifest.js'); // defines self.__PRECACHE and self.__VERSION
 
 const SHELL = 'tg-shell-' + self.__VERSION;

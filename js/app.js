@@ -1,4 +1,4 @@
-/* Three Gentlemen — app logic */
+/* Dear Madame — app logic */
 (() => {
 'use strict';
 
@@ -81,6 +81,10 @@ function setCity(slug, { pinned = false } = {}) {
   document.body.dataset.city = slug;
   document.querySelectorAll('[data-city-chip]').forEach(b =>
     b.classList.toggle('is-active', b.dataset.cityChip === slug));
+  const skyline = $('hero-skyline');
+  if (skyline && window.ART) skyline.innerHTML = window.ART.skyline(slug);
+  const stamp = $('guide-stamp');
+  if (stamp) { stamp.style.animation = 'none'; void stamp.offsetWidth; stamp.style.animation = ''; }
   renderGuide();
   renderNear();
   if (state.map) setupMapForCity();

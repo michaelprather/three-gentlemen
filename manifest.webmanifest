@@ -1,6 +1,6 @@
 {
-  "name": "Three Gentlemen — your private guides",
-  "short_name": "Gentlemen",
+  "name": "Dear Madame — letters from your gentlemen guides",
+  "short_name": "Madame",
   "description": "Julien, Willem & Daan — three cities, three gentlemen, one lady.",
   "start_url": "./index.html",
   "scope": "./",
