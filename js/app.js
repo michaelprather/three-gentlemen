@@ -111,7 +111,13 @@ function poiRow(poi, { showDist = true, cardinalToo = false } = {}) {
 
 function renderGuide() {
   const g = guide(), d = cityData();
-  $('guide-initial').textContent = g.name[0] || '?';
+  const stamp = $('guide-stamp');
+  if (window.ART?.face) {
+    stamp.classList.add('has-face');
+    stamp.innerHTML = window.ART.face(state.city);
+  } else {
+    stamp.innerHTML = `<span id="guide-initial">${g.name[0] || '?'}</span>`;
+  }
   $('guide-name').textContent = g.name;
   $('guide-sig').textContent = g.name;
   $('guide-title').textContent = g.title || '';
@@ -199,6 +205,8 @@ function renderNear() {
   list.textContent = '';
   const d = cityData();
   if (!d) return;
+  const nearFace = $('near-face');
+  if (nearFace) nearFace.innerHTML = window.ART?.face ? window.ART.face(state.city, { label: false }) : '';
   if (!state.pos) {
     $('near-msg').textContent = 'so I can tell you what’s around you, madame';
     $('near-locate').hidden = false;
@@ -291,6 +299,8 @@ function openSheet(poi, { fromMap = false } = {}) {
   }
   $('sheet-story').textContent = poi.story;
   $('sheet-sig').textContent = guide().name;
+  const sigStamp = $('sheet-sig-stamp');
+  if (sigStamp) sigStamp.innerHTML = window.ART?.face ? window.ART.face(state.city, { label: false }) : '';
   $('funfact-label').textContent = FUNFACT_LABEL[state.city] || 'Between us…';
   if (poi.funFact) { $('sheet-funfact-wrap').hidden = false; $('sheet-funfact').textContent = poi.funFact; }
   else $('sheet-funfact-wrap').hidden = true;
@@ -503,7 +513,11 @@ function maybeNudge() {
   state.poiNudgedAt[best.id] = now;
   store.set('poi-nudged', state.poiNudgedAt);
   const g = guide();
-  $('nudge-initial').textContent = g.name[0];
+  const nudgeStamp = $('nudge-initial');
+  if (window.ART?.face) {
+    nudgeStamp.classList.add('has-face');
+    nudgeStamp.innerHTML = window.ART.face(state.city, { label: false });
+  } else nudgeStamp.textContent = g.name[0];
   $('nudge-guide').textContent = g.name;
   $('nudge-msg').textContent = `${best.name} is ${fmtDist(bestDist)} away. May I tell you about it?`;
   const nudge = $('nudge');

@@ -150,7 +150,7 @@ main { padding-bottom: calc(92px + var(--safe-b)); }
 
 /* the stamp — a postmark waiting for his portrait */
 .stamp {
-  width: 96px; height: 96px; margin: 0 auto 10px;
+  width: 106px; height: 106px; margin: 0 auto 10px;
   border: 2px solid var(--accent); border-radius: 50%;
   display: grid; place-items: center;
   position: relative; transform: rotate(-4deg);
@@ -168,6 +168,46 @@ main { padding-bottom: calc(92px + var(--safe-b)); }
 .stamp > span {
   font-family: var(--display); font-weight: 700; font-size: 44px; color: var(--accent);
 }
+
+/* ————— the portraits ————— */
+/* the face SVG draws its own postmark rings, so a stamp holding one goes bare */
+.stamp.has-face, .nudge-stamp.has-face { border: none; background: none; }
+.stamp.has-face::after { display: none; }
+.face { display: block; width: 100%; height: 100%; }
+.stamp .face { filter: drop-shadow(1.5px 2.5px 0 rgba(36,28,20,.12)); }
+.sig-stamp { display: inline-block; width: 30px; height: 30px; vertical-align: middle; }
+.letter-sig { display: flex; align-items: center; justify-content: flex-end; gap: 8px; }
+.near-face { flex: none; width: 38px; height: 38px; }
+
+/* idle life: a slow bob, an occasional blink, a lifted brow.
+   Julien ponders, Willem sways like a man stirring chocolate, Daan is quicker. */
+.face .head { transform-box: fill-box; transform-origin: 50% 78%; animation: face-bob 6.5s ease-in-out infinite; }
+.face[data-guide="willem"] .head { animation: face-sway 5.6s ease-in-out infinite; }
+.face[data-guide="daan"] .head { animation: face-bob 4.8s ease-in-out infinite; }
+@keyframes face-bob { 0%, 100% { transform: none; } 50% { transform: translateY(1.4px) rotate(-1.3deg); } }
+@keyframes face-sway { 0%, 100% { transform: rotate(-1.8deg); } 50% { transform: rotate(1.8deg); } }
+
+.face .eye { transform-box: fill-box; transform-origin: center; animation: face-blink 5.4s infinite; }
+.face[data-guide="willem"] .eye { animation-duration: 6.2s; animation-delay: .8s; }
+.face[data-guide="daan"] .eye { animation-duration: 4.6s; animation-delay: 1.6s; }
+@keyframes face-blink {
+  0%, 93.5%, 97.5%, 100% { transform: scaleY(1); }
+  95.5% { transform: scaleY(.06); }
+}
+
+.face .brow-l, .face .brow-r { transform-box: fill-box; transform-origin: center; animation: face-brow 9s ease-in-out infinite; }
+.face .brow-r { animation-delay: .15s; }
+@keyframes face-brow {
+  0%, 38%, 46%, 100% { transform: none; }
+  41%, 43% { transform: translateY(-1.6px); }
+}
+
+.face[data-guide="daan"] .hair { transform-box: fill-box; transform-origin: 20% 85%; animation: face-hair 7s ease-in-out infinite; }
+@keyframes face-hair { 0%, 45%, 100% { transform: none; } 60% { transform: rotate(1.5deg); } 75% { transform: rotate(-.7deg); } }
+
+.face .mouth { transform-box: fill-box; transform-origin: center; }
+.face[data-guide="willem"] .mouth { animation: face-grin 7.5s ease-in-out infinite; }
+@keyframes face-grin { 0%, 60%, 82%, 100% { transform: none; } 68%, 74% { transform: scale(1.1); } }
 
 /* ————— the letter — each gentleman's own stationery ————— */
 .letter {
