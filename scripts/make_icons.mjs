@@ -1,27 +1,35 @@
-// Generate app icons: three interlocked rings (Julien, Willem, Daan) on cream, stamp-style.
+// Generate app icons: the three guides' portrait medallions (Julien, Willem, Daan)
+// grouped on cream, borderless. Faces come from js/art.js so the icon always
+// matches the in-app portraits. Runs in a node container with the app mounted
+// at /app (override with APP_ROOT).
 import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 
+const ROOT = process.env.APP_ROOT || '/app';
+
+// art.js is browser code that assigns window.ART; give it a window to land on.
+const window = {};
+new Function('window', fs.readFileSync(`${ROOT}/js/art.js`, 'utf8'))(window);
+
+// Re-attribute a portrait for nested placement inside the icon canvas.
+const medallion = (city, x, y, w) =>
+  window.ART.face(city, { label: false })
+    .replace('<svg class="face"', `<svg x="${x}" y="${y}" width="${w}" height="${w}"`);
+
+// Group portrait: Julien behind at top centre, Willem and Daan in front below —
+// same triangle as the old three-ring mark, no stamp border.
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512">
   <rect width="512" height="512" fill="#f6efe3"/>
-  <rect x="26" y="26" width="460" height="460" fill="none" stroke="#241c14"
-        stroke-width="4" stroke-dasharray="14 12" rx="8"/>
-  <g fill="none" stroke-width="26">
-    <circle cx="256" cy="196" r="86" stroke="#7c2438"/>
-    <circle cx="196" cy="300" r="86" stroke="#9c4a1d"/>
-    <circle cx="316" cy="300" r="86" stroke="#1f4e79"/>
-  </g>
-  <g fill="none" stroke-width="26">
-    <path d="M 256 110 a 86 86 0 0 1 74.5 129" stroke="#7c2438"/>
-    <path d="M 196 214 a 86 86 0 0 1 74.5 129" stroke="#9c4a1d"/>
-  </g>
+  ${medallion('paris', 126, 48, 260)}
+  ${medallion('bruges', 28, 206, 260)}
+  ${medallion('amsterdam', 224, 206, 260)}
 </svg>`;
-fs.writeFileSync('/app/icons/icon.svg', svg);
+fs.writeFileSync(`${ROOT}/icons/icon.svg`, svg);
 
 execSync('cd /tmp && npm init -y >/dev/null && npm install sharp --loglevel=error', { stdio: 'inherit' });
 const { createRequire } = await import('node:module');
 const sharp = createRequire('/tmp/')('sharp');
 for (const size of [180, 192, 512]) {
-  await sharp(Buffer.from(svg)).resize(size, size).png().toFile(`/app/icons/icon-${size}.png`);
+  await sharp(Buffer.from(svg)).resize(size, size).png().toFile(`${ROOT}/icons/icon-${size}.png`);
 }
 console.log('icons done');
