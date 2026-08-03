@@ -1,0 +1,104 @@
+{
+  "paris": {
+    "country": "France",
+    "endonym": "La République française",
+    "intro": "France, madame, is the country that decided lunch is a right, beauty is a public service, and disagreement is a form of affection. We invented the restaurant, the department store, and the habit of arguing about both. Do not try to see France this weekend — even we have not managed it. Walk slowly, greet everyone, eat the cheese. The rest is administration.",
+    "phrases": [
+      { "say": "Bonjour", "pron": "bon-ZHOOR", "when": "Walking into any shop, café, or elevator. It is a doorbell you ring with your mouth — skip it and you are a barbarian." },
+      { "say": "Merci, au revoir", "pron": "mair-SEE, oh ruh-VWAR", "when": "Leaving anywhere. Both halves, always." },
+      { "say": "S'il vous plaît", "pron": "seel voo PLAY", "when": "Please — attach it to everything." },
+      { "say": "L'addition, s'il vous plaît", "pron": "lah-dee-SYON", "when": "The bill. It will never, ever come unless you ask." },
+      { "say": "Je suis végétarien — sans viande ni poisson", "pron": "zhuh swee vey-zhey-tar-YAN", "when": "For your vegetarian: 'no meat, no fish.' Say both — some kitchens think fish is a vegetable." },
+      { "say": "Une carafe d'eau, s'il vous plaît", "pron": "oon ka-RAF doh", "when": "Free tap water at any restaurant. They will bring bottled and charge you if you don't say 'carafe.'" },
+      { "say": "Parlez-vous anglais ?", "pron": "par-lay voo on-GLEH", "when": "Asked politely after a Bonjour, it works wonders. Demanded without one, it mysteriously doesn't." }
+    ],
+    "faqs": [
+      { "q": "What are arrondissements?", "a": "Paris is sliced into twenty numbered districts that spiral out from the Louvre like a snail's shell — the 1st at the centre, the 20th at the rim. The last two digits of a postcode tell you which one you're in: 75008 is the 8th, where your hotel sits. When a Parisian says 'the 9th' or 'le Marais is in the 3rd and 4th,' they are giving you an address, a price bracket, and a personality diagnosis all at once." },
+      { "q": "Do I tip?", "a": "Service is included by law — 'service compris' — so nobody is waiting on your 15%. Round up, or leave a euro or two for good service. Anyone who tells you otherwise runs a walking tour." },
+      { "q": "Why is the waiter ignoring me?", "a": "He isn't. In France the table is yours for the evening, and hovering is considered harassment. When you want something, catch his eye and say 'S'il vous plaît.' When you want to leave, ask for the bill — it is considered rude to bring it unasked, as if pushing you out." },
+      { "q": "Why is half of Paris closed?", "a": "August is les congés — the annual escape to the sea, taken with religious seriousness since 1936, when France invented the paid holiday. The bakeries take turns staying open, the brasseries soldier on, and the city belongs to you and the other visitors. Check hours the same morning; a handwritten 'fermeture estivale' overrules the internet." },
+      { "q": "What's with the glowing green crosses?", "a": "Pharmacies — and they are half clinic. A French pharmacist will diagnose your blister, sell you the exact cream, and wish you 'bonne journée' in under four minutes. For small ailments, go there before any doctor." },
+      { "q": "Can I drink the tap water?", "a": "Yes — Paris is proud of it. The city even maintains a hundred-odd green cast-iron Wallace fountains that have poured free drinking water since 1872. Fill your bottles like a local." }
+    ],
+    "facts": [
+      "The Eiffel Tower is up to 15 centimetres taller in August than in January — iron expands in the heat, so you will be climbing the tall version.",
+      "Until 1911, Paris ran nine minutes and twenty-one seconds ahead of London, on its own Paris Mean Time — and the French only adopted Greenwich time on condition nobody had to say the word 'Greenwich.'",
+      "A quarter-size Statue of Liberty stands on an island in the Seine, gazing toward her big sister in New York — a thank-you gift from Americans in Paris.",
+      "By decree, a 'baguette de tradition française' may contain exactly four ingredients: flour, water, salt, yeast. It is bread with a constitution.",
+      "Gustave Eiffel kept a small private apartment at the top of his tower, with wallpaper and a piano, and refused all offers to rent it.",
+      "Paris has essentially no stop signs — the city's last one quietly vanished around 2012. Priority-to-the-right and nerve do the rest.",
+      "The Louvre's glass pyramid holds 673 panes of glass, not the 666 of legend — the museum finally counted them publicly to end the rumour.",
+      "Victor Hugo's funeral in 1885 drew some two million mourners — more people than lived in Paris — and he rode to the Panthéon in a pauper's hearse, by his own request.",
+      "The Paris Métro's entrances by Hector Guimard were so strange in 1900 that critics blamed them for frightening horses; today they are protected monuments.",
+      "French bakeries take their August holidays in coordination with city hall so that no neighbourhood is ever left breadless — a system older than most countries' constitutions."
+    ]
+  },
+  "bruges": {
+    "country": "Belgium",
+    "endonym": "België · Belgique",
+    "intro": "Belgium is a small, rainy kingdom that decided, sensibly, to specialise in pleasure: chocolate, frites, waffles, beer, and towns so pretty they look painted. We have three official languages, two halves that tease each other constantly, and one shared conviction — that anything worth doing is worth doing deliciously. Bruges is our jewel box. I may be biased. I am not wrong.",
+    "phrases": [
+      { "say": "Dag! / Goeiedag", "pron": "dahkh / KHOO-yuh-dahkh", "when": "Hello, any time of day. The g is a soft throat-clearing — do your best, we love the effort." },
+      { "say": "Dank u wel", "pron": "dahnk oo VEL", "when": "Thank you very much. Works on chocolatiers, waiters, and swans." },
+      { "say": "Alstublieft", "pron": "AHLS-too-bleeft", "when": "Please — and also what the shopkeeper says handing you anything. It means 'here you are, if it pleases you.' A whole philosophy in one word." },
+      { "say": "De rekening, alstublieft", "pron": "duh RAY-kuh-ning", "when": "The bill, please." },
+      { "say": "Eén wafel, alstublieft", "pron": "AYN VAH-fel", "when": "One waffle. The only sentence you truly need." },
+      { "say": "Spreekt u Engels?", "pron": "spraykt oo ENG-els", "when": "Nearly everyone in Bruges does, beautifully — but they warm three degrees when you ask in Dutch first." }
+    ],
+    "faqs": [
+      { "q": "What language does Bruges speak?", "a": "Dutch — the Flemish variety — not French. Belgium is split between Dutch-speaking Flanders in the north (that's us) and French-speaking Wallonia in the south, with Brussels officially both. In Bruges, opening in French can land oddly, like greeting a Scot in French because Britain is nearby. English is the safe second choice, and everyone under seventy speaks it." },
+      { "q": "Brussels waffle or Liège waffle?", "a": "Two different animals. The Brussels waffle is rectangular, light, crisp, eaten with powdered sugar and dignity. The Liège waffle is rounder, denser, with pearl sugar that caramelises into little pockets of joy. From a cart you'll usually get Liège; in a tearoom, Brussels. There is no wrong answer, only a second waffle." },
+      { "q": "What's the frites etiquette?", "a": "From a frietkot, in a paper cone, with a sauce — mayonnaise is traditional, and there are twenty others. They are fried twice; that is the secret. And they are Belgian, madame. 'French' fries is a slander we attribute to American soldiers who heard French spoken in the Belgian trenches and drew the wrong conclusion." },
+      { "q": "Do I tip?", "a": "No obligation at all — service and tax are in the price. Belgians round up or leave the coins. Do the same and spend the difference on chocolate." },
+      { "q": "Why all the swans on the canals?", "a": "Legend says that in 1488 the town executed Maximilian of Austria's tax collector, Pieter Lanchals — whose name resembles 'long neck' — and the future emperor sentenced Bruges to keep swans on her canals forever. Five centuries later, we are still paying, and the fine has never looked lovelier." },
+      { "q": "What are the little white courtyards of cottages?", "a": "Godshuizen — almshouses built from the 14th century on by wealthy guilds and families, buying comfort for the poor and insurance for their own souls. Bruges has dozens, and most still house elderly residents for a symbolic rent. The gates are open; enter quietly, admire the gardens, and latch the gate behind you." }
+    ],
+    "facts": [
+      "Beneath Bruges runs a three-kilometre beer pipeline, pumping De Halve Maan's brew from the old brewery to the bottling plant since 2016 — locals who crowdfunded it were paid in beer for life.",
+      "The Belfry of Bruges leans about a metre off true — it has been leaning since the Middle Ages and the town has simply decided not to discuss it.",
+      "Belgium holds the world record for going without an elected government: 589 days, in 2010–2011. The trains ran, the chocolate got made, and many Belgians report the country has rarely run better.",
+      "The saxophone is Belgian — invented by Adolphe Sax of Dinant, a man who survived falling down a well, swallowing a needle, and three concussions before changing music forever.",
+      "Belgium has more castles per square kilometre than any other country on earth — roughly three thousand in a country you can drive across in three hours.",
+      "The world's longest tram line runs along the Belgian coast: the Kusttram, 67 kilometres from the French border nearly to the Dutch one, stopping at every beach worth stopping at.",
+      "Brussels Airport is the world's single biggest seller of chocolate — around 800 tonnes a year walk out in hand luggage.",
+      "In the Middle Ages Bruges was the New York of the north — the world's first stock exchange grew from merchants meeting at the house of the Van der Buerse family, whose name gave us the word 'bourse.'",
+      "Belgium produces over 220,000 tonnes of chocolate a year and legally protects the term 'Belgian chocolate' — the entire country is, in effect, a licensed confection.",
+      "Bruges' medieval wealth ended when her sea channel silted up around 1500 — the catastrophe that froze the city in time and accidentally created the postcard you are standing in."
+    ]
+  },
+  "amsterdam": {
+    "country": "the Netherlands",
+    "endonym": "Nederland",
+    "intro": "The Netherlands is a country that should not exist. A quarter of it lies below the sea, so we built dikes, pumped the water out with windmills, and put a bicycle on top. We are direct, practical, and allergic to fuss — if a thing works, good; if it also looks nice, mooi; if it involves sitting outside with something warm, perfect. You will learn one untranslatable word here: gezellig. You will know it when you feel it.",
+    "phrases": [
+      { "say": "Hallo / Goedemorgen", "pron": "hah-LOH / khoo-duh-MOR-khen", "when": "Hello / good morning. That g again — from the throat, like a polite dragon." },
+      { "say": "Dank je wel", "pron": "dahnk yuh VEL", "when": "Thanks! Informal and friendly — fine nearly everywhere." },
+      { "say": "Alsjeblieft", "pron": "AHL-shuh-bleeft", "when": "Please — and 'here you go.' Same lovely double-duty as in Flanders." },
+      { "say": "Lekker", "pron": "LEK-ker", "when": "Delicious — but the Dutch apply it to food, weather, sleep, and life in general. Highest possible praise." },
+      { "say": "Pas op!", "pron": "pahs OP", "when": "'Watch out!' — usually shouted from a bicycle, usually at someone standing in the bike lane. Do not let it be you, madame." },
+      { "say": "Mag ik twee stroopwafels?", "pron": "makh ik TVAY STROHP-vah-fels", "when": "'May I have two stroopwafels?' Warm off the iron at the market. You will not need the second sentence." },
+      { "say": "Spreek je Engels?", "pron": "sprayk yuh ENG-els", "when": "The Dutch speak better English than most of England. Ask anyway; it's polite, and they'll switch mid-word." }
+    ],
+    "faqs": [
+      { "q": "Holland or the Netherlands?", "a": "The country is the Netherlands. 'Holland' is properly just two of its twelve provinces — North and South Holland, which happen to contain Amsterdam, so the name spread. Since 2020 the government officially prefers 'the Netherlands.' Say either; we'll know what you mean. Call the language Dutch, though — never 'Hollandish,' I beg you." },
+      { "q": "Am I about to be hit by a bicycle?", "a": "Yes. The reddish pavement is a bike lane, not a decorative sidewalk, and it is sacred ground. Look both ways twice — bikes come from directions physics has not named yet. A bell means 'move,' not 'hello.' Stand clear, keep the children clear, and you will be treated with perfect friendliness from the saddle." },
+      { "q": "Why do the canal houses lean forward?", "a": "On purpose, mostly. Houses were taxed on their canal frontage, so they grew tall and absurdly narrow — which made staircases impossible, so furniture goes up by rope through the big windows, swung from the hoisting beam you'll see jutting from every gable. The forward tilt keeps your new piano from scraping the façade on the way up. Four centuries later: still working." },
+      { "q": "Do I tip?", "a": "Service is included. Round up, or add five to ten percent for genuinely lovely service. Nobody will chase you either way; we are far too busy cycling." },
+      { "q": "Will my credit card work?", "a": "Mostly — but the Netherlands is quirky: many supermarkets and some cafés take only Dutch debit cards or 'PIN,' and a few places take no cash at all. Carry a little of both and check the sticker on the door. The train machines take contactless happily." },
+      { "q": "What exactly is a 'coffeeshop'?", "a": "Not a place that sells coffee, madame — that is the whole joke and the whole warning. For actual coffee you want a café, an espresso bar, or a koffiehuis. Herd the boys accordingly and say no more about it." }
+    ],
+    "facts": [
+      "There are more bicycles than people in the Netherlands — around 23 million bikes for 18 million citizens, and Amsterdam fishes some 12,000 of them out of the canals every year.",
+      "About a quarter of the country sits below sea level — Schiphol Airport lies four metres under it, on the bed of a lake that was pumped dry in 1852.",
+      "Central Amsterdam stands on millions of wooden poles driven into the mud — the Royal Palace on Dam Square alone rests on 13,659 of them, counted and famous.",
+      "The XXX on Amsterdam's flag and every bollard is three St Andrew's crosses, a medieval emblem — it predates, and is entirely innocent of, everything you are thinking.",
+      "The Dutch are the tallest people on earth — average man about 1.84 m — and nobody is entirely sure why, though milk and democracy are both suspects.",
+      "Orange carrots are, the story goes, a Dutch invention — bred in the 17th century in honour of the House of Orange, out-competing the purple and white originals.",
+      "Amsterdam has around 1,500 bridges — more than Venice — and one house so narrow its façade is barely a metre wide.",
+      "The Netherlands is the world's second-largest exporter of food by value, from a country smaller than West Virginia — mostly grown under glass by engineers.",
+      "Dutch children are repeatedly ranked the happiest in the world; researchers credit bikes, breakfast sprinkles, and being listened to.",
+      "The national breakfast is hagelslag: chocolate sprinkles on buttered bread, eaten by adults, daily, without shame. The butter is structural — it keeps the sprinkles from escaping.",
+      "In 1637, at the peak of tulip mania, a single tulip bulb could cost more than an Amsterdam canal house — the world's first recorded market bubble, and still its prettiest."
+    ]
+  }
+}

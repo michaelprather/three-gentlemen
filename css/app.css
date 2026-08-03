@@ -436,6 +436,68 @@ body[data-city="amsterdam"] .orn::before { content: "✕\FE0E✕\FE0E✕\FE0E"; 
 .day-bed-text { font-family: var(--display); font-weight: 600; font-size: 14.5px; }
 .day-bed-detail { font-size: 12.5px; line-height: 1.5; color: var(--ink-soft); }
 
+/* ————— his country ————— */
+.country-hero { text-align: center; padding: 18px 0 4px; }
+.country-flag {
+  display: inline-block; width: 52px; height: 18px; border-radius: 3px;
+  background: var(--flag-g);
+  box-shadow: 0 2px 0 rgba(36,28,20,.15);
+  transform: rotate(-2deg);
+  animation: stampin .5s cubic-bezier(.2,1.4,.4,1) both;
+}
+.country-name { font-family: var(--display); font-weight: 700; font-size: 33px; margin-top: 8px; }
+.country-endonym { font-style: italic; color: var(--ink-soft); font-size: 14.5px; margin-top: 2px; }
+
+.phrase-list { display: flex; flex-direction: column; gap: 9px; }
+.phrase {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 12px 14px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+  border-left: 3px solid var(--accent-2);
+}
+.phrase-say { font-family: var(--display); font-weight: 600; font-size: 17px; color: var(--accent); }
+.phrase-pron { font-style: italic; font-size: 12.5px; color: var(--accent-2); letter-spacing: .04em; }
+.phrase-when { font-size: 13.5px; color: var(--ink-soft); line-height: 1.5; margin-top: 3px; }
+
+.faq-list { display: flex; flex-direction: column; gap: 9px; }
+.faq {
+  background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+  padding: 0 14px;
+}
+.faq summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: baseline; gap: 10px;
+  padding: 13px 0;
+  font-family: var(--display); font-weight: 600; font-size: 15.5px;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::before {
+  content: "+"; flex: none;
+  font-family: var(--display); font-weight: 700; color: var(--accent);
+  transition: transform .25s cubic-bezier(.3,1.4,.5,1);
+}
+.faq[open] summary::before { transform: rotate(45deg); }
+.faq[open] summary { color: var(--accent); }
+.faq > p {
+  font-size: 14.5px; line-height: 1.6; color: var(--ink);
+  padding: 0 0 14px 22px;
+  animation: fadein .3s ease both;
+}
+
+.fact-list { display: flex; flex-direction: column; gap: 9px; }
+.fact {
+  padding: 13px 15px 13px 38px; position: relative;
+  background: var(--accent-soft); border-radius: 10px;
+  font-size: 14.5px; line-height: 1.55;
+  animation: factin .45s cubic-bezier(.2,.8,.3,1) both;
+}
+.fact::before {
+  content: "✶"; position: absolute; left: 14px; top: 12px;
+  font-family: var(--display); color: var(--accent-2); font-size: 15px;
+}
+@keyframes factin { from { opacity: 0; transform: translateY(10px) rotate(.4deg); } to { opacity: 1; } }
+.fact-more { margin-top: 12px; width: 100%; }
+
 /* ————— near me ————— */
 .near-status {
   display: flex; align-items: center; gap: 12px;
@@ -750,6 +812,13 @@ body.online .wifi-note { display: none; }
   transition: transform .25s cubic-bezier(.3,1.6,.5,1);
 }
 .tab-icon-dot { fill: currentColor; stroke: none; }
+.tab-flag {
+  width: 23px; height: 14px; margin: 4.5px 0;
+  border-radius: 2px; background: var(--flag-g);
+  box-shadow: 0 0 0 1px rgba(36,28,20,.14);
+  transition: transform .25s cubic-bezier(.3,1.6,.5,1);
+}
+.tab.is-active .tab-flag { transform: translateY(-1px) scale(1.08); }
 .tab.is-active { color: var(--accent); }
 .tab.is-active .tab-icon { transform: translateY(-1px) scale(1.06); }
 

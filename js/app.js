@@ -9,6 +9,12 @@ const CITY_META = {
   amsterdam: { center: [52.3660, 4.8970], bounds: [[52.283, 4.845], [52.402, 4.960]] },
 };
 const FUNFACT_LABEL = { paris: 'Entre nous…', bruges: 'Onder ons…', amsterdam: 'Tussen ons…' };
+const COUNTRY_NAME = { paris: 'France', bruges: 'Belgium', amsterdam: 'Netherlands' };
+const FACT_MORE = {
+  paris: 'Another, s’il vous plaît',
+  bruges: 'Another, alstublieft',
+  amsterdam: 'Nog eentje!',
+};
 const FILTER_CATS = [
   ['all', 'Everything'], ['landmark', 'Landmarks'], ['food', 'Food & drink'],
   ['street', 'Streets'], ['park', 'Parks'], ['view', 'Views'],
@@ -67,11 +73,12 @@ const fmtDist = m => m < 950 ? `${Math.round(m / 10) * 10} m` : `${(m / 1000).to
 
 /* ————— data ————— */
 async function loadData() {
-  const files = [...CITIES.map(c => `data/${c}.json`), 'data/itinerary.json'];
+  const files = [...CITIES.map(c => `data/${c}.json`), 'data/itinerary.json', 'data/countries.json'];
   const results = await Promise.all(files.map(f =>
     fetch(f).then(r => r.json()).catch(() => null)));
   CITIES.forEach((c, i) => { if (results[i]) state.data[c] = results[i]; });
   state.itinerary = results[CITIES.length] || null;
+  state.countries = results[CITIES.length + 1] || null;
 }
 
 const cityData = () => state.data[state.city];
@@ -89,6 +96,9 @@ function setCity(slug, { pinned = false } = {}) {
     b.classList.toggle('is-active', b.dataset.cityChip === slug));
   const skyline = $('hero-skyline');
   if (skyline && window.ART) skyline.innerHTML = window.ART.skyline(slug);
+  const tabCountry = $('tab-country-name');
+  if (tabCountry) tabCountry.textContent = COUNTRY_NAME[slug];
+  if (state.tab === 'country') renderCountry();
   const stamp = $('guide-stamp');
   if (stamp) { stamp.style.animation = 'none'; void stamp.offsetWidth; stamp.style.animation = ''; }
   renderGuide();
@@ -289,8 +299,73 @@ function setTab(tab) {
   if (tab !== 'map') $('map-legend').hidden = true;
   if (tab === 'map') initMap();
   if (tab === 'days') renderDays();
+  if (tab === 'country') renderCountry();
   if (tab === 'near') { renderNear(); startWatch(false); }
   window.scrollTo(0, 0);
+}
+
+/* ————— his country ————— */
+function renderCountry() {
+  const c = state.countries?.[state.city];
+  if (!c) return;
+  $('country-name').textContent = c.country;
+  $('country-endonym').textContent = c.endonym || '';
+  $('country-intro').textContent = c.intro || '';
+  $('country-sig').textContent = guide().name;
+  const sigStamp = $('country-sig-stamp');
+  if (sigStamp) sigStamp.innerHTML = window.ART?.face ? window.ART.face(state.city, { label: false }) : '';
+
+  const phrases = $('phrase-list');
+  phrases.textContent = '';
+  (c.phrases || []).forEach(p => {
+    const el = document.createElement('div');
+    el.className = 'phrase';
+    el.innerHTML = '<span class="phrase-say"></span><span class="phrase-pron"></span><span class="phrase-when"></span>';
+    el.querySelector('.phrase-say').textContent = p.say;
+    el.querySelector('.phrase-pron').textContent = p.pron || '';
+    el.querySelector('.phrase-when').textContent = p.when || '';
+    phrases.appendChild(el);
+  });
+
+  const faqs = $('faq-list');
+  faqs.textContent = '';
+  (c.faqs || []).forEach(f => {
+    const d = document.createElement('details');
+    d.className = 'faq';
+    const s = document.createElement('summary');
+    s.textContent = f.q;
+    const a = document.createElement('p');
+    a.textContent = f.a;
+    d.append(s, a);
+    faqs.appendChild(d);
+  });
+
+  if (state.factCity !== state.city) {
+    state.factCity = state.city;
+    state.factOrder = (c.facts || []).map((_, i) => i).sort(() => Math.random() - .5);
+    state.factI = 0;
+  }
+  $('fact-more').textContent = FACT_MORE[state.city] || 'Tell me another';
+  drawFacts();
+}
+
+function drawFacts() {
+  const c = state.countries?.[state.city];
+  const list = $('fact-list');
+  if (!c || !list) return;
+  list.textContent = '';
+  const facts = c.facts || [];
+  for (let n = 0; n < Math.min(3, facts.length); n++) {
+    if (state.factI >= state.factOrder.length) {
+      state.factOrder.sort(() => Math.random() - .5);
+      state.factI = 0;
+    }
+    const el = document.createElement('div');
+    el.className = 'fact';
+    el.style.animationDelay = `${n * 90}ms`;
+    el.textContent = facts[state.factOrder[state.factI++]];
+    list.appendChild(el);
+  }
 }
 
 /* ————— map ————— */
@@ -689,6 +764,7 @@ function wire() {
   $('map-legend-btn').addEventListener('click', () => {
     $('map-legend').hidden = !$('map-legend').hidden;
   });
+  $('fact-more').addEventListener('click', drawFacts);
   $('sheet-scrim').addEventListener('click', closeSheet);
   wireSheetDrag();
   $('sheet-compass').addEventListener('click', () => { if (!state.compassOn) startCompass(); });

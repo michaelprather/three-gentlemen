@@ -82,6 +82,26 @@
     <div class="day-list" id="day-list"></div>
   </section>
 
+  <!-- ————— COUNTRY ————— -->
+  <section id="view-country" class="view" data-view="country" hidden>
+    <div class="country-hero">
+      <span class="country-flag" aria-hidden="true"></span>
+      <h1 class="country-name" id="country-name">France</h1>
+      <p class="country-endonym" id="country-endonym"></p>
+    </div>
+    <article class="letter">
+      <p class="letter-body" id="country-intro"></p>
+      <p class="letter-sig"><span class="sig-stamp" id="country-sig-stamp" aria-hidden="true"></span>— <span id="country-sig"></span></p>
+    </article>
+    <div class="section-head"><span class="orn" aria-hidden="true"></span><span>Say this</span></div>
+    <div class="phrase-list" id="phrase-list"></div>
+    <div class="section-head"><span class="orn" aria-hidden="true"></span><span>You were wondering</span></div>
+    <div class="faq-list" id="faq-list"></div>
+    <div class="section-head"><span class="orn" aria-hidden="true"></span><span>Did you know?</span></div>
+    <div class="fact-list" id="fact-list"></div>
+    <button class="ghost-btn fact-more" id="fact-more">Tell me another</button>
+  </section>
+
   <!-- ————— NEAR ME ————— -->
   <section id="view-near" class="view" data-view="near" hidden>
     <div class="near-status" id="near-status">
@@ -210,6 +230,9 @@
   <button class="tab" data-tab="days">
     <svg class="tab-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8,3 v4 M16,3 v4 M8,12.5 h8 M8,16 h5"/></svg>
     Days</button>
+  <button class="tab" data-tab="country" aria-label="Country">
+    <span class="tab-flag" aria-hidden="true"></span>
+    <span id="tab-country-name">France</span></button>
   <button class="tab" data-tab="near">
     <svg class="tab-icon" viewBox="0 0 24 24" aria-hidden="true"><circle class="tab-icon-dot" cx="12" cy="12" r="2.4"/><path d="M7.2,7.2 A6.8,6.8 0 0 0 7.2,16.8 M16.8,7.2 A6.8,6.8 0 0 1 16.8,16.8 M4.4,4.4 A10.7,10.7 0 0 0 4.4,19.6 M19.6,4.4 A10.7,10.7 0 0 1 19.6,19.6"/></svg>
     Near me</button>
