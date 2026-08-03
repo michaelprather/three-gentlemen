@@ -15,6 +15,8 @@ const FACT_MORE = {
   bruges: 'Another, alstublieft',
   amsterdam: 'Nog eentje!',
 };
+/* what his rubber stamp says when a story is marked heard */
+const POSTMARK_WORD = { paris: 'Bien entendu', bruges: 'Goed ontvangen', amsterdam: 'Genoteerd' };
 const FILTER_CATS = [
   ['all', 'Everything'], ['landmark', 'Landmarks'], ['food', 'Food & drink'],
   ['street', 'Streets'], ['park', 'Parks'], ['view', 'Views'],
@@ -190,13 +192,21 @@ function setCity(slug, { pinned = false } = {}) {
   const stamp = $('guide-stamp');
   if (stamp) { stamp.style.animation = 'none'; void stamp.offsetWidth; stamp.style.animation = ''; }
   renderGuide();
-  // a new gentleman takes over: he greets her, and he winks about it
+  // a new gentleman takes over: he greets her, he winks about it, and his
+  // flag ripples up the mast and the tab bar
   if (slug !== prev) {
     const hellos = guide().hello || [];
     if (hellos.length) setQuip(hellos[Math.floor(Math.random() * hellos.length)]);
     wink($('guide-stamp'));
+    document.querySelectorAll('.mast-flag, .tab-flag').forEach(f => {
+      f.classList.remove('is-waving');
+      void f.offsetWidth;
+      f.classList.add('is-waving');
+      clearTimeout(f._waveT);
+      f._waveT = setTimeout(() => f.classList.remove('is-waving'), 750);
+    });
   }
-  renderNear();
+  renderNear({ deal: true });
   if (state.map) setupMapForCity();
   closeSheet();
 }
@@ -219,7 +229,12 @@ function poiRow(poi, { showDist = true, cardinalToo = false } = {}) {
   return btn;
 }
 
-function renderGuide() {
+/* stagger the rows in like cards off a deck, capped so long lists stay brisk */
+function dealIn(list) {
+  [...list.children].forEach((el, i) => el.style.setProperty('--d', `${Math.min(i, 8) * 26}ms`));
+}
+
+function renderGuide({ deal = true } = {}) {
   const g = guide(), d = cityData();
   const stamp = $('guide-stamp');
   if (window.ART?.face) {
@@ -251,6 +266,13 @@ function renderGuide() {
     if (!matches(p)) return;
     if (!q && target === wan && state.filter !== 'all' && p.category !== state.filter) return;
     target.appendChild(poiRow(p, { showDist: p.category === 'stay' }));
+  });
+  // the deal-in cascade only plays on a fresh page — a search redraws on every
+  // keystroke, and state re-renders happen behind the open sheet
+  const noDeal = !!q || !deal;
+  [stay, iti, wan].forEach(l => {
+    l.classList.toggle('no-deal', noDeal);
+    if (!noDeal) dealIn(l);
   });
   $('head-stay').hidden = !stay.children.length;
   $('head-itinerary').hidden = !iti.children.length;
@@ -306,6 +328,24 @@ function wink(container) {
   face.classList.add('is-winking');
   clearTimeout(face._winkT);
   face._winkT = setTimeout(() => face.classList.remove('is-winking'), 1050);
+}
+
+/* a burst of gilt stars off the button when she keeps a place for later */
+function spawnSparks(host) {
+  if (!host) return;
+  for (let i = 0; i < 6; i++) {
+    const s = document.createElement('span');
+    s.className = 'spark';
+    s.textContent = '✦';
+    const a = (i / 6) * 2 * Math.PI + Math.random() * .6;
+    const r = 26 + Math.random() * 22;
+    s.style.setProperty('--sx', `${Math.round(Math.cos(a) * r)}px`);
+    s.style.setProperty('--sy', `${Math.round(Math.sin(a) * r * .7)}px`);
+    s.style.setProperty('--sr', `${Math.round(Math.random() * 90 - 45)}deg`);
+    s.style.animationDelay = `${i * 20}ms`;
+    host.appendChild(s);
+    setTimeout(() => s.remove(), 800);
+  }
 }
 
 function spawnHearts(hero) {
@@ -376,7 +416,7 @@ function renderFilterRows() {
       b.addEventListener('click', () => {
         state.filter = state.filter === key ? 'all' : key;
         renderGuide();
-        renderNear();
+        renderNear({ deal: true });
       });
       row.appendChild(b);
     });
@@ -477,8 +517,10 @@ function renderDays() {
     todayCard.scrollIntoView({ block: 'center', behavior: 'auto' }));
 }
 
-function renderNear() {
+function renderNear({ deal = false } = {}) {
+  // deal only on deliberate arrivals — GPS fixes re-render every few seconds
   const list = $('list-near');
+  list.classList.toggle('no-deal', !deal);
   list.textContent = '';
   const d = cityData();
   if (!d) return;
@@ -500,6 +542,7 @@ function renderNear() {
   const sorted = [...pool].sort((a, b) =>
     keptRank(a) - keptRank(b) || distM(state.pos, a) - distM(state.pos, b));
   sorted.slice(0, 30).forEach(p => list.appendChild(poiRow(p, { showDist: true, cardinalToo: true })));
+  if (deal) dealIn(list);
   renderFilterRows();
 }
 
@@ -530,7 +573,7 @@ function setTab(tab) {
   if (tab === 'map') initMap();
   if (tab === 'days') renderDays();
   if (tab === 'country') renderCountry();
-  if (tab === 'near') { renderNear(); startWatch(false); }
+  if (tab === 'near') { renderNear({ deal: true }); startWatch(false); }
   window.scrollTo(0, 0);
 }
 
@@ -642,10 +685,13 @@ function setupMapForCity() {
   map.setMaxBounds(L.latLngBounds(meta.bounds).pad(0.15));
   map.setView(meta.center, 14);
   // offMap POIs sit outside the city bounds and the tile pack — read about, not walked to
-  (cityData()?.pois || []).filter(p => !p.offMap).forEach(p => {
+  (cityData()?.pois || []).filter(p => !p.offMap).forEach((p, i) => {
+    // the .pin-drop wrapper takes the entrance animation so the pin itself
+    // keeps its rotate/scale transforms untouched
     const icon = L.divIcon({
       className: '',
-      html: `<div class="pin${p.category === 'stay' ? ' is-stay' : ''}${state.heard.has(p.id) ? ' is-heard' : ''}${state.kept.has(p.id) ? ' is-kept' : ''}"><i>${CAT_GLYPH[p.category] || '·'}</i></div>`,
+      html: `<div class="pin-drop" style="animation-delay:${Math.min(i * 45, 700)}ms">` +
+        `<div class="pin${p.category === 'stay' ? ' is-stay' : ''}${state.heard.has(p.id) ? ' is-heard' : ''}${state.kept.has(p.id) ? ' is-kept' : ''}"><i>${CAT_GLYPH[p.category] || '·'}</i></div></div>`,
       iconSize: [26, 26], iconAnchor: [13, 24],
     });
     const m = L.marker([p.lat, p.lng], { icon, zIndexOffset: p.category === 'stay' ? 500 : 0 }).addTo(map);
@@ -667,6 +713,10 @@ function updateYouMarker() {
 
 /* ————— sheet ————— */
 function openSheet(poi, { fromMap = false } = {}) {
+  // a nudge can open a new card while a stamp-close is pending — cancel it
+  clearTimeout(stampT);
+  $('postmark').hidden = true;
+  $('sheet').classList.remove('is-stamped');
   state.currentPoi = poi;
   $('sheet-cat').textContent = poi.category;
   $('sheet-name').textContent = poi.name;
@@ -717,11 +767,24 @@ function updateSheetWhere() {
   updateCompass();
 }
 
+/* his rubber stamp comes down on the letter, and a beat later it's filed away */
+let stampT = 0;
+function stampAndClose() {
+  $('postmark-word').textContent = POSTMARK_WORD[state.city] || 'Received';
+  $('postmark-sig').textContent = `— ${guide().name}`;
+  $('postmark').hidden = false;   // un-hiding restarts the slam animation
+  $('sheet').classList.add('is-stamped');
+  clearTimeout(stampT);
+  stampT = setTimeout(closeSheet, 900);
+}
+
 function closeSheet() {
   TTS.stop();
+  clearTimeout(stampT);
+  $('postmark').hidden = true;
   const sheet = $('sheet');
   sheet.hidden = true;
-  sheet.classList.remove('is-dragging', 'is-settling');
+  sheet.classList.remove('is-dragging', 'is-settling', 'is-stamped');
   sheet.style.transform = '';
   $('sheet-scrim').hidden = true;
   $('sheet-scrim').style.opacity = '';
@@ -798,10 +861,12 @@ function wireSheetDrag() {
 }
 /* the star — she keeps a place for later; the sheet stays open, she's still reading */
 function markKept(poi) {
-  if (state.kept.has(poi.id)) state.kept.delete(poi.id); else state.kept.add(poi.id);
+  const adding = !state.kept.has(poi.id);
+  if (adding) { state.kept.add(poi.id); spawnSparks($('sheet-kept-btn')); }
+  else state.kept.delete(poi.id);
   store.set('kept', [...state.kept]);
   $('sheet-kept-btn').textContent = state.kept.has(poi.id) ? 'Kept for you ★' : 'Keep this one for me ☆';
-  renderGuide(); renderNear();
+  renderGuide({ deal: false }); renderNear();
   if (state.map) {
     const m = state.markers[poi.id];
     if (m) m.getElement()?.querySelector('.pin')?.classList.toggle('is-kept', state.kept.has(poi.id));
@@ -813,7 +878,7 @@ function markHeard(poi) {
   if (adding) state.heard.add(poi.id); else state.heard.delete(poi.id);
   store.set('heard', [...state.heard]);
   if (adding) showAside();
-  renderGuide(); renderNear();
+  renderGuide({ deal: false }); renderNear();
   if (state.map) {
     const m = state.markers[poi.id];
     if (m) m.getElement()?.querySelector('.pin')?.classList.toggle('is-heard', state.heard.has(poi.id));
@@ -1116,7 +1181,14 @@ function wire() {
   $('sheet-compass').addEventListener('click', () => { if (!state.compassOn) startCompass(); });
   $('sheet-speak').addEventListener('click', speakSheet);
   $('sheet-kept-btn').addEventListener('click', () => { if (state.currentPoi) markKept(state.currentPoi); });
-  $('sheet-heard-btn').addEventListener('click', () => { if (state.currentPoi) { markHeard(state.currentPoi); closeSheet(); } });
+  // marking a story heard earns the letter his postmark before it's filed away
+  $('sheet-heard-btn').addEventListener('click', () => {
+    const p = state.currentPoi;
+    if (!p) return;
+    const adding = !state.heard.has(p.id);
+    markHeard(p);
+    if (adding) stampAndClose(); else closeSheet();
+  });
   $('sheet-map-btn').addEventListener('click', () => {
     const p = state.currentPoi;
     closeSheet();

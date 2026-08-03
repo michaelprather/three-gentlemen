@@ -35,6 +35,11 @@ history, oddities, and food wisdom for whatever you wander past.
   top of Near me, gilt pin on the map. Separate from "heard".
 - Cross a border and the departed guide leaves a **farewell letter** — with a
   tally of how many of his stories you heard. Once per border, ever.
+- Small theatrics throughout: marking a story heard brings his **postmark
+  stamp** down on the letter ("Bien entendu", signed); keeping a place bursts
+  gilt stars; ♪ notes drift off the button while he reads aloud; list rows deal
+  in like cards, map pins drop in one by one, and the flag ribbons ripple when
+  a new country takes the masthead. Everything honours reduced-motion.
 
 Map data © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors.
 POI photos via [Wikimedia Commons](https://commons.wikimedia.org), individually
